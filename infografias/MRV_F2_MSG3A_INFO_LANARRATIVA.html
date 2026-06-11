@@ -1,1 +1,1174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Narrativa Construye la Realidad</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  /* BODY SECTIONS */
+  .body { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  /* MECANISMO */
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  .piezas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .pieza {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 18px 20px;
+    border-top: 3px solid var(--azul-claro);
+    position: relative;
+  }
+
+  .pieza.rosa { border-top-color: var(--rosa); }
+  .pieza.melocoton { border-top-color: var(--melocoton); }
+  .pieza.azul { border-top-color: var(--azul); }
+
+  .pieza-icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .pieza-nombre {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 4px;
+  }
+
+  .pieza-desc {
+    font-size: 12.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .formula-bar {
+    background: linear-gradient(135deg, var(--azul) 0%, #0044CC 100%);
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .formula-item {
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+  }
+
+  .formula-item span {
+    display: block;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--azul-claro);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .formula-op {
+    font-size: 20px;
+    color: var(--melocoton);
+    font-weight: 300;
+  }
+
+  /* GOLIAT VS DAVID */
+  .contraste {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .contraste-col {
+    border-radius: 14px;
+    padding: 24px 22px;
+  }
+
+  .contraste-col.goliat {
+    background: rgba(204,23,110,0.1);
+    border: 1.5px solid rgba(204,23,110,0.25);
+  }
+
+  .contraste-col.david {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+  }
+
+  .contraste-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .contraste-emoji { font-size: 20px; }
+
+  .contraste-nombre {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .goliat .contraste-nombre { color: var(--rosa); }
+  .david .contraste-nombre { color: var(--azul); }
+
+  .contraste-items { list-style: none; }
+
+  .contraste-items li {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.55;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .contraste-items li:last-child { border-bottom: none; }
+
+  .goliat .contraste-items li::before {
+    content: '✕';
+    position: absolute; left: 0;
+    color: var(--rosa);
+    font-size: 10px;
+    top: 8px;
+  }
+
+  .david .contraste-items li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: var(--azul);
+    font-size: 11px;
+    font-weight: 700;
+    top: 7px;
+  }
+
+  .stat-goliat {
+    background: linear-gradient(135deg, var(--rosa) 0%, #A01255 100%);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+  }
+
+  .stat-numero {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+  }
+
+  .stat-texto {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* TERMINOS */
+  .terminos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .termino-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .termino-palabra {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--azul);
+    margin-bottom: 2px;
+  }
+
+  .termino-pronunciacion {
+    font-size: 10px;
+    color: rgba(184,209,255,0.7);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-style: normal;
+  }
+
+  .termino-def {
+    font-size: 12px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.55;
+  }
+
+  /* PENSAMIENTOS GOLIAT */
+  .pensamientos { display: flex; flex-direction: column; gap: 10px; }
+
+  .pensamiento {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(204,23,110,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--rosa);
+  }
+
+  .pensamiento-num {
+    width: 24px; height: 24px;
+    background: var(--rosa);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pensamiento-content {}
+
+  .pensamiento-frase {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .pensamiento-efecto {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  /* ANTÍDOTO */
+  .antidoto-textos { margin-bottom: 24px; }
+
+  .texto-card {
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .texto-card.ro {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+  }
+
+  .texto-card.fil {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.25);
+  }
+
+  .texto-ref {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .ro .texto-ref { color: var(--azul); }
+  .fil .texto-ref { color: #B87A3A; }
+
+  .texto-cita {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .texto-concepto {
+    font-size: 12px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .texto-concepto strong { color: rgba(255,255,255,0.92); }
+
+  /* FILTROS */
+  .filtros { display: flex; flex-direction: column; gap: 10px; }
+
+  .filtro {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid #E8EEFF;
+  }
+
+  .filtro-q {
+    font-size: 20px;
+    color: var(--azul);
+    flex-shrink: 0;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    width: 24px;
+    text-align: center;
+  }
+
+  .filtro-text {
+    flex: 1;
+  }
+
+  .filtro-pregunta {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+  }
+
+  .filtro-deteccion {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.4;
+  }
+
+  .filtro-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .badge-azul { background: rgba(0,86,241,0.15); color: var(--azul-claro); }
+  .badge-rosa { background: #FFF0F5; color: var(--rosa); }
+  .badge-melocoton { background: #FFF5EE; color: #B87A3A; }
+
+  /* FRASE FINAL */
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+
+  /* ── COSMIC BACKGROUND ── */
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  /* =====================
+     RESPONSIVE MÓVIL
+  ===================== */
+  @media (max-width: 600px) {
+    body {
+      padding: 16px 12px;
+    }
+
+    .infographic {
+      border-radius: 16px;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 20px 28px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+    }
+
+    .tesis-header p {
+      font-size: 13px;
+    }
+
+    /* Secciones */
+    .section {
+      padding: 24px 16px;
+    }
+
+    /* Grids de 2 columnas con clases → 1 columna */
+    .piezas-grid,
+    .contraste,
+    .terminos-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Fórmula: apilar verticalmente */
+    .formula-bar {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      padding: 16px;
+    }
+
+    /* Frase final */
+    .frase-final {
+      padding: 36px 20px;
+    }
+
+    .frase-final blockquote {
+      font-size: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      padding: 18px 16px;
+    }
+
+    .footer-data {
+      text-align: center;
+    }
+
+    /* Filtros */
+    .filtro {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filtro-badge {
+      margin-left: auto;
+    }
+
+    /* Grids inline (sección 2 stats y acción inmediata) */
+    .contraste[style*="margin-bottom: 20px"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+
+    /* Resumen estratégico: ideas clave con números */
+    div[style*="display: flex; gap: 12px; background"] {
+      padding: 12px 14px !important;
+    }
+  }
+
+</style>
+</head>
+<body>
+<div class="cosmic-bg"></div>
+<canvas id="starfield"></canvas>
+<div class="nebula-bottom"></div>
+<div class="nebula-mid"></div>
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="serie-label">Mayor que mi Realidad es Su Verdad · F2 · MSG3a</div>
+    <h1>La Narrativa<br><em>Construye</em><br>la Realidad</h1>
+    <div class="tesis-header">
+      <p>La narrativa más peligrosa no es la que reconoces como falsa.<br>Es la que ya sientes como tuya.</p>
+      <span class="verse-tag">1 Samuel 17 · Romanos 12:2 · Filipenses 4:8</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body">
+
+    <!-- SECCIÓN 1: EL MECANISMO -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">1</div>
+        <div class="section-title">Qué es una narrativa y cómo funciona</div>
+      </div>
+
+      <p class="mecanismo-intro">Una narrativa no es simplemente una historia. Es un <strong>sistema completo de interpretación de la realidad</strong> con cuatro piezas que, cuando están activas, no necesita argumentos ni evidencia para instalarse.</p>
+
+      <div class="piezas-grid">
+        <div class="pieza azul">
+          <span class="pieza-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 2L13.5 7.5H19L14.5 11L16.5 17L11 13.5L5.5 17L7.5 11L3 7.5H8.5L11 2Z" stroke="#B8D1FF" stroke-width="1.4" stroke-linejoin="round" fill="none"/></svg></span>
+          <div class="pieza-nombre">El Héroe</div>
+          <div class="pieza-desc">Alguien que va a salvarte → produce dependencia y esperanza desplazada</div>
+        </div>
+        <div class="pieza rosa">
+          <span class="pieza-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8.5" stroke="#CC176E" stroke-width="1.4"/><path d="M7.5 7.5L14.5 14.5M14.5 7.5L7.5 14.5" stroke="#CC176E" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+          <div class="pieza-nombre">El Villano</div>
+          <div class="pieza-desc">Alguien a quien temer u odiar → produce miedo y resentimiento</div>
+        </div>
+        <div class="pieza melocoton">
+          <span class="pieza-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="6" r="2.8" stroke="#F2C5A1" stroke-width="1.4"/><path d="M6 20c0-3.314 2.239-6 5-6s5 2.686 5 6" stroke="#F2C5A1" stroke-width="1.4" stroke-linecap="round"/><path d="M11 13v-3M9 12l2 1.5 2-1.5" stroke="#F2C5A1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="pieza-nombre">La Víctima</div>
+          <div class="pieza-desc">Tú o tu grupo → produce impotencia y necesidad de rescate</div>
+        </div>
+        <div class="pieza">
+          <span class="pieza-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8.5" stroke="#B8D1FF" stroke-width="1.4"/><circle cx="11" cy="11" r="4.5" stroke="#B8D1FF" stroke-width="1.4"/><circle cx="11" cy="11" r="1.5" fill="#B8D1FF"/></svg></span>
+          <div class="pieza-nombre">La Solución</div>
+          <div class="pieza-desc">Lo que debes hacer, votar, creer → dirección predeterminada de la acción</div>
+        </div>
+      </div>
+
+      <div class="formula-bar">
+        <div class="formula-item">Emoción<span>Entra bajo el radar</span></div>
+        <div class="formula-op">+</div>
+        <div class="formula-item">Repetición<span>Instala el marco</span></div>
+        <div class="formula-op">=</div>
+        <div class="formula-item">Percepción capturada<span>Sin conciencia</span></div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: GOLIAT -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">2</div>
+        <div class="section-title" style="color: var(--rosa);">El caso de estudio: Goliat · 40 días sin armas</div>
+      </div>
+
+      <div class="contraste" style="margin-bottom: 20px;">
+        <div style="background: rgba(204,23,110,0.12); border-radius: 14px; padding: 20px; border: 1.5px solid rgba(204,23,110,0.3); text-align: center;">
+          <div class="stat-numero" style="color: var(--rosa); font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900;">80</div>
+          <div style="font-size: 12px; color: rgba(184,209,255,0.7); margin-top: 4px; line-height: 1.5;">exposiciones narrativas<br>2 veces al día · 40 días</div>
+        </div>
+        <div style="background: rgba(0,86,241,0.12); border-radius: 14px; padding: 20px; border: 1.5px solid rgba(184,209,255,0.25); text-align: center;">
+          <div class="stat-numero" style="color: var(--azul); font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900;">0</div>
+          <div style="font-size: 12px; color: rgba(184,209,255,0.7); margin-top: 4px; line-height: 1.5;">heridos israelitas<br>Solo palabras. Solo narrativa.</div>
+        </div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 16px; font-style: italic; text-align: center;">Los 4 pensamientos instalados por Goliat en el ejército</p>
+
+      <div class="pensamientos">
+        <div class="pensamiento">
+          <div class="pensamiento-num">1</div>
+          <div class="pensamiento-content">
+            <div class="pensamiento-frase">"Yo soy el más fuerte"</div>
+            <div class="pensamiento-efecto">Superioridad del adversario como dato inapelable → derrota anticipada</div>
+          </div>
+        </div>
+        <div class="pensamiento">
+          <div class="pensamiento-num">2</div>
+          <div class="pensamiento-content">
+            <div class="pensamiento-frase">"Ustedes son siervos de Saúl"</div>
+            <div class="pensamiento-efecto">Reducción de identidad: no pueblo de Dios, sino esclavos → ataque al núcleo</div>
+          </div>
+        </div>
+        <div class="pensamiento">
+          <div class="pensamiento-num">3</div>
+          <div class="pensamiento-content">
+            <div class="pensamiento-frase">"Yo pongo las reglas del juego"</div>
+            <div class="pensamiento-efecto">Control del marco desde el que se interpreta toda la realidad</div>
+          </div>
+        </div>
+        <div class="pensamiento">
+          <div class="pensamiento-num">4</div>
+          <div class="pensamiento-content">
+            <div class="pensamiento-frase">"El resultado ya está decidido"</div>
+            <div class="pensamiento-efecto">Fatalismo → parálisis total antes del primer movimiento</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>El ejército que había visto el Mar Rojo abrirse estaba completamente inmovilizado.<br>No fue derrota militar. Fue <strong>derrota del sistema de creencias.</strong></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: DAVID -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">3</div>
+        <div class="section-title">David: el Nous que la narrativa no pudo capturar</div>
+      </div>
+
+      <div class="contraste">
+        <div class="contraste-col goliat">
+          <div class="contraste-header">
+            <span class="contraste-emoji"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15M15 5H11M15 5V9" stroke="#CC176E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 13l-2 2" stroke="#CC176E" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            <span class="contraste-nombre">El Ejército</span>
+          </div>
+          <ul class="contraste-items">
+            <li>Mismo gigante, mismo miedo</li>
+            <li>80 exposiciones = parálisis</li>
+            <li>Sistema de creencias capturado</li>
+            <li>Primera reacción: terror</li>
+            <li>Marco: Goliat define la realidad</li>
+          </ul>
+        </div>
+        <div class="contraste-col david">
+          <div class="contraste-header">
+            <span class="contraste-emoji"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="10" cy="11" rx="6.5" ry="5" stroke="#0056F1" stroke-width="1.4"/><path d="M5 9c1-2 4-3 6-2" stroke="#B8D1FF" stroke-width="1" stroke-linecap="round" opacity="0.6"/></svg></span>
+            <span class="contraste-nombre">David</span>
+          </div>
+          <ul class="contraste-items">
+            <li>Mismo gigante, mismos datos</li>
+            <li>80 exposiciones = una pregunta</li>
+            <li>Nous formado en la presencia</li>
+            <li>Primera reacción: ¿quién es este?</li>
+            <li>Marco: el Padre define la realidad</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 18px 22px; border-left: 4px solid var(--azul);">
+        <p style="font-size: 13px; color: rgba(255,255,255,0.92); line-height: 1.65;">
+          <strong style="color: var(--azul);">David no tenía más información.</strong> Tenía un marco mental diferente — formado en los campos de pastoreo, en la historia personal de fidelidad del Padre. Por eso llegó al campamento con un sistema que ninguna narrativa de 40 días había podido capturar.
+        </p>
+      </div>
+
+      <div class="terminos-grid" style="margin-top: 16px;">
+        <div class="termino-card">
+          <div class="termino-palabra">ḥātat</div>
+          <div class="termino-pronunciacion">/ jah-TAT / · hebreo</div>
+          <div class="termino-def">Desmoronarse internamente, quebrarse en el nivel del alma. Lo que la narrativa de Goliat produjo en Israel sin tocarlos físicamente.</div>
+        </div>
+        <div class="termino-card">
+          <div class="termino-palabra">syschematizō</div>
+          <div class="termino-pronunciacion">/ si-skeh-ma-TÍ-dzo / · griego</div>
+          <div class="termino-def">Ser formado por un molde externo sin haberlo elegido conscientemente. El mecanismo del que Romanos 12:2 nos advierte.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4: ANTÍDOTO -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #059669;">4</div>
+        <div class="section-title" style="color: #059669;">El antídoto bíblico</div>
+      </div>
+
+      <div class="antidoto-textos">
+        <div class="texto-card ro">
+          <div class="texto-ref">Romanos 12:2 · MSG</div>
+          <div class="texto-cita">"No se amolden tan fácilmente a las modas de esta cultura, más bien, dejen que Dios los transforme desde adentro hacia afuera, rehaciendo su manera de pensar."</div>
+          <div class="texto-concepto"><strong>El diagnóstico:</strong> El syschematizō es el mecanismo de la narrativa en acción. La respuesta no es resistencia activa — es un sistema de creencias tan renovado que las narrativas encuentren un marco que no puede ser fácilmente capturado.</div>
+        </div>
+        <div class="texto-card fil">
+          <div class="texto-ref">Filipenses 4:8 · MSG</div>
+          <div class="texto-cita">"Llenen su mente y mediten en cosas verdaderas, nobles, auténticas, graciosas... lo mejor, no lo peor; lo bello, no lo feo."</div>
+          <div class="texto-concepto"><strong>El protocolo:</strong> No es pasividad espiritual. Es higiene narrativa activa — decidir conscientemente qué marcos entran al Nous y cuáles se filtran desde la Verdad del Padre.</div>
+        </div>
+      </div>
+
+      <div style="background: rgba(0,86,241,0.1); border-radius: 12px; padding: 16px 22px; border: 1.5px solid rgba(184,209,255,0.3); text-align: center;">
+        <p style="font-size: 14px; font-weight: 600; color: var(--azul-claro); line-height: 1.6;">La mejor defensa contra la narrativa manipuladora<br>no es más información.<br>Es un <em style="font-style: italic; color: var(--melocoton);">sistema de creencias renovado.</em></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5: 4 FILTROS -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">5</div>
+        <div class="section-title">Los 4 filtros prácticos · Filipenses 4:8</div>
+      </div>
+
+      <div class="filtros">
+        <div class="filtro">
+          <div class="filtro-q">?</div>
+          <div class="filtro-text">
+            <div class="filtro-pregunta">¿Esto me produce miedo o discernimiento?</div>
+            <div class="filtro-deteccion">El miedo es casi siempre señal de narrativa manipuladora</div>
+          </div>
+          <span class="filtro-badge badge-azul">Miedo</span>
+        </div>
+        <div class="filtro">
+          <div class="filtro-q">?</div>
+          <div class="filtro-text">
+            <div class="filtro-pregunta">¿Esta narrativa necesita un enemigo para funcionar?</div>
+            <div class="filtro-deteccion">Las narrativas sanas no requieren demonizar al otro</div>
+          </div>
+          <span class="filtro-badge badge-rosa">Enemigo</span>
+        </div>
+        <div class="filtro">
+          <div class="filtro-q">?</div>
+          <div class="filtro-text">
+            <div class="filtro-pregunta">¿Esto apela a mi fe o a mi resentimiento?</div>
+            <div class="filtro-deteccion">El resentimiento es el combustible de la manipulación</div>
+          </div>
+          <span class="filtro-badge badge-melocoton">Resentimiento</span>
+        </div>
+        <div class="filtro">
+          <div class="filtro-q">?</div>
+          <div class="filtro-text">
+            <div class="filtro-pregunta">¿Esto me acerca al Reino o a una ideología?</div>
+            <div class="filtro-deteccion">La ideología puede ser un ídolo disfrazado de convicción</div>
+          </div>
+          <span class="filtro-badge badge-azul">Ideología</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN RESUMEN ESTRATÉGICO -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">✦</div>
+        <div class="section-title" style="color: #6B21A8;">Resumen estratégico del mensaje</div>
+      </div>
+
+      <!-- TESIS CENTRAL -->
+      <div style="background: linear-gradient(135deg, #1a0533 0%, #0056F1 100%); border-radius: 14px; padding: 24px 28px; margin-bottom: 20px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(204,23,110,0.2); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 10px; position: relative; z-index: 2;">Tesis Central</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 15px; color: white; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">La narrativa más peligrosa no es la que reconoces como falsa — es la que ya <em style="color: var(--melocoton); font-style: normal;">sientes como tuya</em>, y el único antídoto real no es más información sino un sistema de creencias tan renovado desde adentro que las narrativas del mundo encuentren un marco mental que no puedan capturar fácilmente.</p>
+      </div>
+
+      <!-- IDEAS CLAVE -->
+      <div style="margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #6B21A8; margin-bottom: 14px;">Ideas Clave</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
+            <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">1</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Una narrativa no necesita mentir sobre los hechos para ser manipuladora. Solo necesita <strong>seleccionar qué hechos presenta y desde qué marco los interpreta.</strong> Eso es exactamente lo que hicieron los diez espías: dijeron la verdad sobre los gigantes y mintieron sobre la conclusión.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">2</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Toda narrativa manipuladora opera con la misma estructura de cuatro piezas: héroe, villano, víctima y solución predeterminada. Cuando esas cuatro piezas están activas, solo necesita dos ingredientes: <strong>emoción y repetición.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">3</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Goliat no usó armas. En 80 exposiciones instaló cuatro pensamientos específicos en el sistema de creencias israelita. El ejército que había visto el Mar Rojo abrirse quedó paralizado. <strong>No por fuerza — por narrativa.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
+            <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">4</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">David escuchó las mismas 80 exposiciones. Vio el mismo gigante. Tenía la misma información. Pero tenía un Nous formado en los campos de pastoreo que ninguna narrativa de 40 días había podido capturar. <strong>Su primera reacción no fue miedo sino una pregunta.</strong> Esa diferencia no fue valentía natural: fue el estado de su sistema de creencias.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #6B21A8;">
+            <div style="width: 22px; height: 22px; background: #6B21A8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">5</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Pablo lo llama <em>syschematizō</em> en Romanos 12:2: ser formado por un molde externo sin haberlo elegido conscientemente. El antídoto no es resistencia activa sino <strong>transformación desde adentro</strong> — un Nous tan renovado por la Verdad del Padre que las narrativas del mundo encuentren un marco que no puede ser fácilmente sobreescrito.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669;">
+            <div style="width: 22px; height: 22px; background: #059669; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">6</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Filipenses 4:8 no es pasividad espiritual. Es el protocolo de <strong>higiene narrativa activa.</strong> El Nous no se renueva en el momento de la crisis — se renueva en la rutina de formación previa a la crisis, como David en los campos antes de que existiera Goliat.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #B87A3A;">
+            <div style="width: 22px; height: 22px; background: #B87A3A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">7</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Cuatro preguntas filtran cualquier narrativa antes de que se instale: ¿Produce miedo o discernimiento? ¿Necesita un enemigo para funcionar? ¿Apela a la fe o al resentimiento? ¿Acerca a principios del Reino o a una ideología?</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DATO MÁS SORPRENDENTE -->
+      <div style="background: rgba(204,23,110,0.1); border: 1.5px solid rgba(204,23,110,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rosa); margin-bottom: 10px;">⚡ Dato más sorprendente</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.7; font-style: italic;">Goliat nunca hirió a nadie — en 40 días de desafío diario no derramó una sola gota de sangre israelita, no tomó un centímetro de territorio, y aun así logró paralizar completamente al ejército que había visto el Mar Rojo abrirse: <strong style="font-style: normal; color: var(--rosa);">pura narrativa, cero armas.</strong></p>
+      </div>
+
+      <!-- ACCIÓN INMEDIATA -->
+      <div style="background: rgba(5,150,105,0.12); border: 1.5px solid rgba(167,243,208,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #059669; margin-bottom: 10px;">→ Acción inmediata</div>
+        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.75;">Esta semana, antes de reenviar cualquier mensaje, compartir cualquier publicación o tomar cualquier decisión importante bajo presión, hazle estas dos preguntas en ese orden:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;">
+          <div style="background: rgba(5,150,105,0.15); border-radius: 10px; padding: 14px 16px; border-left: 3px solid #059669;">
+            <p style="font-size: 13px; font-weight: 600; color: #065F46; font-style: italic;">¿Esto necesita un enemigo para funcionar?</p>
+          </div>
+          <div style="background: rgba(5,150,105,0.15); border-radius: 10px; padding: 14px 16px; border-left: 3px solid #059669;">
+            <p style="font-size: 13px; font-weight: 600; color: #065F46; font-style: italic;">¿Esto está apelando a mi fe o a mi resentimiento?</p>
+          </div>
+        </div>
+        <p style="font-size: 12px; color: rgba(184,209,255,0.7); margin-top: 12px; line-height: 1.6;">Si la respuesta a la primera es <strong>sí</strong> y a la segunda es <strong>"al resentimiento"</strong>, ya sabes exactamente lo que está pasando.</p>
+      </div>
+
+      <!-- VERDAD QUE ANCLA -->
+      <div style="background: linear-gradient(135deg, rgba(0,86,241,0.15) 0%, rgba(204,23,110,0.1) 100%); border-radius: 14px; border: 1.5px solid rgba(184,209,255,0.2); padding: 24px 28px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; background: rgba(204,23,110,0.12); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30px; left: -20px; width: 80px; height: 80px; background: rgba(0,86,241,0.12); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rosa); margin-bottom: 14px; position: relative; z-index: 2;">◈ Para llevarte hoy</div>
+        <blockquote style="font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.7; position: relative; z-index: 2; margin-bottom: 12px;">No necesitas destruir a tu enemigo.<br>Solo necesitas controlar<br><em style="color: var(--melocoton); font-style: normal;">lo que él cree sobre sí mismo.</em></blockquote>
+        <div style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--azul-claro), transparent); margin: 0 auto; position: relative; z-index: 2;"></div>
+      </div>
+    </div>
+
+    <!-- FRASE FINAL -->
+    <div class="frase-final">
+      <blockquote>
+        Mayor que la narrativa<br>que hoy nos paraliza<br>es <em>Su Verdad</em> que nos libera.
+      </blockquote>
+      <div class="frase-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-marca">LHSCOL</div>
+      <div class="footer-data">MRV · F2 · MSG3a<br>La Narrativa Construye la Realidad</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+const NUM_STARS = 220;
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < NUM_STARS; i++) {
+    const isPulse = Math.random() < 0.15;
+    stars.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.5,
+      baseAlpha: Math.random() * 0.5 + 0.4, alpha: 0,
+      speed: isPulse ? (Math.random() * 0.06 + 0.06) : (Math.random() * 0.03 + 0.02),
+      phase: Math.random() * Math.PI * 2, pulse: isPulse,
+      color: Math.random() < 0.25 ? [184,209,255] : Math.random() < 0.12 ? [242,197,161] : [255,255,255]
+    });
+  }
+}
+initStars();
+const shoots = [];
+function spawnShoot() {
+  shoots.push({
+    x: Math.random() * canvas.width * 0.7, y: Math.random() * canvas.height * 0.45,
+    len: Math.random() * 140 + 80, speed: Math.random() * 7 + 6,
+    angle: Math.PI / 4 + (Math.random() * 0.4 - 0.2), alpha: 0,
+    peakAlpha: Math.random() * 0.4 + 0.6, phase: 'in',
+    decay: Math.random() * 0.02 + 0.015, rise: Math.random() * 0.06 + 0.06,
+    width: Math.random() * 1.5 + 0.8
+  });
+}
+function scheduleShoot() { setTimeout(() => { spawnShoot(); scheduleShoot(); }, Math.random() * 3000 + 2000); }
+spawnShoot(); setTimeout(spawnShoot, 800); scheduleShoot();
+function draw() {
+  requestAnimationFrame(draw);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    s.phase += s.speed;
+    let t = s.pulse ? (Math.sin(s.phase) > 0 ? Math.pow(Math.sin(s.phase), 0.5) : 0) : 0.5 + 0.5 * Math.sin(s.phase);
+    s.alpha = s.baseAlpha * (0.15 + 0.85 * t);
+    const [r,g,b] = s.color;
+    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${s.alpha})`; ctx.fill();
+    if (s.r > 1.2) {
+      const grd = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3.5);
+      grd.addColorStop(0,`rgba(${r},${g},${b},${s.alpha*0.35})`); grd.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
+    }
+  }
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const sh = shoots[i];
+    sh.x += Math.cos(sh.angle)*sh.speed; sh.y += Math.sin(sh.angle)*sh.speed;
+    if (sh.phase==='in') { sh.alpha+=sh.rise; if(sh.alpha>=sh.peakAlpha){sh.alpha=sh.peakAlpha;sh.phase='out';} }
+    else { sh.alpha-=sh.decay; }
+    if (sh.alpha<=0) { shoots.splice(i,1); continue; }
+    const tailX=sh.x-Math.cos(sh.angle)*sh.len, tailY=sh.y-Math.sin(sh.angle)*sh.len;
+    const grad=ctx.createLinearGradient(tailX,tailY,sh.x,sh.y);
+    grad.addColorStop(0,`rgba(255,255,255,0)`);
+    grad.addColorStop(0.5,`rgba(184,209,255,${sh.alpha*0.4})`);
+    grad.addColorStop(1,`rgba(255,255,255,${sh.alpha})`);
+    ctx.beginPath(); ctx.moveTo(tailX,tailY); ctx.lineTo(sh.x,sh.y);
+    ctx.strokeStyle=grad; ctx.lineWidth=sh.width; ctx.lineCap='round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.width*2,0,Math.PI*2);
+    const hgrd=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.width*2);
+    hgrd.addColorStop(0,`rgba(255,255,255,${sh.alpha})`); hgrd.addColorStop(1,`rgba(184,209,255,0)`);
+    ctx.fillStyle=hgrd; ctx.fill();
+  }
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
