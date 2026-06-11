@@ -1,1 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿De dónde vienen las creencias que gobiernan tu vida?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --azul-claro: #B8D1FF;
+    --blanco: #FFFFFF;
+    --fondo: #050D1F;
+    --fondo-2: #080F25;
+    --texto: rgba(230, 235, 255, 0.88);
+    --texto-suave: rgba(184, 209, 255, 0.6);
+    --texto-medio: rgba(210, 220, 255, 0.75);
+    --linea: rgba(184, 209, 255, 0.12);
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── BARRA PROGRESO ── */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--azul), var(--rosa), var(--melocoton));
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5, 13, 31, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--linea);
+    transition: background 0.3s;
+  }
+
+  .nav-marca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .nav-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 20%, rgba(0,86,241,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(204,23,110,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(8,15,37,0.9) 0%, transparent 100%);
+  }
+
+  .hero-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 15% 20%, rgba(184,209,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 60% 15%, rgba(184,209,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 70%, rgba(242,197,161,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 75%, rgba(184,209,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 45%, rgba(184,209,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 68% 88%, rgba(184,209,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 38% 30%, rgba(242,197,161,0.4) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    background: rgba(0,86,241,0.12);
+    border: 1px solid rgba(0,86,241,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .hero-tag-dot {
+    width: 4px; height: 4px;
+    background: var(--texto-suave);
+    border-radius: 50%;
+  }
+
+  .hero-tag-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--blanco);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--texto-medio);
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .hero-verses {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .verse-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--azul-claro);
+    background: rgba(184,209,255,0.08);
+    border: 1px solid rgba(184,209,255,0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 0px;
+    background: linear-gradient(to bottom, transparent, var(--fondo));
+    z-index: 3;
+  }
+
+  /* ── CONTENIDO PRINCIPAL ── */
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  /* ── LEAD / INTRO ── */
+  .lead {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--texto-medio);
+    padding: 20px 0 40px;
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 40px;
+  }
+
+  .lead strong {
+    color: var(--blanco);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ── SECCIONES ── */
+  .section { margin-bottom: 72px; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.85;
+    color: rgba(0,86,241,0.15);
+    flex-shrink: 0;
+    margin-top: 4px;
+    user-select: none;
+  }
+
+  .section-titles { flex: 1; }
+
+  .section-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.25;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  /* ── PÁRRAFOS ── */
+  p {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--texto);
+    margin-bottom: 24px;
+  }
+
+  p strong {
+    color: var(--blanco);
+    font-weight: 600;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 48px 0;
+    padding: 36px 40px;
+    border-left: 4px solid var(--azul);
+    background: rgba(0,86,241,0.06);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px; left: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    color: rgba(0,86,241,0.2);
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .pull-quote-ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+  }
+
+  /* ── VERSÍCULO INLINE ── */
+  .verse-block {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: rgba(184,209,255,0.05);
+    border: 1px solid rgba(184,209,255,0.15);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .verse-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--azul-claro);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .verse-block .ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── TÉRMINO HEBREO / GRIEGO ── */
+  .termino-inline {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--azul-claro);
+    font-weight: 700;
+  }
+
+  /* ── FUENTE CARD ── */
+  .fuente-card {
+    margin: 40px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .fuente-header {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .fuente-num-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .fuente-header-text {}
+
+  .fuente-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .fuente-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.2;
+  }
+
+  .fuente-body {
+    padding: 0 28px 24px;
+  }
+
+  .fuente-body p {
+    font-size: 15px;
+    color: var(--texto-medio);
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+
+  /* Colores por fuente */
+  .f1 .fuente-header { background: rgba(0,86,241,0.12); }
+  .f1 .fuente-num-big { color: var(--azul); }
+  .f1 .fuente-kicker { color: var(--azul); }
+
+  .f2 .fuente-header { background: rgba(204,23,110,0.12); }
+  .f2 .fuente-num-big { color: var(--rosa); }
+  .f2 .fuente-kicker { color: var(--rosa); }
+
+  .f3 .fuente-header { background: rgba(242,197,161,0.1); }
+  .f3 .fuente-num-big { color: var(--melocoton); }
+  .f3 .fuente-kicker { color: var(--melocoton); }
+
+  .f4 .fuente-header { background: rgba(5,150,105,0.12); }
+  .f4 .fuente-num-big { color: #34D399; }
+  .f4 .fuente-kicker { color: #34D399; }
+
+  /* ── CAPAS VISUAL ── */
+  .capas-flow {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .capa-item {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .capa-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48px;
+    flex-shrink: 0;
+  }
+
+  .capa-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 20px;
+  }
+
+  .capa-connector {
+    width: 2px;
+    flex: 1;
+    background: var(--linea);
+    min-height: 20px;
+  }
+
+  .capa-item:last-child .capa-connector { display: none; }
+
+  .capa-content {
+    flex: 1;
+    padding: 16px 0 24px;
+  }
+
+  .capa-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .capa-desc {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--texto-suave);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ── HIGHLIGHT STATEMENT ── */
+  .statement {
+    margin: 56px 0;
+    text-align: center;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, rgba(0,86,241,0.08) 0%, rgba(204,23,110,0.06) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(184,209,255,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .statement::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,86,241,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(204,23,110,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement p {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 0;
+  }
+
+  .statement p em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  /* ── PREGUNTA DIAGNÓSTICA ── */
+  .pregunta-box {
+    margin: 48px 0;
+    padding: 40px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 1.5px solid var(--rosa);
+    position: relative;
+  }
+
+  .pregunta-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rosa);
+    margin-bottom: 16px;
+  }
+
+  .pregunta-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linea), transparent);
+    margin: 64px 0;
+  }
+
+  .divider-ornament {
+    text-align: center;
+    margin: -11px 0;
+    position: relative;
+  }
+
+  .divider-ornament span {
+    background: var(--fondo);
+    padding: 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--azul);
+    position: relative;
+  }
+
+  /* ── CIERRE ── */
+  .closing {
+    margin-top: 80px;
+    padding: 64px 48px;
+    background: linear-gradient(135deg, #0a0f2e 0%, #150520 100%);
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(184,209,255,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(0,86,241,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(204,23,110,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .closing-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    position: relative; z-index: 2;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--linea);
+  }
+
+  .footer-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    text-align: right;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── ANIMACIONES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+
+  @media (max-width: 1024px) {
+    .hero-content,
+    .article-wrapper {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 48px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .hero-content { padding: 0 20px; }
+    .article-wrapper { padding: 0 20px 80px; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 16px; }
+    .section-num { font-size: 52px; }
+    .section-title { font-size: 22px; }
+    p { font-size: 16px; }
+    .pull-quote p { font-size: 18px; }
+    .pull-quote { padding: 28px 24px; }
+    .closing { padding: 44px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .statement p { font-size: 20px; }
+    .pregunta-box p { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-marca">LHSCOL</div>
+  <div class="nav-serie">Mayor que mi Realidad · F2 · MSG3c</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-content">
+
+    <div class="hero-eyebrow">
+      <div class="hero-tag">Las Cuatro Fuentes</div>
+      <div class="hero-tag-dot"></div>
+      <div class="hero-tag-serie">Fase 2 · MSG3c</div>
+    </div>
+
+    <h1>¿De dónde vienen<br>las creencias que<br><em>gobiernan tu vida?</em></h1>
+
+    <p class="hero-sub">Tu sistema de creencias no lo elegiste — te lo dieron. Y lo que fue dado puede ser reemplazado.</p>
+
+    <div class="hero-meta">
+      <div class="hero-verses">
+        <span class="verse-pill">Proverbios 22:6</span>
+        <span class="verse-pill">Jeremías 17:9</span>
+        <span class="verse-pill">Romanos 12:2</span>
+        <span class="verse-pill">Génesis 50:20</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- ARTÍCULO -->
+<main class="article-wrapper">
+
+  <!-- LEAD -->
+  <p class="lead reveal">
+    Hay algo que vale la pena preguntarse hoy. No mañana, no cuando tengas más tiempo, no cuando estés en un mejor momento. Hoy. <strong>¿De dónde vienen las creencias que gobiernan tu vida?</strong> No las que dices tener. Las que realmente operan. Las que aparecen cuando alguien te falla, cuando el dinero escasea, cuando cometes un error grave, cuando el Padre parece distante.
+  </p>
+
+  <!-- SECCIÓN 1 -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">I</div>
+      <div class="section-titles">
+        <div class="section-kicker">El punto de partida</div>
+        <h2 class="section-title">Lo que nadie te explicó<br><em>mientras crecías</em></h2>
+      </div>
+    </div>
+
+    <p>Cuando eras chico, nadie te preguntó qué estabas aprendiendo de ver a tu papá reaccionar de cierta manera cuando llegaban las deudas. Nadie te preguntó qué conclusión estabas sacando de que tu mamá siempre cedía para evitar el conflicto. Nadie te preguntó qué regla de vida estabas construyendo a partir de esa vez que te humillaron frente a todos y nadie hizo nada.</p>
+
+    <p>No fue negligencia. Es que nadie lo sabía. Tus padres no lo sabían. Y tú tampoco — porque los niños no procesan. Absorben.</p>
+
+    <p>Y lo que absorbiste sin que nadie lo nombrara se convirtió en el sistema desde el que lees todo lo demás. Tu trabajo. Tus relaciones. Tu manera de manejar el dinero. Tu imagen del Padre. Todo pasa por ese filtro antes de llegar a ti. Y el filtro es tan invisible, tan natural, tan tuyo, que cuesta trabajo verlo como lo que es: algo que fue instalado.</p>
+
+    <div class="verse-block reveal">
+      <p>«Instruye al niño en el camino que debe andar, y aun cuando sea viejo no se apartará de él.»</p>
+      <div class="ref">Proverbios 22:6 — NBLA</div>
+    </div>
+
+    <p>Esta palabra tiene una palabra en hebreo — <span class="termino-inline">janój</span> — que lo describe mejor que cualquier explicación psicológica. Su raíz describe el gesto de poner comida masticada en la boca de un bebé antes de que pueda masticar por sí mismo. Lo que entra primero forma el paladar. Y el paladar formado determina lo que sabe bien para siempre — sin que el adulto en que se convirtió ese bebé tenga que tomar ninguna decisión consciente al respecto.</p>
+
+    <p>Eso es lo que le pasó a tu sistema de creencias. Fue formado antes de que pudieras elegir qué entraba. El problema no es que ese sistema exista — el problema es creer que es tuyo cuando en realidad te lo dieron. Porque lo que fue dado puede ser reemplazado. Pero primero tienes que verlo como lo que es: <strong>algo instalado, no algo innato.</strong></p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN 2 -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">II</div>
+      <div class="section-titles">
+        <div class="section-kicker">El diagnóstico central</div>
+        <h2 class="section-title">Las cuatro fuentes</h2>
+      </div>
+    </div>
+
+    <p>No hay una sola fuente. Son cuatro. Y operan en capas — cada una reforzando a las demás hasta que el sistema se siente tan sólido, tan coherente, tan obvio, que cuestionarlo parece innecesario.</p>
+
+    <!-- F1 -->
+    <div class="fuente-card f1 reveal">
+      <div class="fuente-header">
+        <div class="fuente-num-big">①</div>
+        <div class="fuente-header-text">
+          <div class="fuente-kicker">Primera fuente</div>
+          <div class="fuente-nombre">La familia de origen</div>
+        </div>
+      </div>
+      <div class="fuente-body">
+        <p>Esta es la más poderosa. Y la más difícil de ver porque fue la primera. <strong>No es lo que te dijeron. Es lo que observaste.</strong> El abrazo que llegaba con las buenas notas. La tensión en el aire cada vez que se hablaba de dinero. El padre que proveía pero siempre estaba ausente. La madre que cargaba todo sola. Ninguno de esos patrones vino con explicación. Pero tu sistema de creencias los registró como leyes de funcionamiento de la realidad. Nadie dijo nada. El sistema tomó nota.</p>
+      </div>
+    </div>
+
+    <!-- F2 -->
+    <div class="fuente-card f2 reveal">
+      <div class="fuente-header">
+        <div class="fuente-num-big">②</div>
+        <div class="fuente-header-text">
+          <div class="fuente-kicker">Segunda fuente</div>
+          <div class="fuente-nombre">Las experiencias de dolor</div>
+        </div>
+      </div>
+      <div class="fuente-body">
+        <p>El dolor no solo duele. Enseña. Y lo que enseña no siempre es verdad — pero se instala con la autoridad de algo que fue absolutamente real. Una traición instala: no se puede confiar en nadie. Un abandono instala: los que amas eventualmente se van. Una humillación pública instala: no te expongas. Las reglas que el dolor instaló <strong>funcionaron en el momento en que se instalaron.</strong> El problema es que siguen operando mucho después de que la amenaza original desapareció.</p>
+      </div>
+    </div>
+
+    <div class="verse-block reveal">
+      <p>«Más engañoso que todo es el corazón, y sin remedio; ¿quién lo conocerá? Yo, el Señor, escudriño el corazón, pruebo los pensamientos.»</p>
+      <div class="ref">Jeremías 17:9 — NBLA</div>
+    </div>
+
+    <!-- F3 -->
+    <div class="fuente-card f3 reveal">
+      <div class="fuente-header">
+        <div class="fuente-num-big">③</div>
+        <div class="fuente-header-text">
+          <div class="fuente-kicker">Tercera fuente</div>
+          <div class="fuente-nombre">La cultura y el entorno</div>
+        </div>
+      </div>
+      <div class="fuente-body">
+        <p>Esta es la más difícil de ver porque es la más ubicua. No hay un momento donde la cultura te habló. Simplemente siempre estuvo ahí. Pablo lo describe con una palabra griega que vale la pena conocer: <span class="termino-inline">syschematizō</span> — ser moldeado por un patrón externo sin haberlo elegido conscientemente. El qué dirán como regulador primario. La apariencia como capital social real. El trabajo como medida de dignidad. <strong>Ninguno de esos marcos se eligió. Se absorbieron.</strong> Y lo más difícil de ver en ellos es que no se sienten como cultura — se sienten como sentido común.</p>
+      </div>
+    </div>
+
+    <!-- F4 -->
+    <div class="fuente-card f4 reveal">
+      <div class="fuente-header">
+        <div class="fuente-num-big">④</div>
+        <div class="fuente-header-text">
+          <div class="fuente-kicker">Cuarta fuente — la más peligrosa</div>
+          <div class="fuente-nombre">La religiosidad mal enseñada</div>
+        </div>
+      </div>
+      <div class="fuente-body">
+        <p>Esta es la más peligrosa de las cuatro. No porque la fe sea peligrosa — sino porque esta fuente tiene acceso a algo que las otras tres no tienen: <strong>el lenguaje del Padre.</strong> Lo que la religiosidad mal enseñada hace es tomar los marcos de las otras tres fuentes y ponerles versículo. El resultado es un sistema de creencias que resiste el cuestionamiento con herramientas espirituales — porque cuestionar el marco se siente como cuestionar a Dios. No instala dudas. Instala certezas. Y las certezas que vienen con versículo son las más difíciles de examinar honestamente.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN 3 -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">III</div>
+      <div class="section-titles">
+        <div class="section-kicker">Cómo se construye el sistema</div>
+        <h2 class="section-title">Cuatro capas. Ningún<br><em>cuestionamiento.</em></h2>
+      </div>
+    </div>
+
+    <p>Ninguna de estas fuentes opera sola. Operan en capas. Y cada capa refuerza a las demás.</p>
+
+    <div class="capas-flow reveal">
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: var(--azul);"></div>
+          <div class="capa-connector"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: var(--azul);">Familia → instala el marco base</div>
+          <p class="capa-desc">El primer modelo de cómo funciona el amor, la autoridad, la provisión y el conflicto</p>
+        </div>
+      </div>
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: var(--rosa);"></div>
+          <div class="capa-connector"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: var(--rosa);">Dolor → lo confirma emocionalmente</div>
+          <p class="capa-desc">Con la autoridad de algo absolutamente real que el sistema convierte en ley universal</p>
+        </div>
+      </div>
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: var(--melocoton);"></div>
+          <div class="capa-connector"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: var(--melocoton);">Cultura → lo valida colectivamente</div>
+          <p class="capa-desc">Si todos en el entorno operan desde el mismo marco, ese marco se siente como realidad objetiva</p>
+        </div>
+      </div>
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: #34D399;"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: #34D399;">Religiosidad → lo legitima espiritualmente</div>
+          <p class="capa-desc">Le pone versículo. Lo convierte en verdad eterna. Hace que cuestionarlo se sienta como traición</p>
+        </div>
+      </div>
+    </div>
+
+    <p>La historia de José en Génesis 37-50 es el caso más claro de las cuatro fuentes operando simultáneamente en la misma persona — todas en su versión más intensa. Favoritismo familiar. Traición, esclavitud, acusación falsa y olvido. Dos culturas con sistemas de valores opuestos. Y suficiente silencio de Dios en los años más oscuros como para producir amargura teológica justificada.</p>
+
+    <div class="pull-quote reveal">
+      <p>«Ustedes pensaron hacerme mal, pero Dios lo encaminó para bien, a fin de hacer lo que vemos hoy, para preservar muchas vidas.»</p>
+      <div class="pull-quote-ref">Génesis 50:20 — NBLA · José a sus hermanos</div>
+    </div>
+
+    <p>Lo que hace extraordinario a José no es que no tuviera las cuatro fuentes. Es que <strong>ninguna tuvo la última palabra</strong> sobre cómo interpretó lo que vivió. Tenía un marco principal más fuerte que todas ellas: el Padre está presente incluso cuando no se ve, y tiene la capacidad de reorientar lo que otros usaron para destruir hacia algo que construye.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN 4 -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">IV</div>
+      <div class="section-titles">
+        <div class="section-kicker">La herramienta práctica</div>
+        <h2 class="section-title">El mapa de <em>origen</em></h2>
+      </div>
+    </div>
+
+    <p>Todo lo que hemos visto hasta aquí tiene un solo propósito: darte un mapa. No para culpar a nadie. No para quedarte paralizado mirando el origen. Para ver. Porque no puedes transformar lo que no puedes ver. Y no puedes ver lo que no sabes que fue instalado.</p>
+
+    <div class="pregunta-box reveal">
+      <div class="pregunta-label">La pregunta diagnóstica</div>
+      <p>«¿Qué tendría que ser verdad sobre el Padre, sobre la vida o sobre las personas para que yo haya llegado a creer esto?»</p>
+    </div>
+
+    <p>La respuesta no es teológica. Es biográfica. Y eso es exactamente lo que necesitas ver.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN 5 -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">V</div>
+      <div class="section-titles">
+        <div class="section-kicker">La promesa</div>
+        <h2 class="section-title">Lo que el Padre hace<br><em>con el mapa</em></h2>
+      </div>
+    </div>
+
+    <p>Jeremías 17:9 no termina con el diagnóstico. Termina con algo que casi siempre se omite: <em>yo, el Señor, escudriño el corazón, pruebo los pensamientos.</em> El Padre no examina el corazón para exponerlo. Lo examina para conocerlo completamente — incluyendo todas las capas, todas las fuentes, todo lo que fue instalado antes de que pudieras elegir. Y desde ese conocimiento completo, lo renueva.</p>
+
+    <p>El mecanismo de renovación es el mismo que las cuatro fuentes usaron para instalar sus marcos: repetición, cotidianidad, los momentos más ordinarios de la vida. Deuteronomio 6 lo describe así: cuando te sientes, cuando caminas, cuando te acuestas, cuando te levantas. No un evento de transformación. <strong>Una reorientación sostenida hacia una fuente diferente.</strong></p>
+
+    <div class="verse-block reveal">
+      <p>«No te adaptes tan bien a tu cultura que encajes en ella sin siquiera pensarlo. En cambio, fija tu atención en Dios. Serás cambiado de adentro hacia afuera.»</p>
+      <div class="ref">Romanos 12:2 — The Message</div>
+    </div>
+
+    <p>El paladar tardó años en formarse. Puede cambiar. Pero primero tienes que saber qué fue lo que lo formó. Y ahora ya lo sabes.</p>
+  </section>
+
+  <!-- CIERRE -->
+  <div class="closing reveal">
+    <div class="closing-eyebrow">Para llevarte hoy</div>
+    <div class="closing-quote">No tienes que quedarte con las creencias<br>que alguien más puso en ti.<br>Puedes elegir cuáles <em>construir</em> a partir de hoy.</div>
+    <div class="closing-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-left">LHSCOL</div>
+  <div class="footer-right">MRV · F2 · MSG3c<br>De Dónde Viene el Agua</div>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
