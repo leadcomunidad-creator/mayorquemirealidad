@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entre el Ruido y Su Voz</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  /* BODY SECTIONS */
+  .body { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  /* TABLA DE CONTRASTE */
+  .tabla-contraste {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .tabla-contraste thead th {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tabla-contraste thead th:first-child {
+    background: rgba(204,23,110,0.2);
+    color: var(--rosa);
+    text-align: left;
+  }
+
+  .tabla-contraste thead th:last-child {
+    background: rgba(0,86,241,0.2);
+    color: var(--azul-claro);
+    text-align: left;
+  }
+
+  .tabla-contraste tbody tr td {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tabla-contraste tbody tr:nth-child(odd) td:first-child {
+    background: rgba(204,23,110,0.08);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:first-child {
+    background: rgba(204,23,110,0.05);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(odd) td:last-child {
+    background: rgba(0,86,241,0.08);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:last-child {
+    background: rgba(0,86,241,0.05);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+  /* FLUJO / CADENA */
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0;
+  }
+
+  .flujo-item {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 260px;
+    letter-spacing: 0.5px;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--azul-claro);
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+  /* PENSAMIENTOS */
+  .pensamientos { display: flex; flex-direction: column; gap: 10px; }
+
+  .pensamiento {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(0,86,241,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .pensamiento.rosa-item {
+    background: rgba(204,23,110,0.08);
+    border-left-color: var(--rosa);
+  }
+
+  .pensamiento-num {
+    width: 24px; height: 24px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pensamiento-num.rosa-num { background: var(--rosa); }
+
+  .pensamiento-frase {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .pensamiento-efecto {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 28px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
+    .flujo-item { width: 100%; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="cosmic-bg"></div>
+<canvas id="starfield"></canvas>
+<div class="nebula-bottom"></div>
+<div class="nebula-mid"></div>
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="serie-label">Mayor que mi Realidad es Su Verdad · F2 · MSG3D</div>
+    <h1>Entre el Ruido<br><em>y Su Voz</em></h1>
+    <div class="tesis-header">
+      <p>¿Qué voz tiene autoridad para construir tu narrativa?<br>La voz que más escuchas termina siendo la que más te gobierna.</p>
+      <span class="verse-tag">Éxodo 3:4 · Éxodo 3:11–12 · Juan 10:27 · Números 12:7–8 · Romanos 12:2</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body">
+
+    <!-- SECCIÓN 1: EL PROBLEMA REAL -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">1</div>
+        <div class="section-title">El problema real</div>
+      </div>
+
+      <p class="mecanismo-intro">No es que el Padre no hable. Es que <strong>otras voces llevan más tiempo.</strong> Y lo más familiar siempre tiene la primera palabra.</p>
+
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; border-left: 4px solid var(--melocoton);">
+        <p style="font-size: 13px; color: rgba(184,209,255,0.7); line-height: 1.65; margin-bottom: 14px;">El sistema de creencias que gobierna tu vida no fue instalado por decisión consciente — fue instalado por <strong style="color: rgba(255,255,255,0.92);">exposición repetida.</strong> La familia, el dolor, la cultura y la religiosidad mal enseñada construyeron un sistema de voces que opera automáticamente.</p>
+        <div style="background: rgba(242,197,161,0.1); border-radius: 8px; padding: 14px 18px; border-left: 3px solid var(--melocoton);">
+          <p style="font-family: 'DM Serif Display', serif; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.6; text-align: center;">La ley que nadie enseña pero todos viven:<br><strong style="font-style: normal; color: var(--melocoton);">Lo que se escucha con frecuencia termina siendo lo que se cree sin cuestionarlo.</strong></p>
+        </div>
+      </div>
+
+      <!-- TÉRMINOS CLAVE -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 18px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; font-style: italic; color: var(--azul); margin-bottom: 2px;">ἀκούω</div>
+          <div style="font-size: 10px; color: rgba(184,209,255,0.7); letter-spacing: 1px; margin-bottom: 8px;">/ a-KÚ-o / · griego · Juan 10:27</div>
+          <div style="font-size: 12px; color: rgba(255,255,255,0.92); line-height: 1.55;">Escuchar, reconocer y responder desde una relación. No recepción de sonido — reconocimiento por <strong>familiaridad.</strong></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 18px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; font-style: italic; color: var(--rosa); margin-bottom: 2px;">Familiaridad</div>
+          <div style="font-size: 10px; color: rgba(184,209,255,0.7); letter-spacing: 1px; margin-bottom: 8px;">El mecanismo de autoridad</div>
+          <div style="font-size: 12px; color: rgba(255,255,255,0.92); line-height: 1.55;">La autoridad de una voz no la da su volumen. La da <strong>cuánto tiempo lleva dentro</strong> y con qué frecuencia ha hablado.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: EL CASO DE MOISÉS -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">2</div>
+        <div class="section-title" style="color: var(--rosa);">El caso de estudio: Moisés · Éxodo 3 — Números 12</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">Un arco de 40 años — del desierto al rostro a rostro</p>
+
+      <table class="tabla-contraste" style="margin-bottom: 20px;">
+        <thead>
+          <tr>
+            <th>Punto de partida · Éxodo 3</th>
+            <th>Punto de llegada · Números 12:7–8</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>«¿Quién soy yo?» — Narrativa de fracaso</td>
+            <td>«Cara a cara hablaré con él»</td>
+          </tr>
+          <tr>
+            <td>Cuarenta años de voz instalada</td>
+            <td>El hombre más manso de la tierra</td>
+          </tr>
+          <tr>
+            <td>Identidad destruida. Puerta cerrada.</td>
+            <td>Décadas de exposición a la voz del Padre</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: rgba(204,23,110,0.1); border: 1.5px solid rgba(204,23,110,0.25); border-radius: 12px; padding: 18px 22px; text-align: center;">
+        <p style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.6;"><strong style="color: var(--rosa);">Lo que cambió no fue el talento.</strong><br>No fueron las circunstancias.<br><span style="font-size: 12px; color: rgba(184,209,255,0.7); font-weight: 400;">Lo único que cambió fue la voz que estaba escuchando.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: EL GIRO QUE DESBLOQUEA EL ENCUENTRO -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">3</div>
+        <div class="section-title">El giro que desbloquea el encuentro · Éxodo 3:1–4</div>
+      </div>
+
+      <p class="mecanismo-intro">Moisés no estaba buscando a Dios. Estaba trabajando. La zarza arde. Él se desvía para ver.<br><strong>El encuentro fue desbloqueado por un movimiento humano deliberado — no por intensidad espiritual.</strong></p>
+
+      <!-- TRES MOVIMIENTOS -->
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.2); border-radius: 14px; padding: 20px 28px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul-claro); margin-bottom: 16px; text-align: center;">Los tres movimientos del giro · Éxodo 3:4</div>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <div style="background: rgba(0,86,241,0.2); border-radius: 10px; padding: 14px 22px; text-align: center; min-width: 120px;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--azul-claro); line-height: 1; margin-bottom: 6px;">①</div>
+            <div style="font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 1px;">Detenerse</div>
+          </div>
+          <div style="font-size: 22px; color: var(--melocoton);">→</div>
+          <div style="background: rgba(204,23,110,0.15); border-radius: 10px; padding: 14px 22px; text-align: center; min-width: 120px;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--rosa); line-height: 1; margin-bottom: 6px;">②</div>
+            <div style="font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 1px;">Girar</div>
+          </div>
+          <div style="font-size: 22px; color: var(--melocoton);">→</div>
+          <div style="background: rgba(242,197,161,0.12); border-radius: 10px; padding: 14px 22px; text-align: center; min-width: 120px;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--melocoton); line-height: 1; margin-bottom: 6px;">③</div>
+            <div style="font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 1px;">Acercarse</div>
+          </div>
+        </div>
+        <p style="font-size: 11.5px; color: rgba(184,209,255,0.6); text-align: center; margin-top: 14px; font-style: italic;">«Cuando el Señor vio que él se acercó a mirar, Dios lo llamó.» — Éxodo 3:4 NBLA</p>
+      </div>
+
+      <!-- LO QUE BLOQUEA -->
+      <div class="pensamientos">
+        <div class="pensamiento">
+          <div class="pensamiento-num">✕</div>
+          <div>
+            <div class="pensamiento-frase">Querer respuestas sin detenerse</div>
+            <div class="pensamiento-efecto">El ritmo bloquea el encuentro antes de que pueda comenzar</div>
+          </div>
+        </div>
+        <div class="pensamiento">
+          <div class="pensamiento-num">✕</div>
+          <div>
+            <div class="pensamiento-frase">Querer dirección sin buscar encuentro</div>
+            <div class="pensamiento-efecto">La agenda personal reemplaza la presencia como destino</div>
+          </div>
+        </div>
+        <div class="pensamiento rosa-item">
+          <div class="pensamiento-num rosa-num">✕</div>
+          <div>
+            <div class="pensamiento-frase">Querer saber qué hacer sin estar dispuesto a escuchar</div>
+            <div class="pensamiento-efecto">El Padre puso la zarza. Esperó. El llamado vino después del giro — no antes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4: EL REEMPLAZO -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #059669;">4</div>
+        <div class="section-title" style="color: #059669;">El reemplazo · Éxodo 3:11–12 · El Padre no debate</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">«¿Quién soy yo para que vaya a faraón?» — Éxodo 3:11<br><span style="font-size: 11.5px; color: rgba(184,209,255,0.5);">Esa pregunta no es humildad. Es una narrativa instalada.</span></p>
+
+      <table class="tabla-contraste" style="margin-bottom: 20px;">
+        <thead>
+          <tr>
+            <th>Voz de Moisés · Narrativa instalada</th>
+            <th>Voz del Padre · Reemplazo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>¿Quién soy yo?</td>
+            <td>Yo estaré contigo</td>
+          </tr>
+          <tr>
+            <td>No puedo</td>
+            <td>Yo te envío</td>
+          </tr>
+          <tr>
+            <td>No soy suficiente</td>
+            <td>Yo soy suficiente</td>
+          </tr>
+          <tr>
+            <td>Soy un fracaso</td>
+            <td>Tengo un propósito para ti</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: rgba(5,150,105,0.1); border: 1.5px solid rgba(167,243,208,0.2); border-radius: 12px; padding: 18px 22px;">
+        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.65; text-align: center;"><strong style="color: #059669;">La narrativa instalada no se destruye con argumentos.</strong><br>Se reemplaza con exposición sostenida a una voz diferente.<br><span style="font-size: 12px; color: rgba(184,209,255,0.6);">Dios no solo habla para darte dirección. Habla para corregir la historia que llevas años creyendo.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5: LA FÍSICA DE LA FAMILIARIDAD -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">5</div>
+        <div class="section-title">La física de la familiaridad · Juan 10:27</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+        <div style="background: rgba(0,86,241,0.12); border-radius: 14px; padding: 20px; border: 1.5px solid rgba(184,209,255,0.25); display: flex; flex-direction: column; justify-content: center; text-align: center;">
+          <div style="font-family: 'DM Serif Display', serif; font-size: 13px; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.7; margin-bottom: 12px;">«Mis ovejas escuchan mi voz; yo las conozco y ellas me siguen.»</div>
+          <div style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--azul-claro); font-weight: 600;">Juan 10:27 — NBLA</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.06); border-radius: 14px; padding: 20px; border: 1.5px solid rgba(184,209,255,0.15);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 10px;">Ilustración · Rafael Nadal</div>
+          <p style="font-size: 12.5px; color: rgba(184,209,255,0.7); line-height: 1.6;">Tío Toni · 20 años · mismas voces · todos los días:<br><em style="color: rgba(255,255,255,0.85);">«Puedes dar un poco más. · Levántate. · Sigue. · No te rindas.»</em></p>
+          <p style="font-size: 11.5px; color: rgba(184,209,255,0.5); margin-top: 10px; line-height: 1.5;">Lo repetido construye lo interno.<br>Lo interno gobierna lo externo.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>Las ovejas no reconocen la voz del pastor porque sea la más fuerte.<br>La reconocen porque es <strong>la más familiar.</strong><br><span style="font-size: 13px; font-style: normal; color: rgba(184,209,255,0.6);">La frecuencia importa más que la intensidad.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 6: LA CADENA CAUSAL -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">6</div>
+        <div class="section-title" style="color: #a855f7;">La cadena causal · Romanos 12:2</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">«Fija tu atención en Dios. Serás transformado de adentro hacia afuera.» — Romanos 12:2 MSG</p>
+
+      <div class="flujo" style="margin-bottom: 24px;">
+        <div class="flujo-item" style="background: rgba(107,33,168,0.2); border-color: rgba(168,85,247,0.3); color: #e9d5ff;">Voces Repetidas</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(0,86,241,0.15); border-color: rgba(184,209,255,0.25);">crean Narrativas</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(0,86,241,0.12); border-color: rgba(184,209,255,0.2);">forman Creencias</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(204,23,110,0.12); border-color: rgba(204,23,110,0.25); color: rgba(255,255,255,0.92);">producen Decisiones</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(5,150,105,0.15); border-color: rgba(167,243,208,0.25); color: #a7f3d0;">construyen Destinos</div>
+      </div>
+
+      <div style="background: rgba(204,23,110,0.1); border: 1.5px solid rgba(204,23,110,0.25); border-radius: 12px; padding: 18px 22px; text-align: center;">
+        <p style="font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.65;"><strong style="color: var(--rosa);">La transformación no comienza cuando cambian las circunstancias.</strong><br>Comienza cuando una voz diferente empieza a formar una narrativa diferente.<br><span style="font-size: 11.5px; color: rgba(184,209,255,0.6); font-weight: 400;">No hay atajo en esa cadena. La única entrada al sistema es cambiar la voz que lo inicia.</span></p>
+      </div>
+    </div>
+
+    <!-- RESUMEN ESTRATÉGICO -->
+    <div class="section" style="background: rgba(4,16,53,0.95);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">✦</div>
+        <div class="section-title" style="color: #a855f7;">Resumen estratégico</div>
+      </div>
+
+      <!-- TESIS CENTRAL -->
+      <div style="background: linear-gradient(135deg, #1a0533 0%, #0056F1 100%); border-radius: 14px; padding: 24px 28px; margin-bottom: 20px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(204,23,110,0.2); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 10px; position: relative; z-index: 2;">Tesis Central</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 15px; color: white; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">La voz que más escuchas termina teniendo más autoridad. Tu vida siempre seguirá la voz que gobierne tu narrativa interna. No es cuestión de volumen — es cuestión de <em style="color: var(--melocoton); font-style: normal;">familiaridad acumulada.</em></p>
+      </div>
+
+      <!-- IDEAS CLAVE -->
+      <div style="margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #a855f7; margin-bottom: 14px;">Ideas Clave</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
+            <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">1</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El problema no es que el Padre no hable — es que otras voces son <strong>más familiares.</strong> La familiaridad construye autoridad, no el volumen.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">2</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El encuentro transformador no requiere intensidad espiritual — requiere el giro deliberado de detenerse, girar y acercarse. <strong>Dios habló cuando Moisés se acercó a mirar, no antes.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--melocoton);">
+            <div style="width: 22px; height: 22px; background: #B87A3A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">3</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El Padre no debate la narrativa instalada — la reemplaza. Responde preguntas de identidad humana con declaraciones de identidad divina. <strong>«¿Quién soy yo?» → «Yo estaré contigo.»</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669;">
+            <div style="width: 22px; height: 22px; background: #059669; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">4</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;"><em>Akouō</em> — el reconocimiento que nace de la relación sostenida — no se produce en momentos de alta intensidad sino en la <strong>acumulación de momentos cotidianos.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #6B21A8;">
+            <div style="width: 22px; height: 22px; background: #6B21A8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">5</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El arco de Moisés de Éxodo 3 a Números 12 no fue producido por un evento — fue producido por <strong>décadas de exposición sostenida.</strong> Lo que cambió no fue el talento ni las circunstancias.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul-claro);">
+            <div style="width: 22px; height: 22px; background: var(--azul-claro); color: #020B1E; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">6</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Voces repetidas → narrativas → creencias → decisiones → destinos. La única entrada al sistema es <strong>cambiar la voz que lo inicia.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">7</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">La transformación es una práctica cotidiana, no un evento de alta intensidad. La voz de Dios se vuelve clara cuando Su presencia se vuelve <strong>familiar en lo ordinario.</strong></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DATO MÁS SORPRENDENTE -->
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul); margin-bottom: 10px;">⚡ Dato más sorprendente</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.7; font-style: italic;">El texto de Éxodo 3 dice que Dios habló <em style="font-style: normal; color: var(--azul-claro);">cuando</em> Moisés se acercó a mirar — no antes. El encuentro fue condicional al movimiento humano deliberado. <strong style="font-style: normal; color: var(--azul-claro);">El Padre puso la zarza. Esperó. El llamado vino después del giro.</strong></p>
+      </div>
+
+      <!-- ACCIÓN INMEDIATA -->
+      <div style="background: rgba(5,150,105,0.12); border: 1.5px solid rgba(167,243,208,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #059669; margin-bottom: 10px;">→ Acción inmediata</div>
+        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.75;">Elige un momento fijo del día — cinco o diez minutos — donde no hablas sino escuchas.</p>
+        <div style="background: rgba(5,150,105,0.15); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669; margin-top: 14px;">
+          <p style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.92); font-style: italic;">Sin peticiones. Sin agenda. Solo quietud deliberada orientada a la presencia del Padre.</p>
+        </div>
+        <p style="font-size: 12px; color: rgba(184,209,255,0.7); margin-top: 12px; line-height: 1.6;">Hazlo todos los días esta semana. <strong>La familiaridad se construye con tiempo, no con intensidad.</strong></p>
+      </div>
+
+      <!-- FRASE MÁS IMPACTANTE -->
+      <div style="background: linear-gradient(135deg, rgba(0,86,241,0.15) 0%, rgba(204,23,110,0.1) 100%); border-radius: 14px; border: 1.5px solid rgba(184,209,255,0.2); padding: 24px 28px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; background: rgba(204,23,110,0.12); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30px; left: -20px; width: 80px; height: 80px; background: rgba(0,86,241,0.12); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rosa); margin-bottom: 14px; position: relative; z-index: 2;">◈ Para llevarte hoy</div>
+        <blockquote style="font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.7; position: relative; z-index: 2; margin-bottom: 12px;">La dirección de tu vida<br>siempre seguirá<br><em style="color: var(--melocoton); font-style: normal;">la voz que tenga más autoridad en tu corazón.</em></blockquote>
+        <div style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--azul-claro), transparent); margin: 0 auto; position: relative; z-index: 2;"></div>
+      </div>
+    </div>
+
+    <!-- FRASE FINAL -->
+    <div class="frase-final">
+      <blockquote>
+        La voz de Dios se vuelve clara<br>cuando la presencia de Dios<br>se vuelve <em>familiar.</em>
+      </blockquote>
+      <div class="frase-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-marca">LHSCOL</div>
+      <div class="footer-data">MRV · F2 · MSG3D<br>Entre el Ruido y Su Voz</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+const NUM_STARS = 220;
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < NUM_STARS; i++) {
+    const isPulse = Math.random() < 0.15;
+    stars.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.5,
+      baseAlpha: Math.random() * 0.5 + 0.4, alpha: 0,
+      speed: isPulse ? (Math.random() * 0.06 + 0.06) : (Math.random() * 0.03 + 0.02),
+      phase: Math.random() * Math.PI * 2, pulse: isPulse,
+      color: Math.random() < 0.25 ? [184,209,255] : Math.random() < 0.12 ? [242,197,161] : [255,255,255]
+    });
+  }
+}
+initStars();
+const shoots = [];
+function spawnShoot() {
+  shoots.push({
+    x: Math.random() * canvas.width * 0.7, y: Math.random() * canvas.height * 0.45,
+    len: Math.random() * 140 + 80, speed: Math.random() * 7 + 6,
+    angle: Math.PI / 4 + (Math.random() * 0.4 - 0.2), alpha: 0,
+    peakAlpha: Math.random() * 0.4 + 0.6, phase: 'in',
+    decay: Math.random() * 0.02 + 0.015, rise: Math.random() * 0.06 + 0.06,
+    width: Math.random() * 1.5 + 0.8
+  });
+}
+function scheduleShoot() { setTimeout(() => { spawnShoot(); scheduleShoot(); }, Math.random() * 3000 + 2000); }
+spawnShoot(); setTimeout(spawnShoot, 800); scheduleShoot();
+function draw() {
+  requestAnimationFrame(draw);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    s.phase += s.speed;
+    let t = s.pulse ? (Math.sin(s.phase) > 0 ? Math.pow(Math.sin(s.phase), 0.5) : 0) : 0.5 + 0.5 * Math.sin(s.phase);
+    s.alpha = s.baseAlpha * (0.15 + 0.85 * t);
+    const [r,g,b] = s.color;
+    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${s.alpha})`; ctx.fill();
+    if (s.r > 1.2) {
+      const grd = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3.5);
+      grd.addColorStop(0,`rgba(${r},${g},${b},${s.alpha*0.35})`); grd.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
+    }
+  }
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const sh = shoots[i];
+    sh.x += Math.cos(sh.angle)*sh.speed; sh.y += Math.sin(sh.angle)*sh.speed;
+    if (sh.phase==='in') { sh.alpha+=sh.rise; if(sh.alpha>=sh.peakAlpha){sh.alpha=sh.peakAlpha;sh.phase='out';} }
+    else { sh.alpha-=sh.decay; }
+    if (sh.alpha<=0) { shoots.splice(i,1); continue; }
+    const tailX=sh.x-Math.cos(sh.angle)*sh.len, tailY=sh.y-Math.sin(sh.angle)*sh.len;
+    const grad=ctx.createLinearGradient(tailX,tailY,sh.x,sh.y);
+    grad.addColorStop(0,`rgba(255,255,255,0)`);
+    grad.addColorStop(0.5,`rgba(184,209,255,${sh.alpha*0.4})`);
+    grad.addColorStop(1,`rgba(255,255,255,${sh.alpha})`);
+    ctx.beginPath(); ctx.moveTo(tailX,tailY); ctx.lineTo(sh.x,sh.y);
+    ctx.strokeStyle=grad; ctx.lineWidth=sh.width; ctx.lineCap='round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.width*2,0,Math.PI*2);
+    const hgrd=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.width*2);
+    hgrd.addColorStop(0,`rgba(255,255,255,${sh.alpha})`); hgrd.addColorStop(1,`rgba(184,209,255,0)`);
+    ctx.fillStyle=hgrd; ctx.fill();
+  }
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
