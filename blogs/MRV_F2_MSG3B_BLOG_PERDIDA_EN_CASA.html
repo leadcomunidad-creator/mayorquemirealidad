@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perdida en casa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --azul-claro: #B8D1FF;
+    --blanco: #FFFFFF;
+    --fondo: #050D1F;
+    --texto: rgba(230, 235, 255, 0.88);
+    --texto-suave: rgba(184, 209, 255, 0.6);
+    --texto-medio: rgba(210, 220, 255, 0.75);
+    --linea: rgba(184, 209, 255, 0.12);
+    --oro: #D4A843;
+    --oro-suave: rgba(212,168,67,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── BARRA PROGRESO ── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0;
+    height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--oro), var(--rosa), var(--azul));
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(5,13,31,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .nav-marca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .nav-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 110px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 20% 30%, rgba(212,168,67,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 80% 70%, rgba(204,23,110,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 40% at 50% 50%, rgba(5,13,31,0.95) 0%, transparent 100%);
+  }
+
+  /* Velas / puntos de luz en el fondo */
+  .hero-lights {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(2px 2px at 10% 15%, rgba(212,168,67,0.9) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 25% 65%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2.5px 2.5px at 55% 10%, rgba(212,168,67,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 88% 20%, rgba(184,209,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 80%, rgba(212,168,67,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 5% 85%, rgba(184,209,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 62% 40%, rgba(212,168,67,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 33% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 78% 88%, rgba(184,209,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 48% 55%, rgba(212,168,67,0.3) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 780px; margin: 0 auto; padding: 0 48px; width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--oro);
+    background: rgba(212,168,67,0.1);
+    border: 1px solid rgba(212,168,67,0.3);
+    padding: 5px 12px; border-radius: 20px;
+  }
+
+  .hero-tag-dot { width: 4px; height: 4px; background: var(--texto-suave); border-radius: 50%; }
+
+  .hero-tag-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5.5vw, 60px);
+    font-weight: 900; line-height: 1.1;
+    color: var(--blanco); margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--oro); }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 17px; font-style: italic;
+    color: var(--texto-medio); line-height: 1.7;
+    max-width: 540px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-verses {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .verse-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    color: var(--oro);
+    background: rgba(212,168,67,0.08);
+    border: 1px solid rgba(212,168,67,0.2);
+    padding: 4px 10px; border-radius: 12px;
+  }
+
+  /* ── ARTÍCULO ── */
+  .article-wrapper {
+    max-width: 780px; margin: 0 auto; padding: 0 48px 120px;
+  }
+
+  /* LEAD */
+  .lead {
+    font-family: 'Lora', serif;
+    font-size: 17px; font-style: italic;
+    line-height: 1.75; color: var(--texto-medio);
+    padding: 20px 0 40px;
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 48px;
+  }
+
+  .lead strong { color: var(--blanco); font-weight: 600; font-style: normal; }
+
+  /* SECCIONES */
+  .section { margin-bottom: 72px; }
+
+  .section-header {
+    display: flex; align-items: flex-start; gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; font-weight: 900; font-style: italic;
+    line-height: 0.85;
+    color: rgba(212,168,67,0.12);
+    flex-shrink: 0; margin-top: 4px; user-select: none;
+  }
+
+  .section-titles { flex: 1; }
+
+  .section-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--oro); margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--blanco); line-height: 1.25;
+  }
+
+  .section-title em { font-style: italic; color: var(--melocoton); }
+
+  /* PÁRRAFOS */
+  p {
+    font-family: 'Lora', serif;
+    font-size: 16px; line-height: 1.8;
+    color: var(--texto); margin-bottom: 24px;
+  }
+  p strong { color: var(--blanco); font-weight: 600; }
+  p:last-child { margin-bottom: 0; }
+
+  /* VERSÍCULO */
+  .verse-block {
+    margin: 40px 0; padding: 28px 32px;
+    background: rgba(184,209,255,0.04);
+    border: 1px solid rgba(184,209,255,0.12);
+    border-radius: 12px; text-align: center;
+  }
+
+  .verse-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-style: italic;
+    color: var(--azul-claro); line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .verse-block .ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    margin: 48px 0; padding: 36px 40px;
+    border-left: 4px solid var(--oro);
+    background: var(--oro-suave);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute; top: -20px; left: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 100px; color: rgba(212,168,67,0.2); line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px; font-style: italic; font-weight: 400;
+    color: var(--blanco); line-height: 1.6; margin-bottom: 16px;
+  }
+
+  .pull-quote-ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--oro);
+  }
+
+  /* SEIS PERSONAS — GRID */
+  .personas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 40px 0;
+  }
+
+  .persona-card {
+    border-radius: 14px;
+    border: 1px solid var(--linea);
+    overflow: hidden;
+  }
+
+  .persona-header {
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .persona-icon {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+
+  .persona-nombre {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.5px; color: var(--blanco);
+  }
+
+  .persona-body {
+    padding: 16px 20px;
+  }
+
+  .persona-body p {
+    font-size: 13px; line-height: 1.65;
+    color: var(--texto-medio); margin-bottom: 0;
+  }
+
+  .persona-body p em {
+    font-style: italic; color: var(--texto-suave);
+    display: block; margin-top: 8px; font-size: 12px;
+  }
+
+  /* colores por persona */
+  .p1 .persona-header { background: rgba(0,86,241,0.1); }
+  .p1 .persona-icon  { background: rgba(0,86,241,0.2); }
+  .p2 .persona-header { background: rgba(204,23,110,0.1); }
+  .p2 .persona-icon  { background: rgba(204,23,110,0.2); }
+  .p3 .persona-header { background: rgba(212,168,67,0.1); }
+  .p3 .persona-icon  { background: rgba(212,168,67,0.2); }
+  .p4 .persona-header { background: rgba(5,150,105,0.1); }
+  .p4 .persona-icon  { background: rgba(5,150,105,0.2); }
+  .p5 .persona-header { background: rgba(139,92,246,0.1); }
+  .p5 .persona-icon  { background: rgba(139,92,246,0.2); }
+  .p6 .persona-header { background: rgba(184,209,255,0.08); }
+  .p6 .persona-icon  { background: rgba(184,209,255,0.15); }
+
+  /* MONEDA — VISUAL DIDÁCTICO */
+  .moneda-visual {
+    margin: 40px 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .moneda-lado {
+    padding: 28px 24px; text-align: center;
+  }
+
+  .moneda-lado-izq { background: rgba(212,168,67,0.08); border-right: 1px solid var(--linea); }
+  .moneda-lado-der { background: rgba(0,86,241,0.08); }
+
+  .moneda-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .moneda-label-izq { color: var(--oro); }
+  .moneda-label-der { color: var(--azul-claro); }
+
+  .moneda-icono {
+    font-size: 32px; margin-bottom: 12px; display: block;
+  }
+
+  .moneda-texto {
+    font-family: 'Lora', serif;
+    font-size: 13px; line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  .moneda-texto-izq { color: var(--texto-suave); }
+  .moneda-texto-der { color: rgba(255,255,255,0.85); }
+
+  .moneda-pie {
+    grid-column: 1 / -1;
+    padding: 18px 28px;
+    background: rgba(212,168,67,0.06);
+    border-top: 1px solid var(--linea);
+    text-align: center;
+  }
+
+  .moneda-pie p {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-style: italic;
+    color: rgba(255,255,255,0.92); line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .moneda-pie p strong { color: var(--oro); font-style: normal; }
+
+  /* STATEMENT */
+  .statement {
+    margin: 56px 0; text-align: center;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, rgba(212,168,67,0.07) 0%, rgba(0,86,241,0.06) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(212,168,67,0.15);
+    position: relative; overflow: hidden;
+  }
+
+  .statement::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(212,168,67,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement::after {
+    content: '';
+    position: absolute; bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(0,86,241,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement p {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px; font-weight: 700; font-style: italic;
+    color: var(--blanco); line-height: 1.5;
+    position: relative; z-index: 2; margin-bottom: 0;
+  }
+
+  .statement p em { color: var(--oro); font-style: normal; }
+
+  /* PREGUNTA FINAL */
+  .pregunta-box {
+    margin: 48px 0; padding: 40px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 1.5px solid rgba(212,168,67,0.3);
+  }
+
+  .pregunta-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--oro); margin-bottom: 16px;
+  }
+
+  .pregunta-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-style: italic;
+    color: var(--blanco); line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linea), transparent);
+    margin: 64px 0;
+  }
+
+  .divider-ornament { text-align: center; margin: -11px 0; }
+  .divider-ornament span {
+    background: var(--fondo); padding: 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--oro); position: relative;
+  }
+
+  /* CIERRE */
+  .closing {
+    margin-top: 80px; padding: 64px 48px;
+    background: linear-gradient(135deg, #0c0a00 0%, #100520 100%);
+    border-radius: 24px; text-align: center;
+    border: 1px solid rgba(212,168,67,0.15);
+    position: relative; overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(212,168,67,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(0,86,241,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--oro); margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 900; font-style: italic;
+    color: var(--blanco); line-height: 1.4;
+    margin-bottom: 20px; position: relative; z-index: 2;
+  }
+
+  .closing-quote em { color: var(--oro); font-style: normal; }
+
+  .closing-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--texto-suave); position: relative; z-index: 2;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px; max-width: 780px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--linea);
+  }
+
+  .footer-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--azul);
+  }
+
+  .footer-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; color: var(--texto-suave);
+    text-align: right; line-height: 1.6;
+  }
+
+  /* ANIMACIONES */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .hero-content, .article-wrapper { padding-left: 20px; padding-right: 20px; }
+    .hero h1 { font-size: 34px; }
+    .section-num { font-size: 52px; }
+    .section-title { font-size: 22px; }
+    p { font-size: 15px; }
+    .personas-grid { grid-template-columns: 1fr; }
+    .moneda-visual { grid-template-columns: 1fr; }
+    .moneda-lado-izq { border-right: none; border-bottom: 1px solid var(--linea); }
+    .pull-quote { padding: 28px 24px; }
+    .pull-quote p { font-size: 18px; }
+    .closing { padding: 44px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .statement p { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-marca">LHSCOL</div>
+  <div class="nav-serie">Mayor que mi Realidad · F2 · MSG3B</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lights"></div>
+  <div class="hero-content">
+
+    <div class="hero-eyebrow">
+      <div class="hero-tag">Perdida en casa</div>
+      <div class="hero-tag-dot"></div>
+      <div class="hero-tag-serie">Fase 2 · MSG3B</div>
+    </div>
+
+    <h1>Hay una manera de estar<br>perdido que <em>no duele.</em><br>Esta parábola es para ti.</h1>
+
+    <p class="hero-sub">La oveja sabe que está sola. El hijo siente el hambre. Pero la moneda no siente nada. No eligió perderse. Simplemente cayó. Y quedó ahí.</p>
+
+    <div class="hero-verses">
+      <span class="verse-pill">Lucas 15</span>
+      <span class="verse-pill">Romanos 5</span>
+      <span class="verse-pill">Juan 16:13</span>
+      <span class="verse-pill">Salmo 139</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ARTÍCULO -->
+<main class="article-wrapper">
+
+  <!-- LEAD -->
+  <p class="lead reveal">
+    Jesús contó tres historias seguidas en Lucas 15. La oveja que se extravió. El hijo que huyó. Y en el medio, casi de paso, una mujer que perdió una moneda dentro de su propia casa. Es la más corta de las tres. Solo tres versículos. Y es, probablemente, <strong>la más incómoda.</strong>
+  </p>
+
+  <!-- SECCIÓN I -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">I</div>
+      <div class="section-titles">
+        <div class="section-kicker">El diagnóstico silencioso</div>
+        <h2 class="section-title">La pérdida<br><em>que no duele</em></h2>
+      </div>
+    </div>
+
+    <p>Hay una pregunta que el mensaje del domingo plantó en el aire y que es difícil de sacudir: ¿cuándo fue la última vez que alguien te preguntó cómo estabas, respondiste "bien", y esa fue la respuesta más mentirosa que dijiste en todo el día?</p>
+
+    <p>"Bien" es una palabra que funciona como escudo. Como cierre de conversación. Como la respuesta que garantiza que nadie va a seguir preguntando y que tú no vas a tener que explicar nada que todavía no sabes cómo explicar.</p>
+
+    <p>El problema no es que "bien" sea siempre mentira. El problema es que cuando lo es, nadie lo cuestiona. Ni tú mismo. Y una persona que lleva suficiente tiempo respondiendo "bien" sin revisarlo termina creyéndoselo. No por deshonestidad. Sino porque el sistema de creencias que quedó capturado no se siente capturado. <strong>Se siente lúcido. Se siente como normalidad.</strong></p>
+
+    <div class="pull-quote reveal">
+      <p>Eso es la moneda en el rincón.</p>
+      <div class="pull-quote-ref">Lucas 15:8 · La parábola de la dracma perdida</div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN II -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">II</div>
+      <div class="section-titles">
+        <div class="section-kicker">El reconocimiento</div>
+        <h2 class="section-title">Seis personas.<br><em>Seis rincones.</em></h2>
+      </div>
+    </div>
+
+    <p>Hay seis personas que viven esta parábola todos los días sin saber que son la moneda. Ninguna en crisis dramática. Todas respondiendo "bien". Todas con polvo encima que ya llaman normalidad.</p>
+
+    <div class="personas-grid reveal">
+
+      <div class="persona-card p1">
+        <div class="persona-header">
+          <div class="persona-icon">🏠</div>
+          <div class="persona-nombre">El casado</div>
+        </div>
+        <div class="persona-body">
+          <p>Lleva años en un matrimonio que funciona — facturan juntos, tienen rutina, los hijos están bien — pero ya no se ven. No hubo traición, no hubo crisis.
+          <em>Solo el pequeño deslizamiento cotidiano hasta que un día el silencio de la mesa ya no incomoda a nadie.</em></p>
+        </div>
+      </div>
+
+      <div class="persona-card p2">
+        <div class="persona-header">
+          <div class="persona-icon">📱</div>
+          <div class="persona-nombre">El adolescente</div>
+        </div>
+        <div class="persona-body">
+          <p>Mide su valor en el número de seguidores. Publica para ver si hay alguien que confirme que existe.
+          <em>Lleva tanto tiempo con esa narrativa instalada que ya no la percibe como narrativa — la percibe como realidad.</em></p>
+        </div>
+      </div>
+
+      <div class="persona-card p3">
+        <div class="persona-header">
+          <div class="persona-icon">🎓</div>
+          <div class="persona-nombre">El universitario</div>
+        </div>
+        <div class="persona-body">
+          <p>Convencido de que todos los demás saben algo que él no sabe. Con la certeza de que en cualquier momento alguien va a descubrir que no merece estar ahí.
+          <em>La narrativa se construyó sola, con emoción y repetición, hasta que quedó como un hecho.</em></p>
+        </div>
+      </div>
+
+      <div class="persona-card p4">
+        <div class="persona-header">
+          <div class="persona-icon">💼</div>
+          <div class="persona-nombre">El empresario</div>
+        </div>
+        <div class="persona-body">
+          <p>No puede parar. Define su valor por lo que produce. Descansa mal porque en el descanso no sabe quién es si no está trabajando.
+          <em>Lleva tanto tiempo en ese modo que ya no lo llama problema — lo llama carácter.</em></p>
+        </div>
+      </div>
+
+      <div class="persona-card p5">
+        <div class="persona-header">
+          <div class="persona-icon">🤲</div>
+          <div class="persona-nombre">El ama de casa</div>
+        </div>
+        <div class="persona-body">
+          <p>Se fue perdiendo a sí misma sirviendo. Se olvidó de tener un nombre propio cuando se convirtió en mamá, esposa, hija, voluntaria.
+          <em>Si le preguntas qué quiere para ella, necesita un minuto para recordar que eso es una pregunta válida.</em></p>
+        </div>
+      </div>
+
+      <div class="persona-card p6">
+        <div class="persona-header">
+          <div class="persona-icon">🔧</div>
+          <div class="persona-nombre">El obrero</div>
+        </div>
+        <div class="persona-body">
+          <p>Lleva años escuchando que lo que hace "no cuenta" en ciertos círculos. Construyó su imagen del Padre más desde esa narrativa que desde lo que el Padre realmente dice.
+          <em>Lleva tiempo esperando poco de la fe porque aprendió a esperar poco de sí mismo.</em></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN III -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">III</div>
+      <div class="section-titles">
+        <div class="section-kicker">La naturaleza de la moneda</div>
+        <h2 class="section-title">Lo que el polvo<br><em>no puede hacer</em></h2>
+      </div>
+    </div>
+
+    <p>Una dracma tenía dos caras grabadas a presión sobre plata fundida. El anverso llevaba una imagen. El reverso llevaba el símbolo de la ciudad que la acuñó: tu identidad, tu propósito, a quién perteneces y para qué fuiste hecho.</p>
+
+    <div class="moneda-visual reveal">
+      <div class="moneda-lado moneda-lado-izq">
+        <div class="moneda-label moneda-label-izq">Anverso</div>
+        <span class="moneda-icono">🪙</span>
+        <p class="moneda-texto moneda-texto-izq">Una imagen grabada a presión sobre plata fundida. La Imago Dei — la imagen de Dios en ti. No decorativa. Constitutiva.</p>
+      </div>
+      <div class="moneda-lado moneda-lado-der">
+        <div class="moneda-label moneda-label-der">Reverso</div>
+        <span class="moneda-icono">🏛️</span>
+        <p class="moneda-texto moneda-texto-der">El símbolo de la ciudad que la acuñó. Tu identidad, tu propósito, a quién perteneces y para qué fuiste hecho.</p>
+      </div>
+      <div class="moneda-pie">
+        <p>Lo que el polvo hace no es borrar esas caras. No puede. La plata sigue siendo plata. Lo que el polvo hace es cubrirla hasta que <strong>ya no se ve.</strong> Y una imagen que no se ve termina funcionando como si no existiera.</p>
+      </div>
+    </div>
+
+    <p>Eso es lo que le pasa a la Imago Dei — la imagen de Dios en ti — cuando llevas tiempo en el rincón. No desaparece. Pero se vuelve inoperante. Se vuelve irreconocible. Primero para los demás. Luego para ti mismo.</p>
+
+    <div class="statement reveal">
+      <p>La razón por la que la dueña buscó con urgencia<br>no fue porque la moneda fuera valiosa <em>a pesar del polvo.</em><br>Fue porque era valiosa <em>con todo el polvo encima.</em></p>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN IV -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">IV</div>
+      <div class="section-titles">
+        <div class="section-kicker">La iniciativa del Padre</div>
+        <h2 class="section-title">La lámpara no<br><em>espera permiso</em></h2>
+      </div>
+    </div>
+
+    <p>Jesús no dice que la mujer esperó a que la moneda se moviera. No dice que esperó a que la moneda reconociera que estaba perdida. Dice que encendió la lámpara. Que restregó la casa. Que buscó en cada rincón. <strong>La iniciativa fue de la dueña. Siempre.</strong></p>
+
+    <div class="verse-block reveal">
+      <p>«Cristo llegó justo a tiempo — cuando éramos demasiado débiles y rebeldes para hacer cualquier cosa.»</p>
+      <div class="ref">Romanos 5 — The Message</div>
+    </div>
+
+    <p>Cristo no esperó a que estuviéramos listos. No calculó si el costo valía la recuperación. Llegó justo a tiempo — cuando no le éramos de ninguna utilidad — y se presentó de todos modos.</p>
+
+    <p>La moneda no hizo nada para que la buscaran. Estaba cubierta de polvo, sin utilidad visible, en una esquina que nadie revisaba. Y la dueña encendió la lámpara de todos modos. Porque el valor de la moneda no estaba en su estado actual. <strong>Estaba en lo que era. Y lo que era no había cambiado.</strong></p>
+
+    <div class="pull-quote reveal">
+      <p>El polvo no cambió el veredicto. Solo hizo más necesaria la búsqueda.</p>
+      <div class="pull-quote-ref">La parábola · Lucas 15:8</div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN V -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">V</div>
+      <div class="section-titles">
+        <div class="section-kicker">El Espíritu en lo cotidiano</div>
+        <h2 class="section-title">El Espíritu trabaja<br><em>en tus rincones</em></h2>
+      </div>
+    </div>
+
+    <div class="verse-block reveal">
+      <p>«Cuando venga el Espíritu de la Verdad, los guiará a toda la verdad.»</p>
+      <div class="ref">Juan 16:13 — NBLA</div>
+    </div>
+
+    <p>Jesús habló del Espíritu de la Verdad como alguien que llega, toma de la mano y guía hacia toda la verdad que existe. No espera que primero estés espiritualmente en orden. No trabaja solo en tus momentos de claridad. <strong>Trabaja en el tráfico. En la cama a las dos de la mañana. En la discusión sin resolver. En el scroll que no puedes parar.</strong></p>
+
+    <p>Trabaja en los rincones. Y lo hace en silencio. Sin llamar la atención sobre sí mismo. Como la lámpara que no anuncia su llegada: simplemente revela.</p>
+
+    <p>La incomodidad inexplicable que sientes a veces en medio de tu rutina "normal" puede ser la lámpara. El texto que te removió sin poder explicar por qué puede ser la escoba. La conversación que no buscabas y que tocó exactamente el rincón que llevabas años evitando puede ser la Gracia Preveniente: el Padre buscando lo que tú no sabías que estaba perdido.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN VI -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VI</div>
+      <div class="section-titles">
+        <div class="section-kicker">El valor de la pertenencia</div>
+        <h2 class="section-title">Hay una fiesta<br><em>preparada</em></h2>
+      </div>
+    </div>
+
+    <p>La parábola termina con una fiesta que costó más que la moneda. En el contexto cultural del siglo I, convocar a amigas y vecinas superaba fácilmente el valor de una dracma. No era irracionalidad. Era la lógica de un amor que no sabe ser proporcional.</p>
+
+    <p>Y el anuncio de la dueña cuando encontró la moneda tiene una palabra que merece detenerse: <em>mi</em> moneda perdida. No "una moneda". No "la moneda". La mía.</p>
+
+    <div class="statement reveal">
+      <p>La pertenencia no se interrumpió<br>en ningún punto del proceso.<br>Ni cuando cayó. Ni mientras estuvo cubierta de polvo.<br>Ni durante la búsqueda. <em>La moneda tenía dueña.</em></p>
+    </div>
+
+    <p>Y la fiesta que el cielo organiza cada vez que una persona regresa no es proporcional a la distancia recorrida. Es proporcional a lo que el Padre siempre supo que valías. Antes del polvo. Debajo del polvo. Con todo el polvo encima.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN VII -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VII</div>
+      <div class="section-titles">
+        <div class="section-kicker">La lámpara que ya está encendida</div>
+        <h2 class="section-title">La pregunta con la que<br><em>termina el mensaje</em></h2>
+      </div>
+    </div>
+
+    <div class="verse-block reveal">
+      <p>«¿A dónde me iré de Tu Espíritu? Si vuelo al horizonte más lejano, ya estás ahí esperando.»</p>
+      <div class="ref">Salmo 139 — adaptación</div>
+    </div>
+
+    <p>El Salmo 139 responde una pregunta que la parábola deja sin decir explícitamente: ¿cuánto tiempo lleva la dueña buscando? David lo dice así: no hay lugar donde el Padre no esté ya. No hay oscuridad que para él sea oscura. Si vuelas al horizonte más lejano, ya está ahí esperando.</p>
+
+    <p><strong>La lámpara no se enciende cuando tú decides que estás listo para ser encontrado. Lleva encendida desde antes de que cayeras al rincón.</strong></p>
+
+    <div class="pregunta-box reveal">
+      <div class="pregunta-label">→ La pregunta final</div>
+      <p>¿A qué narrativa vas a exponer tu mente esta semana? ¿A la que lleva tiempo instalada con emoción y repetición, cubriéndote de polvo hasta que la llamaste normalidad? ¿O a la del Padre que dice que tienes una imagen grabada que el polvo no borró, que hay una fiesta preparada, y que la lámpara lleva encendida más tiempo del que imaginas?</p>
+    </div>
+
+    <p>No necesitas recorrer la distancia del hijo pródigo para ser encontrado. No necesitas que tu pérdida sea dramática para que valga la búsqueda. No necesitas estar listo.</p>
+
+    <p><strong>Solo necesitas exponerte.</strong></p>
+  </section>
+
+  <!-- CIERRE -->
+  <div class="closing reveal">
+    <div class="closing-eyebrow">Para llevarte hoy</div>
+    <div class="closing-quote">La lámpara lleva encendida<br>desde antes de que cayeras<br>al <em>rincón.</em></div>
+    <div class="closing-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-left">LHSCOL</div>
+  <div class="footer-right">MRV · F2 · MSG3B<br>Perdida en casa</div>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
