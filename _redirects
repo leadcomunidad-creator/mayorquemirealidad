@@ -1,0 +1,35 @@
+# Pretty URLs for blog pages
+/Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
+/Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
+/Blog/cruzarelumbral            /blogs/10-mrv-f1-msg3-cruzar-el-umbral-blg.html             200
+/Blog/perdidaencasa             /blogs/10-mrv-f2-msg3b-perdida-en-casa-blg.html             200
+/Blog/lascuatrofuentes          /blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.html          200
+/Blog/entreelruidoysuvoz        /blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html     200
+/Blog/laverdadtienenombre       /blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html      200
+
+# Pretty URLs for infographic pages
+/Info/mayorquemirealidad        /infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html        200
+/Info/arquitectosdelaverdad     /infografias/13-mrv-f1-msg2-arquitectos-de-la-verdad-inf.html     200
+/Info/cruzarelumbral            /infografias/13-mrv-f1-msg3-cruzar-el-umbral-inf.html             200
+/Info/lanarrativa               /infografias/13-mrv-f2-msg3a-la-narrativa-inf.html                200
+/Info/perdidaencasa             /infografias/13-mrv-f2-msg3b-perdida-en-casa-inf.html             200
+/Info/lascuatrofuentes          /infografias/13-mrv-f2-msg3c-las-cuatro-fuentes-inf.html          200
+/Info/entreelruidoysuvoz        /infografias/13-mrv-f2-msg3d-entre-el-ruido-y-su-voz-inf.html     200
+/Info/laverdadtienenombre       /infografias/13-mrv-f2-msg3e-la-verdad-tiene-nombre-inf.html      200
+
+# Lowercase aliases
+/blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
+/blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
+/blog/cruzarelumbral            /blogs/10-mrv-f1-msg3-cruzar-el-umbral-blg.html             200
+/blog/perdidaencasa             /blogs/10-mrv-f2-msg3b-perdida-en-casa-blg.html             200
+/blog/lascuatrofuentes          /blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.html          200
+/blog/entreelruidoysuvoz        /blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html     200
+/blog/laverdadtienenombre       /blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html      200
+/info/mayorquemirealidad        /infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html        200
+/info/arquitectosdelaverdad     /infografias/13-mrv-f1-msg2-arquitectos-de-la-verdad-inf.html     200
+/info/cruzarelumbral            /infografias/13-mrv-f1-msg3-cruzar-el-umbral-inf.html             200
+/info/lanarrativa               /infografias/13-mrv-f2-msg3a-la-narrativa-inf.html                200
+/info/perdidaencasa             /infografias/13-mrv-f2-msg3b-perdida-en-casa-inf.html             200
+/info/lascuatrofuentes          /infografias/13-mrv-f2-msg3c-las-cuatro-fuentes-inf.html          200
+/info/entreelruidoysuvoz        /infografias/13-mrv-f2-msg3d-entre-el-ruido-y-su-voz-inf.html     200
+/info/laverdadtienenombre       /infografias/13-mrv-f2-msg3e-la-verdad-tiene-nombre-inf.html      200
