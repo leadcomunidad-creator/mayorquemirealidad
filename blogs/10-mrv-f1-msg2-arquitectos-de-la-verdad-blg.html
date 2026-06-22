@@ -1,0 +1,1079 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitectos de la Verdad · F1 · MSG2 · LHSCOL 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --azul-claro: #B8D1FF;
+    --blanco: #FFFFFF;
+    --fondo: #050D1F;
+    --fondo-2: #080F25;
+    --texto: rgba(230, 235, 255, 0.88);
+    --texto-suave: rgba(184, 209, 255, 0.6);
+    --texto-medio: rgba(210, 220, 255, 0.75);
+    --linea: rgba(184, 209, 255, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── BARRA PROGRESO ── */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--azul), var(--rosa), var(--melocoton));
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5, 13, 31, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .nav-marca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .nav-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 20% 10%, rgba(0,86,241,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 85%, rgba(204,23,110,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(8,15,37,0.9) 0%, transparent 100%);
+  }
+
+  .hero-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 15% 20%, rgba(184,209,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 60% 15%, rgba(184,209,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 70%, rgba(242,197,161,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 75%, rgba(184,209,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 45%, rgba(184,209,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 68% 88%, rgba(184,209,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 38% 30%, rgba(242,197,161,0.4) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    background: rgba(0,86,241,0.12);
+    border: 1px solid rgba(0,86,241,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .hero-tag-dot {
+    width: 4px; height: 4px;
+    background: var(--texto-suave);
+    border-radius: 50%;
+  }
+
+  .hero-tag-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--blanco);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--texto-medio);
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .hero-verses {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .verse-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--azul-claro);
+    background: rgba(184,209,255,0.08);
+    border: 1px solid rgba(184,209,255,0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 0px;
+    background: linear-gradient(to bottom, transparent, var(--fondo));
+    z-index: 3;
+  }
+
+  /* ── ARTÍCULO ── */
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  /* ── LEAD ── */
+  .lead {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--texto-medio);
+    padding: 20px 0 40px;
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 40px;
+  }
+
+  .lead strong {
+    color: var(--blanco);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ── SECCIONES ── */
+  .section { margin-bottom: 72px; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.85;
+    color: rgba(0,86,241,0.15);
+    flex-shrink: 0;
+    margin-top: 4px;
+    user-select: none;
+  }
+
+  .section-titles { flex: 1; }
+
+  .section-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.25;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  /* ── PÁRRAFOS ── */
+  p {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--texto);
+    margin-bottom: 24px;
+  }
+
+  p strong { color: var(--blanco); font-weight: 600; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 48px 0;
+    padding: 36px 40px;
+    border-left: 4px solid var(--azul);
+    background: rgba(0,86,241,0.06);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px; left: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    color: rgba(0,86,241,0.2);
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .pull-quote-ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+  }
+
+  /* ── VERSÍCULO INLINE ── */
+  .verse-block {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: rgba(184,209,255,0.05);
+    border: 1px solid rgba(184,209,255,0.15);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .verse-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--azul-claro);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .verse-block .ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── TÉRMINO GRIEGO / HEBREO ── */
+  .termino-inline {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--azul-claro);
+    font-weight: 700;
+  }
+
+  /* ── TRES DIMENSIONES ── */
+  .dimensiones {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dimension-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(0,86,241,0.07);
+    border-radius: 12px;
+    padding: 18px 22px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .dimension-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    min-width: 90px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .dimension-desc {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--texto-medio);
+    line-height: 1.65;
+  }
+
+  .dimension-desc strong { color: var(--blanco); }
+
+  /* ── METANOIA CONTRASTE ── */
+  .metanoia-grid {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .mg-header {
+    padding: 14px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .mg-header-no {
+    background: rgba(204,23,110,0.18);
+    color: var(--rosa);
+    border-right: 1px solid var(--linea);
+  }
+
+  .mg-header-si {
+    background: rgba(0,86,241,0.18);
+    color: var(--azul-claro);
+  }
+
+  .mg-cell {
+    padding: 13px 22px;
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    line-height: 1.5;
+    border-top: 1px solid var(--linea);
+  }
+
+  .mg-cell-no {
+    background: rgba(204,23,110,0.06);
+    color: rgba(255,255,255,0.75);
+    border-right: 1px solid var(--linea);
+    font-style: italic;
+  }
+
+  .mg-cell-si {
+    background: rgba(0,86,241,0.06);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  /* ── SIETE EJES ── */
+  .ejes-lista {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .eje-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 16px 20px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .eje-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(0,86,241,0.35);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 1px;
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .eje-body {}
+
+  .eje-nombre {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 4px;
+  }
+
+  .eje-desc {
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    color: var(--texto-medio);
+    line-height: 1.6;
+  }
+
+  .eje-desc strong { color: var(--blanco); }
+
+  /* ── TABLA ESPÍAS ── */
+  .tabla-espias {
+    margin: 40px 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .tabla-espias thead th {
+    padding: 13px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .tabla-espias thead th:first-child {
+    background: rgba(204,23,110,0.18);
+    color: var(--rosa);
+    border-right: 1px solid var(--linea);
+  }
+
+  .tabla-espias thead th:last-child {
+    background: rgba(0,86,241,0.18);
+    color: var(--azul-claro);
+  }
+
+  .tabla-espias tbody td {
+    padding: 13px 22px;
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    line-height: 1.5;
+    border-top: 1px solid var(--linea);
+  }
+
+  .tabla-espias tbody td:first-child {
+    background: rgba(204,23,110,0.06);
+    color: rgba(255,255,255,0.78);
+    border-right: 1px solid var(--linea);
+    font-style: italic;
+    border-left: 3px solid var(--rosa);
+  }
+
+  .tabla-espias tbody td:last-child {
+    background: rgba(0,86,241,0.06);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+  /* ── STATEMENT ── */
+  .statement {
+    margin: 56px 0;
+    text-align: center;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, rgba(0,86,241,0.1) 0%, rgba(204,23,110,0.07) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(184,209,255,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .statement::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,86,241,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(204,23,110,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 0;
+  }
+
+  .statement p em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  /* ── REALIDAD VS VERDAD ── */
+  .rv-grid {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .rv-card {
+    border-radius: 14px;
+    padding: 26px 24px;
+    border: 1px solid var(--linea);
+  }
+
+  .rv-card.realidad {
+    background: rgba(204,23,110,0.08);
+    border-color: rgba(204,23,110,0.2);
+  }
+
+  .rv-card.verdad {
+    background: rgba(0,86,241,0.08);
+    border-color: rgba(0,86,241,0.25);
+  }
+
+  .rv-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .rv-card.realidad .rv-label { color: var(--rosa); }
+  .rv-card.verdad .rv-label { color: var(--azul-claro); }
+
+  .rv-def {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--texto-medio);
+    line-height: 1.7;
+  }
+
+  .rv-def strong { color: var(--blanco); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linea), transparent);
+    margin: 64px 0;
+  }
+
+  .divider-ornament {
+    text-align: center;
+    margin: -11px 0;
+  }
+
+  .divider-ornament span {
+    background: var(--fondo);
+    padding: 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--azul);
+    position: relative;
+  }
+
+  /* ── CIERRE ── */
+  .closing {
+    margin-top: 80px;
+    padding: 64px 48px;
+    background: linear-gradient(135deg, #0a0f2e 0%, #150520 100%);
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(184,209,255,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(0,86,241,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(204,23,110,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .closing-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    position: relative; z-index: 2;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--linea);
+  }
+
+  .footer-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    text-align: right;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── ANIMACIONES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .hero-content { padding: 0 20px; }
+    .article-wrapper { padding: 0 20px 80px; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 15px; }
+    .section-num { font-size: 52px; }
+    .section-title { font-size: 22px; }
+    p { font-size: 15px; }
+    .pull-quote p { font-size: 18px; }
+    .pull-quote { padding: 28px 24px; }
+    .closing { padding: 44px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .metanoia-grid { grid-template-columns: 1fr; }
+    .mg-cell-no, .mg-header-no { border-right: none; }
+    .rv-grid { grid-template-columns: 1fr; }
+    .tabla-espias thead th, .tabla-espias tbody td { padding: 11px 14px; }
+    .statement p { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-marca">LHSCOL</div>
+  <div class="nav-serie">Mayor que mi Realidad · F1 · MSG2</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-tag">Mayor que mi Realidad</div>
+      <div class="hero-tag-dot"></div>
+      <div class="hero-tag-serie">Fase 1 · MSG2</div>
+    </div>
+
+    <h1>Arquitectos de <em>la Verdad</em></h1>
+    <p class="hero-sub">No necesitas un nuevo paisaje tanto como crees. El paisaje puede cambiar la presión, pero solo el Padre puede renovar el lente desde donde interpretas la vida.</p>
+
+    <div class="hero-meta">
+      <div class="hero-verses">
+        <span class="verse-pill">Romanos 12:2</span>
+        <span class="verse-pill">Éxodo 16</span>
+        <span class="verse-pill">Lucas 15</span>
+        <span class="verse-pill">Gálatas 4:6–7</span>
+        <span class="verse-pill">Proverbios 24:3–4</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<main class="article-wrapper">
+
+  <p class="lead reveal">
+    Hay una fantasía que todos hemos tenido alguna vez: que si cambia lo de afuera, por fin va a cambiar lo de adentro. Pero puedes cambiar de código postal y seguir viviendo con el mismo código mental. <strong>Un paisaje nuevo no puede hacer el trabajo que solo la metanoia puede hacer.</strong>
+  </p>
+
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">I</div>
+      <div class="section-titles">
+        <div class="section-kicker">El mito del paisaje</div>
+        <h2 class="section-title">Cambiar de lugar<br><em>no siempre cambia el lente</em></h2>
+      </div>
+    </div>
+
+    <p>Tendemos a creer que si cambia nuestra realidad externa, nuestra vida cambiará automáticamente. Cuando tenga otro trabajo, voy a descansar. Cuando cambie de ciudad, voy a empezar de nuevo. Cuando esté en una relación distinta, voy a sentirme seguro. Cuando cambie la temporada, voy a cambiar yo.</p>
+
+    <p>Hay algo de verdad en eso. Hay ambientes que enferman, relaciones que deforman y ciclos que se deben cerrar. Pero también hay una mentira escondida: pedirle al paisaje que haga el trabajo que le corresponde a la renovación de la mente.</p>
+
+    <div class="pull-quote reveal">
+      <p>Si cambias de lugar sin cambiar de mente, solo trasladas tu desierto a otra geografía.</p>
+      <div class="pull-quote-ref">La tensión central · MSG2</div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">II</div>
+      <div class="section-titles">
+        <div class="section-kicker">Israel como diagnóstico</div>
+        <h2 class="section-title">Egipto no es solo<br><em>un lugar</em></h2>
+      </div>
+    </div>
+
+    <p>Israel salió de Egipto, pero Egipto no salió de Israel al mismo ritmo. El mar se abrió en una noche; la mentalidad no. La geografía decía libertad, pero cada presión del desierto activaba miedo, queja, nostalgia y sospecha.</p>
+
+    <div class="dimensiones reveal">
+      <div class="dimension-item">
+        <div class="dimension-label">Paisaje</div>
+        <div class="dimension-desc">Lo externo: lugar, trabajo, relación, temporada, presión, oportunidad.</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-label">Lente</div>
+        <div class="dimension-desc">El sistema interno desde donde se interpreta lo que ocurre.</div>
+      </div>
+      <div class="dimension-item">
+        <div class="dimension-label">Resultado</div>
+        <div class="dimension-desc"><strong>Paisaje nuevo + mente vieja = desierto trasladado.</strong></div>
+      </div>
+    </div>
+
+    <p>El paisaje puede aliviar presión. Puede revelar el corazón. Puede abrir una oportunidad. Pero no puede renovar el Nous. La renovación del lente le pertenece al Padre.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">III</div>
+      <div class="section-titles">
+        <div class="section-kicker">Lucas 15 · Dos hijos, dos lentes</div>
+        <h2 class="section-title">Uno lejos. Otro cerca.<br><em>Ambos necesitaban volver.</em></h2>
+      </div>
+    </div>
+
+    <p>Lucas 15 no es solo una historia sobre malas decisiones. Es una radiografía de marcos mentales. El hijo menor creyó que el problema era la casa. Para él, la casa era límite y el padre era obstáculo. Cambió de paisaje buscando libertad, pero se llevó consigo una mente de escasez.</p>
+
+    <p>El hijo mayor nunca salió. Sirvió, obedeció, permaneció. Pero cuando vio gracia derramada sobre alguien que, según sus cuentas, no la merecía, habló desde su plano interno: “Nunca me has dado”. Eso no es lenguaje de hijo. Es lenguaje de esclavo dentro del palacio.</p>
+
+    <table class="tabla-espias reveal">
+      <thead>
+        <tr>
+          <th>Hijo menor · Lejos de casa</th>
+          <th>Hijo mayor · Dentro de casa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Cambió el paisaje buscando libertad</td><td>Permaneció cerca buscando salario</td></tr>
+        <tr><td>Quiso los bienes sin el gobierno del padre</td><td>Sirvió sin descansar en la filiación</td></tr>
+        <tr><td>La escasez lo llevó a los cerdos</td><td>La deuda lo dejó fuera de la fiesta</td></tr>
+        <tr><td>Necesitaba volver a casa</td><td>Necesitaba entrar al gozo de la casa</td></tr>
+      </tbody>
+    </table>
+
+    <div class="statement reveal">
+      <p>Se puede estar cerca de la Verdad y seguir pensando como huérfano.</p>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">IV</div>
+      <div class="section-titles">
+        <div class="section-kicker">La obediencia también necesita ser sanada</div>
+        <h2 class="section-title">No toda cercanía<br><em>es filiación</em></h2>
+      </div>
+    </div>
+
+    <p>La obediencia es hermosa cuando nace del amor. Pero cuando nace de deuda, se vuelve una cárcel con apariencia de fidelidad. El hijo mayor no necesitaba menos obediencia; necesitaba una obediencia sanada por la verdad de ser hijo.</p>
+
+    <p>El Padre no quería solo el trabajo del hijo mayor. Quería su gozo. Por eso le recuerda: estás conmigo, y todo lo mío es tuyo. El hijo estaba pidiendo un cabrito mientras vivía dentro de la herencia.</p>
+
+    <div class="metanoia-grid reveal">
+      <div class="mg-header mg-header-no">Obediencia enferma</div>
+      <div class="mg-header mg-header-si">Obediencia de hijo</div>
+      <div class="mg-cell mg-cell-no">Sirve acumulando facturas invisibles</div>
+      <div class="mg-cell mg-cell-si">Sirve desde pertenencia recibida</div>
+      <div class="mg-cell mg-cell-no">Compara la gracia que otros reciben</div>
+      <div class="mg-cell mg-cell-si">Celebra lo que el Padre restaura</div>
+      <div class="mg-cell mg-cell-no">Interpreta corrección como rechazo</div>
+      <div class="mg-cell mg-cell-si">Recibe formación sin perder identidad</div>
+      <div class="mg-cell mg-cell-no">Permanece cerca sin descanso</div>
+      <div class="mg-cell mg-cell-si">Habita la casa como herencia</div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">V</div>
+      <div class="section-titles">
+        <div class="section-kicker">Admirador vs. seguidor</div>
+        <h2 class="section-title">La Verdad<br><em>sí cuesta</em></h2>
+      </div>
+    </div>
+
+    <p>Admirar a Jesús permite mantenerlo cerca sin darle gobierno real. El admirador observa, aplaude y permanece en una distancia segura. El seguidor permite que la Verdad interfiera con la vieja manera de pensar.</p>
+
+    <p>La metanoia no es emocional. Es estructural. Toca el código mental, la forma de obedecer, el deseo de control, la identidad, las relaciones, el descanso y el modo de sufrir. La gracia no es barata porque fue comprada por Cristo y porque nos llama a una vida donde la Verdad tiene derecho de gobierno.</p>
+
+    <div class="pull-quote reveal">
+      <p>Seguir a Jesús no es gratis. Le cuesta a uno su vieja manera de pensar.</p>
+      <div class="pull-quote-ref">El costo de la Verdad</div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VI</div>
+      <div class="section-titles">
+        <div class="section-kicker">El mapa de ruta</div>
+        <h2 class="section-title">Arquitectos<br><em>bajo la Verdad</em></h2>
+      </div>
+    </div>
+
+    <p>No somos arquitectos de nuestra propia verdad. Somos arquitectos bajo la Verdad del Padre. Un arquitecto no improvisa una casa cada mañana según cómo se siente. Trabaja con plano, respeta fundamento, calcula estructura y acepta procesos invisibles antes de celebrar acabados visibles.</p>
+
+    <div class="ejes-lista reveal">
+      <div class="eje-item"><div class="eje-num">1</div><div class="eje-body"><div class="eje-nombre">Umbral de la Decisión</div><div class="eje-desc">De turistas a discípulos. Revisión del terreno.</div></div></div>
+      <div class="eje-item"><div class="eje-num">2</div><div class="eje-body"><div class="eje-nombre">Diagnóstico de Mentalidad</div><div class="eje-desc">La obra negra del alma: identificar esclavitud y orfandad.</div></div></div>
+      <div class="eje-item"><div class="eje-num">3</div><div class="eje-body"><div class="eje-nombre">Manifiesto del Reino</div><div class="eje-desc">La lógica al revés de Jesús como cimentación.</div></div></div>
+      <div class="eje-item" style="border-left-color: var(--melocoton);"><div class="eje-num" style="color: rgba(242,197,161,0.4);">4</div><div class="eje-body"><div class="eje-nombre" style="color: var(--melocoton);">Protocolo Metanoia</div><div class="eje-desc">Entrenamiento sostenido: reemplazo, reprogramación, replanteamiento y recuperación del territorio de la mente.</div></div></div>
+      <div class="eje-item"><div class="eje-num">5</div><div class="eje-body"><div class="eje-nombre">Estilo de Vida de la Verdad</div><div class="eje-desc">La Verdad baja a decisiones, relaciones, finanzas e identidad.</div></div></div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VII</div>
+      <div class="section-titles">
+        <div class="section-kicker">La oración que cambia el centro</div>
+        <h2 class="section-title">Padre,<br><em>gobierna mi lente</em></h2>
+      </div>
+    </div>
+
+    <p>No está mal orar: “Padre, cambia mi realidad.” A veces necesitamos que Dios abra puertas, cierre ciclos, restaure relaciones, provea, sane e intervenga. Pero hay una oración más profunda y muchas veces más incómoda: Padre, gobierna mi lente.</p>
+
+    <p>Porque si mi lente sigue siendo de esclavo, puedo estar en el palacio y vivir como huérfano. Si mi lente sigue siendo de escasez, puedo recibir herencia y desperdiciarla buscando libertad donde solo hay hambre.</p>
+  </section>
+
+  <div class="closing reveal">
+    <div class="closing-eyebrow">Para llevarte hoy</div>
+    <div class="closing-quote">No somos víctimas de nuestra realidad.<br>Somos arquitectos <em>bajo la Verdad del Padre.</em></div>
+    <div class="closing-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-left">LHSCOL</div>
+  <div class="footer-right">MRV · F1 · MSG2<br>Arquitectos de la Verdad</div>
+</footer>
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cruzar el Umbral · Infografía · LHSCOL 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  .body { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  .tabla-contraste {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .tabla-contraste thead th {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tabla-contraste thead th:first-child {
+    background: rgba(204,23,110,0.2);
+    color: var(--rosa);
+    text-align: left;
+  }
+
+  .tabla-contraste thead th:last-child {
+    background: rgba(0,86,241,0.2);
+    color: var(--azul-claro);
+    text-align: left;
+  }
+
+  .tabla-contraste tbody tr td {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tabla-contraste tbody tr:nth-child(odd) td:first-child {
+    background: rgba(204,23,110,0.08);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:first-child {
+    background: rgba(204,23,110,0.05);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(odd) td:last-child {
+    background: rgba(0,86,241,0.08);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:last-child {
+    background: rgba(0,86,241,0.05);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0;
+  }
+
+  .flujo-item {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 260px;
+    letter-spacing: 0.5px;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--azul-claro);
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+  .pensamientos { display: flex; flex-direction: column; gap: 10px; }
+
+  .pensamiento {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(0,86,241,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .pensamiento.rosa-item {
+    background: rgba(204,23,110,0.08);
+    border-left-color: var(--rosa);
+  }
+
+  .pensamiento-num {
+    width: 24px; height: 24px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pensamiento-num.rosa-num { background: var(--rosa); }
+
+  .pensamiento-frase {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .pensamiento-efecto {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #071b55 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #001f60 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #06153a 42%, #100a35 72%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #0056F1 0%, #003DB3 28%, #6b004a 55%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #CC176E 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #F2C5A1 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.52;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 28px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
+    .flujo-item { width: 100%; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="cosmic-bg"></div>
+<canvas id="starfield"></canvas>
+<div class="nebula-bottom"></div>
+<div class="nebula-mid"></div>
+<div class="infographic">
+
+  <div class="header">
+    <div class="serie-label">Mayor que mi Realidad es Su Verdad · F1 · MSG3</div>
+    <h1>Cruzar<br><em>el Umbral</em></h1>
+    <div class="tesis-header">
+      <p>La fe no se vuelve casa porque la imagines bonito. Se vuelve casa cuando Jesús empieza a dirigir.</p>
+      <span class="verse-tag">Lucas 9:23 · Juan 5:1-9 · 2 Corintios 3:16 · Mateo 9:9</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body">
+
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">1</div>
+        <div class="section-title">El plano no es la casa</div>
+      </div>
+      <p class="mecanismo-intro">El plano se ve perfecto porque todavía no ha tocado realidad. <strong>La intención inspira, pero la obediencia construye.</strong></p>
+      <div class="highlight-box">
+        <p>Nadie puede vivir en una casa de papel.</p>
+      </div>
+      <div class="pensamientos">
+        <div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">Plano</div><div class="pensamiento-efecto">Frases correctas, claridad espiritual, propósitos buenos.</div></div></div>
+        <div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">2</div><div><div class="pensamiento-frase">Terreno</div><div class="pensamiento-efecto">Grietas, linderos, peso, obediencia concreta.</div></div></div>
+        <div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">Casa</div><div class="pensamiento-efecto">La verdad habitada, no solo admirada.</div></div></div>
+      </div>
+    </div>
+
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">2</div>
+        <div class="section-title" style="color: var(--rosa);">El umbral no es domicilio</div>
+      </div>
+      <p class="mecanismo-intro">El umbral es la línea entre afuera y adentro. <strong>Sirve para cruzar, no para vivir.</strong></p>
+      <table class="tabla-contraste">
+        <thead><tr><th>Vivir en el umbral</th><th>Cruzar el umbral</th></tr></thead>
+        <tbody>
+          <tr><td>Estoy en proceso como escondite</td><td>El proceso produce obediencia visible</td></tr>
+          <tr><td>Admiro el plano</td><td>Entro al terreno</td></tr>
+          <tr><td>Pido claridad para evitar costo</td><td>Obedezco la luz recibida</td></tr>
+          <tr><td>Jesús cerca como lenguaje</td><td>Jesús dirigiendo como Señor</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight-box"><p>La puerta sirve para cruzar, no para vivir.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">3</div>
+        <div class="section-title">Lucas 9:23 · El control</div>
+      </div>
+      <p class="mecanismo-intro">Jesús no llama admiradores. Llama discípulos que dejan de manejar solos.</p>
+      <div class="flujo">
+        <div class="flujo-item" style="background: rgba(204,23,110,0.16); border-color: rgba(204,23,110,0.35);">Niégate a ti mismo</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Toma tu cruz cada día</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(242,197,161,0.12); border-color: rgba(242,197,161,0.35); color: var(--melocoton);">Sígueme</div>
+      </div>
+      <div class="highlight-box"><p>No puedes pedirle a Jesús que sea Señor y pasajero del carro al mismo tiempo.</p></div>
+    </div>
+
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #059669;">4</div>
+        <div class="section-title" style="color: #059669;">Turista espiritual vs. discípulo</div>
+      </div>
+      <p class="mecanismo-intro">La iglesia puede ser un lugar cómodo para consumir a Dios sin obedecer a Jesús.</p>
+      <table class="tabla-contraste">
+        <thead><tr><th>Turista espiritual</th><th>Discípulo</th></tr></thead>
+        <tbody>
+          <tr><td>Mira desde la grada</td><td>Baja a la cancha</td></tr>
+          <tr><td>Consume mensajes</td><td>Obedece la voz</td></tr>
+          <tr><td>Pregunta: qué gano yo</td><td>Pregunta: a dónde vamos</td></tr>
+          <tr><td>Busca beneficios</td><td>Busca gobierno</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight-box"><p>Caminar cerca de Jesús no es lo mismo que caminar con Jesús.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">5</div>
+        <div class="section-title">Tres llaves para cruzar</div>
+      </div>
+      <div class="pensamientos">
+        <div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">Autenticidad</div><div class="pensamiento-efecto">Contra la vida editada. Dios no sana el personaje que proyectas.</div></div></div>
+        <div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">2</div><div><div class="pensamiento-frase">Obediencia</div><div class="pensamiento-efecto">Contra la reflexión infinita. El umbral no se cruza pensando.</div></div></div>
+        <div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">Participación</div><div class="pensamiento-efecto">Contra el espectáculo. No miramos la historia de Dios; la habitamos.</div></div></div>
+      </div>
+    </div>
+
+    <div class="section" style="background: rgba(4,16,53,0.95);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">6</div>
+        <div class="section-title" style="color: #a855f7;">Betsaida · La camilla invertida</div>
+      </div>
+      <p class="mecanismo-intro">Treinta y ocho años pueden convertir una condición en rutina, explicación e identidad. Jesús no espera que el estanque se mueva. Habla.</p>
+      <div class="flujo">
+        <div class="flujo-item">¿Quieres ser sano?</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(204,23,110,0.12); border-color: rgba(204,23,110,0.35);">Levántate</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Toma tu camilla</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(5,150,105,0.15); border-color: rgba(167,243,208,0.35); color: #a7f3d0;">Anda</div>
+      </div>
+      <table class="tabla-contraste">
+        <thead><tr><th>Antes</th><th>Después</th></tr></thead>
+        <tbody>
+          <tr><td>La camilla cargaba al hombre</td><td>El hombre carga la camilla</td></tr>
+          <tr><td>Mi historia me define</td><td>Mi historia testifica</td></tr>
+          <tr><td>El paisaje tiene la última palabra</td><td>La voz de Jesús gobierna el paso</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">7</div>
+        <div class="section-title">Mapa de decisión</div>
+      </div>
+      <div class="pensamientos">
+        <div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">Nombra el plano</div><div class="pensamiento-efecto">¿Qué verdad admiro pero todavía no habito?</div></div></div>
+        <div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">2</div><div><div class="pensamiento-frase">Entrega el control</div><div class="pensamiento-efecto">¿Dónde sigo diciendo: llegué yo?</div></div></div>
+        <div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">Carga la camilla</div><div class="pensamiento-efecto">¿Qué historia deja de definirme y empieza a testificar?</div></div></div>
+      </div>
+    </div>
+
+    <div class="section" style="background: linear-gradient(135deg, rgba(0,86,241,0.18), rgba(204,23,110,0.16));">
+      <div class="section-label">
+        <div class="section-number" style="background: #CC176E;">8</div>
+        <div class="section-title" style="color: #F2C5A1;">Obediencia de 24 horas</div>
+      </div>
+      <p class="mecanismo-intro">Cruzar el umbral no termina en emoción. Termina en una acción visible, pequeña y real.</p>
+      <div class="pensamientos">
+        <div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">Una llamada</div><div class="pensamiento-efecto">La conversación que dejé en el plano.</div></div></div>
+        <div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">2</div><div><div class="pensamiento-frase">Una verdad</div><div class="pensamiento-efecto">La parte de mi vida que debo dejar de editar.</div></div></div>
+        <div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">Un paso</div><div class="pensamiento-efecto">La obediencia concreta que demuestra quién dirige.</div></div></div>
+      </div>
+      <div class="highlight-box"><p>Hoy cruzo el umbral obedeciendo en algo que pueda nombrar.</p></div>
+    </div>
+
+    <div class="frase-final">
+      <blockquote>
+        Mayor que mi realidad de víctima<br>es Su Verdad<br><em>que me levanta.</em>
+      </blockquote>
+      <div class="frase-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-marca">LHSCOL</div>
+      <div class="footer-data">MRV · F1 · MSG3<br>Cruzar el Umbral</div>
+    </div>
+
+  </div>
+</div>
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+const NUM_STARS = 220;
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < NUM_STARS; i++) {
+    const isPulse = Math.random() < 0.15;
+    stars.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.5,
+      baseAlpha: Math.random() * 0.5 + 0.4, alpha: 0,
+      speed: isPulse ? (Math.random() * 0.06 + 0.06) : (Math.random() * 0.03 + 0.02),
+      phase: Math.random() * Math.PI * 2, pulse: isPulse,
+      color: Math.random() < 0.25 ? [184,209,255] : Math.random() < 0.12 ? [242,197,161] : [255,255,255]
+    });
+  }
+}
+initStars();
+const shoots = [];
+function spawnShoot() {
+  shoots.push({
+    x: Math.random() * canvas.width * 0.7, y: Math.random() * canvas.height * 0.45,
+    len: Math.random() * 140 + 80, speed: Math.random() * 7 + 6,
+    angle: Math.PI / 4 + (Math.random() * 0.4 - 0.2), alpha: 0,
+    peakAlpha: Math.random() * 0.4 + 0.6, phase: 'in',
+    decay: Math.random() * 0.02 + 0.015, rise: Math.random() * 0.06 + 0.06,
+    width: Math.random() * 1.5 + 0.8
+  });
+}
+function scheduleShoot() { setTimeout(() => { spawnShoot(); scheduleShoot(); }, Math.random() * 3000 + 2000); }
+spawnShoot(); setTimeout(spawnShoot, 800); scheduleShoot();
+function draw() {
+  requestAnimationFrame(draw);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    s.phase += s.speed;
+    let t = s.pulse ? (Math.sin(s.phase) > 0 ? Math.pow(Math.sin(s.phase), 0.5) : 0) : 0.5 + 0.5 * Math.sin(s.phase);
+    s.alpha = s.baseAlpha * (0.15 + 0.85 * t);
+    const [r,g,b] = s.color;
+    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${s.alpha})`; ctx.fill();
+    if (s.r > 1.2) {
+      const grd = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3.5);
+      grd.addColorStop(0,`rgba(${r},${g},${b},${s.alpha*0.35})`); grd.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
+    }
+  }
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const sh = shoots[i];
+    sh.x += Math.cos(sh.angle)*sh.speed; sh.y += Math.sin(sh.angle)*sh.speed;
+    if (sh.phase==='in') { sh.alpha+=sh.rise; if(sh.alpha>=sh.peakAlpha){sh.alpha=sh.peakAlpha;sh.phase='out';} }
+    else { sh.alpha-=sh.decay; }
+    if (sh.alpha<=0) { shoots.splice(i,1); continue; }
+    const tailX=sh.x-Math.cos(sh.angle)*sh.len, tailY=sh.y-Math.sin(sh.angle)*sh.len;
+    const grad=ctx.createLinearGradient(tailX,tailY,sh.x,sh.y);
+    grad.addColorStop(0,`rgba(255,255,255,0)`);
+    grad.addColorStop(0.5,`rgba(184,209,255,${sh.alpha*0.4})`);
+    grad.addColorStop(1,`rgba(255,255,255,${sh.alpha})`);
+    ctx.beginPath(); ctx.moveTo(tailX,tailY); ctx.lineTo(sh.x,sh.y);
+    ctx.strokeStyle=grad; ctx.lineWidth=sh.width; ctx.lineCap='round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.width*2,0,Math.PI*2);
+    const hgrd=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.width*2);
+    hgrd.addColorStop(0,`rgba(255,255,255,${sh.alpha})`); hgrd.addColorStop(1,`rgba(184,209,255,0)`);
+    ctx.fillStyle=hgrd; ctx.fill();
+  }
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

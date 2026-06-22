@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Verdad Tiene Nombre</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  .body { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  .tabla-contraste {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .tabla-contraste thead th {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tabla-contraste thead th:first-child {
+    background: rgba(204,23,110,0.2);
+    color: var(--rosa);
+    text-align: left;
+  }
+
+  .tabla-contraste thead th:last-child {
+    background: rgba(0,86,241,0.2);
+    color: var(--azul-claro);
+    text-align: left;
+  }
+
+  .tabla-contraste tbody tr td {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tabla-contraste tbody tr:nth-child(odd) td:first-child {
+    background: rgba(204,23,110,0.08);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:first-child {
+    background: rgba(204,23,110,0.05);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(odd) td:last-child {
+    background: rgba(0,86,241,0.08);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:last-child {
+    background: rgba(0,86,241,0.05);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0;
+  }
+
+  .flujo-item {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 260px;
+    letter-spacing: 0.5px;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--azul-claro);
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+  .pensamientos { display: flex; flex-direction: column; gap: 10px; }
+
+  .pensamiento {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(0,86,241,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .pensamiento.rosa-item {
+    background: rgba(204,23,110,0.08);
+    border-left-color: var(--rosa);
+  }
+
+  .pensamiento-num {
+    width: 24px; height: 24px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pensamiento-num.rosa-num { background: var(--rosa); }
+
+  .pensamiento-frase {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .pensamiento-efecto {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 28px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
+    .flujo-item { width: 100%; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="cosmic-bg"></div>
+<canvas id="starfield"></canvas>
+<div class="nebula-bottom"></div>
+<div class="nebula-mid"></div>
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="serie-label">Mayor que mi Realidad es Tu Verdad · F2 · MSG3E</div>
+    <h1>La Verdad<br><em>Tiene Nombre</em></h1>
+    <div class="tesis-header">
+      <p>Antes de aprender a vivir en la verdad, debemos descubrir dónde se encuentra.<br>La verdad no es una opinión que se elige — es una persona que se conoce.</p>
+      <span class="verse-tag">Juan 14:6 · Juan 17:17 · Santiago 1:22-23 · Juan 8:32</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body">
+
+    <!-- SECCIÓN 1: EL PROBLEMA REAL -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">1</div>
+        <div class="section-title">El problema real</div>
+      </div>
+
+      <p class="mecanismo-intro">No existe la "verdad personal". <strong>Dios nunca habló de verdades a la medida.</strong> La pregunta correcta nunca ha sido "¿qué creo yo que es verdad?", sino "¿qué dice Dios que es verdad?"</p>
+
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; border-left: 4px solid var(--melocoton);">
+        <p style="font-size: 13px; color: rgba(184,209,255,0.7); line-height: 1.65; margin-bottom: 14px;">Vivimos en una cultura que ofrece un menú de verdades: mi verdad, tu verdad, la verdad de las redes, la verdad de cómo me siento hoy. Pero si Dios es verdad, <strong style="color: rgba(255,255,255,0.92);">acercarnos a él inevitablemente expone lo falso que hay en nosotros.</strong></p>
+        <div style="background: rgba(242,197,161,0.1); border-radius: 8px; padding: 14px 18px; border-left: 3px solid var(--melocoton);">
+          <p style="font-family: 'DM Serif Display', serif; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.6; text-align: center;">El criterio de discernimiento en medio del ruido:<br><strong style="font-style: normal; color: var(--melocoton);">Si algo contradice el carácter de Jesús, no puede venir de Dios.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: LA VERDAD TIENE NOMBRE -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">2</div>
+        <div class="section-title" style="color: var(--rosa);">La verdad tiene nombre · Juan 14:6a</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">«Yo soy el camino, y la verdad, y la vida.» — Juan 14:6a, RVR</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+        <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 18px 20px;">
+          <div style="font-size: 10px; color: rgba(184,209,255,0.7); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; font-weight: 700;">Lo que NO dijo</div>
+          <div style="font-size: 12px; color: rgba(255,255,255,0.92); line-height: 1.55;">"Yo conozco la verdad."<br>"Yo enseño la verdad."<br>"Yo muestro la verdad."</div>
+        </div>
+        <div style="background: rgba(204,23,110,0.12); border-radius: 12px; padding: 18px 20px; border: 1px solid rgba(204,23,110,0.25);">
+          <div style="font-size: 10px; color: var(--rosa); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; font-weight: 700;">Lo que sí dijo</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.95); line-height: 1.55; font-weight: 600;">"Yo SOY la verdad."<br><span style="font-size: 11.5px; color: rgba(184,209,255,0.7); font-weight: 400;">Declaración radical: la verdad-concepto se vuelve verdad-persona.</span></div>
+        </div>
+      </div>
+
+      <div style="background: rgba(204,23,110,0.1); border: 1.5px solid rgba(204,23,110,0.25); border-radius: 12px; padding: 18px 22px; text-align: center;">
+        <p style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.6;"><strong style="color: var(--rosa);">El cristianismo no comienza con doctrina.</strong><br>Comienza con relación.<br><span style="font-size: 12px; color: rgba(184,209,255,0.7); font-weight: 400;">Se puede pertenecer incluso antes de creer del todo.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: LA VERDAD TIENE VOZ -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">3</div>
+        <div class="section-title">La verdad tiene voz · Juan 17:17</div>
+      </div>
+
+      <p class="mecanismo-intro">En su oración antes de la cruz, Jesús no pide riqueza ni éxito para sus discípulos.<br><strong>Pide que sean santificados — apartados — por medio de la verdad.</strong></p>
+
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.2); border-radius: 14px; padding: 20px 28px; margin-bottom: 20px; text-align: center;">
+        <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; font-style: italic; color: var(--azul-claro); margin-bottom: 4px;">ἁγιάζω (hagiazō)</div>
+        <div style="font-size: 10px; color: rgba(184,209,255,0.7); letter-spacing: 1px; margin-bottom: 10px;">/ hag-ee-ad'-zo / · griego · Juan 17:17</div>
+        <div style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Apartar para Dios. Consagrar a un propósito. <strong>Santidad es pertenencia, no perfección.</strong></div>
+      </div>
+
+      <div class="highlight-box">
+        <p>Conocimiento es saber algo.<br><strong>Verdad es permitir que eso cambie la vida.</strong><br><span style="font-size: 13px; font-style: normal; color: rgba(184,209,255,0.6);">Leer sin obedecer produce información religiosa, no transformación.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4: LA VERDAD EXIGE RESPUESTA -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #059669;">4</div>
+        <div class="section-title" style="color: #059669;">La verdad exige respuesta · Santiago 1:22-23</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">«Los que oyen y no obedecen son como los que se miran en el espejo, se alejan y dos minutos después no tienen ni idea de quiénes son.» — MSG</p>
+
+      <div class="pensamientos" style="margin-bottom: 20px;">
+        <div class="pensamiento">
+          <div class="pensamiento-num">1</div>
+          <div>
+            <div class="pensamiento-frase">El engaño: escuchar equivale a obedecer</div>
+            <div class="pensamiento-efecto">Se puede tomar notas, subrayar versículos, y vivir lejos de la voluntad de Dios</div>
+          </div>
+        </div>
+        <div class="pensamiento rosa-item">
+          <div class="pensamiento-num rosa-num">2</div>
+          <div>
+            <div class="pensamiento-frase">La madurez no se mide en conocimiento</div>
+            <div class="pensamiento-efecto">Se mide en cuánto de lo que ya sabemos estamos dispuestos a obedecer</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: rgba(5,150,105,0.1); border: 1.5px solid rgba(167,243,208,0.2); border-radius: 12px; padding: 18px 22px;">
+        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.65; text-align: center;"><strong style="color: #059669;">La verdad revela.</strong><br>La obediencia transforma.<br><span style="font-size: 12px; color: rgba(184,209,255,0.6);">No es "¿qué nueva verdad aprendí?" — es "¿qué verdad debo obedecer?"</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5: LA VERDAD QUE LIBERA -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">5</div>
+        <div class="section-title">La verdad que libera · Juan 8:32</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">«Entonces experimentarán la verdad por sí mismos, y la verdad los hará libres.» — MSG</p>
+
+      <table class="tabla-contraste" style="margin-bottom: 20px;">
+        <thead>
+          <tr>
+            <th>Mentira instalada</th>
+            <th>Lo que la verdad reemplaza</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>«No soy suficiente»</td>
+            <td>Su verdad ocupa ese lugar</td>
+          </tr>
+          <tr>
+            <td>«Nunca voy a cambiar»</td>
+            <td>Su verdad ocupa ese lugar</td>
+          </tr>
+          <tr>
+            <td>«Mi pasado me define»</td>
+            <td>Su verdad ocupa ese lugar</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.25); border-radius: 12px; padding: 18px 22px; text-align: center;">
+        <p style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.6;"><strong style="color: var(--azul-claro);">Libertad no es hacer lo que quiero.</strong><br>Es tener el poder de hacer lo correcto.<br><span style="font-size: 12px; color: rgba(184,209,255,0.7); font-weight: 400;">Las mentiras pierden autoridad solo cuando la verdad ocupa su lugar — no antes.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 6: LA CADENA -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">6</div>
+        <div class="section-title" style="color: #a855f7;">Los cuatro movimientos</div>
+      </div>
+
+      <div class="flujo" style="margin-bottom: 24px;">
+        <div class="flujo-item" style="background: rgba(107,33,168,0.2); border-color: rgba(168,85,247,0.3); color: #e9d5ff;">La verdad tiene Nombre</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(0,86,241,0.15); border-color: rgba(184,209,255,0.25);">La verdad tiene Voz</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(204,23,110,0.12); border-color: rgba(204,23,110,0.25); color: rgba(255,255,255,0.92);">La verdad exige Obediencia</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(5,150,105,0.15); border-color: rgba(167,243,208,0.25); color: #a7f3d0;">La verdad produce Libertad</div>
+      </div>
+
+      <div style="background: rgba(204,23,110,0.1); border: 1.5px solid rgba(204,23,110,0.25); border-radius: 12px; padding: 18px 22px; text-align: center;">
+        <p style="font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.65;"><strong style="color: var(--rosa);">Ningún movimiento funciona sin los otros tres.</strong><br>No hay libertad sin obediencia, no hay obediencia sin una palabra que se escuche.</p>
+      </div>
+    </div>
+
+    <!-- RESUMEN ESTRATÉGICO -->
+    <div class="section" style="background: rgba(4,16,53,0.95);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">✦</div>
+        <div class="section-title" style="color: #a855f7;">Resumen estratégico</div>
+      </div>
+
+      <!-- TESIS CENTRAL -->
+      <div style="background: linear-gradient(135deg, #1a0533 0%, #0056F1 100%); border-radius: 14px; padding: 24px 28px; margin-bottom: 20px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(204,23,110,0.2); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 10px; position: relative; z-index: 2;">Tesis Central</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 15px; color: white; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">La verdad de Dios no es una opinión que se elige, sino una persona que se conoce — y solo cuando esa verdad gobierna las decisiones, no solo el conocimiento, produce <em style="color: var(--melocoton); font-style: normal;">libertad real.</em></p>
+      </div>
+
+      <!-- IDEAS CLAVE -->
+      <div style="margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #a855f7; margin-bottom: 14px;">Ideas Clave</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
+            <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">1</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Jesús no enseña la verdad ni la muestra — la <strong>es.</strong> Dejó de ser concepto abstracto para convertirse en persona con carácter verificable.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">2</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Hay una diferencia enorme entre conocimiento y verdad: conocimiento es saber algo, <strong>verdad es permitir que eso cambie la vida.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--melocoton);">
+            <div style="width: 22px; height: 22px; background: #B87A3A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">3</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Uno de los mayores engaños espirituales es creer que escuchar equivale a obedecer. <strong>Son dos cosas completamente distintas.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669;">
+            <div style="width: 22px; height: 22px; background: #059669; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">4</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">La madurez espiritual no se mide por cuánto sabemos, sino por <strong>cuánto de lo que ya sabemos obedecemos.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #6B21A8;">
+            <div style="width: 22px; height: 22px; background: #6B21A8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">5</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">La libertad no significa hacer lo que queramos; significa <strong>tener el poder real de hacer lo correcto.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul-claro);">
+            <div style="width: 22px; height: 22px; background: var(--azul-claro); color: #020B1E; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">6</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Las mentiras solo pierden autoridad cuando la verdad ocupa su lugar — <strong>nunca antes, nunca por desearlo.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">7</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Criterio de discernimiento: <strong>si algo contradice el carácter de Jesús, no puede venir de Dios.</strong></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DATO MÁS SORPRENDENTE -->
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul); margin-bottom: 10px;">⚡ Dato más sorprendente</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.7; font-style: italic;">La palabra "santificar" (<em style="font-style: normal; color: var(--azul-claro);">hagiazō</em>) no significa volverse moralmente perfecto. Significa ser apartado para un propósito específico. <strong style="font-style: normal; color: var(--azul-claro);">Santidad es pertenencia, no perfección.</strong></p>
+      </div>
+
+      <!-- ACCIÓN INMEDIATA -->
+      <div style="background: rgba(5,150,105,0.12); border: 1.5px solid rgba(167,243,208,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #059669; margin-bottom: 10px;">→ Acción inmediata</div>
+        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.75;">Identifica hoy una sola verdad que ya conoces perfectamente bien, y obedécela concretamente antes de que termine el día.</p>
+        <div style="background: rgba(5,150,105,0.15); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669; margin-top: 14px;">
+          <p style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.92); font-style: italic;">No esperes sentir ganas. La obediencia antecede al sentimiento, no lo espera.</p>
+        </div>
+      </div>
+
+      <!-- FRASE MÁS IMPACTANTE -->
+      <div style="background: linear-gradient(135deg, rgba(0,86,241,0.15) 0%, rgba(204,23,110,0.1) 100%); border-radius: 14px; border: 1.5px solid rgba(184,209,255,0.2); padding: 24px 28px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; background: rgba(204,23,110,0.12); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30px; left: -20px; width: 80px; height: 80px; background: rgba(0,86,241,0.12); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rosa); margin-bottom: 14px; position: relative; z-index: 2;">◈ Para llevarte hoy</div>
+        <blockquote style="font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.7; position: relative; z-index: 2; margin-bottom: 12px;">La libertad comienza cuando una mentira<br>pierde poder sobre nosotros, y las mentiras<br><em style="color: var(--melocoton); font-style: normal;">solo pierden autoridad cuando la verdad ocupa su lugar.</em></blockquote>
+        <div style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--azul-claro), transparent); margin: 0 auto; position: relative; z-index: 2;"></div>
+      </div>
+    </div>
+
+    <!-- FRASE FINAL -->
+    <div class="frase-final">
+      <blockquote>
+        Antes de aprender a vivir<br>en la verdad, debemos descubrir<br>dónde se <em>encuentra.</em>
+      </blockquote>
+      <div class="frase-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Tu Verdad</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-marca">LHSCOL</div>
+      <div class="footer-data">MRV · F2 · MSG3E<br>La Verdad Tiene Nombre</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+const NUM_STARS = 220;
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < NUM_STARS; i++) {
+    const isPulse = Math.random() < 0.15;
+    stars.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.5,
+      baseAlpha: Math.random() * 0.5 + 0.4, alpha: 0,
+      speed: isPulse ? (Math.random() * 0.06 + 0.06) : (Math.random() * 0.03 + 0.02),
+      phase: Math.random() * Math.PI * 2, pulse: isPulse,
+      color: Math.random() < 0.25 ? [184,209,255] : Math.random() < 0.12 ? [242,197,161] : [255,255,255]
+    });
+  }
+}
+initStars();
+const shoots = [];
+function spawnShoot() {
+  shoots.push({
+    x: Math.random() * canvas.width * 0.7, y: Math.random() * canvas.height * 0.45,
+    len: Math.random() * 140 + 80, speed: Math.random() * 7 + 6,
+    angle: Math.PI / 4 + (Math.random() * 0.4 - 0.2), alpha: 0,
+    peakAlpha: Math.random() * 0.4 + 0.6, phase: 'in',
+    decay: Math.random() * 0.02 + 0.015, rise: Math.random() * 0.06 + 0.06,
+    width: Math.random() * 1.5 + 0.8
+  });
+}
+function scheduleShoot() { setTimeout(() => { spawnShoot(); scheduleShoot(); }, Math.random() * 3000 + 2000); }
+spawnShoot(); setTimeout(spawnShoot, 800); scheduleShoot();
+function draw() {
+  requestAnimationFrame(draw);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    s.phase += s.speed;
+    let t = s.pulse ? (Math.sin(s.phase) > 0 ? Math.pow(Math.sin(s.phase), 0.5) : 0) : 0.5 + 0.5 * Math.sin(s.phase);
+    s.alpha = s.baseAlpha * (0.15 + 0.85 * t);
+    const [r,g,b] = s.color;
+    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${s.alpha})`; ctx.fill();
+    if (s.r > 1.2) {
+      const grd = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3.5);
+      grd.addColorStop(0,`rgba(${r},${g},${b},${s.alpha*0.35})`); grd.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
+    }
+  }
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const sh = shoots[i];
+    sh.x += Math.cos(sh.angle)*sh.speed; sh.y += Math.sin(sh.angle)*sh.speed;
+    if (sh.phase==='in') { sh.alpha+=sh.rise; if(sh.alpha>=sh.peakAlpha){sh.alpha=sh.peakAlpha;sh.phase='out';} }
+    else { sh.alpha-=sh.decay; }
+    if (sh.alpha<=0) { shoots.splice(i,1); continue; }
+    const tailX=sh.x-Math.cos(sh.angle)*sh.len, tailY=sh.y-Math.sin(sh.angle)*sh.len;
+    const grad=ctx.createLinearGradient(tailX,tailY,sh.x,sh.y);
+    grad.addColorStop(0,`rgba(255,255,255,0)`);
+    grad.addColorStop(0.5,`rgba(184,209,255,${sh.alpha*0.4})`);
+    grad.addColorStop(1,`rgba(255,255,255,${sh.alpha})`);
+    ctx.beginPath(); ctx.moveTo(tailX,tailY); ctx.lineTo(sh.x,sh.y);
+    ctx.strokeStyle=grad; ctx.lineWidth=sh.width; ctx.lineCap='round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.width*2,0,Math.PI*2);
+    const hgrd=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.width*2);
+    hgrd.addColorStop(0,`rgba(255,255,255,${sh.alpha})`); hgrd.addColorStop(1,`rgba(184,209,255,0)`);
+    ctx.fillStyle=hgrd; ctx.fill();
+  }
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

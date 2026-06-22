@@ -1,0 +1,84 @@
+MRV 2026 - RECURSOS
+
+Convencion de archivos:
+- Blogs: index/blogs/10-mrv-[fase]-[mensaje]-[titulo]-blg.html
+- Infografias: index/infografias/13-mrv-[fase]-[mensaje]-[titulo]-inf.html
+- Carpetas web: usar siempre blogs e infografias, en minuscula y sin tildes.
+
+
+VIDEO
+
+FASE 1: UMBRAL
+
+F1_MSG1_MAYOR_QUE_MI_REALIDAD: https://youtu.be/vOo8MTZ0a5k?si=ZhdFkOJZWpKf0tLP
+F1_MSG2_ARQUITECTOS_DE_LA_VERDAD: https://youtu.be/7TkmPtQg2mc?si=-7ScDbmGWMwPznZY
+F1_MSG3_CRUZAR_EL_UMBRAL: https://youtu.be/G_pesESYY9c?si=aquEmK66_PI1OHnE
+F1_MSG4_UNA_VIDA_EDITADA: https://youtu.be/SZW6b1t_x7I?si=c0FGNBa6h-ObAHiR
+F1_MSG5A_UNA_OBEDIENCIA_LARGA_P1: https://youtu.be/IG5sdd-d8-Y?si=mkOpH-004SnQbHbR
+F1_MSG5B_UNA_OBEDIENCIA_LARGA_P2: https://youtu.be/_fKdwgvDgl4?si=i0Gi1LVew2On1B83
+F1_MSG6A_LA_PREGUNTA_EQUIVOCADA: https://youtu.be/3miL0FuU0sk?si=v0tCW30zmt0VHurF
+F1_MSG6B_UN_DISCIPULO_ATENTO: https://youtu.be/ZPjl9PO78us?si=JHFYn3j1L2U7tdSt
+F1_MSG6C_LAVATE_LAS_MANOS: https://youtu.be/C01NAx0w5eY?si=bM_x3ObatzJTuUr2
+F1_MSG6D_LA_ENFERMEDAD_DE_LO_ORDINARIO: https://youtu.be/rLZds3O03ag?si=rCgRPJg3ur4ItIeN
+
+FASE 2: DIAGNOSTICO
+
+F2_MSG1_EL_PEZ_NO_SABE: https://youtu.be/k4qC97I_7xA?si=TTbgFYmxDqA25yvH
+F2_MSG2_CERDOS_Y_CORONAS: https://youtu.be/2UXGvGdq-QM?si=wRq36r-whrePQf9i
+F2_MSG3A_LA_NARRATIVA: https://youtu.be/yYvJAYEZOjo?si=DIOcW5sNZEro6aP5
+F2_MSG3B_PERDIDA_EN_CASA: https://youtu.be/t14hY2iWFFo
+F2_MSG3C_LAS_CUATRO_FUENTES: sin video
+F2_MSG3D_ENTRE_EL_RUIDO_Y_SU_VOZ: https://youtu.be/SR98toUSMT4
+F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: sin video registrado
+
+
+BLOG
+
+FASE 1: UMBRAL
+
+F1_MSG1_MAYOR_QUE_MI_REALIDAD: index/blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html
+F1_MSG2_ARQUITECTOS_DE_LA_VERDAD: index/blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html
+F1_MSG3_CRUZAR_EL_UMBRAL: index/blogs/10-mrv-f1-msg3-cruzar-el-umbral-blg.html
+F1_MSG4_UNA_VIDA_EDITADA: sin blog
+F1_MSG5A_UNA_OBEDIENCIA_LARGA_P1: sin blog
+F1_MSG5B_UNA_OBEDIENCIA_LARGA_P2: sin blog
+F1_MSG6A_LA_PREGUNTA_EQUIVOCADA: sin blog
+F1_MSG6B_UN_DISCIPULO_ATENTO: sin blog
+F1_MSG6C_LAVATE_LAS_MANOS: sin blog
+F1_MSG6D_LA_ENFERMEDAD_DE_LO_ORDINARIO: sin blog
+
+FASE 2: DIAGNOSTICO
+
+F2_MSG1_EL_PEZ_NO_SABE: sin blog
+F2_MSG2_CERDOS_Y_CORONAS: sin blog
+F2_MSG3A_LA_NARRATIVA: sin blog
+F2_MSG3B_PERDIDA_EN_CASA: index/blogs/10-mrv-f2-msg3b-perdida-en-casa-blg.html
+F2_MSG3C_LAS_CUATRO_FUENTES: index/blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.html
+F2_MSG3D_ENTRE_EL_RUIDO_Y_SU_VOZ: index/blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html
+F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html
+
+
+INFOGRAFIA
+
+FASE 1: UMBRAL
+
+F1_MSG1_MAYOR_QUE_MI_REALIDAD: index/infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html
+F1_MSG2_ARQUITECTOS_DE_LA_VERDAD: index/infografias/13-mrv-f1-msg2-arquitectos-de-la-verdad-inf.html
+F1_MSG3_CRUZAR_EL_UMBRAL: index/infografias/13-mrv-f1-msg3-cruzar-el-umbral-inf.html
+F1_MSG4_UNA_VIDA_EDITADA: sin info
+F1_MSG5A_UNA_OBEDIENCIA_LARGA_P1: sin info
+F1_MSG5B_UNA_OBEDIENCIA_LARGA_P2: sin info
+F1_MSG6A_LA_PREGUNTA_EQUIVOCADA: sin info
+F1_MSG6B_UN_DISCIPULO_ATENTO: sin info
+F1_MSG6C_LAVATE_LAS_MANOS: sin info
+F1_MSG6D_LA_ENFERMEDAD_DE_LO_ORDINARIO: sin info
+
+FASE 2: DIAGNOSTICO
+
+F2_MSG1_EL_PEZ_NO_SABE: sin info
+F2_MSG2_CERDOS_Y_CORONAS: sin info
+F2_MSG3A_LA_NARRATIVA: index/infografias/13-mrv-f2-msg3a-la-narrativa-inf.html
+F2_MSG3B_PERDIDA_EN_CASA: index/infografias/13-mrv-f2-msg3b-perdida-en-casa-inf.html
+F2_MSG3C_LAS_CUATRO_FUENTES: index/infografias/13-mrv-f2-msg3c-las-cuatro-fuentes-inf.html
+F2_MSG3D_ENTRE_EL_RUIDO_Y_SU_VOZ: index/infografias/13-mrv-f2-msg3d-entre-el-ruido-y-su-voz-inf.html
+F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/infografias/13-mrv-f2-msg3e-la-verdad-tiene-nombre-inf.html
