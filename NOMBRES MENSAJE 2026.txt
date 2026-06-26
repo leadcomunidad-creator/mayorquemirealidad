@@ -31,6 +31,9 @@ F2_MSG3C_LAS_CUATRO_FUENTES: sin video
 F2_MSG3D_ENTRE_EL_RUIDO_Y_SU_VOZ: https://youtu.be/SR98toUSMT4
 F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: sin video registrado
 
+EPISODIO ESPECIAL: LA SALA Podcast
+Pendiente
+
 
 BLOG
 
@@ -57,6 +60,9 @@ F2_MSG3C_LAS_CUATRO_FUENTES: index/blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.
 F2_MSG3D_ENTRE_EL_RUIDO_Y_SU_VOZ: index/blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html
 F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html
 
+EPISODIO ESPECIAL: LA SALA Podcast
+Pendiente
+
 
 INFOGRAFIA
 
@@ -82,3 +88,7 @@ F2_MSG3B_PERDIDA_EN_CASA: index/infografias/13-mrv-f2-msg3b-perdida-en-casa-inf.
 F2_MSG3C_LAS_CUATRO_FUENTES: index/infografias/13-mrv-f2-msg3c-las-cuatro-fuentes-inf.html
 F2_MSG3D_ENTRE_EL_RUIDO_Y_SU_VOZ: index/infografias/13-mrv-f2-msg3d-entre-el-ruido-y-su-voz-inf.html
 F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/infografias/13-mrv-f2-msg3e-la-verdad-tiene-nombre-inf.html
+
+EPISODIO ESPECIAL: LA SALA Podcast
+index/infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html
+URL bonita: /Info/temintieron

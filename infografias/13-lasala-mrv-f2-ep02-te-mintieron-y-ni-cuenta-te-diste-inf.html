@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Te Mintieron y ni Cuenta te Diste · LA SALA</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #A8FF3E;
+    --verde-dim: #6B9E2B;
+    --negro: #000000;
+    --panel: #0D0D0D;
+    --panel-2: #131313;
+    --linea: #232323;
+    --blanco: #FFFFFF;
+    --gris: #8A8A8A;
+    --gris-claro: #B8B8B8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--negro);
+    display: flex;
+    justify-content: center;
+    padding: 36px 16px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .stage {
+    width: 800px;
+    max-width: 100%;
+    background: var(--negro);
+    position: relative;
+    border: 1px solid var(--linea);
+  }
+
+  /* ══════════════════════════════════
+     TICKER SUPERIOR — barra "on air"
+  ══════════════════════════════════ */
+  .ticker-bar {
+    background: var(--verde);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 7px 0;
+    position: relative;
+  }
+
+  .ticker-track {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--negro);
+    text-transform: uppercase;
+    animation: ticker-scroll 22s linear infinite;
+  }
+
+  .ticker-track span { margin: 0 28px; }
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ══════════════════════════════════
+     HEADER — "ON AIR" / cabecera de show
+  ══════════════════════════════════ */
+  .header {
+    background: var(--negro);
+    padding: 0 0 0 0;
+    border-bottom: 1px solid var(--linea);
+    position: relative;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 40px 0;
+  }
+
+  .show-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .show-mark-icon {
+    width: 34px; height: 34px;
+    border: 2px solid var(--verde);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .show-mark-icon::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--verde);
+    border-radius: 50%;
+  }
+
+  .show-mark-text {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--blanco);
+    line-height: 1;
+  }
+
+  .show-mark-text span { color: var(--verde); }
+
+  .onair-tag {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gris);
+    text-transform: uppercase;
+  }
+
+  .onair-dot {
+    width: 7px; height: 7px;
+    background: var(--verde);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--verde);
+  }
+
+  .ep-meta-row {
+    padding: 36px 40px 32px;
+  }
+
+  .ep-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--verde);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .ep-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    color: var(--gris);
+    letter-spacing: 0.5px;
+    margin-bottom: 26px;
+  }
+
+  .ep-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    color: var(--blanco);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+
+  .ep-title .hl {
+    background: var(--verde);
+    color: var(--negro);
+    padding: 0 6px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .ep-hook {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--gris-claro);
+    margin-top: 22px;
+    max-width: 520px;
+    line-height: 1.55;
+    border-left: 2px solid var(--verde);
+    padding-left: 16px;
+  }
+
+  /* ── EQ BAR (firma visual) ── */
+  .eq-divider {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 28px;
+    padding: 0 40px;
+    margin-top: 30px;
+  }
+
+  .eq-bar {
+    flex: 1;
+    background: var(--verde);
+    opacity: 0.85;
+    animation: eq-bounce 1.4s ease-in-out infinite;
+  }
+
+  @keyframes eq-bounce {
+    0%, 100% { height: 20%; }
+    50% { height: 100%; }
+  }
+
+  /* ══════════════════════════════════
+     PANEL — invitados
+  ══════════════════════════════════ */
+  .panel-strip {
+    display: flex;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .panel-card {
+    flex: 1;
+    padding: 18px 16px;
+    border-right: 1px solid var(--linea);
+    text-align: center;
+  }
+
+  .panel-card:last-child { border-right: none; }
+
+  .panel-card.mod { background: var(--panel); }
+
+  .panel-role {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--verde-dim);
+    margin-bottom: 6px;
+  }
+
+  .panel-card.mod .panel-role { color: var(--verde); }
+
+  .panel-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    color: var(--blanco);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  /* ══════════════════════════════════
+     BODY — segmentos del programa
+  ══════════════════════════════════ */
+  .segment {
+    padding: 38px 40px;
+    border-bottom: 1px solid var(--linea);
+    position: relative;
+  }
+
+  .segment:nth-child(odd) { background: var(--panel); }
+
+  .seg-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .seg-timestamp {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--negro);
+    background: var(--verde);
+    padding: 3px 9px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .seg-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  .seg-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px;
+    color: var(--blanco);
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  .seg-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--gris-claro);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .seg-text:last-child { margin-bottom: 0; }
+
+  .seg-text strong {
+    color: var(--blanco);
+    font-weight: 700;
+  }
+
+  .seg-text em { color: var(--verde); font-style: normal; font-weight: 600; }
+
+  /* Término clave — estilo "diccionario de calle" */
+  .termino-box {
+    margin: 20px 0;
+    background: var(--negro);
+    border: 1px solid var(--linea);
+    border-left: 3px solid var(--verde);
+    padding: 16px 20px;
+  }
+
+  .termino-titulo {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 8px;
+  }
+
+  .termino-palabra {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 17px;
+    color: var(--verde);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .termino-def {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--gris-claro);
+    line-height: 1.6;
+  }
+
+  /* Pregunta para el sillón — tarjeta tipo "mic drop" */
+  .mic-drop {
+    margin-top: 22px;
+    background: var(--negro);
+    border: 1.5px dashed var(--verde-dim);
+    padding: 18px 22px;
+    position: relative;
+  }
+
+  .mic-drop-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 10px;
+  }
+
+  .mic-drop-tag::before {
+    content: '🎙';
+    font-size: 11px;
+  }
+
+  .mic-drop p {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--blanco);
+    line-height: 1.55;
+  }
+
+  /* Cita destacada / quote bar */
+  .quote-bar {
+    margin: 26px 0 0;
+    padding: 22px 26px;
+    background: var(--verde);
+    position: relative;
+  }
+
+  .quote-bar p {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 17px;
+    color: var(--negro);
+    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+  }
+
+  /* ══════════════════════════════════
+     RESUMEN ESTRATÉGICO — "rundown"
+  ══════════════════════════════════ */
+  .rundown {
+    background: var(--negro);
+    padding: 40px 40px 8px;
+  }
+
+  .rundown-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .rundown-num {
+    width: 30px; height: 30px;
+    background: var(--verde);
+    color: var(--negro);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .rundown-head-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--verde);
+  }
+
+  .tesis-block {
+    background: var(--panel);
+    border: 1px solid var(--linea);
+    padding: 24px 26px;
+    margin-bottom: 28px;
+  }
+
+  .tesis-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 12px;
+  }
+
+  .tesis-block p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: var(--gris-claro);
+    line-height: 1.75;
+  }
+
+  .tesis-block p strong { color: var(--blanco); }
+
+  /* Lista de ideas — formato "guion / rundown list" */
+  .cuelist {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+  }
+
+  .cue-item {
+    display: flex;
+    gap: 18px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .cue-item:first-child { border-top: 1px solid var(--linea); }
+
+  .cue-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--verde);
+    flex-shrink: 0;
+    width: 28px;
+    padding-top: 1px;
+  }
+
+  .cue-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--gris-claro);
+    line-height: 1.65;
+  }
+
+  .cue-text strong { color: var(--blanco); font-weight: 700; }
+
+  /* ── Cápsulas de datos: sorprendente / acción ── */
+  .data-caps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 30px 0;
+  }
+
+  .cap-box {
+    background: var(--panel);
+    border: 1px solid var(--linea);
+    padding: 20px 20px;
+  }
+
+  .cap-box.full { grid-column: 1 / -1; }
+
+  .cap-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cap-tag.sorp { color: var(--verde); }
+  .cap-tag.accion { color: var(--gris-claro); }
+
+  .cap-box p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--gris-claro);
+    line-height: 1.65;
+  }
+
+  .cap-box p strong { color: var(--blanco); }
+
+  /* ══════════════════════════════════
+     FRASE FINAL — pantalla negra de cierre
+  ══════════════════════════════════ */
+  .blackout {
+    background: var(--negro);
+    padding: 56px 40px;
+    text-align: center;
+    border-top: 1px solid var(--linea);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blackout-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--verde-dim);
+    margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+
+  .blackout blockquote {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(22px, 4vw, 32px);
+    color: var(--blanco);
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    position: relative; z-index: 2;
+    margin-bottom: 8px;
+  }
+
+  .blackout blockquote em {
+    color: var(--verde);
+    font-style: normal;
+  }
+
+  .blackout-sub {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--gris);
+    margin-top: 18px;
+    position: relative; z-index: 2;
+  }
+
+  /* ── EQ decorativo en blackout ── */
+  .eq-bg {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 60px;
+    padding: 0 40px;
+    opacity: 0.12;
+  }
+
+  .eq-bg .bar {
+    flex: 1;
+    background: var(--verde);
+    animation: eq-bounce 1.6s ease-in-out infinite;
+  }
+
+  /* ══════════════════════════════════
+     FOOTER
+  ══════════════════════════════════ */
+  .footer {
+    background: var(--verde);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--negro);
+    text-transform: uppercase;
+  }
+
+  .footer-data {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--negro);
+    text-align: right;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+  }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 600px) {
+    body { padding: 0; }
+    .stage { border: none; }
+    .header-top { padding: 22px 22px 0; }
+    .ep-meta-row { padding: 26px 22px 24px; }
+    .ep-title { font-size: 32px; }
+    .eq-divider { padding: 0 22px; margin-top: 24px; }
+    .panel-card { padding: 14px 8px; }
+    .panel-name { font-size: 11px; }
+    .segment { padding: 28px 22px; }
+    .seg-title { font-size: 19px; }
+    .rundown { padding: 30px 22px 8px; }
+    .tesis-block { padding: 20px 18px; }
+    .data-caps { grid-template-columns: 1fr; }
+    .blackout { padding: 40px 22px; }
+    .eq-bg { padding: 0 22px; }
+    .footer { padding: 14px 22px; flex-direction: column; gap: 8px; text-align: center; }
+    .footer-data { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <span>LA SALA · EN VIVO</span>
+      <span>★</span>
+      <span>MAYOR QUE MI REALIDAD ES SU VERDAD · FASE 2</span>
+      <span>★</span>
+      <span>EPISODIO 02</span>
+      <span>★</span>
+      <span>LA SALA · EN VIVO</span>
+      <span>★</span>
+      <span>MAYOR QUE MI REALIDAD ES SU VERDAD · FASE 2</span>
+      <span>★</span>
+      <span>EPISODIO 02</span>
+      <span>★</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="show-mark">
+        <div class="show-mark-icon"></div>
+        <div class="show-mark-text">LA<span>SALA</span></div>
+      </div>
+      <div class="onair-tag"><div class="onair-dot"></div> Episodio 02</div>
+    </div>
+
+    <div class="ep-meta-row">
+      <div class="ep-label">La Narrativa · Diagnóstico de Mentalidad</div>
+      <div class="ep-sub">1 SAMUEL 17:45–46 · 2 CORINTIOS 10:4–5</div>
+      <h1 class="ep-title">Te Mintieron<br>y ni <span class="hl">Cuenta</span><br>te Diste</h1>
+      <p class="ep-hook">Hay una mentira que no se siente como mentira. Se siente como tu propia voz.</p>
+    </div>
+
+    <div class="eq-divider">
+      <div class="eq-bar" style="animation-delay: 0s"></div>
+      <div class="eq-bar" style="animation-delay: 0.1s"></div>
+      <div class="eq-bar" style="animation-delay: 0.2s"></div>
+      <div class="eq-bar" style="animation-delay: 0.05s"></div>
+      <div class="eq-bar" style="animation-delay: 0.3s"></div>
+      <div class="eq-bar" style="animation-delay: 0.15s"></div>
+      <div class="eq-bar" style="animation-delay: 0.25s"></div>
+      <div class="eq-bar" style="animation-delay: 0.4s"></div>
+      <div class="eq-bar" style="animation-delay: 0.08s"></div>
+      <div class="eq-bar" style="animation-delay: 0.35s"></div>
+      <div class="eq-bar" style="animation-delay: 0.18s"></div>
+      <div class="eq-bar" style="animation-delay: 0.22s"></div>
+      <div class="eq-bar" style="animation-delay: 0.12s"></div>
+      <div class="eq-bar" style="animation-delay: 0.45s"></div>
+      <div class="eq-bar" style="animation-delay: 0.02s"></div>
+    </div>
+    <div style="height:28px"></div>
+  </div>
+
+  <!-- PANEL DE INVITADOS -->
+  <div class="panel-strip">
+    <div class="panel-card mod">
+      <div class="panel-role">Modera</div>
+      <div class="panel-name">Juan Mejía</div>
+    </div>
+    <div class="panel-card">
+      <div class="panel-role">En el sillón</div>
+      <div class="panel-name">War</div>
+    </div>
+    <div class="panel-card">
+      <div class="panel-role">En el sillón</div>
+      <div class="panel-name">Daniela</div>
+    </div>
+    <div class="panel-card">
+      <div class="panel-role">En el sillón</div>
+      <div class="panel-name">Jimmy Carpio</div>
+    </div>
+  </div>
+
+  <!-- SEGMENTO 1 -->
+  <div class="segment">
+    <div class="seg-head">
+      <span class="seg-timestamp">01</span>
+      <span class="seg-label">El mecanismo</span>
+    </div>
+    <h2 class="seg-title">Así se instala una mentira sin que nadie mienta</h2>
+    <p class="seg-text">Una narrativa no necesita falsificar los datos. Solo necesita torcer la interpretación — y sostenerla con dos combustibles: <em>emoción y repetición.</em></p>
+    <p class="seg-text">Goliat lo demostró sin pelear: cuarenta días, dos veces al día, <strong>ochenta repeticiones</strong> del mismo desafío. No venció a Israel con su lanza. Venció con un discurso que nadie cuestionó porque nadie lo identificó como discurso — lo sintieron como realidad.</p>
+
+    <div class="termino-box">
+      <div class="termino-titulo">Término clave · griego</div>
+      <div class="termino-palabra">Νοῦς · Nous</div>
+      <div class="termino-def">El sistema de procesamiento desde donde se interpreta toda la realidad. No es solo el cerebro: es el filtro espiritual que decide qué significa lo que ves.</div>
+    </div>
+
+    <p class="seg-text"><strong>La trampa:</strong> un marco mental no se siente como un lente. Se siente como objetividad.</p>
+  </div>
+
+  <!-- SEGMENTO 2 -->
+  <div class="segment">
+    <div class="seg-head">
+      <span class="seg-timestamp">02</span>
+      <span class="seg-label">Lucas 15 · La moneda perdida</span>
+    </div>
+    <h2 class="seg-title">La moneda con polvo: la pérdida que no duele</h2>
+    <p class="seg-text">No toda mentira instalada se siente como crisis. La mayoría se siente como <em>normalidad.</em></p>
+    <p class="seg-text">La moneda de Lucas 15 no sabe que está perdida. No siente el rincón. No elige caer — simplemente queda cubierta de polvo hasta que alguien la busca. Ese polvo no cambia lo que vale. Solo la vuelve invisible, primero para los demás, después para ella misma.</p>
+
+    <div class="mic-drop">
+      <div class="mic-drop-tag">War trae al sillón</div>
+      <p>¿Cuál es el "estoy bien" que en realidad lleva años acumulando polvo?</p>
+    </div>
+  </div>
+
+  <!-- SEGMENTO 3 -->
+  <div class="segment">
+    <div class="seg-head">
+      <span class="seg-timestamp">03</span>
+      <span class="seg-label">Éxodo · El desierto de Moisés</span>
+    </div>
+    <h2 class="seg-title">La voz que tenía más autoridad</h2>
+    <p class="seg-text">El problema de Moisés en el desierto nunca fue que Dios no estuviera disponible. Fue que cuarenta años de una sola voz —fracaso, exilio, "¿quién soy yo?"— habían ocupado todo el espacio auditivo interno. <strong>No había lugar para escuchar otra cosa.</strong></p>
+
+    <div class="quote-bar">
+      <p>La voz que más escuchas termina teniendo más autoridad que la que solo escuchas ocasionalmente — no por ser más cierta, sino por ser más familiar.</p>
+    </div>
+
+    <div class="mic-drop">
+      <div class="mic-drop-tag">Daniela trae al sillón</div>
+      <p>¿Qué voz lleva más tiempo hablando en tu vida — y qué tendría que pasar para que otra voz se vuelva igual de familiar?</p>
+    </div>
+  </div>
+
+  <!-- SEGMENTO 4 -->
+  <div class="segment">
+    <div class="seg-head">
+      <span class="seg-timestamp">04</span>
+      <span class="seg-label">2 Corintios 10 · El reemplazo</span>
+    </div>
+    <h2 class="seg-title">La verdad tiene nombre</h2>
+    <p class="seg-text">Vivimos en una época de "mi verdad" y "tu verdad". Pero la pregunta que importa nunca fue qué creo que es verdad — es <strong>qué dice el Padre que es verdad.</strong></p>
+    <p class="seg-text">Y esa verdad no es una idea que se debate. Tiene nombre: Jesús. Tiene voz: la Palabra. Exige una respuesta: obediencia. Y produce un resultado verificable: libertad.</p>
+
+    <div class="termino-box">
+      <div class="termino-titulo">La regla del reemplazo</div>
+      <div class="termino-def" style="font-size:14px; color: var(--blanco);">Una mentira no pierde autoridad por ser refutada. La pierde cuando la Verdad ocupa físicamente su lugar.</div>
+    </div>
+
+    <div class="mic-drop">
+      <div class="mic-drop-tag">Jimmy trae al sillón</div>
+      <p>¿Qué mentira sobre ti mismo sigue de pie simplemente porque nadie ha puesto la Verdad en su lugar todavía?</p>
+    </div>
+  </div>
+
+  <!-- RUNDOWN — RESUMEN ESTRATÉGICO -->
+  <div class="rundown">
+    <div class="rundown-head">
+      <div class="rundown-num">✦</div>
+      <div class="rundown-head-title">Rundown del episodio</div>
+    </div>
+
+    <div class="tesis-block">
+      <div class="tesis-tag">Tesis central</div>
+      <p>Tu mentalidad no es tuya. La construyeron cuatro fuentes —familia, dolor, cultura, religiosidad mal enseñada— antes de que tuvieras edad para elegir. Y lo que fue construido por repetición solo se puede reconstruir por la misma vía: <strong>exposición sostenida a una Voz distinta, anclada en una Verdad que tiene nombre.</strong></p>
+    </div>
+
+    <div class="tesis-tag" style="margin-bottom: 4px;">Ideas que se cruzan en la conversación</div>
+    <div class="cuelist">
+      <div class="cue-item">
+        <div class="cue-num">01</div>
+        <div class="cue-text">Una narrativa no necesita ser verdad para gobernarte. Solo necesita ser <strong>repetida con suficiente emoción.</strong></div>
+      </div>
+      <div class="cue-item">
+        <div class="cue-num">02</div>
+        <div class="cue-text">La mentalidad capturada nunca se siente capturada. <strong>Se siente lúcida</strong> — esa es su trampa más sofisticada.</div>
+      </div>
+      <div class="cue-item">
+        <div class="cue-num">03</div>
+        <div class="cue-text">No toda narrativa instalada duele. Algunas se sienten exactamente como <strong>paz, como carácter, como "así soy yo".</strong></div>
+      </div>
+      <div class="cue-item">
+        <div class="cue-num">04</div>
+        <div class="cue-text">Las cuatro fuentes —familia, dolor, cultura, religiosidad mal enseñada— rara vez actúan solas. Se refuerzan en capas hasta que el sistema parece <strong>evidencia, no construcción.</strong></div>
+      </div>
+      <div class="cue-item">
+        <div class="cue-num">05</div>
+        <div class="cue-text">Reemplazar una narrativa no es un evento de un domingo. Es una <strong>práctica cotidiana</strong> de exposición a una voz distinta hasta que esa voz se vuelva más familiar que la antigua.</div>
+      </div>
+      <div class="cue-item">
+        <div class="cue-num">06</div>
+        <div class="cue-text">No se trata de cambiar una narrativa por otra narrativa. Se trata de <strong>cambiar una narrativa por una Persona.</strong></div>
+      </div>
+      <div class="cue-item">
+        <div class="cue-num">07</div>
+        <div class="cue-text">David no venció a Goliat con mejor información. Venció con un marco mental distinto, anclado en <strong>un nombre que el ejército entero había dejado de pronunciar.</strong></div>
+      </div>
+    </div>
+
+    <div class="data-caps">
+      <div class="cap-box">
+        <div class="cap-tag sorp">⚡ Dato sorprendente</div>
+        <p>Goliat no desafió a Israel una sola vez. Lo hizo <strong>ochenta veces</strong> —cuarenta días, dos repeticiones diarias— sin que un solo soldado se le acercara.</p>
+      </div>
+      <div class="cap-box">
+        <div class="cap-tag accion">→ Acción inmediata</div>
+        <p>Antes del episodio: identifica una creencia sobre ti, sobre el Padre o sobre los demás, y pregúntate <strong>de cuál de las cuatro fuentes vino.</strong></p>
+      </div>
+      <div class="cap-box full">
+        <div class="cap-tag sorp">◈ Frase más impactante</div>
+        <p style="font-family:'Archivo Black', sans-serif; text-transform:uppercase; color: var(--verde); font-size:15px; line-height:1.4;">"La voz que más escuchas termina teniendo más autoridad que la voz que solo escuchas ocasionalmente."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLACKOUT / CIERRE -->
+  <div class="blackout">
+    <div class="eq-bg">
+      <div class="bar" style="animation-delay:0s"></div><div class="bar" style="animation-delay:0.1s"></div><div class="bar" style="animation-delay:0.2s"></div><div class="bar" style="animation-delay:0.05s"></div><div class="bar" style="animation-delay:0.3s"></div><div class="bar" style="animation-delay:0.15s"></div><div class="bar" style="animation-delay:0.25s"></div><div class="bar" style="animation-delay:0.4s"></div><div class="bar" style="animation-delay:0.08s"></div><div class="bar" style="animation-delay:0.35s"></div><div class="bar" style="animation-delay:0.18s"></div><div class="bar" style="animation-delay:0.22s"></div><div class="bar" style="animation-delay:0.12s"></div><div class="bar" style="animation-delay:0.45s"></div><div class="bar" style="animation-delay:0.02s"></div><div class="bar" style="animation-delay:0.28s"></div><div class="bar" style="animation-delay:0.06s"></div><div class="bar" style="animation-delay:0.38s"></div><div class="bar" style="animation-delay:0.14s"></div><div class="bar" style="animation-delay:0.42s"></div>
+    </div>
+    <div class="blackout-eyebrow">Cierre del episodio</div>
+    <blockquote>Hay una narrativa que lleva tanto tiempo hablando en ti<br>que ya no la distingues de <em>tu propia voz.</em><br>Hoy no la vamos a explicar otra vez.<br>La vamos a <em>confesar.</em></blockquote>
+    <div class="blackout-sub">LA SALA · MRV · Fase 2 · Episodio 02</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-marca">LHSCOL · La Sala</div>
+    <div class="footer-data">MRV · F2 · EP02<br>Te Mintieron y ni Cuenta te Diste</div>
+  </div>
+
+</div>
+</body>
+</html>
