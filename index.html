@@ -17,7 +17,7 @@
 <meta name="twitter:title" content="Mayor que mi Realidad · LHSCOL 2026">
 <meta name="twitter:description" content="Una ruta formativa para caminar sobre las verdades del Padre.">
 <meta name="twitter:image" content="https://mayorquemirealidad.netlify.app/preview.png">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --azul: #0056F1;
@@ -289,13 +289,55 @@
     padding: 0 24px;
   }
 
+  .tabs-scroll-area {
+    position: relative;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .tabs-fade {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 36px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .tabs-fade-right {
+    right: 0;
+    background: linear-gradient(to right, transparent, rgba(2,11,30,0.95) 70%);
+  }
+  .tabs-fade-left {
+    left: 0;
+    background: linear-gradient(to left, transparent, rgba(2,11,30,0.95) 70%);
+  }
+  .tabs-fade.visible { opacity: 1; }
+
+  .tabs-scroll-hint {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 18px; height: 18px;
+    color: var(--azul-claro);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s;
+    animation: tabsPulse 1.6s ease-in-out infinite;
+  }
+  .tabs-scroll-hint.visible { opacity: 0.85; }
+  @keyframes tabsPulse {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(4px); }
+  }
+
   .tabs {
     display: flex;
     gap: 0;
     overflow-x: auto;
     scrollbar-width: none;
-    max-width: 920px;
-    margin: 0 auto;
   }
   .tabs::-webkit-scrollbar { display: none; }
 
@@ -337,6 +379,280 @@
     background: rgba(204,23,110,0.2);
     color: rgba(204,23,110,0.8);
     border: 1px solid rgba(204,23,110,0.25);
+  }
+
+  /* ── TAB LA SALA (acento distinto · separado de las fases) ── */
+  .tabs-sep {
+    flex-shrink: 0;
+    width: 1px;
+    align-self: center;
+    height: 22px;
+    background: var(--linea);
+    margin: 0 6px;
+  }
+
+  .tab-sala { color: rgba(168,255,62,0.65); }
+  .tab-sala:hover { color: #A8FF3E; }
+  .tab-sala.active { color: #A8FF3E; border-bottom-color: #A8FF3E; }
+
+  .tab-badge-sala {
+    background: rgba(168,255,62,0.14);
+    color: #A8FF3E;
+    border: 1px solid rgba(168,255,62,0.3);
+  }
+
+  /* ── SECCIÓN LA SALA — identidad visual propia ── */
+  .sala-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(10,10,10,0.55), rgba(4,16,53,0.55));
+    border: 1px solid rgba(168,255,62,0.18);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+  }
+  .sala-header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(168,255,62,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  .sala-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    color: rgba(168,255,62,0.2);
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .sala-kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #A8FF3E;
+    margin-bottom: 6px;
+  }
+  .sala-kicker-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #A8FF3E;
+    box-shadow: 0 0 8px #A8FF3E;
+    flex-shrink: 0;
+  }
+
+  .sala-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .sala-titulo em { font-style: italic; color: #A8FF3E; }
+
+  .sala-concepto {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--texto-medio);
+    line-height: 1.7;
+    max-width: 580px;
+  }
+
+  .sala-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .sala-meta-item {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .sala-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #A8FF3E;
+    flex-shrink: 0;
+  }
+
+  /* ── CARD DE EPISODIO · LA SALA ── */
+  .sala-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .sala-card {
+    background: #0A0A0A;
+    border: 1px solid #232323;
+    border-radius: 14px;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .sala-card:hover {
+    border-color: rgba(168,255,62,0.4);
+    transform: translateY(-1px);
+  }
+  .sala-card::before {
+    content: '';
+    width: 4px;
+    flex-shrink: 0;
+    background: #A8FF3E;
+  }
+
+  .sala-card-inner {
+    flex: 1;
+    padding: 22px 26px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .sala-card-icon {
+    width: 38px; height: 38px;
+    border: 2px solid #A8FF3E;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+  }
+  .sala-card-icon::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: #A8FF3E;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #A8FF3E;
+  }
+
+  .sala-card-body { flex: 1; min-width: 0; }
+
+  .sala-card-kicker {
+    font-family: 'Space Mono', 'DM Sans', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8A8A8A;
+    margin-bottom: 6px;
+  }
+  .sala-card-kicker span { color: #A8FF3E; }
+
+  .sala-card-titulo {
+    font-family: 'Archivo Black', 'Playfair Display', sans-serif;
+    font-size: clamp(16px, 2vw, 19px);
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: -0.2px;
+    margin-bottom: 8px;
+  }
+
+  .sala-card-tesis {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #B8B8B8;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .sala-card-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .sala-pill {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #B8B8B8;
+    background: #131313;
+    border: 1px solid #232323;
+    padding: 3px 9px;
+    border-radius: 100px;
+  }
+  .sala-pill.mod { color: #A8FF3E; border-color: rgba(168,255,62,0.3); }
+
+  .sala-card-acciones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn-sala {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.18s;
+    border: 1px solid rgba(168,255,62,0.35);
+    background: rgba(168,255,62,0.1);
+    color: #A8FF3E;
+    outline: none;
+  }
+  .btn-sala:hover { background: rgba(168,255,62,0.2); border-color: #A8FF3E; }
+  .btn-sala svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+  .btn-sala.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+
+  /* ── PRÓXIMO EPISODIO (placeholder) ── */
+  .sala-card.pronto {
+    opacity: 0.5;
+  }
+  .sala-card.pronto::before { background: #3a3a3a; }
+  .sala-card.pronto .sala-card-icon { border-color: #3a3a3a; }
+  .sala-card.pronto .sala-card-icon::before { background: #3a3a3a; box-shadow: none; }
+
+  .sala-pronto-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #6B6B6B;
+    background: #131313;
+    border: 1px solid #232323;
+    padding: 4px 10px;
+    border-radius: 100px;
+    align-self: flex-start;
+    margin-top: 2px;
+    flex-shrink: 0;
   }
 
   /* ── FASE PANEL ── */
@@ -683,6 +999,41 @@
     transition: transform 0.2s;
   }
   .hero-cta:hover .cta-arrow { transform: translateY(3px); }
+
+  /* ── HERO CTA · LA SALA (acceso directo, acento verde) ── */
+  .hero-cta-sala {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    padding: 14px 28px;
+    background: rgba(168,255,62,0.1);
+    border: 1px solid rgba(168,255,62,0.3);
+    border-radius: 100px;
+    color: #A8FF3E;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.85s forwards;
+  }
+  .hero-cta-sala:hover {
+    background: rgba(168,255,62,0.2);
+    border-color: rgba(168,255,62,0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(168,255,62,0.15);
+  }
+  .sala-cta-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #A8FF3E;
+    box-shadow: 0 0 8px #A8FF3E;
+    flex-shrink: 0;
+  }
 
   /* ══════════════════════════════════════════
      SECCIÓN INTRODUCCIÓN — INMERSIVA
@@ -1478,6 +1829,14 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </a>
+
+        <a class="hero-cta-sala" onclick="goToSala()" style="opacity:1;animation:none;">
+          <span class="sala-cta-dot"></span>
+          Episodios especiales · La Sala
+          <div class="cta-arrow" style="background:rgba(168,255,62,0.18)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -1877,12 +2236,19 @@
 
     <!-- TABS DE FASE -->
   <div class="tabs-wrapper">
-    <div class="tabs" role="tablist">
-      <button class="tab active" onclick="showFase('f1')" role="tab">F1 · Umbral</button>
-      <button class="tab" onclick="showFase('f2')" role="tab">F2 · Diagnóstico</button>
-      <button class="tab" onclick="showFase('f3')" role="tab">F3 · Manifiesto <span class="tab-badge">Pronto</span></button>
-      <button class="tab" onclick="showFase('f4')" role="tab">F4 · Protocolo <span class="tab-badge">Pronto</span></button>
-      <button class="tab" onclick="showFase('f5')" role="tab">F5 · Estilo de Vida <span class="tab-badge">Pronto</span></button>
+    <div class="tabs-scroll-area">
+      <div class="tabs" role="tablist" id="tabs-track">
+        <button class="tab active" onclick="showFase('f1')" role="tab">F1 · Umbral</button>
+        <button class="tab" onclick="showFase('f2')" role="tab">F2 · Diagnóstico</button>
+        <button class="tab" onclick="showFase('f3')" role="tab">F3 · Manifiesto <span class="tab-badge">Pronto</span></button>
+        <button class="tab" onclick="showFase('f4')" role="tab">F4 · Protocolo <span class="tab-badge">Pronto</span></button>
+        <button class="tab" onclick="showFase('f5')" role="tab">F5 · Estilo de Vida <span class="tab-badge">Pronto</span></button>
+        <span class="tabs-sep" aria-hidden="true"></span>
+        <button class="tab tab-sala" onclick="showFase('fesp')" role="tab">★ La Sala <span class="tab-badge tab-badge-sala">1 episodio</span></button>
+      </div>
+      <div class="tabs-fade tabs-fade-left" id="tabs-fade-left"></div>
+      <div class="tabs-fade tabs-fade-right" id="tabs-fade-right"></div>
+      <svg class="tabs-scroll-hint" id="tabs-scroll-hint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
     </div>
   </div>
 
@@ -2345,6 +2711,67 @@
     </div>
   </div>
 
+  <!-- ══════════════════════════════════════════════
+       LA SALA — EPISODIOS ESPECIALES (transversal a la temporada)
+  ══════════════════════════════════════════════ -->
+  <div class="fase-panel" id="fesp">
+
+    <div class="sala-header reveal">
+      <div class="sala-num">★</div>
+      <div class="fase-info">
+        <div class="sala-kicker"><span class="sala-kicker-dot"></span> La Sala · Podcast</div>
+        <h2 class="sala-titulo">Episodios <em>Especiales</em></h2>
+        <p class="sala-concepto">
+          La Sala es una conversación que ocurre después de varios mensajes — un espacio donde lo enseñado se discute, se confronta y se aterriza en voz alta.
+          No es una fase de la temporada ni un mensaje más: es un podcast transversal que acompaña toda la temporada, recogiendo y profundizando lo ya enseñado en una conversación distinta.
+        </p>
+        <div class="sala-meta">
+          <div class="sala-meta-item"><div class="sala-dot"></div> 1 episodio publicado</div>
+          <div class="sala-meta-item"><div class="sala-dot"></div> Conecta con MRV · Fase 2</div>
+          <div class="sala-meta-item"><div class="sala-dot" style="background:var(--melocoton)"></div> Formato conversación</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sala-lista">
+
+      <!-- EP 02 -->
+      <div class="sala-card reveal">
+        <div class="sala-card-inner">
+          <div class="sala-card-icon"></div>
+          <div class="sala-card-body">
+            <div class="sala-card-kicker"><span>EP. 02</span> · LA SALA · Conecta con MRV F2</div>
+            <div class="sala-card-titulo">Te Mintieron y ni Cuenta te Diste</div>
+            <div class="sala-card-tesis">Hay una mentira que no se siente como mentira. Se siente como tu propia voz. Una conversación sobre cómo se instalan las narrativas que gobiernan sin que las cuestionemos.</div>
+            <div class="sala-card-panel">
+              <span class="sala-pill mod">Modera · Juan Mejía</span>
+              <span class="sala-pill">War</span>
+              <span class="sala-pill">Daniela</span>
+              <span class="sala-pill">Jimmy Carpio</span>
+            </div>
+            <div class="sala-card-acciones">
+              <a href="/Info/temintieron" target="_blank" class="btn-sala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/></svg>Ver episodio</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRÓXIMO EPISODIO (placeholder) -->
+      <div class="sala-card pronto reveal">
+        <div class="sala-card-inner">
+          <div class="sala-card-icon"></div>
+          <div class="sala-card-body">
+            <div class="sala-card-kicker">Próximo episodio</div>
+            <div class="sala-card-titulo">Por anunciar</div>
+            <div class="sala-card-tesis">Cada nuevo episodio de La Sala aparecerá aquí a medida que se publique a lo largo del año.</div>
+          </div>
+          <div class="sala-pronto-badge">Pronto</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="reveal">
     <div class="footer-marca">
@@ -2386,6 +2813,30 @@ function toggleIntro() {
   }
 }
 
+// ── ACCESO DIRECTO A LA SALA (desde el botón del hero) ──
+function goToSala() {
+  // Cierra el intro si está abierto, para no scrollear "detrás" de un panel largo
+  const section = document.getElementById('intro-section');
+  if (section.classList.contains('open')) {
+    toggleIntro();
+  }
+  // Activa el panel y el tab de La Sala
+  document.querySelectorAll('.fase-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('fesp').classList.add('active');
+  document.querySelector('.tab-sala').classList.add('active');
+  // Re-trigger reveals dentro del panel de La Sala
+  document.querySelectorAll('#fesp .reveal').forEach(el => {
+    el.classList.remove('visible');
+    setTimeout(() => observer.observe(el), 50);
+  });
+  // Scroll suave hasta la barra de tabs / contenido
+  setTimeout(() => {
+    const target = document.querySelector('.tabs-wrapper');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, section.classList.contains('open') ? 0 : 80);
+}
+
 // ── LECTURA TABS ──
 function showLectura(id, btn) {
   document.querySelectorAll('.lectura-panel').forEach(p => p.classList.remove('active'));
@@ -2415,12 +2866,38 @@ function showFase(id) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   event.currentTarget.classList.add('active');
+  // Asegura que el tab clicado siempre quede visible en la barra (evita tabs "perdidos" fuera del viewport)
+  event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   // Re-trigger reveals in the new panel
   document.querySelectorAll('#' + id + ' .reveal').forEach(el => {
     el.classList.remove('visible');
     setTimeout(() => observer.observe(el), 50);
   });
 }
+
+// ── INDICADOR DE SCROLL EN LA BARRA DE TABS ──
+function updateTabsScrollIndicators() {
+  const track = document.getElementById('tabs-track');
+  const fadeLeft = document.getElementById('tabs-fade-left');
+  const fadeRight = document.getElementById('tabs-fade-right');
+  const hint = document.getElementById('tabs-scroll-hint');
+  if (!track) return;
+  const maxScroll = track.scrollWidth - track.clientWidth;
+  const atStart = track.scrollLeft <= 2;
+  const atEnd = track.scrollLeft >= maxScroll - 2;
+  fadeLeft.classList.toggle('visible', !atStart);
+  fadeRight.classList.toggle('visible', !atEnd);
+  hint.classList.toggle('visible', !atEnd);
+}
+
+(function initTabsScrollIndicators() {
+  const track = document.getElementById('tabs-track');
+  if (!track) return;
+  track.addEventListener('scroll', updateTabsScrollIndicators);
+  window.addEventListener('resize', updateTabsScrollIndicators);
+  window.addEventListener('load', updateTabsScrollIndicators);
+  setTimeout(updateTabsScrollIndicators, 300);
+})();
 
 // ── REVEAL ON SCROLL ──
 const observer = new IntersectionObserver((entries) => {
