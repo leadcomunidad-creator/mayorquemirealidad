@@ -1,0 +1,829 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo lo MÃ­o es Tuyo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #020B1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 96px 20px 40px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* â”€â”€ NAV DE ACCIONES â”€â”€ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(2, 11, 30, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(184,209,255,0.12);
+    flex-wrap: wrap;
+  }
+
+  .btn-recurso {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid rgba(184,209,255,0.12);
+    color: rgba(210, 220, 255, 0.75);
+    background: rgba(184, 209, 255, 0.05);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-recurso svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+
+  .btn-recurso:hover {
+    transform: translateY(-1px);
+    background: rgba(184, 209, 255, 0.12);
+  }
+
+  .btn-inicio {
+    border-color: rgba(184, 209, 255, 0.3);
+    color: var(--azul-claro);
+  }
+  .btn-inicio:hover { background: rgba(184, 209, 255, 0.15); }
+
+  .btn-video {
+    border-color: rgba(0, 86, 241, 0.4);
+    color: var(--azul-claro);
+    background: rgba(0, 86, 241, 0.1);
+  }
+  .btn-video:hover { background: rgba(0, 86, 241, 0.2); }
+
+  .btn-blog {
+    border-color: rgba(204, 23, 110, 0.35);
+    color: var(--rosa);
+  }
+  .btn-blog:hover { background: rgba(204, 23, 110, 0.12); }
+
+  .btn-recurso.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  /* BODY SECTIONS */
+  .body { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  /* TABLA DE CONTRASTE */
+  .tabla-contraste {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .tabla-contraste thead th {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tabla-contraste thead th:first-child {
+    background: rgba(204,23,110,0.2);
+    color: var(--rosa);
+    text-align: left;
+  }
+
+  .tabla-contraste thead th:last-child {
+    background: rgba(0,86,241,0.2);
+    color: var(--azul-claro);
+    text-align: left;
+  }
+
+  .tabla-contraste tbody tr td {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tabla-contraste tbody tr:nth-child(odd) td:first-child {
+    background: rgba(204,23,110,0.08);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:first-child {
+    background: rgba(204,23,110,0.05);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(odd) td:last-child {
+    background: rgba(0,86,241,0.08);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:last-child {
+    background: rgba(0,86,241,0.05);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+  /* TÃ‰RMINOS CLAVE */
+  .terminos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .termino-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .termino-palabra {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--azul);
+    margin-bottom: 2px;
+  }
+
+  .termino-card.rosa .termino-palabra { color: var(--rosa); }
+
+  .termino-trans {
+    font-size: 10px;
+    color: rgba(184,209,255,0.7);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .termino-def {
+    font-size: 12px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.55;
+  }
+
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: 'Â«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 12px 16px; }
+    body { padding: 78px 12px 24px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 28px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
+    .terminos-grid { grid-template-columns: 1fr; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="cosmic-bg"></div>
+<canvas id="starfield"></canvas>
+<div class="nebula-bottom"></div>
+<div class="nebula-mid"></div>
+
+<nav>
+  <a href="/" class="btn-recurso btn-inicio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Inicio
+  </a>
+  <!-- CAMBIAR-AQUÃ: sin link en el Bloc de Notas todavÃ­a -> queda deshabilitado -->
+  <span class="btn-recurso btn-video disabled">
+    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video
+  </span>
+  <a href="/Blog/todolomioestuyo" target="_blank" class="btn-recurso btn-blog">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog
+  </a>
+</nav>
+
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="serie-label">Mayor que mi Realidad es Su Verdad Â· F2 Â· MSG4</div>
+    <h1>Todo lo MÃ­o<br><em>es Tuyo</em></h1>
+    <div class="tesis-header">
+      <p>No hace falta irse de la casa del Padre para vivir como esclavo en ella.</p>
+      <span class="verse-tag">Lucas 15:25â€“32</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body">
+
+    <!-- SECCIÃ“N 1: EL ESPEJO QUE NO ESPERABA ENCONTRAR -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">1</div>
+        <div class="section-title">El espejo que no esperaba encontrar</div>
+      </div>
+
+      <p class="mecanismo-intro">Primero vimos al hijo que se fue: la Mentalidad de HuÃ©rfano. Hoy miramos al hijo que se quedÃ³: <strong>la Mentalidad de Esclavo.</strong> Dos maneras distintas de estar perdido frente al mismo Padre.</p>
+
+      <div class="highlight-box">
+        <p>"Hay marcos mentales que no se sienten como problema porque vienen disfrazados de <strong>obediencia.</strong>"</p>
+      </div>
+    </div>
+
+    <!-- SECCIÃ“N 2: DOS MANERAS DE ESTAR PERDIDO -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">2</div>
+        <div class="section-title" style="color: var(--rosa);">Dos maneras de estar perdido</div>
+      </div>
+
+      <table class="tabla-contraste">
+        <thead>
+          <tr>
+            <th>Mentalidad de HuÃ©rfano</th>
+            <th>Mentalidad de Esclavo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>La presencia del Padre no alcanza</td>
+            <td>La relaciÃ³n con el Padre hay que sostenerla con mÃ©rito</td>
+          </tr>
+          <tr>
+            <td>Huye, busca afuera</td>
+            <td>Se queda, sirve, cumple</td>
+          </tr>
+          <tr>
+            <td>SÃ­ntoma visible: el desorden</td>
+            <td>SÃ­ntoma invisible: disfrazado de virtud</td>
+          </tr>
+          <tr>
+            <td>"No merezco volver como hijo"</td>
+            <td>"He sido tu esclavo"</td>
+          </tr>
+          <tr>
+            <td>RelaciÃ³n de distancia</td>
+            <td>RelaciÃ³n de transacciÃ³n</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECCIÃ“N 3: EL TEXTO -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">3</div>
+        <div class="section-title">El texto Â· Lucas 15:25â€“32</div>
+      </div>
+
+      <p class="mecanismo-intro">El texto muestra que el hermano mayor se entera de la fiesta por un criado, no por una conversaciÃ³n directa con su padre. Reacciona con enojo silencioso y se niega a entrar. <strong>El Padre sale por segunda vez en el mismo capÃ­tulo</strong> â€” antes corriÃ³ por el hijo que huyÃ³, ahora ruega al que se quedÃ³. Ambos gestos, indignos para la cultura de la Ã©poca, son elegidos deliberadamente.</p>
+
+      <div class="highlight-box">
+        <p>"El Padre sale dos veces en la misma historia. Una vez corre. Otra vez ruega. Ambas indignas para su cultura. <strong>Ambas las elige.</strong>"</p>
+      </div>
+    </div>
+
+    <!-- SECCIÃ“N 4: LA FACTURA -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">4</div>
+        <div class="section-title" style="color: var(--rosa);">La factura Â· v.29</div>
+      </div>
+
+      <div class="terminos-grid">
+        <div class="termino-card rosa">
+          <div class="termino-palabra">Î´Î¿Ï…Î»ÎµÏÏ‰ Â· douleÃºÅ</div>
+          <div class="termino-trans">/ du-LÃ‰-o / Â· griego Â· v.29</div>
+          <div class="termino-def">"He servido / he sido esclavo". El hermano mayor no dice "he estado contigo": dice que <strong>ha sido esclavo.</strong></div>
+        </div>
+        <div class="termino-card rosa">
+          <div class="termino-palabra">Î¿á½Î´Î­Ï€Î¿Ï„Îµ Â· oudÃ©pote</div>
+          <div class="termino-trans">/ u-DÃ‰-po-te / Â· griego Â· v.29</div>
+          <div class="termino-def">"Nunca" â€” repetido dos veces. Lenguaje de <strong>contabilidad,</strong> no de relaciÃ³n.</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>"El hermano mayor no sabe pedir como hijo; <strong>reclama</strong> como alguien que siente que le deben."</p>
+      </div>
+    </div>
+
+    <!-- SECCIÃ“N 5: LO QUE EL PADRE NO CORRIGE -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">5</div>
+        <div class="section-title">Lo que el Padre no corrige Â· v.31</div>
+      </div>
+
+      <p class="mecanismo-intro">El Padre no niega los aÃ±os de servicio. <strong>Corrige el marco, no los hechos.</strong></p>
+
+      <div class="terminos-grid">
+        <div class="termino-card">
+          <div class="termino-palabra">Ï„Î­ÎºÎ½Î¿Î½ Â· tÃ©knon</div>
+          <div class="termino-trans">/ TÃ‰K-non / Â· griego Â· v.31</div>
+          <div class="termino-def">"Hijo" â€” forma diminutiva, Ã­ntima. La misma ternura con la que tratÃ³ al hijo menor.</div>
+        </div>
+        <div class="termino-card">
+          <div class="termino-palabra">ÏƒÎ¬ á¼ÏƒÏ„Î¹Î½ Â· sÃ¡ estin</div>
+          <div class="termino-trans">/ sÃ¡ ES-tin / Â· griego Â· v.31</div>
+          <div class="termino-def">"Es tuyo" â€” presente. La herencia ya estÃ¡ vigente, <strong>sin condiciÃ³n.</strong></div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>"La fiesta no le duele porque sea injusta. Le duele porque revela <strong>la cuenta que llevaba por dentro.</strong>"</p>
+      </div>
+    </div>
+
+    <!-- SECCIÃ“N 6: EL FINAL ABIERTO -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #059669;">6</div>
+        <div class="section-title" style="color: #059669;">El final abierto Â· v.32</div>
+      </div>
+
+      <div class="termino-card" style="margin-bottom: 20px;">
+        <div class="termino-palabra">Î´Îµá¿– Â· deÃ®</div>
+        <div class="termino-trans">/ dÃ©i / Â· griego Â· v.32</div>
+        <div class="termino-def">"Es necesario". La fiesta no es capricho: es la respuesta obligada del cielo ante un hijo recuperado.</div>
+      </div>
+
+      <p class="mecanismo-intro">El texto no resuelve si el hermano mayor entra â€” la pregunta queda suspendida sobre cada oyente.</p>
+
+      <div class="highlight-box" style="border-color: rgba(5,150,105,0.3); background: rgba(5,150,105,0.08);">
+        <p>"Pediste un cabrito. <strong style="color:#059669;">Siempre tuviste el becerro.</strong>"</p>
+      </div>
+    </div>
+
+    <!-- RESUMEN ESTRATÃ‰GICO -->
+    <div class="section" style="background: rgba(4,16,53,0.95);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">âœ¦</div>
+        <div class="section-title" style="color: #a855f7;">Resumen estratÃ©gico</div>
+      </div>
+
+      <!-- TESIS CENTRAL -->
+      <div style="background: linear-gradient(135deg, #1a0533 0%, #0056F1 100%); border-radius: 14px; padding: 24px 28px; margin-bottom: 20px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(204,23,110,0.2); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 10px; position: relative; z-index: 2;">Tesis Central</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 15px; color: white; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">No hace falta irse de la casa del Padre para vivir como esclavo en ella; la Mentalidad de Esclavo interpreta la relaciÃ³n con el Padre como algo que hay que sostener o pagar con servicio, y por eso no puede alegrarse cuando la gracia llega <em style="color: var(--melocoton); font-style: normal;">sin mÃ©rito.</em></p>
+      </div>
+
+      <!-- IDEAS CLAVE -->
+      <div style="margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #a855f7; margin-bottom: 14px;">Ideas Clave</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
+            <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">1</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El hermano mayor nunca rompiÃ³ una regla visible â€” su esclavitud estÃ¡ en la <strong>incapacidad de alegrarse</strong> sin calcular el costo.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">2</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;"><em>DouleÃºÅ</em> revela que su vocabulario interno hacia el Padre nunca fue de pertenencia sino de <strong>transacciÃ³n.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--melocoton);">
+            <div style="width: 22px; height: 22px; background: #B87A3A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">3</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El Padre sale dos veces en la misma historia â€” corre por uno, ruega por el otro â€” <strong>ambos gestos culturalmente indignos, ambos elegidos.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669;">
+            <div style="width: 22px; height: 22px; background: #059669; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">4</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El Padre no discute los hechos del servicio del hijo mayor; <strong>corrige la conclusiÃ³n</strong> que sacÃ³ de ellos.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #6B21A8;">
+            <div style="width: 22px; height: 22px; background: #6B21A8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">5</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El mismo patrÃ³n de resentimiento ante la gracia ajena aparece en <strong>los obreros de la viÃ±a (Mt 20)</strong> y en <strong>el fariseo que ora comparÃ¡ndose (Lc 18).</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul-claro);">
+            <div style="width: 22px; height: 22px; background: var(--azul-claro); color: #020B1E; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">6</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El texto se cierra sin resoluciÃ³n â€” <strong>la pregunta queda abierta</strong> para cada oyente hoy.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DATO MÃS SORPRENDENTE -->
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul); margin-bottom: 10px;">âš¡ Dato mÃ¡s sorprendente</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.7; font-style: italic;">La palabra que usa el hermano mayor para describir su relaciÃ³n con el Padre â€”<em style="font-style: normal; color: var(--azul-claro);">douleÃºÅ</em>, "he sido esclavo"â€” <strong style="font-style: normal; color: var(--azul-claro);">nunca aparece junto a una sola palabra de cercanÃ­a o afecto.</strong></p>
+      </div>
+
+      <!-- ACCIÃ“N INMEDIATA -->
+      <div style="background: rgba(5,150,105,0.12); border: 1.5px solid rgba(167,243,208,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #059669; margin-bottom: 10px;">â†’ AcciÃ³n inmediata</div>
+        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.75;">Nombra hoy, en una sola frase honesta, algo que hiciste "por obediencia" esperando en silencio que se te reconociera.</p>
+      </div>
+
+      <!-- FRASE MÃS IMPACTANTE -->
+      <div style="background: linear-gradient(135deg, rgba(0,86,241,0.15) 0%, rgba(204,23,110,0.1) 100%); border-radius: 14px; border: 1.5px solid rgba(184,209,255,0.2); padding: 24px 28px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; background: rgba(204,23,110,0.12); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30px; left: -20px; width: 80px; height: 80px; background: rgba(0,86,241,0.12); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rosa); margin-bottom: 14px; position: relative; z-index: 2;">â—ˆ Para llevarte hoy</div>
+        <blockquote style="font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.7; position: relative; z-index: 2; margin-bottom: 12px;">Deja de cobrar como esclavo<br>lo que ya te pertenece<br><em style="color: var(--melocoton); font-style: normal;">como heredero. Entra a la fiesta.</em></blockquote>
+        <div style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--azul-claro), transparent); margin: 0 auto; position: relative; z-index: 2;"></div>
+      </div>
+    </div>
+
+    <!-- FRASE FINAL -->
+    <div class="frase-final">
+      <blockquote>
+        Deja de cobrar como esclavo<br>lo que ya te pertenece<br>como <em>heredero.</em> Entra a la fiesta.
+      </blockquote>
+      <div class="frase-serie">LHSCOL Â· Temporada 2026 Â· Mayor que mi Realidad es Su Verdad</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-marca">LHSCOL</div>
+      <div class="footer-data">MRV Â· F2 Â· MSG4<br>Todo lo MÃ­o es Tuyo</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+const NUM_STARS = 220;
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < NUM_STARS; i++) {
+    const isPulse = Math.random() < 0.15;
+    stars.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.5,
+      baseAlpha: Math.random() * 0.5 + 0.4, alpha: 0,
+      speed: isPulse ? (Math.random() * 0.06 + 0.06) : (Math.random() * 0.03 + 0.02),
+      phase: Math.random() * Math.PI * 2, pulse: isPulse,
+      color: Math.random() < 0.25 ? [184,209,255] : Math.random() < 0.12 ? [242,197,161] : [255,255,255]
+    });
+  }
+}
+initStars();
+const shoots = [];
+function spawnShoot() {
+  shoots.push({
+    x: Math.random() * canvas.width * 0.7, y: Math.random() * canvas.height * 0.45,
+    len: Math.random() * 140 + 80, speed: Math.random() * 7 + 6,
+    angle: Math.PI / 4 + (Math.random() * 0.4 - 0.2), alpha: 0,
+    peakAlpha: Math.random() * 0.4 + 0.6, phase: 'in',
+    decay: Math.random() * 0.02 + 0.015, rise: Math.random() * 0.06 + 0.06,
+    width: Math.random() * 1.5 + 0.8
+  });
+}
+function scheduleShoot() { setTimeout(() => { spawnShoot(); scheduleShoot(); }, Math.random() * 3000 + 2000); }
+spawnShoot(); setTimeout(spawnShoot, 800); scheduleShoot();
+function draw() {
+  requestAnimationFrame(draw);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    s.phase += s.speed;
+    let t = s.pulse ? (Math.sin(s.phase) > 0 ? Math.pow(Math.sin(s.phase), 0.5) : 0) : 0.5 + 0.5 * Math.sin(s.phase);
+    s.alpha = s.baseAlpha * (0.15 + 0.85 * t);
+    const [r,g,b] = s.color;
+    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${s.alpha})`; ctx.fill();
+    if (s.r > 1.2) {
+      const grd = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3.5);
+      grd.addColorStop(0,`rgba(${r},${g},${b},${s.alpha*0.35})`); grd.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
+    }
+  }
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const sh = shoots[i];
+    sh.x += Math.cos(sh.angle)*sh.speed; sh.y += Math.sin(sh.angle)*sh.speed;
+    if (sh.phase==='in') { sh.alpha+=sh.rise; if(sh.alpha>=sh.peakAlpha){sh.alpha=sh.peakAlpha;sh.phase='out';} }
+    else { sh.alpha-=sh.decay; }
+    if (sh.alpha<=0) { shoots.splice(i,1); continue; }
+    const tailX=sh.x-Math.cos(sh.angle)*sh.len, tailY=sh.y-Math.sin(sh.angle)*sh.len;
+    const grad=ctx.createLinearGradient(tailX,tailY,sh.x,sh.y);
+    grad.addColorStop(0,`rgba(255,255,255,0)`);
+    grad.addColorStop(0.5,`rgba(184,209,255,${sh.alpha*0.4})`);
+    grad.addColorStop(1,`rgba(255,255,255,${sh.alpha})`);
+    ctx.beginPath(); ctx.moveTo(tailX,tailY); ctx.lineTo(sh.x,sh.y);
+    ctx.strokeStyle=grad; ctx.lineWidth=sh.width; ctx.lineCap='round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.width*2,0,Math.PI*2);
+    const hgrd=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.width*2);
+    hgrd.addColorStop(0,`rgba(255,255,255,${sh.alpha})`); hgrd.addColorStop(1,`rgba(184,209,255,0)`);
+    ctx.fillStyle=hgrd; ctx.fill();
+  }
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
+

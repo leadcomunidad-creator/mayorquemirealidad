@@ -1,0 +1,1158 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo lo mÃ­o es tuyo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --azul-claro: #B8D1FF;
+    --blanco: #FFFFFF;
+    --fondo: #050D1F;
+    --fondo-2: #080F25;
+    --texto: rgba(230, 235, 255, 0.88);
+    --texto-suave: rgba(184, 209, 255, 0.6);
+    --texto-medio: rgba(210, 220, 255, 0.75);
+    --linea: rgba(184, 209, 255, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* â”€â”€ BARRA PROGRESO â”€â”€ */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--azul), var(--rosa), var(--melocoton));
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  /* â”€â”€ NAV â”€â”€ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5, 13, 31, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--linea);
+    transition: background 0.3s;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .nav-marca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .nav-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* â”€â”€ BOTONES DE NAVEGACIÃ“N (Inicio / InfografÃ­a / Video) â”€â”€ */
+  .nav-acciones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn-recurso {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid var(--linea);
+    color: var(--texto-medio);
+    background: rgba(184, 209, 255, 0.05);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-recurso svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+
+  .btn-recurso:hover {
+    transform: translateY(-1px);
+    background: rgba(184, 209, 255, 0.12);
+  }
+
+  .btn-inicio {
+    border-color: rgba(184, 209, 255, 0.3);
+    color: var(--azul-claro);
+  }
+  .btn-inicio:hover { background: rgba(184, 209, 255, 0.15); }
+
+  .btn-infografia {
+    border-color: rgba(204, 23, 110, 0.35);
+    color: var(--rosa);
+  }
+  .btn-infografia:hover { background: rgba(204, 23, 110, 0.12); }
+
+  .btn-video {
+    border-color: rgba(0, 86, 241, 0.4);
+    color: var(--azul-claro);
+    background: rgba(0, 86, 241, 0.1);
+  }
+  .btn-video:hover { background: rgba(0, 86, 241, 0.2); }
+
+  .btn-recurso.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* â”€â”€ HERO â”€â”€ */
+  .hero {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 132px 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 20%, rgba(0,86,241,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(204,23,110,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(8,15,37,0.9) 0%, transparent 100%);
+  }
+
+  .hero-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 15% 20%, rgba(184,209,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 60% 15%, rgba(184,209,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 70%, rgba(242,197,161,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 75%, rgba(184,209,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 45%, rgba(184,209,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 68% 88%, rgba(184,209,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 38% 30%, rgba(242,197,161,0.4) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    background: rgba(0,86,241,0.12);
+    border: 1px solid rgba(0,86,241,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .hero-tag-dot {
+    width: 4px; height: 4px;
+    background: var(--texto-suave);
+    border-radius: 50%;
+  }
+
+  .hero-tag-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--blanco);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--texto-medio);
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .hero-verses {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .verse-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--azul-claro);
+    background: rgba(184,209,255,0.08);
+    border: 1px solid rgba(184,209,255,0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 0px;
+    background: linear-gradient(to bottom, transparent, var(--fondo));
+    z-index: 3;
+  }
+
+  /* â”€â”€ CONTENIDO PRINCIPAL â”€â”€ */
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  /* â”€â”€ LEAD / INTRO â”€â”€ */
+  .lead {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--texto-medio);
+    padding: 20px 0 40px;
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 40px;
+  }
+
+  .lead strong {
+    color: var(--blanco);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* â”€â”€ SECCIONES â”€â”€ */
+  .section { margin-bottom: 72px; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.85;
+    color: rgba(0,86,241,0.15);
+    flex-shrink: 0;
+    margin-top: 4px;
+    user-select: none;
+  }
+
+  .section-titles { flex: 1; }
+
+  .section-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.25;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  /* â”€â”€ PÃRRAFOS â”€â”€ */
+  p {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--texto);
+    margin-bottom: 24px;
+  }
+
+  p strong {
+    color: var(--blanco);
+    font-weight: 600;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* â”€â”€ PULL QUOTE â”€â”€ */
+  .pull-quote {
+    margin: 48px 0;
+    padding: 36px 40px;
+    border-left: 4px solid var(--azul);
+    background: rgba(0,86,241,0.06);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px; left: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    color: rgba(0,86,241,0.2);
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .pull-quote-ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+  }
+
+  /* â”€â”€ VERSÃCULO INLINE â”€â”€ */
+  .verse-block {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: rgba(184,209,255,0.05);
+    border: 1px solid rgba(184,209,255,0.15);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .verse-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--azul-claro);
+    line-height: 1.65;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .verse-block .ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* â”€â”€ TÃ‰RMINO GRIEGO / HEBREO â”€â”€ */
+  .termino-inline {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--azul-claro);
+    font-weight: 700;
+  }
+
+  .termino-card {
+    margin: 40px 0;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--linea);
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+
+  .termino-card-palabra {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--azul-claro);
+    margin-bottom: 4px;
+  }
+
+  .termino-card-trans {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 1.5px;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .termino-card p {
+    font-size: 14.5px;
+    color: var(--texto-medio);
+    margin-bottom: 0;
+  }
+
+  /* â”€â”€ TABLA CONTRASTE â”€â”€ */
+  .contraste-voces {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .cv-header {
+    padding: 14px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .cv-header-izq {
+    background: rgba(204,23,110,0.15);
+    color: var(--rosa);
+    border-right: 1px solid var(--linea);
+  }
+
+  .cv-header-der {
+    background: rgba(0,86,241,0.15);
+    color: var(--azul-claro);
+  }
+
+  .cv-izq {
+    padding: 14px 22px;
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--texto-medio);
+    background: rgba(204,23,110,0.05);
+    border-right: 1px solid var(--linea);
+    border-top: 1px solid var(--linea);
+  }
+
+  .cv-der {
+    padding: 14px 22px;
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--blanco);
+    background: rgba(0,86,241,0.05);
+    border-top: 1px solid var(--linea);
+  }
+
+  /* â”€â”€ HIGHLIGHT STATEMENT â”€â”€ */
+  .statement {
+    margin: 56px 0;
+    text-align: center;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, rgba(0,86,241,0.08) 0%, rgba(204,23,110,0.06) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(184,209,255,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .statement::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,86,241,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(204,23,110,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement p {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 0;
+  }
+
+  .statement p em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  /* â”€â”€ PREGUNTA / ACCIÃ“N â”€â”€ */
+  .accion-box {
+    margin: 48px 0;
+    padding: 40px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 1.5px solid #059669;
+    position: relative;
+  }
+
+  .accion-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #059669;
+    margin-bottom: 16px;
+  }
+
+  .accion-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* â”€â”€ LISTA DE PREGUNTAS â”€â”€ */
+  .preguntas-lista {
+    margin: 32px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .preguntas-lista li {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--texto-medio);
+    line-height: 1.7;
+    padding: 14px 0 14px 28px;
+    border-bottom: 1px solid var(--linea);
+    position: relative;
+  }
+
+  .preguntas-lista li:last-child { border-bottom: none; }
+
+  .preguntas-lista li::before {
+    content: 'â€”';
+    position: absolute;
+    left: 0;
+    color: var(--melocoton);
+  }
+
+  /* â”€â”€ DIVIDER â”€â”€ */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linea), transparent);
+    margin: 64px 0;
+  }
+
+  .divider-ornament {
+    text-align: center;
+    margin: -11px 0;
+    position: relative;
+  }
+
+  .divider-ornament span {
+    background: var(--fondo);
+    padding: 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--azul);
+    position: relative;
+  }
+
+  /* â”€â”€ CIERRE â”€â”€ */
+  .closing {
+    margin-top: 80px;
+    padding: 64px 48px;
+    background: linear-gradient(135deg, #0a0f2e 0%, #150520 100%);
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(184,209,255,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(0,86,241,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(204,23,110,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .closing-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    position: relative; z-index: 2;
+  }
+
+  .closing-acciones {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .closing-acciones .btn-recurso {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+
+  /* â”€â”€ FOOTER â”€â”€ */
+  footer {
+    padding: 40px 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--linea);
+  }
+
+  .footer-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    text-align: right;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  /* â”€â”€ ANIMACIONES â”€â”€ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* â”€â”€ RESPONSIVE â”€â”€ */
+  @media (max-width: 1024px) {
+    .hero-content,
+    .article-wrapper {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .hero h1 { font-size: clamp(30px, 5vw, 48px); }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; justify-content: center; }
+    .nav-marca, .nav-serie { display: none; }
+    .nav-acciones { width: 100%; justify-content: center; }
+    .hero { padding-top: 150px; }
+    .hero-content { padding: 0 20px; }
+    .article-wrapper { padding: 0 20px 80px; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 16px; }
+    .section-num { font-size: 52px; }
+    .section-title { font-size: 22px; }
+    p { font-size: 16px; }
+    .pull-quote p { font-size: 18px; }
+    .pull-quote { padding: 28px 24px; }
+    .closing { padding: 44px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .contraste-voces { grid-template-columns: 1fr; }
+    .cv-izq, .cv-der { border-right: none; }
+    .cv-header-izq { border-right: none; }
+    .statement p { font-size: 20px; }
+    .accion-box p { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-marca">LHSCOL</div>
+  <div class="nav-serie">Mayor que mi Realidad Â· F2 Â· MSG4</div>
+  <div class="nav-acciones">
+    <a href="/" class="btn-recurso btn-inicio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Inicio
+    </a>
+    <!-- CAMBIAR-AQUÃ: pega el link de YouTube del mensaje cuando estÃ© disponible -->
+    <span class="btn-recurso btn-video disabled"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</span>
+    <a href="/Info/todolomioestuyo" target="_blank" class="btn-recurso btn-infografia">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>InfografÃ­a
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-content">
+
+    <div class="hero-eyebrow">
+      <div class="hero-tag">Todo lo mÃ­o es tuyo</div>
+      <div class="hero-tag-dot"></div>
+      <div class="hero-tag-serie">Fase 2 Â· MSG4</div>
+    </div>
+
+    <h1>Puedes quedarte<br>toda la vida en casa<br>y aun asÃ­ <em>ser un esclavo</em></h1>
+
+    <p class="hero-sub">No lo dije con orgullo. Lo dije con rabia. Con ese tipo de rabia que solo aparece cuando llevas mucho tiempo haciendo lo correcto y sientes que a nadie le importa.</p>
+
+    <div class="hero-meta">
+      <div class="hero-verses">
+        <span class="verse-pill">Lucas 15:25â€“32</span>
+        <span class="verse-pill">Mateo 20</span>
+        <span class="verse-pill">Lucas 18</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- ARTÃCULO -->
+<main class="article-wrapper">
+
+  <!-- LEAD -->
+  <p class="lead reveal">
+    Hace poco salÃ­ en bicicleta. No a hacer ejercicio, salÃ­ porque necesitaba estar solo un rato con mis propios pensamientos. Y en algÃºn punto de esa vuelta, sin planearlo, algo que habÃ­a estado aguantando en silencio durante mucho tiempo, en un Ã¡rea especÃ­fica de mi vida, encontrÃ³ la salida. Y lo que saliÃ³ no fue una emociÃ³n bonita. Fue una frase, casi gritada: <strong>"Tanto tiempo sirviendo... y no pasa nada."</strong> No lo dije con orgullo. Lo dije con rabia. Con ese tipo de rabia que solo aparece cuando llevas mucho tiempo haciendo lo correcto y sientes que a nadie le importa, y hasta te descubres pensando que al Padre tampoco.
+  </p>
+
+  <section class="section reveal">
+    <p>Lo incÃ³modo no fue solo la frase. Fue darme cuenta, unos dÃ­as despuÃ©s, de dÃ³nde venÃ­a. Porque no me vi como el hijo que se fue de una historia conocida. Me vi como el que se quedÃ³. El que cumple. El que sirve. Y ese dÃ­a en la bicicleta descubrÃ­ algo que no me gustÃ³ nada descubrir: <strong>uno puede quedarse toda la vida en la casa del Padre... y aun asÃ­ hablarle como un empleado que lleva la cuenta de sus horas extra.</strong></p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>âœ¦</span></div></div>
+
+  <!-- SECCIÃ“N I -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">I</div>
+      <div class="section-titles">
+        <div class="section-kicker">El diagnÃ³stico invisible</div>
+        <h2 class="section-title">El espejo que<br><em>no esperaba encontrar</em></h2>
+      </div>
+    </div>
+
+    <p>Muchos sabemos lo que es sentir que la presencia del Padre no alcanza. Que hay que salir a buscar algo mejor en otro lugar. Esa herida es real y legÃ­tima, y no se resuelve con distancia moral cÃ³moda.</p>
+
+    <p>Pero hay otra mentalidad, igual de real, que no contradice esa lectura: la completa. Es la del hijo que nunca se fue. El "buen hijo". El que cumpliÃ³. Y quienes llevan aÃ±os sirviendo con generosidad y disciplina, sin desÃ³rdenes visibles, tambiÃ©n tienen algo que reconocer aquÃ­.</p>
+
+    <div class="statement reveal">
+      <p>Hay marcos mentales que no se sienten como problema porque vienen disfrazados de <em>obediencia.</em></p>
+    </div>
+
+    <p>Â¿Conoces al Padre... o llevas aÃ±os trabajando en su patio esperando que algÃºn dÃ­a se note lo suficiente?</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>âœ¦</span></div></div>
+
+  <!-- SECCIÃ“N II -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">II</div>
+      <div class="section-titles">
+        <div class="section-kicker">El nombre del marco</div>
+        <h2 class="section-title">Â¿QuÃ© es la<br><em>Mentalidad de Esclavo</em>?</h2>
+      </div>
+    </div>
+
+    <p>Es un sistema de creencias que opera desde una premisa muy concreta:</p>
+
+    <div class="pull-quote reveal">
+      <p>La presencia del Padre hay que pagarla.</p>
+      <div class="pull-quote-ref">La premisa del hijo mayor</div>
+    </div>
+
+    <p>No requiere rebeldÃ­a visible. No requiere haberse ido de la casa. Es una condiciÃ³n de percepciÃ³n que puede convivir perfectamente, perfectamente, con una vida intachable por fuera.</p>
+
+    <div class="contraste-voces reveal">
+      <div class="cv-header cv-header-izq">Hijo menor</div>
+      <div class="cv-header cv-header-der">Hijo mayor</div>
+      <div class="cv-izq">Cree que la presencia del padre no alcanza. Huye, busca afuera.</div>
+      <div class="cv-der">Cree que la presencia del padre hay que pagarla. Se queda, sirve, cumple.</div>
+      <div class="cv-izq">Su sÃ­ntoma es visible: el desorden, la caÃ­da.</div>
+      <div class="cv-der">Su sÃ­ntoma es invisible, disfrazado de virtud.</div>
+      <div class="cv-izq">Su relaciÃ³n con el padre es de distancia.</div>
+      <div class="cv-der">Su relaciÃ³n con el padre no es de distancia: es de transacciÃ³n.</div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>âœ¦</span></div></div>
+
+  <!-- SECCIÃ“N III -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">III</div>
+      <div class="section-titles">
+        <div class="section-kicker">Lucas 15:25â€“32</div>
+        <h2 class="section-title">Volvamos<br><em>al texto</em></h2>
+      </div>
+    </div>
+
+    <p>La historia es conocida: un padre, dos hijos, uno que se va y regresa. Pero JesÃºs no terminÃ³ ahÃ­. El texto sigue:</p>
+
+    <div class="verse-block reveal">
+      <p>"Todo este tiempo su hijo mayor estaba en el campo. Cuando terminÃ³ el trabajo del dÃ­a, entrÃ³. Al acercarse a la casa, oyÃ³ la mÃºsica y el baile. LlamÃ³ a uno de los muchachos de servicio y le preguntÃ³ quÃ© estaba pasando. Le dijo: 'Tu hermano volviÃ³ a casa. Tu padre ordenÃ³ una fiesta â€”Â¡res asada!â€” porque lo tiene de vuelta sano y salvo.' El hermano mayor se fue molesto, pisando fuerte, enfurruÃ±ado en un enojo silencioso, y se negÃ³ a entrar. Su padre saliÃ³ e intentÃ³ hablar con Ã©l, pero no quiso escuchar. El hijo dijo: 'Mira cuÃ¡ntos aÃ±os me he quedado aquÃ­ sirviÃ©ndote, sin darte ni un momento de disgusto, pero Â¿alguna vez me hiciste una fiesta a mÃ­ y a mis amigos? Y ahora llega este hijo tuyo que botÃ³ tu dinero en prostitutas, Â¡y tÃº te fuiste con toda, armaste tremenda fiesta!' Su padre le dijo: 'Hijo, no entiendes. TÃº estÃ¡s conmigo todo el tiempo, y todo lo que es mÃ­o es tuyo. Pero este es un momento maravilloso, y tenÃ­amos que celebrar. Este hermano tuyo estaba muerto, Â¡y estÃ¡ vivo! Estaba perdido, Â¡y fue encontrado!'"</p>
+      <div class="ref">Lucas 15:25â€“32</div>
+    </div>
+
+    <p>El hermano mayor se entera de la fiesta por un empleado. El texto nos muestra que se entera por un criado, no por una conversaciÃ³n directa con su padre. Viene del campo, cansado, cumplido. Y lo primero que hace no es preguntarle al padre. Es preguntarle al criado.</p>
+
+    <p>Y entonces pasa algo que casi nadie nota la primera vez que lee esta historia: <strong>el padre sale por segunda vez en el mismo capÃ­tulo.</strong> Antes habÃ­a corrido por el hijo que huyÃ³. Ahora sale otra vez. Pero esta vez no corre. Ruega.</p>
+
+    <div class="statement reveal">
+      <p>El Padre sale dos veces en la misma historia.<br>Una vez corre. Otra vez <em>ruega.</em><br>Y las dos, para su cultura, eran gestos indignos de un patriarca.</p>
+    </div>
+
+    <p>Pero Ã©l elige la indignidad dos veces. Por dos hijos perdidos, de maneras completamente opuestas.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>âœ¦</span></div></div>
+
+  <!-- SECCIÃ“N IV -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">IV</div>
+      <div class="section-titles">
+        <div class="section-kicker">El lenguaje de la queja</div>
+        <h2 class="section-title">La factura</h2>
+      </div>
+    </div>
+
+    <p>Escucha la queja del hermano mayor otra vez, despacio:</p>
+
+    <div class="verse-block reveal">
+      <p>"Mira cuÃ¡ntos aÃ±os me he quedado aquÃ­ sirviÃ©ndote... nunca me has dado un cabrito..."</p>
+      <div class="ref">Lucas 15:29</div>
+    </div>
+
+    <div class="termino-card reveal">
+      <div class="termino-card-palabra">Î´Î¿Ï…Î»ÎµÏÏ‰ Â· douleuÅ</div>
+      <div class="termino-card-trans">griego Â· Lucas 15:29</div>
+      <p>Viene de <em>doulos</em>: esclavo. No dice "he estado contigo". Dice <strong>"te he sido esclavo"</strong>. El hermano mayor no le dice al padre "he vivido contigo", ni "he disfrutado estar en tu casa". Le dice: he trabajado para ti como un esclavo. De ahÃ­ sale el nombre de este marco mental.</p>
+    </div>
+
+    <p>Y la NBLA, mÃ¡s literal, dice algo que a veces suavizamos: "nunca he desobedecido ninguna orden tuya". Su Ãºnica categorÃ­a para describir al padre es <em>orden</em>. Mandamiento. Nunca menciona cercanÃ­a. Nunca menciona afecto.</p>
+
+    <p>Y la palabra "nunca", <span class="termino-inline">oudepote</span>, la repite dos veces. Eso no es casualidad. Es lenguaje de contabilidad. Alguien que lleva un registro exacto de mÃ©ritos no pagados.</p>
+
+    <div class="pull-quote reveal">
+      <p>El hermano mayor no sabe pedir como hijo; reclama como alguien que siente que le deben.</p>
+      <div class="pull-quote-ref">La lÃ³gica del esclavo</div>
+    </div>
+
+    <p>Â¿En quÃ© Ã¡rea de tu vida has estado llevando la cuenta exacta de lo que has dado, esperando que algÃºn dÃ­a se equipare?</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>âœ¦</span></div></div>
+
+  <!-- SECCIÃ“N V -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">V</div>
+      <div class="section-titles">
+        <div class="section-kicker">La respuesta del Padre</div>
+        <h2 class="section-title">Lo que el Padre<br><em>no corrige</em></h2>
+      </div>
+    </div>
+
+    <p>Miren la respuesta del padre:</p>
+
+    <div class="verse-block reveal">
+      <p>"Hijo, no entiendes. TÃº estÃ¡s conmigo todo el tiempo, y todo lo que es mÃ­o es tuyo."</p>
+      <div class="ref">Lucas 15:31</div>
+    </div>
+
+    <p>El padre no le dice "no es cierto que hayas servido tanto". No discute los hechos. <strong>Corrige el marco, no los hechos.</strong></p>
+
+    <p>Y lo llama <span class="termino-inline">teknon</span>: una forma diminutiva, Ã­ntima, de decir "hijo". Es exactamente la misma ternura con la que tratÃ³ al hijo menor. El padre no corrige desde distancia frÃ­a. Corrige con intimidad.</p>
+
+    <p>Y luego dice algo que, si lo dejamos pasar rÃ¡pido, se nos escapa lo mÃ¡s fuerte: "todo lo mÃ­o es tuyo". En el griego eso estÃ¡ en presente. No es una promesa condicionada a que te portes mejor en el futuro. <strong>Es un estado que ya estÃ¡ vigente</strong>, que Ã©l nunca reclamÃ³, porque estaba tan ocupado llevando la cuenta que se le olvidÃ³ que la herencia entera ya era suya.</p>
+
+    <div class="statement reveal">
+      <p>La fiesta no le duele porque sea injusta.<br>Le duele porque revela <em>la cuenta que llevaba por dentro.</em></p>
+    </div>
+
+    <p>Y hay una Ãºltima palabra clave: cuando el padre explica por quÃ© hay que celebrar, usa <span class="termino-inline">dei</span>: "es necesario". No es capricho. Es la respuesta obligada del cielo ante un hijo recuperado.</p>
+
+    <p>Y aquÃ­ termina el texto. Sin resoluciÃ³n. No sabemos si el hermano mayor entra. JesÃºs no nos dice. Esa ausencia de cierre es la pregunta que deja suspendida sobre nosotros hoy.</p>
+
+    <div class="pull-quote reveal">
+      <p>Pediste un cabrito. Siempre tuviste el becerro.</p>
+      <div class="pull-quote-ref">Lucas 15:29â€“31</div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>âœ¦</span></div></div>
+
+  <!-- SECCIÃ“N VI -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VI</div>
+      <div class="section-titles">
+        <div class="section-kicker">El espejo personal</div>
+        <h2 class="section-title">Cuando me descubro<br><em>en el hijo mayor</em></h2>
+      </div>
+    </div>
+
+    <p>A diferencia del hijo menor, el hermano mayor nunca rompiÃ³ una regla visible. Nunca. Y ese es el problema, porque su esclavitud no estÃ¡ en la conducta. EstÃ¡ en la incapacidad de alegrarse sin calcular el costo.</p>
+
+    <p>Algunas preguntas para responder en silencio:</p>
+
+    <ul class="preguntas-lista reveal">
+      <li>Â¿Hablas de tu relaciÃ³n con el Padre mÃ¡s desde el deber que desde la confianza?</li>
+      <li>Â¿Te incomoda, aunque sea un poquito, cuando ves que el Padre celebra a alguien mÃ¡s, a alguien que "no se lo ganÃ³" como tÃº crees que te lo ganaste?</li>
+      <li>Â¿Guardas, en silencio, una lista de lo que has entregado?</li>
+    </ul>
+
+    <p>Esto pasa con el empleado que nunca falta, nunca reclama en voz alta, pero guarda una lista mental de cada vez que fue pasado por alto. Pasa cuando le llevamos al Padre la lÃ³gica de "yo me lo ganÃ©", "yo me lo merezco", la misma lÃ³gica que usamos todos los dÃ­as para todo lo demÃ¡s, aplicada sin darnos cuenta a la relaciÃ³n mÃ¡s importante que tenemos.</p>
+
+    <p>Y esto no es exclusivo de esta parÃ¡bola. Es el mismo marco que aparece con los trabajadores de la viÃ±a en Mateo 20: los que trabajaron todo el dÃ­a se quejan cuando el dueÃ±o les paga igual a los que trabajaron solo una hora. No porque los hayan estafado. Porque no soportan la generosidad hacia otro.</p>
+
+    <p>Es el mismo marco del fariseo en Lucas 18, el que ora comparÃ¡ndose favorablemente con el cobrador de impuestos en vez de simplemente pedir misericordia.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>âœ¦</span></div></div>
+
+  <!-- SECCIÃ“N VII -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VII</div>
+      <div class="section-titles">
+        <div class="section-kicker">El cierre</div>
+        <h2 class="section-title">Todo lo mÃ­o<br><em>es tuyo</em></h2>
+      </div>
+    </div>
+
+    <p>Quiero volver a la bicicleta.</p>
+
+    <p>Ese dÃ­a no descubrÃ­ que estaba enojado. Eso ya lo sabÃ­a. DescubrÃ­ de dÃ³nde salÃ­a el enojo: de una cuenta que habÃ­a estado llevando sin darme cuenta, esperando que alguien la pagara.</p>
+
+    <p>Y el Padre no responde a esa cuenta discutiendo los nÃºmeros. Nunca le dice al hijo mayor que estÃ¡ mintiendo sobre sus aÃ±os de servicio. Lo que hace es mucho mÃ¡s incÃ³modo, y mucho mÃ¡s hermoso: <strong>le dice que la cuenta nunca debiÃ³ existir.</strong></p>
+
+    <p class="lead" style="border: none; padding: 0; margin-bottom: 24px;">Todo lo mÃ­o es tuyo.</p>
+
+    <p>No despuÃ©s de que lo merezcas mÃ¡s. No cuando la balanza por fin se equilibre. Ahora. Ya.</p>
+
+    <p>La invitaciÃ³n no es "entra a la casa": ya estÃ¡s adentro, nunca te fuiste. La invitaciÃ³n es: <strong>entra a la fiesta.</strong> Deja de cobrar como esclavo lo que ya te pertenece como heredero.</p>
+
+    <div class="accion-box reveal">
+      <div class="accion-label">â†’ Para llevarte hoy</div>
+      <p>Deja de cobrar como esclavo lo que ya te pertenece como heredero. Entra a la fiesta.</p>
+    </div>
+
+    <p><strong>Â¿CuÃ¡l es el cabrito que has estado pidiendo, sin darte cuenta de que siempre tuviste el becerro completo?</strong></p>
+  </section>
+
+  <!-- CIERRE -->
+  <div class="closing reveal">
+    <div class="closing-eyebrow">Para llevarte hoy</div>
+    <div class="closing-quote">Todo lo mÃ­o es tuyo.<br>No despuÃ©s de que lo merezcas mÃ¡s.<br><em>Ahora. Ya.</em></div>
+    <div class="closing-serie">LHSCOL Â· Temporada 2026 Â· Mayor que mi Realidad es Su Verdad</div>
+    <div class="closing-acciones">
+      <a href="/" class="btn-recurso btn-inicio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Inicio
+      </a>
+      <span class="btn-recurso btn-video disabled"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</span>
+      <a href="/Info/todolomioestuyo" target="_blank" class="btn-recurso btn-infografia">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>InfografÃ­a
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-left">LHSCOL</div>
+  <div class="footer-right">MRV Â· F2 Â· MSG4<br>Todo lo mÃ­o es tuyo</div>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+
