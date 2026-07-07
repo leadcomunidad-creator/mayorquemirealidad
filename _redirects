@@ -1,4 +1,4 @@
-﻿# Pretty URLs for blog pages
+# Pretty URLs for blog pages
 /Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
 /Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
 /Blog/cruzarelumbral            /blogs/10-mrv-f1-msg3-cruzar-el-umbral-blg.html             200
@@ -6,6 +6,8 @@
 /Blog/lascuatrofuentes          /blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.html          200
 /Blog/entreelruidoysuvoz        /blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html     200
 /Blog/laverdadtienenombre       /blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html      200
+/Mesa/todolomioestuyo           /mesa/12-mrv-f2-msg4-todo-lo-mio-es-tuyo-mes.html          200
+/mesa/todolomioestuyo           /mesa/12-mrv-f2-msg4-todo-lo-mio-es-tuyo-mes.html          200
 /Blog/todolomioestuyo           /blogs/10-mrv-f2-msg4-todo-lo-mio-es-tuyo-blg.html          200
 
 # Pretty URLs for infographic pages
