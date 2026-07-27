@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Todo lo Mío es Tuyo</title>
-<meta name="description" content="Infografía · Todo lo Mío es Tuyo · Mayor que mi Realidad">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Todo lo Mío es Tuyo · Infografía">
-<meta property="og:description" content="Infografía · Todo lo Mío es Tuyo · Mayor que mi Realidad">
-<meta property="og:url" content="https://mayorquemirealidad.netlify.app/Info/todolomioestuyo">
+<title>Podemos Hacerlo · Infografía</title>
+<meta name="description" content="Infografía · Podemos Hacerlo · Mayor que mi Realidad">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Podemos Hacerlo · Infografía">
+<meta property="og:description" content="La mentalidad no solo cambia cómo vemos el problema. Cambia cómo recibimos el regalo.">
+<meta property="og:url" content="https://mayorquemirealidad.netlify.app/Info/podemoshacerlo">
 <meta property="og:image" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
 <meta property="og:image:secure_url" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Todo lo Mío es Tuyo · Infografía">
-<meta name="twitter:description" content="Infografía · Todo lo Mío es Tuyo · Mayor que mi Realidad">
+<meta name="twitter:title" content="Podemos Hacerlo · Infografía">
+<meta name="twitter:description" content="La mentalidad no solo cambia cómo vemos el problema. Cambia cómo recibimos el regalo.">
 <meta name="twitter:image" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
-<link rel="canonical" href="https://mayorquemirealidad.netlify.app/Info/todolomioestuyo">
+<link rel="canonical" href="https://mayorquemirealidad.netlify.app/Info/podemoshacerlo">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -239,6 +239,8 @@
     letter-spacing: 2.5px;
     text-transform: uppercase;
     color: var(--azul);
+    margin: 0;
+    display: inline;
   }
 
   .mecanismo-intro {
@@ -372,6 +374,83 @@
     font-style: normal;
   }
 
+  /* SECUENCIA DE FLUJO */
+  .secuencia-flujo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 4px 0 24px;
+  }
+
+  .secuencia-paso {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    background: rgba(184,209,255,0.08);
+    border: 1px solid rgba(184,209,255,0.2);
+    padding: 8px 14px;
+    border-radius: 20px;
+  }
+
+  .secuencia-flecha {
+    color: var(--melocoton);
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .par-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .par-columnas .col-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .par-columnas .col-box .col-label {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .par-columnas .col-box.rosa .col-label { color: var(--rosa); }
+  .par-columnas .col-box.azul .col-label { color: var(--azul-claro); }
+
+  .lista-simple-inf {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none;
+  }
+  .lista-simple-inf li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    padding: 6px 0 6px 18px;
+    position: relative;
+  }
+  .lista-simple-inf li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--melocoton);
+  }
+
   .frase-final {
     background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
     padding: 48px 56px;
@@ -392,7 +471,7 @@
 
   .frase-final blockquote {
     font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
     font-style: italic;
     color: white;
@@ -484,6 +563,152 @@
     filter: blur(20px);
   }
 
+  /* ── BOTÓN MODO LECTURA ── */
+  .btn-lectura {
+    border-color: rgba(242, 197, 161, 0.4);
+    color: var(--melocoton);
+    background: rgba(242, 197, 161, 0.08);
+  }
+  .btn-lectura:hover { background: rgba(242, 197, 161, 0.18); }
+  .btn-lectura.activo {
+    background: var(--melocoton);
+    color: #1a0f05;
+    border-color: var(--melocoton);
+  }
+
+  /* ── MODO LECTURA: overrides ── */
+  body.modo-lectura {
+    background: #0B0E14;
+    padding-top: 76px;
+  }
+  body.modo-lectura .cosmic-bg,
+  body.modo-lectura .nebula-bottom,
+  body.modo-lectura .nebula-mid,
+  body.modo-lectura #starfield {
+    display: none;
+  }
+  body.modo-lectura .infographic {
+    width: 100%;
+    max-width: 680px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  body.modo-lectura .header {
+    background: transparent;
+    padding: 0 4px 32px;
+    border-bottom: 1px solid rgba(184,209,255,0.15);
+  }
+  body.modo-lectura .header::before,
+  body.modo-lectura .header::after { display: none; }
+  body.modo-lectura .header h1 {
+    font-size: 32px;
+    color: var(--blanco);
+  }
+  body.modo-lectura .tesis-header {
+    background: none;
+    border-left: 2px solid var(--melocoton);
+    padding: 4px 0 4px 16px;
+  }
+  body.modo-lectura .divider { display: none; }
+  body.modo-lectura .section {
+    background: none;
+    backdrop-filter: none;
+    border-bottom: 1px solid rgba(184,209,255,0.12);
+    padding: 32px 4px;
+  }
+  body.modo-lectura .section:last-of-type { border-bottom: none; }
+  body.modo-lectura .section-number { display: none; }
+  body.modo-lectura .section-label { gap: 0; }
+  body.modo-lectura .section-title {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+  body.modo-lectura .mecanismo-intro {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: rgba(230,235,255,0.88);
+    line-height: 1.8;
+  }
+  body.modo-lectura .mecanismo-intro strong { color: var(--blanco); }
+  body.modo-lectura .tabla-contraste,
+  body.modo-lectura .terminos-grid,
+  body.modo-lectura .par-columnas {
+    display: block;
+  }
+  body.modo-lectura .tabla-contraste thead { display: none; }
+  body.modo-lectura .tabla-contraste tbody tr td {
+    display: block;
+    background: none !important;
+    border-left: none !important;
+    padding: 4px 0 16px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  body.modo-lectura .tabla-contraste tbody tr td:first-child::before { content: "Caleb — "; color: var(--rosa); font-weight: 700; }
+  body.modo-lectura .tabla-contraste tbody tr td:last-child::before { content: "Los diez — "; color: var(--azul-claro); font-weight: 700; }
+  body.modo-lectura .termino-card,
+  body.modo-lectura .col-box {
+    background: none;
+    padding: 12px 0 20px;
+    border-bottom: 1px dashed rgba(184,209,255,0.15);
+  }
+  body.modo-lectura .col-box .col-label { display: inline; font-size: 11px; margin-right: 8px; }
+  body.modo-lectura .secuencia-flujo {
+    justify-content: flex-start;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+  }
+  body.modo-lectura .secuencia-paso {
+    background: none;
+    border: none;
+    padding: 2px 0;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 15px;
+    color: rgba(230,235,255,0.88);
+  }
+  body.modo-lectura .highlight-box {
+    background: none;
+    border: none;
+    border-left: 2px solid var(--melocoton);
+    border-radius: 0;
+    padding: 4px 0 4px 16px;
+    text-align: left;
+  }
+  body.modo-lectura .highlight-box p {
+    text-align: left;
+    font-size: 16px;
+  }
+  body.modo-lectura .lista-simple-inf li {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  body.modo-lectura .frase-final {
+    background: none;
+    padding: 40px 4px;
+    text-align: left;
+  }
+  body.modo-lectura .frase-final::before { display: none; }
+  body.modo-lectura .frase-final blockquote {
+    color: var(--blanco);
+    font-size: 22px;
+  }
+  body.modo-lectura .footer {
+    background: none;
+    padding: 24px 4px;
+    border-top: 1px solid rgba(184,209,255,0.12);
+  }
+  body.modo-lectura [style*="linear-gradient"],
+  body.modo-lectura [style*="background: rgba"] {
+    background: none !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  body.modo-lectura [style*="position: absolute"] { display: none !important; }
+
   @media (max-width: 600px) {
     nav { padding: 12px 16px; }
     body { padding: 78px 12px 24px; }
@@ -494,6 +719,7 @@
     .section { padding: 24px 16px; }
     .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
     .terminos-grid { grid-template-columns: 1fr; }
+    .par-columnas { grid-template-columns: 1fr; }
     .frase-final { padding: 36px 20px; }
     .frase-final blockquote { font-size: 20px; }
     .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
@@ -511,166 +737,229 @@
   <a href="/" class="btn-recurso btn-inicio">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Inicio
   </a>
-  <a href="https://youtu.be/5mE1QjchZ-4?si=r3MZbiL74oksj9Hz" target="_blank" class="btn-recurso btn-video">
+  <button class="btn-recurso btn-lectura" id="btn-modo-lectura" onclick="toggleModoLectura()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 5h9v16H2z"/><path d="M13 5h9v16h-9z"/><path d="M6 9h1M6 12h1M6 15h1M17 9h1M17 12h1M17 15h1"/></svg>
+    <span id="texto-modo-lectura">Modo lectura</span>
+  </button>
+  <!-- CAMBIAR-AQUÍ: sin link de video todavía -> queda deshabilitado -->
+  <span class="btn-recurso btn-video disabled">
     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video
-  </a>
-  <a href="/Blog/todolomioestuyo" target="_blank" class="btn-recurso btn-blog">
+  </span>
+  <!-- CAMBIAR-AQUÍ: sin blog todavía -> queda deshabilitado -->
+  <span class="btn-recurso btn-blog disabled">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog
-  </a>
+  </span>
 </nav>
 
 <div class="infographic">
 
   <!-- HEADER -->
   <div class="header">
-    <div class="serie-label">Mayor que mi Realidad es Su Verdad · F2 · MSG4</div>
-    <h1>Todo lo Mío<br><em>es Tuyo</em></h1>
+    <div class="serie-label">Mayor que mi Realidad es Su Verdad · F2 · MSG5</div>
+    <h1>Podemos<br><em>Hacerlo</em></h1>
     <div class="tesis-header">
-      <p>No hace falta irse de la casa del Padre para vivir como esclavo en ella.</p>
-      <span class="verse-tag">Lucas 15:25–32</span>
+      <p>La mentalidad no solo cambia cómo vemos el problema. Cambia cómo recibimos el regalo.</p>
+      <span class="verse-tag">Números 13:25–14:10</span>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <div class="body">
+  <article class="body">
 
-    <!-- SECCIÓN 1: EL ESPEJO QUE NO ESPERABA ENCONTRAR -->
+    <!-- SECCIÓN 1: EL REGALO BAJO SOSPECHA -->
     <div class="section">
       <div class="section-label">
         <div class="section-number">1</div>
-        <div class="section-title">El espejo que no esperaba encontrar</div>
+        <h2 class="section-title">El regalo bajo sospecha</h2>
       </div>
 
-      <p class="mecanismo-intro">Primero vimos al hijo que se fue: la Mentalidad de Huérfano. Hoy miramos al hijo que se quedó: <strong>la Mentalidad de Esclavo.</strong> Dos maneras distintas de estar perdido frente al mismo Padre.</p>
+      <p class="mecanismo-intro">Los doce regresaron con el fruto en las manos. La tierra era buena y la evidencia confirmaba lo que el Padre había dicho: la promesa no era una idea optimista, tenía peso, tamaño, y podía mostrarse ante toda la congregación.</p>
+
+      <div class="par-columnas">
+        <div class="col-box rosa">
+          <span class="col-label">Números 13:27 · MSG</span>
+          «Fuimos a la tierra a la que nos enviaste y, ¡vaya!, sí mana leche y miel. ¡Miren este fruto!»
+        </div>
+        <div class="col-box azul">
+          <span class="col-label">Lo que apareció después</span>
+          Ciudades fortificadas, pueblos establecidos y descendientes de Anac — reales. El problema no fue nombrar la dificultad, sino dejar que la dificultad reorganizara toda la evidencia.
+        </div>
+      </div>
+
+      <div class="terminos-grid">
+        <div class="termino-card">
+          <div class="termino-palabra">El Padre ofrece</div>
+          <div class="termino-def">Tierra · abundancia · futuro · propósito.</div>
+        </div>
+        <div class="termino-card rosa">
+          <div class="termino-palabra">El filtro recibe</div>
+          <div class="termino-def">Amenaza · inaccesibilidad · peligro · pérdida.</div>
+        </div>
+      </div>
 
       <div class="highlight-box">
-        <p>"Hay marcos mentales que no se sienten como problema porque vienen disfrazados de <strong>obediencia.</strong>"</p>
+        <p>«El <strong>"solo que"</strong> del informe terminó pesando más que el fruto que cargaban en las manos.»</p>
       </div>
     </div>
 
-    <!-- SECCIÓN 2: DOS MANERAS DE ESTAR PERDIDO -->
+    <!-- SECCIÓN 2: MISMOS HECHOS, DOS VEREDICTOS -->
     <div class="section" style="background: rgba(10,6,37,0.85);">
       <div class="section-label">
         <div class="section-number" style="background: var(--rosa);">2</div>
-        <div class="section-title" style="color: var(--rosa);">Dos maneras de estar perdido</div>
+        <h2 class="section-title" style="color: var(--rosa);">Mismos hechos, dos veredictos</h2>
       </div>
+
+      <p class="mecanismo-intro">Los doce vieron la misma tierra, caminaron el mismo terreno y enfrentaron los mismos gigantes. La diferencia no estuvo en la información disponible, sino en la autoridad que cada mente concedió a esa información.</p>
 
       <table class="tabla-contraste">
         <thead>
           <tr>
-            <th>Mentalidad de Huérfano</th>
-            <th>Mentalidad de Esclavo</th>
+            <th>Caleb · Números 13:30</th>
+            <th>Los diez · Números 13:31</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>La presencia del Padre no alcanza</td>
-            <td>La relación con el Padre hay que sostenerla con mérito</td>
-          </tr>
-          <tr>
-            <td>Huye, busca afuera</td>
-            <td>Se queda, sirve, cumple</td>
-          </tr>
-          <tr>
-            <td>Síntoma visible: el desorden</td>
-            <td>Síntoma invisible: disfrazado de virtud</td>
-          </tr>
-          <tr>
-            <td>"No merezco volver como hijo"</td>
-            <td>"He sido tu esclavo"</td>
-          </tr>
-          <tr>
-            <td>Relación de distancia</td>
-            <td>Relación de transacción</td>
+            <td>«Subamos y tomemos la tierra ahora mismo. Podemos hacerlo.»</td>
+            <td>«No podemos atacar a esa gente; son muchísimo más fuertes que nosotros.»</td>
           </tr>
         </tbody>
       </table>
+
+      <div class="secuencia-flujo">
+        <span class="secuencia-paso">Fruto real</span>
+        <span class="secuencia-flecha">·</span>
+        <span class="secuencia-paso">Murallas reales</span>
+        <span class="secuencia-flecha">·</span>
+        <span class="secuencia-paso">Gigantes reales</span>
+        <span class="secuencia-flecha">·</span>
+        <span class="secuencia-paso">Promesa real</span>
+      </div>
+
+      <div class="highlight-box">
+        <p>«Los hechos eran verdaderos; <strong>el veredicto no.</strong>»</p>
+      </div>
+
+      <p class="mecanismo-intro" style="margin-top:20px; margin-bottom:0;">La fe no niega las murallas. Se niega a convertirlas en la verdad final.</p>
     </div>
 
-    <!-- SECCIÓN 3: EL TEXTO -->
+    <!-- SECCIÓN 3: LANGOSTAS ANTE NUESTROS PROPIOS OJOS -->
     <div class="section">
       <div class="section-label">
         <div class="section-number">3</div>
-        <div class="section-title">El texto · Lucas 15:25–32</div>
+        <h2 class="section-title">Langostas ante nuestros propios ojos</h2>
       </div>
 
-      <p class="mecanismo-intro">El texto muestra que el hermano mayor se entera de la fiesta por un criado, no por una conversación directa con su padre. Reacciona con enojo silencioso y se niega a entrar. <strong>El Padre sale por segunda vez en el mismo capítulo</strong> — antes corrió por el hijo que huyó, ahora ruega al que se quedó. Ambos gestos, indignos para la cultura de la época, son elegidos deliberadamente.</p>
+      <p class="mecanismo-intro">Antes de atribuirle una mirada al enemigo, los exploradores confesaron cómo se veían ellos mismos. La pequeñez apareció primero en su propia percepción y luego fue proyectada sobre los habitantes de la tierra.</p>
+
+      <div class="termino-card rosa" style="margin-bottom:20px;">
+        <div class="termino-palabra">H2284 · חָגָב · ḥāgāḇ</div>
+        <div class="termino-trans">/ ja-gáv / · hebreo · Números 13:33</div>
+        <div class="termino-def">«A nosotros nos pareció que éramos como langostas; y así parecíamos ante sus ojos.» (NBLA) — Langosta o saltamontes: imagen de pequeñez e insignificancia dentro del relato. No es una categoría espiritual independiente.</div>
+      </div>
+
+      <div class="secuencia-flujo">
+        <span class="secuencia-paso">Autopercepción: "Somos pequeños"</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Proyección: "Ellos también nos ven pequeños"</span>
+      </div>
 
       <div class="highlight-box">
-        <p>"El Padre sale dos veces en la misma historia. Una vez corre. Otra vez ruega. Ambas indignas para su cultura. <strong>Ambas las elige.</strong>"</p>
+        <p>«Antes de afirmar cómo los veían los gigantes, confesaron cómo se veían ellos mismos.»</p>
+      </div>
+
+      <div class="highlight-box" style="margin-top:12px;">
+        <p>«El gigante se vuelve dueño de tu identidad <strong>cuando le permites decirte quién eres.</strong>»</p>
       </div>
     </div>
 
-    <!-- SECCIÓN 4: LA FACTURA -->
+    <!-- SECCIÓN 4: CUANDO UNA INTERPRETACIÓN SE VUELVE AMBIENTE -->
     <div class="section" style="background: rgba(10,6,37,0.85);">
       <div class="section-label">
         <div class="section-number" style="background: var(--rosa);">4</div>
-        <div class="section-title" style="color: var(--rosa);">La factura · v.29</div>
+        <h2 class="section-title" style="color: var(--rosa);">Cuando una interpretación se vuelve ambiente</h2>
       </div>
 
-      <div class="terminos-grid">
-        <div class="termino-card rosa">
-          <div class="termino-palabra">δουλεύω · douleúō</div>
-          <div class="termino-trans">/ du-LÉ-o / · griego · v.29</div>
-          <div class="termino-def">"He servido / he sido esclavo". El hermano mayor no dice "he estado contigo": dice que <strong>ha sido esclavo.</strong></div>
-        </div>
-        <div class="termino-card rosa">
-          <div class="termino-palabra">οὐδέποτε · oudépote</div>
-          <div class="termino-trans">/ u-DÉ-po-te / · griego · v.29</div>
-          <div class="termino-def">"Nunca" — repetido dos veces. Lenguaje de <strong>contabilidad,</strong> no de relación.</div>
+      <p class="mecanismo-intro">El informe de diez líderes no permaneció como opinión privada. Se convirtió en rumor, llanto, murmuración, nostalgia y decisión colectiva. La interpretación de quienes lideraban terminó organizando emocionalmente a toda la comunidad.</p>
+
+      <div class="secuencia-flujo">
+        <span class="secuencia-paso">Informe</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Rumor</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Llanto</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Queja</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Nostalgia</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Decisión</span>
+      </div>
+
+      <div class="par-columnas">
+        <div class="col-box azul" style="grid-column: 1 / -1;">
+          <span class="col-label">Números 14:4 · MSG</span>
+          «Escojamos un nuevo líder y regresemos a Egipto.»
         </div>
       </div>
+
+      <p class="mecanismo-intro">La presión hizo que la esclavitud conocida pareciera más segura que la promesa desconocida. Egipto dejó de ser solo un lugar del pasado y volvió a funcionar como una manera de pensar.</p>
 
       <div class="highlight-box">
-        <p>"El hermano mayor no sabe pedir como hijo; <strong>reclama</strong> como alguien que siente que le deben."</p>
+        <p>«La queja hace parecer prudente el regreso a aquello de lo que el Padre ya te liberó.»</p>
       </div>
+      <div class="highlight-box" style="margin-top:12px;">
+        <p>«La presión convierte Egipto <strong>en una opción deseable.</strong>»</p>
+      </div>
+
+      <p class="mecanismo-intro" style="margin-top:20px; margin-bottom:0;"><strong>Para quien lidera:</strong> la interpretación de un líder nunca se queda únicamente en su interior. Puede convertirse en el clima emocional de su familia, su Mesa, su Staff o toda una comunidad.</p>
     </div>
 
-    <!-- SECCIÓN 5: LO QUE EL PADRE NO CORRIGE -->
+    <!-- SECCIÓN 5: RECONOCER EL SISTEMA ANTES DE REACCIONAR -->
     <div class="section">
       <div class="section-label">
         <div class="section-number">5</div>
-        <div class="section-title">Lo que el Padre no corrige · v.31</div>
+        <h2 class="section-title">Reconocer el sistema antes de reaccionar</h2>
       </div>
 
-      <p class="mecanismo-intro">El Padre no niega los años de servicio. <strong>Corrige el marco, no los hechos.</strong></p>
+      <p class="mecanismo-intro">El mensaje no termina diciendo que ya pensamos como Caleb ni que todos los gigantes desaparecieron. Termina entregando autoconciencia: reconocer el filtro, distinguir el hecho del veredicto y asumir responsabilidad por la narrativa que transmitimos.</p>
 
-      <div class="terminos-grid">
-        <div class="termino-card">
-          <div class="termino-palabra">τέκνον · téknon</div>
-          <div class="termino-trans">/ TÉK-non / · griego · v.31</div>
-          <div class="termino-def">"Hijo" — forma diminutiva, íntima. La misma ternura con la que trató al hijo menor.</div>
-        </div>
-        <div class="termino-card">
-          <div class="termino-palabra">σά ἐστιν · sá estin</div>
-          <div class="termino-trans">/ sá ES-tin / · griego · v.31</div>
-          <div class="termino-def">"Es tuyo" — presente. La herencia ya está vigente, <strong>sin condición.</strong></div>
+      <div class="secuencia-flujo">
+        <span class="secuencia-paso">Oferta del Padre</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Filtro mental</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Interpretación</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Autopercepción</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Narrativa</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Contagio</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Decisión</span>
+        <span class="secuencia-flecha">→</span>
+        <span class="secuencia-paso">Respuesta ante la promesa</span>
+      </div>
+
+      <div class="par-columnas">
+        <div class="col-box azul" style="grid-column: 1 / -1;">
+          <span class="col-label">Tres preguntas antes de reaccionar</span>
+          1. ¿Qué ocurrió realmente?<br>2. ¿Qué veredicto añadió mi mente?<br>3. ¿Qué narrativa estoy transmitiendo a otros?
         </div>
       </div>
+
+      <ul class="lista-simple-inf">
+        <li>Esto no es negar la dificultad.</li>
+        <li>Esto no es pensamiento positivo.</li>
+        <li>Esto no es «creer más en mí».</li>
+        <li>Esto no es convertir la tierra en éxito, dinero o ambición personal.</li>
+        <li>Esto no es señalar con superioridad a los diez exploradores.</li>
+      </ul>
 
       <div class="highlight-box">
-        <p>"La fiesta no le duele porque sea injusta. Le duele porque revela <strong>la cuenta que llevaba por dentro.</strong>"</p>
-      </div>
-    </div>
-
-    <!-- SECCIÓN 6: EL FINAL ABIERTO -->
-    <div class="section" style="background: rgba(10,6,37,0.85);">
-      <div class="section-label">
-        <div class="section-number" style="background: #059669;">6</div>
-        <div class="section-title" style="color: #059669;">El final abierto · v.32</div>
-      </div>
-
-      <div class="termino-card" style="margin-bottom: 20px;">
-        <div class="termino-palabra">δεῖ · deî</div>
-        <div class="termino-trans">/ déi / · griego · v.32</div>
-        <div class="termino-def">"Es necesario". La fiesta no es capricho: es la respuesta obligada del cielo ante un hijo recuperado.</div>
-      </div>
-
-      <p class="mecanismo-intro">El texto no resuelve si el hermano mayor entra — la pregunta queda suspendida sobre cada oyente.</p>
-
-      <div class="highlight-box" style="border-color: rgba(5,150,105,0.3); background: rgba(5,150,105,0.08);">
-        <p>"Pediste un cabrito. <strong style="color:#059669;">Siempre tuviste el becerro.</strong>"</p>
+        <p>Transformación buscada: poder detenerme antes de reaccionar automáticamente <strong>y recuperar la posibilidad de responder desde la Verdad.</strong></p>
       </div>
     </div>
 
@@ -678,14 +967,14 @@
     <div class="section" style="background: rgba(4,16,53,0.95);">
       <div class="section-label">
         <div class="section-number" style="background: #6B21A8;">✦</div>
-        <div class="section-title" style="color: #a855f7;">Resumen estratégico</div>
+        <h2 class="section-title" style="color: #a855f7;">Resumen estratégico</h2>
       </div>
 
       <!-- TESIS CENTRAL -->
       <div style="background: linear-gradient(135deg, #1a0533 0%, #0056F1 100%); border-radius: 14px; padding: 24px 28px; margin-bottom: 20px; position: relative; overflow: hidden;">
         <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(204,23,110,0.2); border-radius: 50%;"></div>
         <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 10px; position: relative; z-index: 2;">Tesis Central</div>
-        <p style="font-family: 'DM Serif Display', serif; font-size: 15px; color: white; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">No hace falta irse de la casa del Padre para vivir como esclavo en ella; la Mentalidad de Esclavo interpreta la relación con el Padre como algo que hay que sostener o pagar con servicio, y por eso no puede alegrarse cuando la gracia llega <em style="color: var(--melocoton); font-style: normal;">sin mérito.</em></p>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 15px; color: white; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">La mentalidad no solo cambia cómo vemos el problema. <em style="color: var(--melocoton); font-style: normal;">Cambia cómo recibimos el regalo.</em></p>
       </div>
 
       <!-- IDEAS CLAVE -->
@@ -695,32 +984,37 @@
 
           <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
             <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">1</div>
-            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El hermano mayor nunca rompió una regla visible — su esclavitud está en la <strong>incapacidad de alegrarse</strong> sin calcular el costo.</p>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El regalo puede ser leído como amenaza: la tierra era buena, pero <strong>una mente formada por esclavitud recibió la promesa desde la sospecha.</strong></p>
           </div>
 
           <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
             <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">2</div>
-            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;"><em>Douleúō</em> revela que su vocabulario interno hacia el Padre nunca fue de pertenencia sino de <strong>transacción.</strong></p>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El <strong>"solo que"</strong> reorganiza la evidencia: los obstáculos eran reales, pero no eran toda la realidad.</p>
           </div>
 
           <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--melocoton);">
             <div style="width: 22px; height: 22px; background: #B87A3A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">3</div>
-            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El Padre sale dos veces en la misma historia — corre por uno, ruega por el otro — <strong>ambos gestos culturalmente indignos, ambos elegidos.</strong></p>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Los hechos no dictan automáticamente el veredicto — Caleb y los diez compartían la misma información, pero llegaron a conclusiones opuestas.</p>
           </div>
 
           <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669;">
             <div style="width: 22px; height: 22px; background: #059669; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">4</div>
-            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El Padre no discute los hechos del servicio del hijo mayor; <strong>corrige la conclusión</strong> que sacó de ellos.</p>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">La autopercepción puede convertirse en proyección: primero se vieron como langostas ante sus propios ojos; después afirmaron que el enemigo también los veía así.</p>
           </div>
 
           <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #6B21A8;">
             <div style="width: 22px; height: 22px; background: #6B21A8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">5</div>
-            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El mismo patrón de resentimiento ante la gracia ajena aparece en <strong>los obreros de la viña (Mt 20)</strong> y en <strong>el fariseo que ora comparándose (Lc 18).</strong></p>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Una narrativa privada puede volverse ambiente colectivo: informe → rumor → llanto → queja → decisión de regresar.</p>
           </div>
 
           <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul-claro);">
             <div style="width: 22px; height: 22px; background: var(--azul-claro); color: #020B1E; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">6</div>
-            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El texto se cierra sin resolución — <strong>la pregunta queda abierta</strong> para cada oyente hoy.</p>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">La presión puede hacer deseable el viejo Egipto: cuando la promesa exige confianza, la esclavitud conocida puede parecer más segura.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
+            <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">7</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El primer resultado es autoconciencia: separar hecho de veredicto, reconocer la proyección y responsabilizarse por la narrativa transmitida.</p>
           </div>
 
         </div>
@@ -729,13 +1023,13 @@
       <!-- DATO MÁS SORPRENDENTE -->
       <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul); margin-bottom: 10px;">⚡ Dato más sorprendente</div>
-        <p style="font-family: 'DM Serif Display', serif; font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.7; font-style: italic;">La palabra que usa el hermano mayor para describir su relación con el Padre —<em style="font-style: normal; color: var(--azul-claro);">douleúō</em>, "he sido esclavo"— <strong style="font-style: normal; color: var(--azul-claro);">nunca aparece junto a una sola palabra de cercanía o afecto.</strong></p>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.7; font-style: italic;">Antes de decir cómo los veían los gigantes, los exploradores confesaron cómo se veían ellos mismos. El texto <strong style="font-style: normal; color: var(--azul-claro);">no confirma la mirada atribuida al enemigo</strong>: expone primero la pequeñez instalada en su propia percepción.</p>
       </div>
 
       <!-- ACCIÓN INMEDIATA -->
       <div style="background: rgba(5,150,105,0.12); border: 1.5px solid rgba(167,243,208,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
         <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #059669; margin-bottom: 10px;">→ Acción inmediata</div>
-        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.75;">Nombra hoy, en una sola frase honesta, algo que hiciste "por obediencia" esperando en silencio que se te reconociera.</p>
+        <p style="font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.75;">Toma una situación que hoy te genera miedo o resistencia y divídela en dos columnas: <strong>Hecho</strong> (lo que realmente ocurrió o está frente a ti) y <strong>Veredicto</strong> (la conclusión final que tu mente añadió). Después responde: ¿qué versión de esta historia estoy repitiendo a otros?</p>
       </div>
 
       <!-- FRASE MÁS IMPACTANTE -->
@@ -743,7 +1037,7 @@
         <div style="position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; background: rgba(204,23,110,0.12); border-radius: 50%;"></div>
         <div style="position: absolute; bottom: -30px; left: -20px; width: 80px; height: 80px; background: rgba(0,86,241,0.12); border-radius: 50%;"></div>
         <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rosa); margin-bottom: 14px; position: relative; z-index: 2;">◈ Para llevarte hoy</div>
-        <blockquote style="font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.7; position: relative; z-index: 2; margin-bottom: 12px;">Deja de cobrar como esclavo<br>lo que ya te pertenece<br><em style="color: var(--melocoton); font-style: normal;">como heredero. Entra a la fiesta.</em></blockquote>
+        <blockquote style="font-family: 'DM Serif Display', serif; font-size: 17px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.7; position: relative; z-index: 2; margin-bottom: 12px;">Los hechos eran verdaderos;<br><em style="color: var(--melocoton); font-style: normal;">el veredicto no.</em></blockquote>
         <div style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--azul-claro), transparent); margin: 0 auto; position: relative; z-index: 2;"></div>
       </div>
     </div>
@@ -751,7 +1045,7 @@
     <!-- FRASE FINAL -->
     <div class="frase-final">
       <blockquote>
-        Deja de cobrar como esclavo<br>lo que ya te pertenece<br>como <em>heredero.</em> Entra a la fiesta.
+        Que el Padre nos dé ojos para distinguir<br>lo que realmente enfrentamos<br>del <em>veredicto</em> que nuestra mente añade.
       </blockquote>
       <div class="frase-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
     </div>
@@ -759,13 +1053,19 @@
     <!-- FOOTER -->
     <div class="footer">
       <div class="footer-marca">LHSCOL</div>
-      <div class="footer-data">MRV · F2 · MSG4<br>Todo lo Mío es Tuyo</div>
+      <div class="footer-data">MRV · F2 · MSG5<br>Podemos Hacerlo</div>
     </div>
 
-  </div>
+  </article>
 </div>
 
 <script>
+function toggleModoLectura() {
+  const activo = document.body.classList.toggle('modo-lectura');
+  document.getElementById('texto-modo-lectura').textContent = activo ? 'Vista visual' : 'Modo lectura';
+  document.getElementById('btn-modo-lectura').classList.toggle('activo', activo);
+}
+
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -840,4 +1140,3 @@ requestAnimationFrame(draw);
 </script>
 </body>
 </html>
-

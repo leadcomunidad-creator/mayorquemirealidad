@@ -30,8 +30,8 @@ F2_MSG3B_PERDIDA_EN_CASA: https://youtu.be/t14hY2iWFFo
 F2_MSG3C_LAS_CUATRO_FUENTES: sin video
 F2_MSG3D_ENTRE_RUIDOS_Y_SU_VOZ: https://youtu.be/SR98toUSMT4
 F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: https://youtu.be/yfgyWHVhhtI?si=JP-NQE9gzQZG_UO7
-F2_MSG4_TODO_LO_MIO_ES_TUYO: sin video aun (proximamente en pagina)
-F2_MSG5_EL_DESIERTO_COMO_ESPEJO: sin video (proximamente en pagina)
+F2_MSG4_TODO_LO_MIO_ES_TUYO: https://youtu.be/5mE1QjchZ-4?si=r3MZbiL74oksj9Hz
+F2_MSG5_PODEMOS_HACERLO: sin video (proximamente en pagina)
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin video (proximamente en pagina)
 F2_MSG7_LA_GENERACION_QUE_LLEGO: sin video (proximamente en pagina)
 F2_MSG8_CUAL_ES_TU_MARCO: sin video (proximamente en pagina)
@@ -66,7 +66,7 @@ F2_MSG3C_LAS_CUATRO_FUENTES: index/blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.
 F2_MSG3D_ENTRE_RUIDOS_Y_SU_VOZ: index/blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html
 F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html
 F2_MSG4_TODO_LO_MIO_ES_TUYO: index/blogs/10-mrv-f2-msg4-todo-lo-mio-es-tuyo-blg.html
-F2_MSG5_EL_DESIERTO_COMO_ESPEJO: sin blog (proximamente en pagina)
+F2_MSG5_PODEMOS_HACERLO: sin blog (proximamente en pagina)
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin blog (proximamente en pagina)
 F2_MSG7_LA_GENERACION_QUE_LLEGO: sin blog (proximamente en pagina)
 F2_MSG8_CUAL_ES_TU_MARCO: sin blog (proximamente en pagina)
@@ -101,7 +101,7 @@ F2_MSG3C_LAS_CUATRO_FUENTES: index/infografias/13-mrv-f2-msg3c-las-cuatro-fuente
 F2_MSG3D_ENTRE_RUIDOS_Y_SU_VOZ: index/infografias/13-mrv-f2-msg3d-entre-el-ruido-y-su-voz-inf.html
 F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/infografias/13-mrv-f2-msg3e-la-verdad-tiene-nombre-inf.html
 F2_MSG4_TODO_LO_MIO_ES_TUYO: index/infografias/13-mrv-f2-msg4-todo-lo-mio-es-tuyo-inf.html
-F2_MSG5_EL_DESIERTO_COMO_ESPEJO: sin info (proximamente en pagina)
+F2_MSG5_PODEMOS_HACERLO: index/infografias/13-mrv-f2-msg5-podemos-hacerlo-inf.html
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin info (proximamente en pagina)
 F2_MSG7_LA_GENERACION_QUE_LLEGO: sin info (proximamente en pagina)
 F2_MSG8_CUAL_ES_TU_MARCO: sin info (proximamente en pagina)
