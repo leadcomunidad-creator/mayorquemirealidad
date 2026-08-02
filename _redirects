@@ -1,3 +1,7 @@
+# Private Expediente access (Netlify Identity role)
+/expedientes/*  /expedientes/:splat  200!  Role=admin
+/expedientes/*  /login.html          401!
+
 # Pretty URLs for blog pages
 /Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
 /Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
@@ -9,6 +13,9 @@
 /Mesa/todolomioestuyo           /mesa/12-mrv-f2-msg4-todo-lo-mio-es-tuyo-mes.html          200
 /mesa/todolomioestuyo           /mesa/12-mrv-f2-msg4-todo-lo-mio-es-tuyo-mes.html          200
 /Blog/todolomioestuyo           /blogs/10-mrv-f2-msg4-todo-lo-mio-es-tuyo-blg.html          200
+/Blog/podemoshacerlo            /blogs/10-mrv-f2-msg5-podemos-hacerlo-blg.html               200
+/Mesa/podemoshacerlo            /mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html                200
+/mesa/podemoshacerlo            /mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html                200
 
 # Pretty URLs for infographic pages
 /Info/mayorquemirealidad        /infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html        200
@@ -32,6 +39,7 @@
 /blog/entreelruidoysuvoz        /blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html     200
 /blog/laverdadtienenombre       /blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html      200
 /blog/todolomioestuyo           /blogs/10-mrv-f2-msg4-todo-lo-mio-es-tuyo-blg.html          200
+/blog/podemoshacerlo            /blogs/10-mrv-f2-msg5-podemos-hacerlo-blg.html               200
 /info/mayorquemirealidad        /infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html        200
 /info/arquitectosdelaverdad     /infografias/13-mrv-f1-msg2-arquitectos-de-la-verdad-inf.html     200
 /info/cruzarelumbral            /infografias/13-mrv-f1-msg3-cruzar-el-umbral-inf.html             200

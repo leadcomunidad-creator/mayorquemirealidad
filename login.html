@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso privado · LHSCOL</title>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+  :root{--fondo:#020b1e;--panel:#0b1330;--linea:#1e2c52;--azul:#0056f1;--melocoton:#f2c5a1;--texto:#e6ebff}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 20%,#0a1b3d 0,var(--fondo) 55%);color:var(--texto);font-family:Arial,sans-serif;text-align:center;padding:24px}
+  main{width:min(480px,100%);padding:42px 30px;border:1px solid var(--linea);border-radius:18px;background:rgba(11,19,48,.9);box-shadow:0 24px 80px rgba(0,0,0,.35)}
+  .marca{color:var(--azul);font-weight:700;letter-spacing:.32em;font-size:.8rem}
+  .etiqueta{margin:32px 0 8px;color:var(--melocoton);letter-spacing:.18em;font-size:.75rem}
+  h1{margin:0 0 12px;font-family:Georgia,serif;font-size:clamp(2rem,7vw,3.2rem)}
+  p{margin:0 auto 26px;max-width:34ch;line-height:1.6;color:#b8c7eb}
+  button,a{display:inline-flex;justify-content:center;align-items:center;min-height:44px;border-radius:9px;font-weight:700;text-decoration:none;cursor:pointer}
+  button{padding:0 20px;border:1px solid rgba(242,197,161,.5);background:rgba(242,197,161,.12);color:var(--melocoton)}
+  a{margin-left:8px;padding:0 14px;color:#b8d1ff}
+</style>
+</head>
+<body>
+<main>
+  <div class="marca">LHSCOL</div>
+  <div class="etiqueta">ACCESO PRIVADO</div>
+  <h1>Expediente</h1>
+  <p>Ingresa con la cuenta administradora autorizada para consultar este contenido.</p>
+  <button type="button" id="login">Ingresar</button>
+  <a href="/">Volver al inicio</a>
+</main>
+<script>
+const adminEmail='lead.comunidad@gmail.com';
+const boton=document.getElementById('login');
+if(window.netlifyIdentity){
+  netlifyIdentity.on('init',user=>{ if(user) validar(user); });
+  netlifyIdentity.on('login',user=>{ netlifyIdentity.close(); validar(user); });
+  netlifyIdentity.init();
+  boton.addEventListener('click',()=>netlifyIdentity.open('login'));
+}
+async function validar(user){
+  const roles=user?.app_metadata?.roles || [];
+  if(user?.email?.toLowerCase()===adminEmail && roles.includes('admin')){
+    location.href='/';
+  }else{
+    await netlifyIdentity.logout();
+    alert('Este correo no tiene autorización de administrador.');
+  }
+}
+</script>
+</body>
+</html>
