@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Acceso privado · LHSCOL</title>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
   :root{--fondo:#020b1e;--panel:#0b1330;--linea:#1e2c52;--azul:#0056f1;--melocoton:#f2c5a1;--texto:#e6ebff}
   *{box-sizing:border-box}
@@ -20,8 +19,11 @@
   input:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(0,86,241,.16)}
   button,a{display:inline-flex;justify-content:center;align-items:center;min-height:44px;border-radius:9px;font-weight:700;text-decoration:none;cursor:pointer}
   button{padding:0 20px;border:1px solid rgba(242,197,161,.5);background:rgba(242,197,161,.12);color:var(--melocoton)}
+  button.secundario{background:transparent;border-color:var(--linea);color:#b8d1ff}
   a{margin-top:10px;padding:0 14px;color:#b8d1ff}
   #estado{min-height:20px;margin:0;color:#fc5054;font-size:.82rem}
+  #estado.ok{color:#a8ff3e}
+  [hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -29,11 +31,13 @@
   <div class="marca">LHSCOL</div>
   <div class="etiqueta">ACCESO PRIVADO</div>
   <h1>Expediente</h1>
-  <p>Ingresa con la cuenta administradora autorizada para consultar este contenido.</p>
+  <p id="instruccion">Ingresa con la cuenta administradora autorizada para consultar este contenido.</p>
   <form id="form-login">
-    <label>Correo<input id="email" type="email" autocomplete="username" value="lead.comunidad@gmail.com" required></label>
-    <label>Contrase&ntilde;a<input id="password" type="password" autocomplete="current-password" required></label>
+    <label id="email-grupo">Correo<input id="email" type="email" autocomplete="username" value="lead.comunidad@gmail.com" required></label>
+    <label><span id="password-etiqueta">Contrase&ntilde;a</span><input id="password" type="password" autocomplete="current-password" required></label>
+    <label id="confirmar-grupo" hidden>Confirmar contrase&ntilde;a<input id="confirmar" type="password" autocomplete="new-password"></label>
     <button type="submit" id="login">Ingresar como administrador</button>
+    <button type="button" class="secundario" id="recuperar">Crear o restablecer contrase&ntilde;a</button>
     <p id="estado" role="status"></p>
   </form>
   <a href="/">Volver al inicio</a>
@@ -42,18 +46,64 @@
 const adminEmail='lead.comunidad@gmail.com';
 const formulario=document.getElementById('form-login');
 const estado=document.getElementById('estado');
-if(window.netlifyIdentity){
-  netlifyIdentity.on('init',user=>{ if(user) validar(user); });
-  netlifyIdentity.on('login',user=>{ netlifyIdentity.close(); validar(user); });
-  netlifyIdentity.init();
+const parametrosHash=new URLSearchParams(location.hash.slice(1));
+const tokenRecuperacion=parametrosHash.get('recovery_token');
+const tokenInvitacion=parametrosHash.get('invite_token');
+const tokenAcceso=tokenRecuperacion || tokenInvitacion;
+const tipoVerificacion=tokenRecuperacion?'recovery':'signup';
+
+if(tokenAcceso){
+  document.getElementById('instruccion').textContent='Crea ahora la contraseña privada de tu perfil administrador.';
+  document.getElementById('email-grupo').hidden=true;
+  document.getElementById('password-etiqueta').textContent='Nueva contraseña';
+  document.getElementById('password').autocomplete='new-password';
+  document.getElementById('confirmar-grupo').hidden=false;
+  document.getElementById('confirmar').required=true;
+  document.getElementById('login').textContent='Guardar nueva contraseña';
+  document.getElementById('recuperar').hidden=true;
   formulario.addEventListener('submit',async e=>{
     e.preventDefault();
-    estado.textContent='Verificando acceso…';
+    const password=document.getElementById('password').value;
+    if(password.length<8){ estado.textContent='La contraseña debe tener mínimo 8 caracteres.'; return; }
+    if(password!==document.getElementById('confirmar').value){ estado.textContent='Las contraseñas no coinciden.'; return; }
+    estado.textContent='Guardando contraseña…';
     try{
-      const user=await netlifyIdentity.login(document.getElementById('email').value.trim(),document.getElementById('password').value,true);
-      await validar(user);
-    }catch(error){ estado.textContent='Correo o contraseña incorrectos.'; }
+      const respuesta=await fetch('/.netlify/identity/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:tipoVerificacion,token:tokenAcceso,password})});
+      if(!respuesta.ok) throw new Error('verify');
+      location.replace('/login.html?password=creada');
+    }catch(error){ estado.textContent='El enlace venció o ya fue utilizado. Solicita uno nuevo.'; }
   });
+}else{
+  const identityScript=document.createElement('script');
+  identityScript.src='https://identity.netlify.com/v1/netlify-identity-widget.js';
+  identityScript.onload=()=>{
+    netlifyIdentity.on('init',user=>{ if(user) validar(user); });
+    netlifyIdentity.init();
+    formulario.addEventListener('submit',async e=>{
+      e.preventDefault();
+      estado.classList.remove('ok');
+      estado.textContent='Verificando acceso…';
+      try{
+        const user=await netlifyIdentity.login(document.getElementById('email').value.trim(),document.getElementById('password').value,true);
+        await validar(user);
+      }catch(error){ estado.textContent='Correo o contraseña incorrectos.'; }
+    });
+  };
+  document.head.appendChild(identityScript);
+  document.getElementById('recuperar').addEventListener('click',async()=>{
+    estado.classList.remove('ok');
+    estado.textContent='Enviando correo…';
+    try{
+      const respuesta=await fetch('/.netlify/identity/recover',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('email').value.trim()})});
+      if(!respuesta.ok) throw new Error('recover');
+      estado.classList.add('ok');
+      estado.textContent='Correo enviado. Abre el enlace más reciente de Netlify.';
+    }catch(error){ estado.textContent='No fue posible enviar el correo. Intenta nuevamente.'; }
+  });
+  if(new URLSearchParams(location.search).get('password')==='creada'){
+    estado.classList.add('ok');
+    estado.textContent='Contraseña creada. Ya puedes ingresar.';
+  }
 }
 async function validar(user){
   const roles=user?.app_metadata?.roles || [];
