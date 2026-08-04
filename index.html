@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mayor que mi Realidad · LHSCOL 2026</title>
+<script>
+if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.replace('/login.html'+location.hash);
+</script>
 <meta name="description" content="Temporada 2026 de LHSCOL: Mayor que mi Realidad es Tu Verdad. Una ruta formativa para caminar sobre las verdades del Padre.">
 <meta property="og:title" content="Mayor que mi Realidad · LHSCOL 2026">
 <meta property="og:description" content="Una ruta formativa para caminar sobre las verdades del Padre.">
@@ -3117,9 +3120,8 @@ if(localPreview){
   };
   document.head.appendChild(identityScript);
   previewToggle.addEventListener('click',()=>{
-    if(!window.netlifyIdentity){ location.href='/login.html'; return; }
-    if(aplicarSesionAdmin(netlifyIdentity.currentUser())) netlifyIdentity.logout();
-    else netlifyIdentity.open('login');
+    if(window.netlifyIdentity && aplicarSesionAdmin(netlifyIdentity.currentUser())) netlifyIdentity.logout();
+    else location.href='/login.html';
   });
 }
 

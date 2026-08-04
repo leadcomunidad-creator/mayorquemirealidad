@@ -119,7 +119,7 @@
     } else {
       const identity = document.createElement('script');
       identity.src='https://identity.netlify.com/v1/netlify-identity-widget.js';
-      identity.onload=()=>{ if(!window.netlifyIdentity) return; const apply=user=>{ const roles=user?.app_metadata?.roles||[]; updateAdmin(user?.email?.toLowerCase()==='lead.comunidad@gmail.com'&&roles.includes('admin')); }; netlifyIdentity.on('init',apply); netlifyIdentity.on('login',user=>{ apply(user); netlifyIdentity.close(); }); netlifyIdentity.on('logout',()=>apply(null)); netlifyIdentity.init(); adminAction.addEventListener('click',()=>{ if(document.body.classList.contains('admin-preview')) netlifyIdentity.logout(); else netlifyIdentity.open('login'); }); };
+      identity.onload=()=>{ if(!window.netlifyIdentity) return; const apply=user=>{ const roles=user?.app_metadata?.roles||[]; updateAdmin(user?.email?.toLowerCase()==='lead.comunidad@gmail.com'&&roles.includes('admin')); }; netlifyIdentity.on('init',apply); netlifyIdentity.on('login',user=>{ apply(user); netlifyIdentity.close(); }); netlifyIdentity.on('logout',()=>apply(null)); netlifyIdentity.init(); adminAction.addEventListener('click',()=>{ if(document.body.classList.contains('admin-preview')) netlifyIdentity.logout(); else location.href='/login.html'; }); };
       document.head.append(identity);
     }
     requestAnimationFrame(() => document.documentElement.classList.remove('mrv-resource-loading'));

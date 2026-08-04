@@ -14,9 +14,14 @@
   .etiqueta{margin:32px 0 8px;color:var(--melocoton);letter-spacing:.18em;font-size:.75rem}
   h1{margin:0 0 12px;font-family:Georgia,serif;font-size:clamp(2rem,7vw,3.2rem)}
   p{margin:0 auto 26px;max-width:34ch;line-height:1.6;color:#b8c7eb}
+  form{display:grid;gap:12px;margin-top:24px}
+  label{text-align:left;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#b8c7eb}
+  input{width:100%;min-height:46px;margin-top:7px;padding:0 14px;border:1px solid var(--linea);border-radius:9px;background:#061126;color:var(--texto);font:inherit;outline:none}
+  input:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(0,86,241,.16)}
   button,a{display:inline-flex;justify-content:center;align-items:center;min-height:44px;border-radius:9px;font-weight:700;text-decoration:none;cursor:pointer}
   button{padding:0 20px;border:1px solid rgba(242,197,161,.5);background:rgba(242,197,161,.12);color:var(--melocoton)}
-  a{margin-left:8px;padding:0 14px;color:#b8d1ff}
+  a{margin-top:10px;padding:0 14px;color:#b8d1ff}
+  #estado{min-height:20px;margin:0;color:#fc5054;font-size:.82rem}
 </style>
 </head>
 <body>
@@ -25,17 +30,30 @@
   <div class="etiqueta">ACCESO PRIVADO</div>
   <h1>Expediente</h1>
   <p>Ingresa con la cuenta administradora autorizada para consultar este contenido.</p>
-  <button type="button" id="login">Ingresar</button>
+  <form id="form-login">
+    <label>Correo<input id="email" type="email" autocomplete="username" value="lead.comunidad@gmail.com" required></label>
+    <label>Contrase&ntilde;a<input id="password" type="password" autocomplete="current-password" required></label>
+    <button type="submit" id="login">Ingresar como administrador</button>
+    <p id="estado" role="status"></p>
+  </form>
   <a href="/">Volver al inicio</a>
 </main>
 <script>
 const adminEmail='lead.comunidad@gmail.com';
-const boton=document.getElementById('login');
+const formulario=document.getElementById('form-login');
+const estado=document.getElementById('estado');
 if(window.netlifyIdentity){
   netlifyIdentity.on('init',user=>{ if(user) validar(user); });
   netlifyIdentity.on('login',user=>{ netlifyIdentity.close(); validar(user); });
   netlifyIdentity.init();
-  boton.addEventListener('click',()=>netlifyIdentity.open('login'));
+  formulario.addEventListener('submit',async e=>{
+    e.preventDefault();
+    estado.textContent='Verificando acceso…';
+    try{
+      const user=await netlifyIdentity.login(document.getElementById('email').value.trim(),document.getElementById('password').value,true);
+      await validar(user);
+    }catch(error){ estado.textContent='Correo o contraseña incorrectos.'; }
+  });
 }
 async function validar(user){
   const roles=user?.app_metadata?.roles || [];
