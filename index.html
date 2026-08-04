@@ -886,13 +886,13 @@
   }
 
   .btn-blog {
-    background: rgba(204,23,110,0.12);
-    color: rgba(242,197,161,0.9);
-    border: 1px solid rgba(204,23,110,0.25);
+    background: rgba(242,197,161,0.08);
+    color: #F2C5A1;
+    border: 1px solid rgba(242,197,161,0.55);
   }
   .btn-blog:hover {
-    background: rgba(204,23,110,0.22);
-    border-color: rgba(204,23,110,0.4);
+    background: rgba(242,197,161,0.18);
+    border-color: #F2C5A1;
   }
 
   .btn-infografia {
@@ -1792,7 +1792,7 @@
     --tint-azul: #0A1B3D;
     --tint-rosa: #2A0E24;
     --tint-melocoton: #2E2213;
-    --sidebar-w: 300px;
+    --sidebar-w: 320px;
     --nav-h: 68px;
   }
 
@@ -1807,7 +1807,9 @@
   }
   #sidebar.abierto { transform:translateX(0); box-shadow:6px 0 40px rgba(0,0,0,.5); }
   #sidebar::-webkit-scrollbar { width:6px; }
-  #sidebar::-webkit-scrollbar-thumb { background:var(--linea-fuerte); border-radius:3px; }
+  #sidebar::-webkit-scrollbar-track { background:transparent; }
+  #sidebar::-webkit-scrollbar-thumb { background:var(--azul); border-radius:6px; }
+  #sidebar::-webkit-scrollbar-thumb:hover { background:#2474ff; }
   #sidebar .cerrar-sidebar {
     position:absolute; top:1.1rem; right:1.1rem; width:2rem; height:2rem; border-radius:6px;
     background:transparent; border:1px solid var(--linea-fuerte); color:var(--texto-suave);
@@ -1815,24 +1817,42 @@
   }
   #sidebar .cerrar-sidebar:hover { border-color:var(--azul); color:#fff; }
   #sidebar .marca { font-weight:700; font-size:.78rem; letter-spacing:.25em; color:var(--azul); margin-bottom:.3rem; margin-top:.2rem; }
-  #sidebar .serie { font-size:.66rem; color:var(--texto-suave); letter-spacing:.14em; text-transform:uppercase; padding-bottom:1.1rem; margin-bottom:1.3rem; border-bottom:1px solid var(--linea-fuerte); }
+  #sidebar .serie { font-size:.66rem; font-weight:600; line-height:1.65; color:var(--texto-suave); letter-spacing:.14em; text-transform:uppercase; padding-bottom:1.1rem; margin-bottom:1.3rem; border-bottom:1px solid var(--linea-fuerte); }
+  #sidebar .serie span { display:block; }
   .bloque-nav { margin-bottom:1.5rem; }
   .nav-item { display:flex; align-items:baseline; gap:.55rem; padding:.5rem .6rem; border-radius:5px; cursor:pointer; color:var(--texto-medio); font-size:.82rem; line-height:1.35; transition:background .15s ease, color .15s ease; text-decoration:none; background:none; border:none; width:100%; text-align:left; font-family:'DM Sans',sans-serif; }
   .nav-item:hover { background:var(--tint-azul); color:var(--blanco); }
   .nav-item .num { font-weight:600; color:var(--azul-claro); min-width:1.3rem; flex-shrink:0; }
   .nav-item .estado-dot { margin-left:auto; width:6px; height:6px; border-radius:50%; background:var(--azul); flex-shrink:0; }
   .nav-item.sala-item .estado-dot { background:var(--verde); }
-  .fase-toggle { display:flex; align-items:center; gap:.55rem; width:100%; padding:.55rem .6rem; border-radius:5px; cursor:pointer; background:transparent; border:none; color:var(--blanco); font-size:.86rem; font-weight:600; text-align:left; transition:background .15s ease; font-family:'DM Sans',sans-serif; }
+  .nav-item.nav-portada { color:var(--melocoton); font-weight:700; }
+  .nav-item.sala-item { color:var(--verde); font-weight:700; }
+  .nav-item.sala-item .num { color:var(--verde); }
+  .fase-toggle { display:flex; align-items:center; gap:.55rem; width:100%; padding:.55rem .6rem; border-radius:5px; cursor:pointer; background:transparent; border:none; color:var(--melocoton); font-size:.86rem; font-weight:700; text-align:left; transition:background .15s ease; font-family:'DM Sans',sans-serif; }
+  .fase-grupo.fase-actual .fase-toggle { color:#FC5054; background:rgba(252,80,84,.08); }
   .fase-toggle:hover { background:var(--tint-azul); }
   .fase-toggle .chev { margin-left:auto; width:12px; height:12px; transition:transform .25s ease; opacity:.6; flex-shrink:0; }
   .fase-toggle .badge-pronto { font-size:.58rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--texto-suave); background:rgba(184,209,255,.06); border:1px solid var(--linea-fuerte); padding:.15rem .5rem; border-radius:100px; margin-left:auto; }
+  .fase-toggle .badge-nuevo { font-size:.58rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; background:rgba(252,80,84,.78); padding:.15rem .5rem; border-radius:100px; margin-left:auto; }
   .fase-grupo.abierto .fase-toggle .chev { transform:rotate(90deg); }
   .fase-sub { max-height:0; overflow:hidden; transition:max-height .3s ease; }
   .fase-grupo.abierto .fase-sub { max-height:900px; }
   .nav-item.sub { padding-left:1.9rem; font-size:.76rem; color:var(--texto-suave); }
   .nav-item.sub:hover { color:var(--blanco); }
+  .nav-item.sub.mensaje-reciente { color:#fff; font-weight:700; background:rgba(0,86,241,.18); border-left:3px solid #FC5054; padding-left:calc(1.9rem - 3px); }
+  .nav-item.sub.mensaje-reciente::after { content:'ÚLTIMO'; margin-left:auto; color:#FC5054; font-size:.45rem; font-weight:700; letter-spacing:.1em; }
   .nav-item.pendiente { opacity:.42; cursor:default; }
   .nav-item.pendiente:hover { background:none; color:var(--texto-medio); }
+  .sidebar-admin { margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--linea-fuerte); }
+  .sidebar-admin-toggle { width:100%; display:flex; align-items:center; gap:.6rem; padding:.65rem .7rem; border-radius:7px; border:1px solid rgba(242,204,143,.2); background:rgba(242,204,143,.06); color:#f2cc8f; cursor:pointer; font:700 .72rem/1.2 'DM Sans',sans-serif; text-align:left; }
+  .sidebar-admin-toggle:hover { background:rgba(242,204,143,.12); border-color:rgba(242,204,143,.38); }
+  .sidebar-admin-toggle svg { width:15px; height:15px; flex-shrink:0; }
+  .sidebar-admin-toggle .admin-chevron { margin-left:auto; transition:transform .2s ease; }
+  .sidebar-admin.abierto .admin-chevron { transform:rotate(90deg); }
+  .sidebar-admin-panel { display:none; margin-top:.55rem; padding:.75rem; border-radius:7px; background:rgba(2,11,30,.5); border:1px solid var(--linea-fuerte); }
+  .sidebar-admin.abierto .sidebar-admin-panel { display:flex; flex-direction:column; align-items:stretch; gap:.6rem; }
+  .sidebar-admin-panel span { color:var(--texto-suave); font-size:.66rem; }
+  .sidebar-admin-panel button { padding:.55rem .65rem; border-radius:7px; border:1px solid rgba(242,204,143,.35); background:rgba(242,204,143,.12); color:#f2cc8f; cursor:pointer; font:700 .65rem/1.2 'DM Sans',sans-serif; }
 
   #portada-estatica {
     position:fixed; inset:0; z-index:100; overflow:hidden;
@@ -1938,8 +1958,6 @@
 </head>
 <body class="portada-visible">
 
-<aside class="preview-access"><span id="preview-state">Acceso privado</span><button type="button" id="preview-toggle">Ingresar como administrador</button></aside>
-
 <div class="cosmic-bg"></div>
 <canvas id="starfield"></canvas>
 <div id="progress-bar"></div>
@@ -1961,16 +1979,16 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <div class="marca">LHSCOL</div>
-  <div class="serie">Mayor que mi Realidad &middot; Temporada 2026</div>
+  <div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div>
 
   <div class="bloque-nav">
-    <button type="button" class="nav-item" onclick="mostrarPortada()"><span class="num">&mdash;</span> Portada</button>
+    <button type="button" class="nav-item nav-portada" onclick="mostrarPortada()"><span class="num">&mdash;</span> Portada</button>
     <button type="button" class="nav-item" onclick="ir('intro')"><span class="num">&mdash;</span> &iquest;De qu&eacute; se trata esta temporada?</button>
     <button type="button" class="nav-item" onclick="ir('indice')"><span class="num">&mdash;</span> Tabla de contenido</button>
     <button type="button" class="nav-item sala-item" onclick="irFase('fesp')"><span class="num">&#9733;</span> Episodios de La Sala <span class="estado-dot"></span></button>
   </div>
 
-  <div class="bloque-nav fase-grupo abierto">
+  <div class="bloque-nav fase-grupo">
     <button type="button" class="fase-toggle" onclick="toggleFaseGrupo(this)">F1 &middot; Umbral <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
     <div class="fase-sub">
       <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-1')">Mayor que mi Realidad</button>
@@ -1986,8 +2004,8 @@
     </div>
   </div>
 
-  <div class="bloque-nav fase-grupo">
-    <button type="button" class="fase-toggle" onclick="toggleFaseGrupo(this)">F2 &middot; Diagn&oacute;stico <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <div class="bloque-nav fase-grupo fase-actual abierto">
+    <button type="button" class="fase-toggle" onclick="toggleFaseGrupo(this)">F2 &middot; Diagn&oacute;stico <span class="badge-nuevo">Nuevo</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
     <div class="fase-sub">
       <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-1')">El Pez No Sabe</button>
       <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-2')">Cerdos y Coronas</button>
@@ -1998,7 +2016,7 @@
       <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-3e')">La Verdad Tiene Nombre</button>
       <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-4')">Todo lo M&iacute;o es Tuyo</button>
       <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-5')">Podemos Hacerlo</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-6')">Otro Esp&iacute;ritu</button>
+      <button type="button" class="nav-item sub mensaje-reciente" onclick="irFase('f2','msg-f2-6')">Otro Esp&iacute;ritu</button>
       <button type="button" class="nav-item sub pendiente">La Generaci&oacute;n que Lleg&oacute;</button>
       <button type="button" class="nav-item sub pendiente">&iquest;Cu&aacute;l es tu Marco?</button>
       <button type="button" class="nav-item sub pendiente">El Nombre del Agua</button>
@@ -2006,13 +2024,24 @@
   </div>
 
   <div class="bloque-nav">
-    <button type="button" class="fase-toggle" onclick="irFase('f3')">F3 &middot; Manifiesto <span class="badge-pronto">Pronto</span></button>
+    <button type="button" class="fase-toggle" onclick="irFase('f3')">F3 &middot; Protocolo <span class="badge-pronto">Pronto</span></button>
   </div>
   <div class="bloque-nav">
-    <button type="button" class="fase-toggle" onclick="irFase('f4')">F4 &middot; Protocolo <span class="badge-pronto">Pronto</span></button>
+    <button type="button" class="fase-toggle" onclick="irFase('f4')">F4 &middot; Manifiesto <span class="badge-pronto">Pronto</span></button>
   </div>
   <div class="bloque-nav">
     <button type="button" class="fase-toggle" onclick="irFase('f5')">F5 &middot; Estilo de Vida <span class="badge-pronto">Pronto</span></button>
+  </div>
+  <div class="sidebar-admin">
+    <button type="button" class="sidebar-admin-toggle" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20.3h-3v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7 15a1.7 1.7 0 0 0-1.56-1.03H5.3v-3h.14A1.7 1.7 0 0 0 7 9.94a1.7 1.7 0 0 0-.34-1.88L6.6 8l2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.69 4.7V4.6h3v.1a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 8l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.96 11h.14v3h-.14A1.7 1.7 0 0 0 19.4 15z"/></svg>
+      Zona administrativa
+      <span class="admin-chevron">›</span>
+    </button>
+    <div class="sidebar-admin-panel">
+      <span id="preview-state">Acceso privado</span>
+      <button type="button" id="preview-toggle">Ingresar como administrador</button>
+    </div>
   </div>
 </aside>
 
@@ -2079,14 +2108,14 @@
       </div>
       <div class="doc-card pendiente" onclick="irFase('f3')">
         <span class="card-tag">F3</span>
-        <div class="card-titulo-idx">El Manifiesto del Reino <em>y la Metanoia</em></div>
-        <div class="card-resumen">Jesus no vino a reformar la conducta -- vino a colonizar la mente a traves de la metanoia.</div>
+        <div class="card-titulo-idx">Protocolo <em>Metanoia</em></div>
+        <div class="card-resumen">Entrenar la mente para vivir en la Verdad: Reemplazo, Reprogramacion, Replanteamiento y Recuperacion.</div>
         <div class="card-estado pendiente"><span class="dt"></span> Proximamente</div>
       </div>
       <div class="doc-card pendiente" onclick="irFase('f4')">
         <span class="card-tag">F4</span>
-        <div class="card-titulo-idx">Protocolo <em>Metanoia</em></div>
-        <div class="card-resumen">Entrenar la mente para vivir en la Verdad: Reemplazo, Reprogramacion, Replanteamiento y Recuperacion.</div>
+        <div class="card-titulo-idx">El Manifiesto del Reino <em>y la Metanoia</em></div>
+        <div class="card-resumen">Jesus no vino a reformar la conducta -- vino a colonizar la mente a traves de la metanoia.</div>
         <div class="card-estado pendiente"><span class="dt"></span> Proximamente</div>
       </div>
       <div class="doc-card pendiente" onclick="irFase('f5')">
@@ -2469,8 +2498,8 @@
       <div class="tabs" role="tablist" id="tabs-track">
         <button class="tab active" data-fase="f1" onclick="showFase('f1',this)" role="tab">F1 · Umbral</button>
         <button class="tab" data-fase="f2" onclick="showFase('f2',this)" role="tab">F2 · Diagnóstico</button>
-        <button class="tab" data-fase="f3" onclick="showFase('f3',this)" role="tab">F3 · Manifiesto <span class="tab-badge">Pronto</span></button>
-        <button class="tab" data-fase="f4" onclick="showFase('f4',this)" role="tab">F4 · Protocolo <span class="tab-badge">Pronto</span></button>
+        <button class="tab" data-fase="f3" onclick="showFase('f3',this)" role="tab">F3 · Protocolo <span class="tab-badge">Pronto</span></button>
+        <button class="tab" data-fase="f4" onclick="showFase('f4',this)" role="tab">F4 · Manifiesto <span class="tab-badge">Pronto</span></button>
         <button class="tab" data-fase="f5" onclick="showFase('f5',this)" role="tab">F5 · Estilo de Vida <span class="tab-badge">Pronto</span></button>
         <span class="tabs-sep" aria-hidden="true"></span>
         <button class="tab tab-sala" data-fase="fesp" onclick="showFase('fesp',this)" role="tab">★ La Sala <span class="tab-badge tab-badge-sala">1 episodio</span></button>
@@ -2898,8 +2927,8 @@
       <div class="fase-num">III</div>
       <div class="fase-info">
         <div class="fase-kicker">Fase 3 · Semanas 11–15</div>
-        <h2 class="fase-titulo">El Manifiesto del Reino <em>y la Metanoia</em></h2>
-        <p class="fase-concepto">¿Por qué no entendemos a Jesús? Jesús no vino a reformar la conducta — vino a colonizar la mente a través de la metanoia. Sin ella, el Reino es incomprensible.</p>
+        <h2 class="fase-titulo">Protocolo <em>Metanoia</em></h2>
+        <p class="fase-concepto">Entrenar la mente para vivir en la Verdad. Cuatro ejes: Reemplazo, Reprogramación, Replanteamiento y Recuperación. La renovación mental como práctica diaria.</p>
       </div>
     </div>
     <div class="fase-pronto">
@@ -2914,8 +2943,8 @@
       <div class="fase-num">IV</div>
       <div class="fase-info">
         <div class="fase-kicker">Fase 4 · Parte central del año</div>
-        <h2 class="fase-titulo">Protocolo <em>Metanoia</em></h2>
-        <p class="fase-concepto">Entrenar la mente para vivir en la Verdad. Cuatro ejes: Reemplazo, Reprogramación, Replanteamiento y Recuperación. La renovación mental como práctica diaria.</p>
+        <h2 class="fase-titulo">El Manifiesto del Reino <em>y la Metanoia</em></h2>
+        <p class="fase-concepto">¿Por qué no entendemos a Jesús? Jesús no vino a reformar la conducta — vino a colonizar la mente a través de la metanoia. Sin ella, el Reino es incomprensible.</p>
       </div>
     </div>
     <div class="fase-pronto">
@@ -3020,6 +3049,12 @@ const previewToggle=document.getElementById('preview-toggle');
 const previewState=document.getElementById('preview-state');
 const adminEmail='lead.comunidad@gmail.com';
 const localPreview=['127.0.0.1','localhost'].includes(location.hostname);
+const sidebarAdmin=document.querySelector('.sidebar-admin');
+const sidebarAdminToggle=document.querySelector('.sidebar-admin-toggle');
+sidebarAdminToggle?.addEventListener('click',()=>{
+  const abierto=sidebarAdmin.classList.toggle('abierto');
+  sidebarAdminToggle.setAttribute('aria-expanded',String(abierto));
+});
 
 function aplicarSesionAdmin(user){
   const roles=user?.app_metadata?.roles || [];
@@ -3031,9 +3066,10 @@ function aplicarSesionAdmin(user){
 }
 
 if(localPreview){
-  localStorage.removeItem('mrv-local-admin');
-  previewState.textContent='Vista pública';
-  previewToggle.textContent='Cambiar a administrador';
+  const adminInicial=new URLSearchParams(location.search).get('admin')==='1' || localStorage.getItem('mrv-local-admin')==='true';
+  document.body.classList.toggle('admin-preview',adminInicial);
+  previewState.textContent=adminInicial?'Vista administrador':'Vista pública';
+  previewToggle.textContent=adminInicial?'Cambiar a público':'Cambiar a administrador';
   previewToggle.addEventListener('click',()=>{
     const admin=document.body.classList.toggle('admin-preview');
     if(admin) localStorage.setItem('mrv-local-admin','true');
@@ -3075,6 +3111,7 @@ function toggleIntro() {
 function abrirSidebar(){ document.getElementById('sidebar').classList.add('abierto'); document.getElementById('overlay-sidebar').classList.add('activo'); }
 function cerrarSidebar(){ document.getElementById('sidebar').classList.remove('abierto'); document.getElementById('overlay-sidebar').classList.remove('activo'); }
 function toggleMenu(){ document.getElementById('sidebar').classList.contains('abierto') ? cerrarSidebar() : abrirSidebar(); }
+if(new URLSearchParams(location.search).get('menu')==='1') abrirSidebar();
 function toggleFaseGrupo(btn){ btn.parentElement.classList.toggle('abierto'); }
 
 // ── NAV HEIGHT (para que la portada estatica calce exacto bajo la barra) ──
@@ -3147,6 +3184,17 @@ function irFase(id, cardId){
       }
     }, 160);
   }
+}
+
+const routeParams = new URLSearchParams(location.search);
+if(routeParams.has('view') || routeParams.has('fase')){
+  setTimeout(() => {
+    const view = routeParams.get('view');
+    if(view === 'intro') ir('intro');
+    else if(view === 'indice') ir('indice');
+    else if(view === 'sala') irFase('fesp');
+    else if(routeParams.get('fase')) irFase(routeParams.get('fase'), routeParams.get('msg'));
+  }, 80);
 }
 
 // ── MODAL VERSICULO ──
