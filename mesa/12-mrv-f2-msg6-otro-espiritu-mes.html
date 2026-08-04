@@ -22,18 +22,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --azul: #0056F1;
-    --rosa: #CC176E;
-    --melocoton: #F2C5A1;
-    --azul-claro: #B8D1FF;
+    --azul: #FC5054;
+    --rosa: #FEBB9B;
+    --melocoton: #FEBB9B;
+    --azul-claro: #FEBB9B;
     --ambar: #FC5054;
     --blanco: #FFFFFF;
-    --fondo: #050D1F;
-    --fondo-2: #080F25;
-    --texto: rgba(230, 235, 255, 0.88);
-    --texto-suave: rgba(184, 209, 255, 0.6);
-    --texto-medio: rgba(210, 220, 255, 0.75);
-    --linea: rgba(184, 209, 255, 0.12);
+    --fondo: #000000;
+    --fondo-2: #000000;
+    --texto: rgba(255,255,255,0.88);
+    --texto-suave: rgba(255,255,255,0.60);
+    --texto-medio: rgba(255,255,255,0.75);
+    --linea: rgba(255,255,255,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,7 +56,7 @@
     position: fixed;
     inset: 0;
     z-index: 999;
-    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0,86,241,0.18) 0%, transparent 60%), var(--fondo);
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(252,80,84,0.18) 0%, transparent 60%), var(--fondo);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,7 +155,7 @@
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #1a1204;
+    color: #000000;
     background: var(--ambar);
     border: none;
     border-radius: 10px;
@@ -164,7 +164,7 @@
     transition: transform 0.15s, background 0.2s;
   }
 
-  #gate-submit:hover { background: #f2cc8f; transform: translateY(-1px); }
+  #gate-submit:hover { background: #FEBB9B; transform: translateY(-1px); }
 
   #gate-error {
     font-family: 'DM Sans', sans-serif;
@@ -228,7 +228,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(5, 13, 31, 0.85);
+    background: rgba(0,0,0,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--linea);
     gap: 16px;
@@ -283,15 +283,15 @@
     padding: 8px 14px;
     border-radius: 20px;
     text-decoration: none;
-    border: 1px solid rgba(184,209,255,0.3);
+    border: 1px solid rgba(255,255,255,0.3);
     color: var(--azul-claro);
-    background: rgba(184, 209, 255, 0.05);
+    background: rgba(255,255,255,0.05);
     transition: all 0.25s ease;
     white-space: nowrap;
   }
 
   .btn-recurso svg { width: 13px; height: 13px; flex-shrink: 0; }
-  .btn-recurso:hover { transform: translateY(-1px); background: rgba(184, 209, 255, 0.15); }
+  .btn-recurso:hover { transform: translateY(-1px); background: rgba(255,255,255,0.15); }
 
   /* ── HERO ── */
   .hero {
@@ -305,8 +305,8 @@
     inset: 0;
     background:
       radial-gradient(ellipse 70% 60% at 30% 20%, rgba(252,80,84,0.14) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(204,23,110,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(8,15,37,0.9) 0%, transparent 100%);
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(254,187,155,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 100%);
   }
 
   .hero-content {
@@ -385,8 +385,8 @@
     font-weight: 600;
     letter-spacing: 1px;
     color: var(--azul-claro);
-    background: rgba(184,209,255,0.08);
-    border: 1px solid rgba(184,209,255,0.2);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
     padding: 4px 10px;
     border-radius: 12px;
   }
@@ -410,8 +410,8 @@
   .alcance-nota {
     margin: 0 0 48px;
     padding: 20px 24px;
-    background: rgba(184,209,255,0.05);
-    border: 1px solid rgba(184,209,255,0.2);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 12px;
   }
 
@@ -538,7 +538,7 @@
   .pregunta-destacada {
     margin: 24px 0;
     padding: 28px 32px;
-    background: rgba(0,86,241,0.06);
+    background: rgba(252,80,84,0.06);
     border-left: 4px solid var(--ambar);
     border-radius: 0 12px 12px 0;
   }
@@ -568,8 +568,8 @@
   .verse-block {
     margin: 24px 0;
     padding: 26px 30px;
-    background: rgba(184,209,255,0.05);
-    border: 1px solid rgba(184,209,255,0.15);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 12px;
   }
 
@@ -612,14 +612,14 @@
 
   .bloque-header {
     padding: 16px 24px;
-    background: rgba(0,86,241,0.1);
+    background: rgba(252,80,84,0.1);
     display: flex;
     align-items: center;
     gap: 14px;
   }
 
-  .bloque-card.b2 .bloque-header { background: rgba(204,23,110,0.1); }
-  .bloque-card.b3 .bloque-header { background: rgba(5,150,105,0.1); }
+  .bloque-card.b2 .bloque-header { background: rgba(254,187,155,0.1); }
+  .bloque-card.b3 .bloque-header { background: rgba(252,80,84,0.1); }
 
   .bloque-num {
     font-family: 'Playfair Display', serif;
@@ -631,7 +631,7 @@
   }
 
   .bloque-card.b2 .bloque-num { color: var(--rosa); }
-  .bloque-card.b3 .bloque-num { color: #34D399; }
+  .bloque-card.b3 .bloque-num { color: #FEBB9B; }
 
   .bloque-nombre {
     font-family: 'DM Sans', sans-serif;
@@ -674,7 +674,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(184,209,255,0.1);
+    background: rgba(255,255,255,0.1);
     color: var(--azul-claro);
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
@@ -684,15 +684,15 @@
     justify-content: center;
   }
 
-  .bloque-card.b2 .bloque-preguntas li::before { color: var(--rosa); background: rgba(204,23,110,0.1); }
-  .bloque-card.b3 .bloque-preguntas li::before { color: #34D399; background: rgba(5,150,105,0.1); }
+  .bloque-card.b2 .bloque-preguntas li::before { color: var(--rosa); background: rgba(254,187,155,0.1); }
+  .bloque-card.b3 .bloque-preguntas li::before { color: #FEBB9B; background: rgba(252,80,84,0.1); }
 
   /* ── SECUENCIA PRACTICAMOS (lista de 5) ── */
   .secuencia-card {
     margin: 28px 0;
     padding: 30px 34px;
-    background: linear-gradient(135deg, rgba(0,86,241,0.06) 0%, rgba(204,23,110,0.05) 100%);
-    border: 1px solid rgba(184,209,255,0.18);
+    background: linear-gradient(135deg, rgba(252,80,84,0.06) 0%, rgba(254,187,155,0.05) 100%);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: 18px;
   }
 
@@ -724,7 +724,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(184,209,255,0.1);
+    background: rgba(255,255,255,0.1);
     color: var(--azul-claro);
     font-family: 'DM Sans', sans-serif;
     font-size: 10.5px;
@@ -740,7 +740,7 @@
     padding: 36px 40px;
     background: rgba(0,0,0,0.3);
     border-radius: 16px;
-    border: 1.5px solid #059669;
+    border: 1.5px solid #FC5054;
   }
 
   .desafio-label {
@@ -749,7 +749,7 @@
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #059669;
+    color: #FC5054;
     margin-bottom: 16px;
   }
 
@@ -770,9 +770,9 @@
   .oracion-box {
     margin-top: 24px;
     padding: 40px 44px;
-    background: linear-gradient(135deg, #0a0f2e 0%, #150520 100%);
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
     border-radius: 20px;
-    border: 1px solid rgba(184,209,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
   }
 
   .oracion-box p {
@@ -803,7 +803,7 @@
   .closing {
     margin-top: 72px;
     padding: 56px 48px;
-    background: linear-gradient(135deg, #1a0f05 0%, #150520 100%);
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
     border-radius: 24px;
     text-align: center;
     border: 1px solid rgba(252,80,84,0.15);
