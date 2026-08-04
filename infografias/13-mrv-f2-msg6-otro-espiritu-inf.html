@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otro Espíritu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --ambar: #B87A3A;
+    --verde: #059669;
+    --morado: #6B21A8;
+    --morado-claro: #a855f7;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-texto: #2A2D3E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.1;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  /* SECTIONS */
+  .body { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section.alt { background: rgba(10,6,37,0.85); }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.75);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .intro strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+  /* DUO DE CITAS */
+  .quote-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .quote-card {
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1.5px solid rgba(184,209,255,0.18);
+  }
+
+  .quote-card.azul-card { background: rgba(0,86,241,0.12); }
+  .quote-card.rosa-card { background: rgba(204,23,110,0.1); }
+
+  .quote-card .who {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .quote-card.azul-card .who { color: var(--azul-claro); }
+  .quote-card.rosa-card .who { color: var(--rosa); }
+
+  .quote-card blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .quote-card .ref {
+    font-size: 10px;
+    color: rgba(184,209,255,0.6);
+    letter-spacing: 1px;
+  }
+
+  /* FLUJO */
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 22px 0;
+  }
+
+  .flujo-item {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+    border-radius: 10px;
+    padding: 12px 26px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 300px;
+    max-width: 100%;
+    letter-spacing: 0.3px;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--azul-claro);
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+  /* CAJAS TERMINO (2 o 3 columnas) */
+  .term-grid {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .term-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+  .term-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .term-box {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 18px 18px;
+  }
+
+  .term-box .label {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .term-box .desc {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+  }
+
+  .term-box .desc strong { color: rgba(255,255,255,0.98); }
+
+  /* LISTA "NO ES" */
+  .no-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .no-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 12.5px;
+    color: rgba(184,209,255,0.75);
+  }
+
+  .no-item .mark {
+    color: var(--rosa);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 4px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14.5px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong { color: var(--rosa); font-style: normal; }
+
+  /* COMPARACION ASIMETRICA */
+  .comparo-duo {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .comparo-card {
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1.5px solid rgba(184,209,255,0.18);
+  }
+
+  .comparo-card.rosa-card { background: rgba(204,23,110,0.1); }
+  .comparo-card.azul-card { background: rgba(0,86,241,0.12); }
+
+  .comparo-card .who {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .comparo-card.rosa-card .who { color: var(--rosa); }
+  .comparo-card.azul-card .who { color: var(--azul-claro); }
+
+  .comparo-card .big-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    font-style: italic;
+    color: rgba(255,255,255,0.94);
+    line-height: 1.4;
+  }
+
+  .comparo-card .small-note {
+    font-size: 10.5px;
+    color: rgba(184,209,255,0.6);
+    margin-top: 10px;
+  }
+
+  .comparo-card .stack-quote {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(184,209,255,0.12);
+  }
+
+  .comparo-card .stack-quote:last-child { border-bottom: none; }
+
+  /* GRID 4 CAJAS */
+  .box-grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .pcpm-box {
+    border-radius: 12px;
+    padding: 18px 20px;
+    border-left: 3px solid var(--azul);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .pcpm-box .tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 8px;
+  }
+
+  .pcpm-box blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .pcpm-box .desc {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  /* CHIP ROW */
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  .chip {
+    background: rgba(0,86,241,0.15);
+    border: 1px solid rgba(184,209,255,0.25);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.88);
+    font-weight: 600;
+  }
+
+  .chip span { color: var(--azul-claro); font-weight: 400; }
+
+  /* RESUMEN */
+  .tesis-central {
+    background: linear-gradient(135deg, #1a0533 0%, #0056F1 100%);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tesis-central::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .tesis-central .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--melocoton);
+    margin-bottom: 10px;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-central p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14.5px;
+    color: white;
+    line-height: 1.7;
+    font-style: italic;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-central p em { color: var(--melocoton); font-style: normal; }
+
+  .ideas-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--morado-claro);
+    margin-bottom: 14px;
+  }
+
+  .idea-item {
+    display: flex;
+    gap: 12px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+
+  .idea-num {
+    width: 22px; height: 22px;
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .idea-item p {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+  }
+
+  .idea-item p strong { color: var(--melocoton); }
+
+  .sorprendente-box {
+    background: rgba(0,86,241,0.1);
+    border: 1.5px solid rgba(184,209,255,0.25);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+
+  .sorprendente-box .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 10px;
+  }
+
+  .sorprendente-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .sorprendente-box p strong { color: var(--azul-claro); font-style: normal; }
+
+  .accion-box {
+    background: rgba(5,150,105,0.12);
+    border: 1.5px solid rgba(167,243,208,0.25);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+
+  .accion-box .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 12px;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .step-item .snum {
+    width: 20px; height: 20px;
+    background: var(--verde);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-item p {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.55;
+  }
+
+  .frase-impactante {
+    background: linear-gradient(135deg, rgba(0,86,241,0.15) 0%, rgba(204,23,110,0.1) 100%);
+    border-radius: 14px;
+    border: 1.5px solid rgba(184,209,255,0.2);
+    padding: 24px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-impactante .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--rosa);
+    margin-bottom: 14px;
+    position: relative; z-index: 2;
+  }
+
+  .frase-impactante blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16.5px;
+    font-style: italic;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.7;
+    position: relative; z-index: 2;
+  }
+
+  .frase-impactante blockquote em { color: var(--melocoton); font-style: normal; }
+
+  /* FRASE FINAL */
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 18px;
+  }
+
+  .frase-final blockquote em { color: var(--melocoton); font-style: normal; }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  /* NOTA DE CONTINUIDAD */
+  .nota-continuidad {
+    background: rgba(255,255,255,0.04);
+    padding: 18px 56px;
+    text-align: center;
+  }
+
+  .nota-continuidad p {
+    font-size: 10.5px;
+    color: rgba(184,209,255,0.5);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 30px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .quote-duo, .comparo-duo, .box-grid-4, .term-grid.cols-2, .term-grid.cols-3 { grid-template-columns: 1fr; }
+    .flujo-item { width: 100%; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .nota-continuidad { padding: 16px 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="cosmic-bg"></div>
+<canvas id="starfield"></canvas>
+<div class="nebula-bottom"></div>
+<div class="nebula-mid"></div>
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="serie-label">Mayor que mi Realidad es Su Verdad · F2 · MSG6 · Parte A</div>
+    <h1>Otro <em>Espíritu</em></h1>
+    <div class="tesis-header">
+      <p>Los hechos son reales, pero no tienen autoridad automática para definir nuestra identidad, nuestras posibilidades ni nuestra respuesta.</p>
+      <span class="verse-tag">Números 14:24a–b · Números 13:30–33 · Números 14:6–9 · Números 14:20–23</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body">
+
+    <!-- SECCIÓN 1 -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">1</div>
+        <div class="section-title">La misma realidad, dos veredictos</div>
+      </div>
+
+      <p class="intro">Doce exploradores recorrieron la misma tierra. Vieron el mismo fruto, las mismas ciudades fortificadas y los mismos gigantes. La diferencia no comenzó en la información disponible — comenzó en <strong>la autoridad que cada grupo concedió a esa información.</strong></p>
+
+      <div class="quote-duo">
+        <div class="quote-card azul-card">
+          <div class="who">Caleb</div>
+          <blockquote>«Subamos y tomemos la tierra —ahora. Podemos hacerlo.»</blockquote>
+          <div class="ref">Números 13:30 · MSG</div>
+        </div>
+        <div class="quote-card rosa-card">
+          <div class="who">Los otros</div>
+          <blockquote>«No podemos atacar a esa gente; son muchísimo más fuertes que nosotros.»</blockquote>
+          <div class="ref">Números 13:31 · MSG</div>
+        </div>
+      </div>
+
+      <div class="flujo">
+        <div class="flujo-item">Misma realidad</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Misma evidencia</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Dos marcos de interpretación</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Dos veredictos</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Dos respuestas</div>
+      </div>
+
+      <div class="highlight-box">
+        <p>El problema no era que diez exploradores vieran gigantes. El problema fue permitir que los gigantes decidieran qué era posible. Los hechos pueden describir el obstáculo, <strong>pero no tienen derecho automático a emitir el veredicto final.</strong></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2 -->
+    <div class="section alt">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">2</div>
+        <div class="section-title" style="color: var(--rosa);">Cuando el obstáculo empieza a ponerte nombre</div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 20px 24px; margin-bottom: 22px; border-left: 4px solid var(--rosa);">
+        <p style="font-size: 13px; color: rgba(184,209,255,0.75); line-height: 1.65; margin-bottom: 12px;">El informe comenzó comparando fuerzas. Pero terminó definiendo identidad.</p>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.7;">«Junto a ellos nos sentimos como langostas. Y ellos nos miraban como si fuéramos langostas.»</p>
+        <div style="font-size: 10px; color: rgba(184,209,255,0.6); letter-spacing: 1px; margin-top: 8px;">Números 13:31–33 · MSG</div>
+      </div>
+
+      <div class="flujo" style="margin-bottom: 20px;">
+        <div class="flujo-item" style="background: rgba(204,23,110,0.12); border-color: rgba(204,23,110,0.25);">Obstáculo exterior</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(204,23,110,0.12); border-color: rgba(204,23,110,0.25);">Comparación</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(204,23,110,0.15); border-color: rgba(204,23,110,0.3);">«No podemos»</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(204,23,110,0.18); border-color: rgba(204,23,110,0.35);">«Somos como langostas»</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item" style="background: rgba(204,23,110,0.2); border-color: rgba(204,23,110,0.4);">«Así nos ven los demás»</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 12px; text-align: center;">Una dificultad puede revelar un límite. No tiene autoridad para convertirse en tu nombre.<br><strong style="color: rgba(255,255,255,0.9);">No eres:</strong></p>
+
+      <div class="no-list">
+        <div class="no-item"><span class="mark">✕</span> el diagnóstico</div>
+        <div class="no-item"><span class="mark">✕</span> la deuda</div>
+        <div class="no-item"><span class="mark">✕</span> la conducta que todavía enfrentas</div>
+        <div class="no-item"><span class="mark">✕</span> la opinión que alguien pronunció</div>
+        <div class="no-item"><span class="mark">✕</span> la comparación que te hizo sentir pequeño</div>
+      </div>
+
+      <div class="highlight-box">
+        <p>Los hechos describen una circunstancia. <strong>No determinan por sí solos quién eres.</strong></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3 -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--ambar);">3</div>
+        <div class="section-title" style="color: var(--melocoton);">«Mi siervo Caleb»: pertenencia antes que carácter</div>
+      </div>
+
+      <p class="intro">Después de describir a una generación que vio la gloria de Dios y aun así dejó de escuchar Su voz, el relato introduce una excepción: <strong>«Pero mi siervo Caleb —esta es una historia diferente.»</strong> — Números 14:24a · MSG</p>
+
+      <p style="font-size: 12.5px; color: rgba(184,209,255,0.7); margin-bottom: 10px;">Dios no comienza diciendo:</p>
+      <div class="no-list">
+        <div class="no-item"><span class="mark">✕</span> Caleb, el valiente</div>
+        <div class="no-item"><span class="mark">✕</span> Caleb, el disciplinado</div>
+        <div class="no-item"><span class="mark">✕</span> Caleb, el optimista</div>
+        <div class="no-item"><span class="mark">✕</span> Caleb, el conquistador</div>
+      </div>
+
+      <div class="highlight-box" style="margin-bottom: 22px;">
+        <p>Comienza diciendo: <strong>«Mi siervo Caleb.»</strong> Antes de describir cómo pensaba, Dios lo nombra por pertenencia.</p>
+      </div>
+
+      <div class="term-grid cols-3">
+        <div class="term-box">
+          <div class="label" style="color: var(--azul-claro);">Pertenencia</div>
+          <div class="desc">Caleb sabe <strong>a quién pertenece.</strong></div>
+        </div>
+        <div class="term-box">
+          <div class="label" style="color: var(--rosa);">Pacto</div>
+          <div class="desc">Su historia no es un proyecto de autosuperación. Ocurre dentro de una relación <strong>iniciada y sostenida por Dios.</strong></div>
+        </div>
+        <div class="term-box">
+          <div class="label" style="color: var(--melocoton);">Identidad</div>
+          <div class="desc">El carácter no fabrica pertenencia. <strong>La pertenencia empieza a formar el carácter.</strong></div>
+        </div>
+      </div>
+
+      <p style="font-size: 12.5px; color: rgba(184,209,255,0.7); line-height: 1.6; margin-bottom: 16px;">Esto no vuelve irrelevante la obediencia ni convierte la gracia en permiso para permanecer iguales. Significa que no obedecemos para fabricar un nombre delante del Padre.</p>
+
+      <div class="highlight-box">
+        <p>Antes de tus logros, tus fallas, tus títulos o tus conductas repetidas: <strong>¿A quién perteneces?</strong></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4 -->
+    <div class="section alt">
+      <div class="section-label">
+        <div class="section-number">4</div>
+        <div class="section-title">«Otro espíritu» se escucha en tus palabras</div>
+      </div>
+
+      <p style="font-size: 12.5px; color: rgba(184,209,255,0.6); text-align: center; font-style: italic; margin-bottom: 20px;">«Tiene un espíritu diferente.» — Números 14:24b · MSG &nbsp;·&nbsp; «Ha habido en él un espíritu distinto.» — Números 14:24b · NBLA</p>
+
+      <p class="intro">El texto no utiliza «otro espíritu» como traducción literal de «mente renovada». Pero el relato permite reconocer otra manera de pensar porque esa disposición interior se vuelve visible en las palabras de Josué y Caleb.</p>
+
+      <div class="comparo-duo">
+        <div class="comparo-card rosa-card">
+          <div class="who">Mientras el pueblo decía</div>
+          <div class="big-quote">«No podemos.»</div>
+          <div class="small-note">La respuesta que se repitió</div>
+        </div>
+        <div class="comparo-card azul-card">
+          <div class="who">Josué y Caleb dijeron</div>
+          <div class="stack-quote">«La tierra... es una tierra muy buena —muy buena de verdad.»</div>
+          <div class="stack-quote">«Nos llevará a esa tierra.»</div>
+          <div class="stack-quote">«Y nos la dará.»</div>
+          <div class="stack-quote" style="border-bottom: none;">«Dios está de nuestro lado.»</div>
+        </div>
+      </div>
+      <p style="font-size: 10px; color: rgba(184,209,255,0.5); text-align: center; margin-top: -12px; margin-bottom: 20px;">Números 14:6–9 · MSG</p>
+
+      <div class="flujo" style="margin-bottom: 20px;">
+        <div class="flujo-item">Otro espíritu</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Otra manera de interpretar</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Otra manera de hablar</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Otra manera de responder</div>
+      </div>
+
+      <p style="font-size: 12.5px; color: rgba(184,209,255,0.7); margin-bottom: 10px; text-align: center;"><strong style="color: rgba(255,255,255,0.9);">No es:</strong></p>
+      <div class="no-list">
+        <div class="no-item"><span class="mark">✕</span> pensamiento positivo</div>
+        <div class="no-item"><span class="mark">✕</span> negación del peligro</div>
+        <div class="no-item"><span class="mark">✕</span> optimismo natural</div>
+        <div class="no-item"><span class="mark">✕</span> una técnica mental para producir resultados</div>
+        <div class="no-item"><span class="mark">✕</span> una promesa fabricada por nosotros</div>
+      </div>
+
+      <div class="highlight-box">
+        <p>La tierra seguía teniendo obstáculos. Los enemigos seguían presentes. Pero <strong>tu manera de hablar revela qué voz está organizando tu manera de pensar.</strong></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5 -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--verde);">5</div>
+        <div class="section-title" style="color: var(--verde);">Promesa, presencia, pacto y memoria</div>
+      </div>
+
+      <p class="intro">La manera de pensar de Caleb y Josué no nació de ignorar la realidad. Incluyó <strong>datos que el miedo había desplazado.</strong></p>
+
+      <div class="box-grid-4">
+        <div class="pcpm-box" style="border-left-color: var(--azul);">
+          <div class="tag">Promesa</div>
+          <blockquote>«Nos llevará a esa tierra... y nos la dará.»</blockquote>
+          <div class="desc">Dios había hablado. La mente de Caleb no produjo la promesa: la recibió como la verdad que debía ordenar los demás datos.</div>
+        </div>
+        <div class="pcpm-box" style="border-left-color: var(--rosa);">
+          <div class="tag" style="color: var(--rosa);">Presencia</div>
+          <blockquote>«El SEÑOR está con nosotros.» — Números 14:9 · NBLA</blockquote>
+          <div class="desc">La presencia no elimina el obstáculo. <strong style="color: rgba(255,255,255,0.9);">Cambia la autoridad que le concedemos.</strong></div>
+        </div>
+        <div class="pcpm-box" style="border-left-color: var(--melocoton);">
+          <div class="tag" style="color: var(--melocoton);">Pacto</div>
+          <blockquote>«Mi siervo Caleb.»</blockquote>
+          <div class="desc">Promesa y presencia pertenecen a una relación. No se trata de autonomía ni de demostrar capacidad personal.</div>
+        </div>
+        <div class="pcpm-box" style="border-left-color: var(--verde);">
+          <div class="tag" style="color: var(--verde);">Memoria</div>
+          <blockquote>«No han oído Mi voz.» — Números 14:22 · NBLA</blockquote>
+          <div class="desc">La generación vio la gloria de Dios y aun así dejó que el obstáculo presente desplazara esa memoria.</div>
+        </div>
+      </div>
+
+      <div class="chip-row" style="margin-bottom: 20px;">
+        <div class="chip">Promesa <span>→</span> Dios habló</div>
+        <div class="chip">Presencia <span>→</span> Dios está</div>
+        <div class="chip">Pacto <span>→</span> Le pertenezco</div>
+        <div class="chip">Memoria <span>→</span> Dios ya ha sido fiel</div>
+      </div>
+
+      <div class="highlight-box">
+        <p>Recordar no significa exigir que Dios repita el mismo milagro. Significa impedir que la crisis actual escriba la historia <strong>como si Él nunca hubiera estado.</strong> El obstáculo es real. Pero no es el único dato.</p>
+      </div>
+    </div>
+
+    <!-- RESUMEN ESTRATÉGICO -->
+    <div class="section" style="background: rgba(4,16,53,0.95);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--morado);">✦</div>
+        <div class="section-title" style="color: var(--morado-claro);">Resumen estratégico</div>
+      </div>
+
+      <div class="tesis-central">
+        <div class="eyebrow">Tesis central</div>
+        <p>Los hechos son reales, pero no tienen autoridad automática para definir nuestra identidad, nuestras posibilidades ni nuestra respuesta. La identidad, la promesa y la presencia de Dios <em>reorganizan la manera en que interpretamos, hablamos y respondemos</em> frente a la misma realidad.</p>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div class="ideas-label">Ideas clave</div>
+
+        <div class="idea-item">
+          <div class="idea-num" style="background: var(--azul);">1</div>
+          <p><strong>La información no produce sola el veredicto.</strong> Los doce exploradores compartieron la misma evidencia. La diferencia apareció en la autoridad concedida a esa evidencia y en la voz que recibió permiso para decidir lo que era posible.</p>
+        </div>
+
+        <div class="idea-item">
+          <div class="idea-num" style="background: var(--rosa);">2</div>
+          <p><strong>El obstáculo puede convertirse en identidad.</strong> Los diez pasaron de reconocer una desventaja a llamarse langostas. La comparación exterior terminó produciendo un título interior, luego proyectado sobre la mirada de los demás.</p>
+        </div>
+
+        <div class="idea-item">
+          <div class="idea-num" style="background: var(--ambar);">3</div>
+          <p><strong>La pertenencia precede al carácter.</strong> Dios presenta a Caleb como «Mi siervo» antes de describir su disposición. El carácter empieza a transformarse desde la seguridad de pertenecer.</p>
+        </div>
+
+        <div class="idea-item">
+          <div class="idea-num" style="background: var(--verde);">4</div>
+          <p><strong>«Otro espíritu» no es otra información.</strong> Caleb y Josué vieron la misma tierra y los mismos gigantes. Su disposición se hizo visible en otra interpretación, otro lenguaje y otra respuesta.</p>
+        </div>
+
+        <div class="idea-item">
+          <div class="idea-num" style="background: var(--morado);">5</div>
+          <p><strong>La tierra podía ser buena y difícil al mismo tiempo.</strong> Josué y Caleb no negaron los obstáculos. Se negaron a permitir que esos obstáculos borraran la bondad de lo que Dios había puesto delante de ellos.</p>
+        </div>
+
+        <div class="idea-item">
+          <div class="idea-num" style="background: var(--azul-claro); color: #020B1E;">6</div>
+          <p><strong>El obstáculo no es el único dato.</strong> La promesa recordaba que Dios había hablado. La presencia afirmaba que Dios estaba con ellos. El pacto establecía a quién pertenecían.</p>
+        </div>
+
+        <div class="idea-item">
+          <div class="idea-num" style="background: var(--rosa);">7</div>
+          <p><strong>Recordar protege la interpretación.</strong> Israel había visto la gloria y las señales de Dios. El problema presente desplazó rápidamente esa memoria. Recordar Su fidelidad impide interpretar como si Él nunca hubiera estado.</p>
+        </div>
+      </div>
+
+      <div class="sorprendente-box">
+        <div class="eyebrow">⚡ Dato más sorprendente</div>
+        <p>No habían pasado cuarenta años. Habían pasado aproximadamente <em style="font-style: normal; color: var(--azul-claro);">cuarenta días.</em> En poco tiempo, una generación que había visto la intervención de Dios permitió que el obstáculo presente pesara más que la memoria de Su fidelidad. <strong>El problema no fue la falta de evidencia. Fue la brevedad de la memoria.</strong></p>
+      </div>
+
+      <div class="accion-box">
+        <div class="eyebrow">→ Acción inmediata</div>
+        <p style="font-size: 13px; color: rgba(255,255,255,0.9); margin-bottom: 14px;">Elige una situación que hoy ocupa tu atención:</p>
+
+        <div class="step-item">
+          <div class="snum">1</div>
+          <p>Escribe los hechos comprobables.</p>
+        </div>
+        <div class="step-item">
+          <div class="snum">2</div>
+          <p>Separa las interpretaciones que has construido.</p>
+        </div>
+        <div class="step-item">
+          <div class="snum">3</div>
+          <p>Identifica el título que esa situación intenta ponerte.</p>
+        </div>
+        <div class="step-item">
+          <div class="snum">4</div>
+          <p>Nombra la verdad bíblica que debe ordenar tu respuesta.</p>
+        </div>
+        <div class="step-item" style="margin-bottom: 0;">
+          <div class="snum">5</div>
+          <p>Recuerda una intervención concreta de Dios que confronte la idea de abandono.</p>
+        </div>
+      </div>
+
+      <div class="frase-impactante">
+        <div style="position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; background: rgba(204,23,110,0.12); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30px; left: -20px; width: 80px; height: 80px; background: rgba(0,86,241,0.12); border-radius: 50%;"></div>
+        <div class="eyebrow">◈ Para llevarte hoy</div>
+        <blockquote>Otro espíritu no significa<br>otra información.<br><em>Significa otra manera de pensar<br>frente a la misma información.</em></blockquote>
+      </div>
+    </div>
+
+    <!-- FRASE FINAL -->
+    <div class="frase-final">
+      <blockquote>No niegues los gigantes;<br>deja de darles <em>la última palabra.</em></blockquote>
+      <div class="frase-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+    </div>
+
+    <!-- NOTA DE CONTINUIDAD -->
+    <div class="nota-continuidad">
+      <p>Esta INF corresponde a la Semana A (Parte A) de MSG6. Cuando la Parte B sea predicada, transcrita y aprobada, se producirá una sola INF final que integre las Partes A y B, sustituyendo esta versión.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-marca">LHSCOL</div>
+      <div class="footer-data">MRV · F2 · MSG6 · INF · Parte A<br>Otro Espíritu</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+const NUM_STARS = 220;
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < NUM_STARS; i++) {
+    const isPulse = Math.random() < 0.15;
+    stars.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.5,
+      baseAlpha: Math.random() * 0.5 + 0.4, alpha: 0,
+      speed: isPulse ? (Math.random() * 0.06 + 0.06) : (Math.random() * 0.03 + 0.02),
+      phase: Math.random() * Math.PI * 2, pulse: isPulse,
+      color: Math.random() < 0.25 ? [184,209,255] : Math.random() < 0.12 ? [242,197,161] : [255,255,255]
+    });
+  }
+}
+initStars();
+const shoots = [];
+function spawnShoot() {
+  shoots.push({
+    x: Math.random() * canvas.width * 0.7, y: Math.random() * canvas.height * 0.45,
+    len: Math.random() * 140 + 80, speed: Math.random() * 7 + 6,
+    angle: Math.PI / 4 + (Math.random() * 0.4 - 0.2), alpha: 0,
+    peakAlpha: Math.random() * 0.4 + 0.6, phase: 'in',
+    decay: Math.random() * 0.02 + 0.015, rise: Math.random() * 0.06 + 0.06,
+    width: Math.random() * 1.5 + 0.8
+  });
+}
+function scheduleShoot() { setTimeout(() => { spawnShoot(); scheduleShoot(); }, Math.random() * 3000 + 2000); }
+spawnShoot(); setTimeout(spawnShoot, 800); scheduleShoot();
+function draw() {
+  requestAnimationFrame(draw);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    s.phase += s.speed;
+    let t = s.pulse ? (Math.sin(s.phase) > 0 ? Math.pow(Math.sin(s.phase), 0.5) : 0) : 0.5 + 0.5 * Math.sin(s.phase);
+    s.alpha = s.baseAlpha * (0.15 + 0.85 * t);
+    const [r,g,b] = s.color;
+    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${s.alpha})`; ctx.fill();
+    if (s.r > 1.2) {
+      const grd = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3.5);
+      grd.addColorStop(0,`rgba(${r},${g},${b},${s.alpha*0.35})`); grd.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
+    }
+  }
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const sh = shoots[i];
+    sh.x += Math.cos(sh.angle)*sh.speed; sh.y += Math.sin(sh.angle)*sh.speed;
+    if (sh.phase==='in') { sh.alpha+=sh.rise; if(sh.alpha>=sh.peakAlpha){sh.alpha=sh.peakAlpha;sh.phase='out';} }
+    else { sh.alpha-=sh.decay; }
+    if (sh.alpha<=0) { shoots.splice(i,1); continue; }
+    const tailX=sh.x-Math.cos(sh.angle)*sh.len, tailY=sh.y-Math.sin(sh.angle)*sh.len;
+    const grad=ctx.createLinearGradient(tailX,tailY,sh.x,sh.y);
+    grad.addColorStop(0,`rgba(255,255,255,0)`);
+    grad.addColorStop(0.5,`rgba(184,209,255,${sh.alpha*0.4})`);
+    grad.addColorStop(1,`rgba(255,255,255,${sh.alpha})`);
+    ctx.beginPath(); ctx.moveTo(tailX,tailY); ctx.lineTo(sh.x,sh.y);
+    ctx.strokeStyle=grad; ctx.lineWidth=sh.width; ctx.lineCap='round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.width*2,0,Math.PI*2);
+    const hgrd=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.width*2);
+    hgrd.addColorStop(0,`rgba(255,255,255,${sh.alpha})`); hgrd.addColorStop(1,`rgba(184,209,255,0)`);
+    ctx.fillStyle=hgrd; ctx.fill();
+  }
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

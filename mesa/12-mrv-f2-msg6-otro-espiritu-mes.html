@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otro Espíritu · Guía para Líderes · La Mesa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --azul-claro: #B8D1FF;
+    --ambar: #FC5054;
+    --blanco: #FFFFFF;
+    --fondo: #050D1F;
+    --fondo-2: #080F25;
+    --texto: rgba(230, 235, 255, 0.88);
+    --texto-suave: rgba(184, 209, 255, 0.6);
+    --texto-medio: rgba(210, 220, 255, 0.75);
+    --linea: rgba(184, 209, 255, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  body.locked { overflow: hidden; height: 100vh; }
+
+  /* ══════════════════════════════════
+     CANDADO — PANTALLA DE ACCESO
+  ══════════════════════════════════ */
+  #gate {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0,86,241,0.18) 0%, transparent 60%), var(--fondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #gate.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .gate-card {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--linea);
+    border-radius: 20px;
+    padding: 44px 36px;
+    text-align: center;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+  }
+
+  .gate-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(252,80,84,0.12);
+    border: 1px solid rgba(252,80,84,0.3);
+    border-radius: 50%;
+  }
+
+  .gate-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--ambar);
+  }
+
+  .gate-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    margin-bottom: 10px;
+  }
+
+  .gate-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blanco);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .gate-card p {
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--texto-medio);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  #gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  #gate-pass {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: var(--blanco);
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid var(--linea);
+    border-radius: 10px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  #gate-pass:focus { border-color: var(--ambar); }
+
+  #gate-submit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1a1204;
+    background: var(--ambar);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+
+  #gate-submit:hover { background: #f2cc8f; transform: translateY(-1px); }
+
+  #gate-error {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11.5px;
+    color: var(--rosa);
+    min-height: 16px;
+    margin-top: 2px;
+  }
+
+  @keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+  }
+
+  .gate-card.shake { animation: shake 0.5s; }
+
+  .gate-nota {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    margin-top: 22px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ══════════════════════════════════
+     CONTENIDO (oculto hasta desbloquear)
+  ══════════════════════════════════ */
+  #contenido {
+    display: none;
+  }
+
+  #contenido.visible {
+    display: block;
+    animation: fadeIn 0.6s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ── BARRA PROGRESO ── */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--ambar) 0%, var(--ambar) 55%, var(--rosa) 80%, var(--azul) 100%);
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5, 13, 31, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--linea);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .nav-marca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ambar);
+  }
+
+  .nav-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .nav-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    background: rgba(252,80,84,0.1);
+    border: 1px solid rgba(252,80,84,0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+  }
+
+  .nav-badge svg { width: 11px; height: 11px; }
+
+  .btn-recurso {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid rgba(184,209,255,0.3);
+    color: var(--azul-claro);
+    background: rgba(184, 209, 255, 0.05);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-recurso svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .btn-recurso:hover { transform: translateY(-1px); background: rgba(184, 209, 255, 0.15); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 132px 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 20%, rgba(252,80,84,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(204,23,110,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(8,15,37,0.9) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    background: rgba(252,80,84,0.12);
+    border: 1px solid rgba(252,80,84,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .hero-tag-dot { width: 4px; height: 4px; background: var(--texto-suave); border-radius: 50%; }
+
+  .hero-tag-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--blanco);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--ambar); }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--texto-medio);
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .meta-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--azul-claro);
+    background: rgba(184,209,255,0.08);
+    border: 1px solid rgba(184,209,255,0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 0px;
+    background: linear-gradient(to bottom, transparent, var(--fondo));
+    z-index: 3;
+  }
+
+  /* ── CONTENIDO PRINCIPAL ── */
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  /* ── NOTA DE ALCANCE ── */
+  .alcance-nota {
+    margin: 0 0 48px;
+    padding: 20px 24px;
+    background: rgba(184,209,255,0.05);
+    border: 1px solid rgba(184,209,255,0.2);
+    border-radius: 12px;
+  }
+
+  .alcance-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 8px;
+  }
+
+  .alcance-nota p {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--texto-suave);
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+
+  .section { margin-bottom: 64px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--linea);
+    padding-bottom: 16px;
+  }
+
+  .section-titulo {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(252,80,84,0.35);
+    flex-shrink: 0;
+  }
+
+  .section-titulo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blanco);
+  }
+
+  .section-tiempo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    background: rgba(252,80,84,0.08);
+    border: 1px solid rgba(252,80,84,0.25);
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  p {
+    font-family: 'Lora', serif;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--texto);
+    margin-bottom: 20px;
+  }
+
+  p strong { color: var(--blanco); font-weight: 600; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── NOTA PARA EL ANFITRIÓN ── */
+  .nota-anfitrion {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: rgba(252,80,84,0.06);
+    border: 1px dashed rgba(252,80,84,0.35);
+    border-radius: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .nota-anfitrion svg {
+    width: 16px;
+    height: 16px;
+    color: var(--ambar);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .nota-anfitrion-texto {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--texto-suave);
+    line-height: 1.65;
+  }
+
+  .nota-anfitrion-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    display: block;
+    margin-bottom: 4px;
+    font-style: normal;
+  }
+
+  /* ── PREGUNTA CENTRAL DE BIENVENIDA ── */
+  .pregunta-destacada {
+    margin: 24px 0;
+    padding: 28px 32px;
+    background: rgba(0,86,241,0.06);
+    border-left: 4px solid var(--ambar);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .pregunta-destacada p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── LÍNEA DESTACADA DE CIERRE DE SECCIÓN ── */
+  .linea-destacada {
+    margin: 28px 0 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ambar);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ── VERSÍCULOS ── */
+  .verse-block {
+    margin: 24px 0;
+    padding: 26px 30px;
+    background: rgba(184,209,255,0.05);
+    border: 1px solid rgba(184,209,255,0.15);
+    border-radius: 12px;
+  }
+
+  .verse-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 16.5px;
+    font-style: italic;
+    color: var(--ambar);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+
+  .verse-block .ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .silencio-tag {
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin: 16px 0;
+    opacity: 0.7;
+  }
+
+  /* ── BLOQUES DE CONVERSACIÓN ── */
+  .bloque-card {
+    margin: 28px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .bloque-header {
+    padding: 16px 24px;
+    background: rgba(0,86,241,0.1);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .bloque-card.b2 .bloque-header { background: rgba(204,23,110,0.1); }
+  .bloque-card.b3 .bloque-header { background: rgba(5,150,105,0.1); }
+
+  .bloque-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--azul);
+    flex-shrink: 0;
+  }
+
+  .bloque-card.b2 .bloque-num { color: var(--rosa); }
+  .bloque-card.b3 .bloque-num { color: #34D399; }
+
+  .bloque-nombre {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--blanco);
+    text-transform: uppercase;
+  }
+
+  .bloque-preguntas {
+    padding: 8px 24px 20px;
+  }
+
+  .bloque-preguntas ol {
+    list-style: none;
+    counter-reset: preg;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bloque-preguntas li {
+    counter-increment: preg;
+    position: relative;
+    padding: 14px 0 14px 38px;
+    border-bottom: 1px solid var(--linea);
+    font-family: 'Lora', serif;
+    font-size: 14.5px;
+    color: var(--texto-medio);
+    line-height: 1.7;
+  }
+
+  .bloque-preguntas li:last-child { border-bottom: none; }
+
+  .bloque-preguntas li::before {
+    content: counter(preg);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(184,209,255,0.1);
+    color: var(--azul-claro);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bloque-card.b2 .bloque-preguntas li::before { color: var(--rosa); background: rgba(204,23,110,0.1); }
+  .bloque-card.b3 .bloque-preguntas li::before { color: #34D399; background: rgba(5,150,105,0.1); }
+
+  /* ── SECUENCIA PRACTICAMOS (lista de 5) ── */
+  .secuencia-card {
+    margin: 28px 0;
+    padding: 30px 34px;
+    background: linear-gradient(135deg, rgba(0,86,241,0.06) 0%, rgba(204,23,110,0.05) 100%);
+    border: 1px solid rgba(184,209,255,0.18);
+    border-radius: 18px;
+  }
+
+  .secuencia-list {
+    list-style: none;
+    counter-reset: sec;
+    margin: 0;
+    padding: 0;
+  }
+
+  .secuencia-list li {
+    counter-increment: sec;
+    position: relative;
+    padding: 12px 0 12px 38px;
+    border-bottom: 1px solid var(--linea);
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--texto-medio);
+    line-height: 1.6;
+  }
+
+  .secuencia-list li:last-child { border-bottom: none; }
+
+  .secuencia-list li::before {
+    content: counter(sec);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(184,209,255,0.1);
+    color: var(--azul-claro);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── DESAFÍO DE LA SEMANA ── */
+  .desafio-box {
+    margin: 24px 0;
+    padding: 36px 40px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 1.5px solid #059669;
+  }
+
+  .desafio-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #059669;
+    margin-bottom: 16px;
+  }
+
+  .desafio-box p { margin-bottom: 16px; }
+  .desafio-box p:last-child { margin-bottom: 0; }
+
+  .frase-llevar {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.6;
+  }
+
+  .frase-llevar strong { color: var(--ambar); font-style: normal; }
+
+  /* ── ORACIÓN DE CIERRE ── */
+  .oracion-box {
+    margin-top: 24px;
+    padding: 40px 44px;
+    background: linear-gradient(135deg, #0a0f2e 0%, #150520 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(184,209,255,0.1);
+  }
+
+  .oracion-box p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--texto-medio);
+    line-height: 1.85;
+  }
+
+  .oracion-final {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ambar);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linea), transparent);
+    margin: 56px 0;
+  }
+
+  /* ── CIERRE FINAL ── */
+  .closing {
+    margin-top: 72px;
+    padding: 56px 48px;
+    background: linear-gradient(135deg, #1a0f05 0%, #150520 100%);
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(252,80,84,0.15);
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    margin-bottom: 20px;
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 21px);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  .closing-quote em { color: var(--ambar); font-style: normal; }
+
+  .closing-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--linea);
+  }
+
+  .footer-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ambar);
+  }
+
+  .footer-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    text-align: right;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── REVEAL ON SCROLL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-content, .article-wrapper { padding-left: 32px; padding-right: 32px; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-marca { display: none; }
+    .hero { padding-top: 150px; }
+    .hero-content { padding: 0 20px; }
+    .article-wrapper { padding: 0 20px 80px; }
+    .hero h1 { font-size: 30px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .section-num { font-size: 26px; }
+    .section-titulo h2 { font-size: 19px; }
+    p { font-size: 15.5px; }
+    .pregunta-destacada p, .verse-block p { font-size: 15px; }
+    .closing { padding: 40px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .gate-card { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body class="locked">
+
+<!-- ══════════════════════════════════
+     PANTALLA DE ACCESO — SOLO LÍDERES
+══════════════════════════════════ -->
+<div id="gate">
+  <div class="gate-card" id="gate-card">
+    <div class="gate-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    </div>
+    <div class="gate-eyebrow">Acceso restringido</div>
+    <h1>Guía para Líderes<br>de La Mesa</h1>
+    <p>Este material es solo para líderes de Hermosa Silla. Ingresa la contraseña que te compartió tu coordinador.</p>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="gate-pass" placeholder="Contraseña" inputmode="numeric" autocomplete="off">
+      <button type="submit" id="gate-submit">Entrar</button>
+      <div id="gate-error"></div>
+    </form>
+    <div class="gate-nota">LHSCOL · Temporada 2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CONTENIDO (se revela tras la contraseña)
+══════════════════════════════════ -->
+<div id="contenido">
+
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-marca">LHSCOL</div>
+  <div class="nav-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Solo líderes
+  </div>
+  <div class="nav-serie">Mayor que mi Realidad · F2 · MSG6 · La Mesa</div>
+  <a href="../index.html" class="btn-recurso">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Inicio
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+
+    <div class="hero-eyebrow">
+      <div class="hero-tag">Formación 2 · La Mesa</div>
+      <div class="hero-tag-dot"></div>
+      <div class="hero-tag-serie">F2 · MSG6 · Parte A</div>
+    </div>
+
+    <h1>Otro<br><em>Espíritu</em></h1>
+
+    <p class="hero-sub">Guía para grupos en casa · Parte A. Material exclusivo para líderes — no lo compartas directamente con el grupo antes del encuentro.</p>
+
+    <div class="hero-meta">
+      <span class="meta-pill">Duración estimada: 60–75 min</span>
+      <span class="meta-pill">Material para grupos en casa</span>
+      <span class="meta-pill">Parte A · Semana A</span>
+    </div>
+
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- ARTÍCULO -->
+<main class="article-wrapper">
+
+  <div class="alcance-nota reveal">
+    <div class="alcance-label">Nota de alcance</div>
+    <p>Esta guía corresponde exclusivamente a lo predicado en la Parte A de MSG6. La Parte B continuará y cerrará el mismo mensaje ocho días después. Este encuentro no adelanta ese desenlace.</p>
+  </div>
+
+  <!-- 1. BIENVENIDA -->
+  <section class="section reveal" id="s1">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">1</div>
+        <h2>Bienvenida</h2>
+      </div>
+      <span class="section-tiempo">10 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Da la bienvenida al grupo con calidez. Deja que las personas se acomoden antes de lanzar la pregunta. No es necesario mencionar todavía de qué habló el domingo.</div>
+    </div>
+
+    <p>Antes de empezar, quiero hacerles una pregunta sencilla, sin buscar una respuesta correcta:</p>
+
+    <div class="pregunta-destacada">
+      <p>¿Alguna vez has vivido exactamente lo mismo que otra persona —el mismo viaje, la misma noticia, la misma situación familiar o laboral— y ambos terminaron contando dos historias completamente distintas sobre lo que pasó?</p>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Deja que dos o tres personas respondan brevemente. No profundices todavía ni conectes la respuesta con el mensaje. Solo deja que el grupo empiece a notar que una misma situación puede producir relatos diferentes.</div>
+    </div>
+  </section>
+
+  <!-- 2. INTRODUCCIÓN -->
+  <section class="section reveal" id="s2">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">2</div>
+        <h2>Introducción</h2>
+      </div>
+      <span class="section-tiempo">5 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">El anfitrión lee esto en voz alta</span></div>
+    </div>
+
+    <p>El domingo empezamos una historia que tiene más de un capítulo. Doce personas fueron enviadas a recorrer la misma tierra. Caminaron el mismo terreno, vieron las mismas ciudades, cargaron el mismo fruto. Ninguno tenía información que los demás no tuvieran.</p>
+
+    <p>Y sin embargo, cuando llegó el momento de hablar, aparecieron dos informes completamente distintos. Unos dijeron: "no podemos". Otro dijo: "podemos hacerlo". Los mismos hechos, dos veredictos opuestos.</p>
+
+    <p>Eso es lo que vamos a conversar hoy: no si los obstáculos eran reales —lo eran—, sino qué hacemos con la autoridad que les entregamos. Porque los hechos pueden describir una dificultad. Lo que hagamos con esa dificultad ya depende de otra cosa.</p>
+
+    <p class="linea-destacada">Hoy no cerramos la historia. Solo empezamos a mirarla.</p>
+  </section>
+
+  <!-- 3. LEEMOS EL ENFOQUE -->
+  <section class="section reveal" id="s3">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">3</div>
+        <h2>Leemos el Enfoque</h2>
+      </div>
+      <span class="section-tiempo">5 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Lee cada texto en voz alta, con una pausa de silencio real entre uno y otro. No los expliques todavía —solo que el grupo los escuche.</div>
+    </div>
+
+    <div class="verse-block">
+      <p>«Caleb interrumpió, pidió silencio delante de Moisés y dijo: "Subamos y tomemos la tierra —ahora. Podemos hacerlo". Pero los otros dijeron: "No podemos atacar a esa gente; son muchísimo más fuertes que nosotros". Difundieron rumores aterradores entre el pueblo de Israel. Dijeron: "Recorrimos la tierra de un extremo al otro; es una tierra que se traga viva a la gente. Todos los que vimos eran enormes. Incluso vimos a los gigantes nefilitas —los descendientes de Anac vienen de los nefilitas—. Junto a ellos nos sentimos como langostas. Y ellos nos miraban como si fuéramos langostas".»</p>
+      <div class="ref">Números 13:30–33 · MSG</div>
+    </div>
+    <div class="silencio-tag">( silencio )</div>
+
+    <div class="verse-block">
+      <p>«Josué, hijo de Nun, y Caleb, hijo de Jefone, miembros del grupo de exploradores, rasgaron sus vestidos y se dirigieron a todo el pueblo de Israel reunido: "La tierra que recorrimos y exploramos es una tierra muy buena —muy buena de verdad. Si DIOS se agrada de nosotros, nos llevará a esa tierra, una tierra que, como dicen, fluye leche y miel. Y nos la dará. ¡Solo no se rebelen contra DIOS! Y no le tengan miedo a esa gente. ¡Si hasta nos los comeremos de almuerzo! No tienen protección y DIOS está de nuestro lado. ¡No les tengan miedo!"»</p>
+      <div class="ref">Números 14:6–9 · MSG</div>
+    </div>
+    <div class="silencio-tag">( silencio )</div>
+
+    <div class="verse-block">
+      <p>«DIOS dijo: "Los perdono, honrando tu palabra. Pero tan cierto como que vivo, y como que la Gloria de DIOS llena toda la Tierra —ni una sola persona de los que vieron mi Gloria, vieron las señales milagrosas que hice en Egipto y en el desierto, y que me han puesto a prueba una y otra y otra vez, haciendo oídos sordos a mí— ni uno de ellos pondrá los ojos en la tierra que solemnemente prometí a sus antepasados. Nadie que me haya tratado con tanto desprecio repetido la verá".»</p>
+      <div class="ref">Números 14:20–23 · MSG</div>
+    </div>
+    <div class="silencio-tag">( silencio )</div>
+
+    <div class="verse-block">
+      <p>«Pero mi siervo Caleb —esta es una historia diferente. Tiene un espíritu diferente...»</p>
+      <div class="ref">Números 14:24a–b · MSG</div>
+    </div>
+    <div class="silencio-tag">( silencio )</div>
+  </section>
+
+  <!-- 4. CONVERSAMOS -->
+  <section class="section reveal" id="s4">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">4</div>
+        <h2>Conversamos</h2>
+      </div>
+      <span class="section-tiempo">3 bloques · ~30 min</span>
+    </div>
+
+    <!-- Bloque 1 -->
+    <div class="bloque-card b1">
+      <div class="bloque-header">
+        <div class="bloque-num">①</div>
+        <div class="bloque-nombre">Bloque 1 — Diagnóstico</div>
+      </div>
+      <div class="bloque-preguntas">
+        <div class="nota-anfitrion" style="margin: 16px 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Este bloque busca observar el mecanismo, no todavía la vida personal de cada uno. Da espacio para pensar antes de que alguien conteste.</div>
+        </div>
+        <ol>
+          <li>Los doce exploradores vieron exactamente lo mismo. ¿En qué momento crees que un hecho deja de ser solo información y empieza a funcionar como una sentencia sobre lo que es posible?</li>
+          <li>Diez de ellos dijeron "no podemos" y describieron gigantes, ciudades fortificadas y rumores cada vez más grandes. ¿Qué diferencia hay entre observar una dificultad y ya haber sacado una conclusión sobre ella?</li>
+          <li>El texto dice que "difundieron rumores" y que "toda la congregación" terminó gritando y llorando. ¿Cómo has visto que una idea repetida en grupo —en una familia, un chat, un equipo de trabajo— termina sintiéndose más cierta solo por haberse dicho muchas veces?</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Bloque 2 -->
+    <div class="bloque-card b2">
+      <div class="bloque-header">
+        <div class="bloque-num">②</div>
+        <div class="bloque-nombre">Bloque 2 — Espejo personal</div>
+      </div>
+      <div class="bloque-preguntas">
+        <div class="nota-anfitrion" style="margin: 16px 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Aquí la conversación se vuelve más personal. No corrijas ni completes lo que alguien diga —solo deja que se escuche. Cuida que nadie se sienta forzado a exponer algo que no quiere compartir.</div>
+        </div>
+        <ol start="4">
+          <li>Los exploradores pasaron de decir "son más fuertes que nosotros" a decir "nos sentimos como langostas". ¿Alguna vez una dificultad concreta —una conducta, una comparación, un diagnóstico, una herida— terminó convirtiéndose en un título con el que te empezaste a nombrar a ti mismo?</li>
+          <li>El texto dice "a nosotros nos pareció... y así parecíamos ante sus ojos". Ellos asumieron cómo los veían los demás sin que nadie se los hubiera dicho. ¿Te ha pasado que supones lo que otros piensan de ti, y esa suposición termina pesando tanto como si fuera un hecho comprobado?</li>
+          <li>Si tuvieras que nombrar en una sola frase el título que un obstáculo actual ha intentado ponerte, ¿cuál sería esa frase?</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Bloque 3 -->
+    <div class="bloque-card b3">
+      <div class="bloque-header">
+        <div class="bloque-num">③</div>
+        <div class="bloque-nombre">Bloque 3 — Práctica</div>
+      </div>
+      <div class="bloque-preguntas">
+        <div class="nota-anfitrion" style="margin: 16px 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Este bloque busca mover la conversación hacia una respuesta concreta, sin convertirlo en una clase doctrinal ni en frases de pensamiento positivo.</div>
+        </div>
+        <ol start="7">
+          <li>Antes de describir cómo pensaba Caleb, Dios lo nombró como "mi siervo". Es decir, empezó por la pertenencia, no por el desempeño. ¿Qué cambiaría en tu semana si recordaras primero a quién perteneces, antes de evaluar qué tan bien o mal la estás haciendo?</li>
+          <li>Caleb y Josué no negaron a los gigantes; simplemente no dejaron que fueran el único dato de la conversación. ¿Qué revelan las palabras que más repites esta temporada sobre qué voz está organizando lo que piensas?</li>
+          <li>Promesa, presencia, pacto y memoria aparecieron en el mensaje como maneras de incluir a Dios en la escena sin negar el problema real. Si hoy tuvieras que nombrar una de esas cuatro cosas en tu propia situación —algo que Dios te ha dicho, una señal de que está contigo, el hecho de que le perteneces, o un momento en que ya te sostuvo antes—, ¿cuál nombrarías primero?</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PRACTICAMOS -->
+  <section class="section reveal" id="s5">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">5</div>
+        <h2>Practicamos</h2>
+      </div>
+      <span class="section-tiempo">15 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Organiza al grupo en parejas. Explica la dinámica en menos de dos minutos, con esta indicación en voz alta.</div>
+    </div>
+
+    <p>Cada persona va a completar, en silencio o en voz baja con su pareja, esta secuencia de cinco frases. Nadie necesita explicar ni justificar lo que escribe. La pareja no aconseja, no corrige y no intenta "arreglar" lo que la otra persona comparte —solo acompaña.</p>
+
+    <div class="secuencia-card">
+      <ol class="secuencia-list">
+        <li>Lo que sé (los hechos comprobables de mi situación):</li>
+        <li>Lo que estoy concluyendo (lo que he agregado sin darme cuenta):</li>
+        <li>El nombre que este obstáculo intenta ponerme:</li>
+        <li>La verdad bíblica que debe ordenar mi respuesta:</li>
+        <li>Una evidencia concreta de la fidelidad de Dios que necesito recordar:</li>
+      </ol>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Quien prefiera no hablar puede simplemente escribir las cinco líneas en silencio. Después de completar la secuencia, cada pareja ora brevemente, uno por el otro, sin necesidad de resolver nada en la oración. Dales 2 o 3 minutos para esta oración antes de volver al grupo grande.</div>
+    </div>
+  </section>
+
+  <!-- 6. DESAFÍO DE LA SEMANA -->
+  <section class="section reveal" id="s6">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">6</div>
+        <h2>Desafío de la Semana</h2>
+      </div>
+    </div>
+
+    <div class="desafio-box">
+      <div class="desafio-label">→ Esta semana</div>
+      <p>Esta semana, elige una situación real que estás enfrentando y escucha con atención cómo la cuentas en voz alta —a tu pareja, a un amigo, a ti mismo. Nota si tu manera de narrarla incluye solo el obstáculo o también incluye lo que sabes de Dios. Si te das cuenta de que solo estás repitiendo el veredicto del miedo, vuelve a contarla incluyendo lo que sí es cierto: los hechos, y también la promesa, la presencia y la memoria de lo que Dios ya ha hecho.</p>
+      <p class="frase-llevar"><strong>Frase para llevar:</strong> Los hechos pueden describir el obstáculo, pero no tienen derecho automático a emitir el veredicto final.</p>
+    </div>
+  </section>
+
+  <!-- 7. CIERRE Y ORACIÓN -->
+  <section class="section reveal" id="s7">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">7</div>
+        <h2>Cierre y Oración</h2>
+      </div>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Lee esta oración en voz alta, despacio. El grupo puede repetirla en voz baja, frase por frase, si así lo prefieren.</div>
+    </div>
+
+    <div class="oracion-box">
+      <p>Padre, hoy reconocemos lo que enfrentamos. No fingimos que no existe. Los obstáculos son reales y no los vamos a negar esta noche.</p>
+      <p>Pero hoy también recordamos a quién le pertenecemos. Antes de nuestro desempeño, antes de nuestras fallas y antes de los títulos que el miedo nos ha querido poner, somos tuyos.</p>
+      <p>Recuérdanos lo que ya nos has dicho, aunque hoy no veamos todavía el cumplimiento completo. Recuérdanos que estás presente, aunque el obstáculo siga ahí después de esta oración.</p>
+      <p>Y recuérdanos de dónde nos has sacado antes, para que no vivamos esta noche como si nunca hubieras estado con nosotros.</p>
+      <p class="oracion-final">Los hechos no tienen la última palabra. Tu verdad sí.<br>Amén.</p>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <div class="closing reveal">
+    <div class="closing-eyebrow">Para el líder</div>
+    <div class="closing-quote">Antes de guiar a tu grupo a soltar el informe del miedo,<br>revisa primero <em>el tuyo.</em></div>
+    <div class="closing-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-left">LHSCOL · Solo líderes</div>
+  <div class="footer-right">MRV · F2 · MSG6 · MES<br>Otro Espíritu · Parte A</div>
+</footer>
+
+</div><!-- /#contenido -->
+
+<script>
+  // ── CANDADO DE ACCESO ──
+  const CLAVE_CORRECTA = '2026';
+  const gate = document.getElementById('gate');
+  const gateForm = document.getElementById('gate-form');
+  const gateCard = document.getElementById('gate-card');
+  const gatePass = document.getElementById('gate-pass');
+  const gateError = document.getElementById('gate-error');
+  const contenido = document.getElementById('contenido');
+
+  function desbloquear() {
+    document.body.classList.remove('locked');
+    gate.classList.add('oculto');
+    contenido.classList.add('visible');
+    try { sessionStorage.setItem('mes_msg6a_unlocked', 'true'); } catch (e) {}
+  }
+
+  // Si ya se desbloqueó antes en esta sesión del navegador, entra directo
+  try {
+    if (sessionStorage.getItem('mes_msg6a_unlocked') === 'true') {
+      desbloquear();
+    }
+  } catch (e) {}
+
+  gateForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (gatePass.value.trim() === CLAVE_CORRECTA) {
+      desbloquear();
+    } else {
+      gateError.textContent = 'Contraseña incorrecta. Consulta con tu coordinador de HS.';
+      gateCard.classList.remove('shake');
+      void gateCard.offsetWidth;
+      gateCard.classList.add('shake');
+      gatePass.value = '';
+      gatePass.focus();
+    }
+  });
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const bar = document.getElementById('progress-bar');
+    if (bar) bar.style.width = progress + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

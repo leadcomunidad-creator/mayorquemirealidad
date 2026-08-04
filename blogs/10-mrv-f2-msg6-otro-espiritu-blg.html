@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No son los hechos. Es la autoridad que les diste.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --azul-claro: #B8D1FF;
+    --blanco: #FFFFFF;
+    --fondo: #050D1F;
+    --fondo-2: #080F25;
+    --texto: rgba(230, 235, 255, 0.88);
+    --texto-suave: rgba(184, 209, 255, 0.6);
+    --texto-medio: rgba(210, 220, 255, 0.75);
+    --linea: rgba(184, 209, 255, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── BARRA PROGRESO ── */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--azul), var(--rosa), var(--melocoton));
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5, 13, 31, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--linea);
+    transition: background 0.3s;
+  }
+
+  .nav-marca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .nav-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 90px 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 20%, rgba(0,86,241,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(204,23,110,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(8,15,37,0.9) 0%, transparent 100%);
+  }
+
+  .hero-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 15% 20%, rgba(184,209,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 60% 15%, rgba(184,209,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 70%, rgba(242,197,161,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 75%, rgba(184,209,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 45%, rgba(184,209,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 68% 88%, rgba(184,209,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 38% 30%, rgba(242,197,161,0.4) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    background: rgba(0,86,241,0.12);
+    border: 1px solid rgba(0,86,241,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .hero-tag-dot {
+    width: 4px; height: 4px;
+    background: var(--texto-suave);
+    border-radius: 50%;
+  }
+
+  .hero-tag-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--blanco);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--texto-medio);
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .hero-verses {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .verse-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--azul-claro);
+    background: rgba(184,209,255,0.08);
+    border: 1px solid rgba(184,209,255,0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 0px;
+    background: linear-gradient(to bottom, transparent, var(--fondo));
+    z-index: 3;
+  }
+
+  /* ── CONTENIDO PRINCIPAL ── */
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  /* ── LEAD / INTRO ── */
+  .lead {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--texto-medio);
+    padding: 20px 0 40px;
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 40px;
+  }
+
+  .lead strong {
+    color: var(--blanco);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ── SECCIONES ── */
+  .section { margin-bottom: 72px; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.85;
+    color: rgba(0,86,241,0.15);
+    flex-shrink: 0;
+    margin-top: 4px;
+    user-select: none;
+  }
+
+  .section-titles { flex: 1; }
+
+  .section-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.25;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  /* ── PÁRRAFOS ── */
+  p {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--texto);
+    margin-bottom: 24px;
+  }
+
+  p strong {
+    color: var(--blanco);
+    font-weight: 600;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 48px 0;
+    padding: 36px 40px;
+    border-left: 4px solid var(--azul);
+    background: rgba(0,86,241,0.06);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px; left: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    color: rgba(0,86,241,0.2);
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .pull-quote-ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+  }
+
+  /* ── VERSÍCULO INLINE ── */
+  .verse-block {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: rgba(184,209,255,0.05);
+    border: 1px solid rgba(184,209,255,0.15);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .verse-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--azul-claro);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .verse-block .ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  /* ── TÉRMINO GRIEGO / HEBREO ── */
+  .termino-inline {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--azul-claro);
+    font-weight: 700;
+  }
+
+  /* ── MOVIMIENTOS CARD ── */
+  .movimiento-card {
+    margin: 40px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .movimiento-header {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .movimiento-num-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .movimiento-header-text {}
+
+  .movimiento-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .movimiento-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.2;
+  }
+
+  .movimiento-body {
+    padding: 0 28px 24px;
+  }
+
+  .movimiento-body p {
+    font-size: 15px;
+    color: var(--texto-medio);
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+
+  /* Colores por movimiento */
+  .m1 .movimiento-header { background: rgba(0,86,241,0.12); }
+  .m1 .movimiento-num-big { color: var(--azul); }
+  .m1 .movimiento-kicker { color: var(--azul); }
+
+  .m2 .movimiento-header { background: rgba(204,23,110,0.12); }
+  .m2 .movimiento-num-big { color: var(--rosa); }
+  .m2 .movimiento-kicker { color: var(--rosa); }
+
+  .m3 .movimiento-header { background: rgba(242,197,161,0.1); }
+  .m3 .movimiento-num-big { color: var(--melocoton); }
+  .m3 .movimiento-kicker { color: var(--melocoton); }
+
+  /* ── TABLA CONTRASTE ── */
+  .contraste-voces {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .cv-header {
+    padding: 14px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .cv-header-izq {
+    background: rgba(204,23,110,0.15);
+    color: var(--rosa);
+    border-right: 1px solid var(--linea);
+  }
+
+  .cv-header-der {
+    background: rgba(0,86,241,0.15);
+    color: var(--azul-claro);
+  }
+
+  .cv-row {
+    display: contents;
+  }
+
+  .cv-izq {
+    padding: 14px 22px;
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--texto-medio);
+    background: rgba(204,23,110,0.05);
+    border-right: 1px solid var(--linea);
+    border-top: 1px solid var(--linea);
+  }
+
+  .cv-der {
+    padding: 14px 22px;
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--blanco);
+    background: rgba(0,86,241,0.05);
+    border-top: 1px solid var(--linea);
+  }
+
+  /* ── CAPAS VISUAL (cadena causal) ── */
+  .capas-flow {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .capa-item {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .capa-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48px;
+    flex-shrink: 0;
+  }
+
+  .capa-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 20px;
+  }
+
+  .capa-connector {
+    width: 2px;
+    flex: 1;
+    background: var(--linea);
+    min-height: 20px;
+  }
+
+  .capa-item:last-child .capa-connector { display: none; }
+
+  .capa-content {
+    flex: 1;
+    padding: 16px 0 24px;
+  }
+
+  .capa-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .capa-desc {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--texto-suave);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ── HIGHLIGHT STATEMENT ── */
+  .statement {
+    margin: 56px 0;
+    text-align: center;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, rgba(0,86,241,0.08) 0%, rgba(204,23,110,0.06) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(184,209,255,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .statement::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,86,241,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(204,23,110,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .statement p {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 0;
+  }
+
+  .statement p em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  /* ── PREGUNTA / ACCIÓN ── */
+  .accion-box {
+    margin: 48px 0;
+    padding: 40px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 1.5px solid #059669;
+    position: relative;
+  }
+
+  .accion-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #059669;
+    margin-bottom: 16px;
+  }
+
+  .accion-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linea), transparent);
+    margin: 64px 0;
+  }
+
+  .divider-ornament {
+    text-align: center;
+    margin: -11px 0;
+    position: relative;
+  }
+
+  .divider-ornament span {
+    background: var(--fondo);
+    padding: 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--azul);
+    position: relative;
+  }
+
+  /* ── CIERRE ── */
+  .closing {
+    margin-top: 80px;
+    padding: 64px 48px;
+    background: linear-gradient(135deg, #0a0f2e 0%, #150520 100%);
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(184,209,255,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(0,86,241,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 200px;
+    background: radial-gradient(ellipse, rgba(204,23,110,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+
+  .closing-quote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .closing-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    position: relative; z-index: 2;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--linea);
+  }
+
+  .footer-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    text-align: right;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── ANIMACIONES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-content,
+    .article-wrapper {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .hero h1 { font-size: clamp(30px, 5vw, 48px); }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .hero-content { padding: 0 20px; }
+    .article-wrapper { padding: 0 20px 80px; }
+    .hero h1 { font-size: 34px; }
+    .hero-sub { font-size: 16px; }
+    .section-num { font-size: 52px; }
+    .section-title { font-size: 22px; }
+    p { font-size: 16px; }
+    .pull-quote p { font-size: 18px; }
+    .pull-quote { padding: 28px 24px; }
+    .closing { padding: 44px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .contraste-voces { grid-template-columns: 1fr; }
+    .cv-izq, .cv-der { border-right: none; }
+    .cv-header-izq { border-right: none; }
+    .statement p { font-size: 20px; }
+    .accion-box p { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-marca">LHSCOL</div>
+  <div class="nav-serie">Mayor que mi Realidad · F2 · MSG6</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-content">
+
+    <div class="hero-eyebrow">
+      <div class="hero-tag">Otro Espíritu</div>
+      <div class="hero-tag-dot"></div>
+      <div class="hero-tag-serie">Fase 2 · MSG6 · Parte A</div>
+    </div>
+
+    <h1>Los mismos gigantes,<br>el mismo fruto —<br><em>dos historias distintas</em></h1>
+
+    <p class="hero-sub">No es que unos vivieran otra realidad. Vieron exactamente lo mismo. Lo que cambió no fueron los hechos: fue la autoridad que cada quien les dio para decidir quién es y qué es posible para él.</p>
+
+    <div class="hero-meta">
+      <div class="hero-verses">
+        <span class="verse-pill">Números 13:30–33</span>
+        <span class="verse-pill">Números 14:6–9</span>
+        <span class="verse-pill">Números 14:20–23</span>
+        <span class="verse-pill">Números 14:24</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- ARTÍCULO -->
+<main class="article-wrapper">
+
+  <!-- LEAD -->
+  <p class="lead reveal">
+    Doce personas exploraron la misma tierra, vieron los mismos gigantes y cargaron el mismo fruto. Diez regresaron con un veredicto; dos regresaron con otro. No es que uno haya vivido una realidad distinta — vieron lo mismo. <strong>Entonces, ¿qué fue distinto?</strong> Esta no es una pregunta sobre los hechos. Es una pregunta sobre la autoridad que le diste a esos hechos para que definieran quién eres, qué es posible para ti y cómo vas a responder.
+  </p>
+
+  <!-- SECCIÓN I -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">I</div>
+      <div class="section-titles">
+        <div class="section-kicker">El punto de partida</div>
+        <h2 class="section-title">Dos historias,<br>una misma <em>tierra</em></h2>
+      </div>
+    </div>
+
+    <p>Dos personas pueden vivir exactamente la misma situación y terminar contando dos historias completamente distintas. El mismo diagnóstico. La misma pérdida. La misma noticia, la misma llamada inesperada, la misma crisis económica. Y sin embargo, cuando llega el momento de contarlo, salen dos relatos que no se parecen en nada.</p>
+
+    <p>No es que uno haya vivido una realidad distinta. Vieron lo mismo. Esa es la pregunta que quiero hacerte hoy, y no te la voy a resolver rápido, porque no se resuelve rápido. Hay una historia antigua que muestra esto con una claridad que todavía incomoda.</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN II -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">II</div>
+      <div class="section-titles">
+        <div class="section-kicker">Los doce exploradores</div>
+        <h2 class="section-title">La misma tierra,<br>dos <em>veredictos</em></h2>
+      </div>
+    </div>
+
+    <p>Doce hombres recibieron la misma instrucción: recorrer una tierra, mirarla de cerca y volver a contar lo que vieron. Caminaron el mismo terreno. Vieron las mismas ciudades. Cargaron, entre varios, el mismo fruto — tan grande que hacía falta más de una persona para sostenerlo.</p>
+
+    <p>Y cuando llegó el momento de hablar, de la misma experiencia compartida salieron dos historias opuestas.</p>
+
+    <div class="verse-block reveal">
+      <p>«Caleb interrumpió, pidió silencio delante de Moisés y dijo: "Subamos y tomemos la tierra —ahora. Podemos hacerlo". Pero los otros dijeron: "No podemos atacar a esa gente; son muchísimo más fuertes que nosotros [...] Junto a ellos nos sentimos como langostas. Y ellos nos miraban como si fuéramos langostas".»</p>
+      <div class="ref">Números 13:30–33 · MSG</div>
+    </div>
+
+    <p>Léelo otra vez, despacio. Los gigantes eran reales. Nadie se los inventó. El fruto también era real: lo tenían delante, lo estaban cargando. <strong>La información era exactamente la misma para los doce.</strong></p>
+
+    <p>La diferencia no estuvo en lo que vieron. Estuvo en lo que hicieron con lo que vieron. Diez le dieron autoridad al tamaño del obstáculo. Caleb y Josué le dieron autoridad a lo que Dios ya había dicho.</p>
+
+    <p>¿Y tú? Cuando el reporte de tu vida es real —porque muchas veces lo es, no te estoy pidiendo que niegues nada—, <em>¿a quién le das la última palabra?</em></p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN III -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">III</div>
+      <div class="section-titles">
+        <div class="section-kicker">La comparación que se volvió identidad</div>
+        <h2 class="section-title">Cuando el hecho<br>se convierte en <em>apellido</em></h2>
+      </div>
+    </div>
+
+    <p>Fíjate en algo que casi se nos escapa en el relato: la comparación no se quedó como comparación. Se convirtió en identidad. Empezaron diciendo: <em>son más fuertes que nosotros.</em> Eso es una observación. Terminaron diciendo: <em>nos sentimos como langostas.</em> Eso ya no es una observación. Es un nombre que se pusieron ellos mismos.</p>
+
+    <p>Y luego pasó algo todavía más revelador: nadie les dijo que otros los vieran como langostas. Ningún gigante abrió la boca para confirmarles esa opinión. <strong>Lo supusieron.</strong> Proyectaron su propia sentencia interior sobre la mirada de otros, y la recibieron como si fuera un hecho comprobado.</p>
+
+    <div class="capas-flow reveal">
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: #a855f7;"></div>
+          <div class="capa-connector"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: #a855f7;">El hecho</div>
+          <p class="capa-desc">«Son más fuertes que nosotros» — una observación real, todavía sin sentencia</p>
+        </div>
+      </div>
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: var(--azul);"></div>
+          <div class="capa-connector"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: var(--azul);">La sentencia</div>
+          <p class="capa-desc">«Nos sentimos como langostas» — el hecho deja de describir y empieza a nombrar</p>
+        </div>
+      </div>
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: var(--azul-claro);"></div>
+          <div class="capa-connector"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: var(--azul-claro);">La proyección</div>
+          <p class="capa-desc">«Ellos nos miraban como langostas» — nadie lo confirmó; se creyó como comprobado</p>
+        </div>
+      </div>
+      <div class="capa-item">
+        <div class="capa-line">
+          <div class="capa-dot" style="background: var(--rosa);"></div>
+        </div>
+        <div class="capa-content">
+          <div class="capa-label" style="color: var(--rosa);">El apellido</div>
+          <p class="capa-desc">La etiqueta que nunca fue pronunciada por Dios se vuelve el nombre con el que te presentas</p>
+        </div>
+      </div>
+    </div>
+
+    <p>Esto no pasó solo hace miles de años, en un desierto lejano. Pasa cuando un diagnóstico deja de ser información médica y se convierte en tu identidad completa. Pasa cuando una deuda deja de ser un número y se convierte en lo que eres.</p>
+
+    <div class="pull-quote reveal">
+      <p>Los hechos pueden describir una circunstancia real. No tienen autoridad automática para convertirse en tu nombre.</p>
+      <div class="pull-quote-ref">La autoridad que le diste</div>
+    </div>
+
+    <p>¿Qué palabra estás usando hoy para nombrarte a ti mismo que en realidad nunca fue tu nombre?</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN IV -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">IV</div>
+      <div class="section-titles">
+        <div class="section-kicker">La memoria que falla rápido</div>
+        <h2 class="section-title">Cuarenta días,<br>no cuarenta <em>años</em></h2>
+      </div>
+    </div>
+
+    <p>Antes de llegar a este punto de la historia, Israel había caminado con Dios recién salido de la esclavitud en Egipto. Habían visto el mar abrirse. Habían tenido una nube que los guiaba de día y una columna de fuego que los acompañaba de noche. Y todo eso no había ocurrido en cuarenta años. Había ocurrido en apenas cuarenta días.</p>
+
+    <p>Piénsalo bien, porque esto es lo que de verdad debería incomodarte: si esto hubiera pasado después de cuarenta años, uno podría entender que la memoria se desgasta. Pero esta gente vio la gloria de Dios y, cuarenta días después, ya no confiaba en Él.</p>
+
+    <div class="verse-block reveal">
+      <p>«DIOS dijo: "Los perdono [...] Pero tan cierto como que vivo [...] ni una sola persona de los que vieron mi Gloria [...] y que me han puesto a prueba una y otra y otra vez [...] ni uno de ellos pondrá los ojos en la tierra que solemnemente prometí".»</p>
+      <div class="ref">Números 14:20–23 · MSG</div>
+    </div>
+
+    <p>Fíjate en lo que Dios señala. No se limita a una conducta aislada: habían visto Su gloria, habían presenciado Sus señales y, aun así, dejaron de oír Su voz. <strong>El asunto no fue únicamente la conducta. Fue la manera en que respondieron frente a lo que Dios ya les había demostrado.</strong></p>
+
+    <p>Y si a ellos se les olvidó en cuarenta días, ¿cuánto tiempo necesitas tú para que la crisis de esta semana te haga olvidar lo que Dios ya hizo el año pasado, el mes pasado, o hace apenas unos días?</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN V -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">V</div>
+      <div class="section-titles">
+        <div class="section-kicker">La excepción en el juicio</div>
+        <h2 class="section-title">«Mi siervo<br><em>Caleb</em>»</h2>
+      </div>
+    </div>
+
+    <p>Y entonces, en medio de ese juicio, aparece una excepción que sigue pareciendo hermosa cada vez que se lee.</p>
+
+    <div class="verse-block reveal">
+      <p>«Pero mi siervo Caleb —esta es una historia diferente. Tiene un espíritu diferente...»</p>
+      <div class="ref">Números 14:24a–b · MSG</div>
+    </div>
+
+    <p>Fíjate en el orden. Dios no empieza describiendo el carácter de Caleb. No dice «Caleb, el valiente». No empieza por ninguna cualidad. Empieza diciendo a quién pertenece. <strong>Mi siervo.</strong></p>
+
+    <p>Muchos aprendimos que primero hay que portarse bien, y que la cercanía con Dios se gana como premio a ese buen comportamiento. Y terminamos viviendo una relación de mérito, no de pertenencia. Y cuando fallamos —porque vamos a fallar—, sentimos que perdimos el derecho a que nos llamen «siervo», «hijo» o «hija».</p>
+
+    <div class="statement reveal">
+      <p>La pertenencia no es<br>la recompensa del carácter.<br>Es el terreno donde<br><em>el carácter empieza a transformarse.</em></p>
+    </div>
+
+    <p>Si Dios se refiriera a ti hoy, antes de mencionar tus aciertos o tus fallas, ¿qué crees que diría primero?</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN VI -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VI</div>
+      <div class="section-titles">
+        <div class="section-kicker">La disposición interior visible</div>
+        <h2 class="section-title">Se te nota<br>en cómo <em>hablas</em></h2>
+      </div>
+    </div>
+
+    <p>Después de nombrar la pertenencia de Caleb, el texto añade que tenía otro espíritu. Y aquí hay que ser cuidadoso, porque esto no es una fórmula de pensamiento positivo. El texto no está diciendo que Caleb se repitió frases bonitas hasta creérselas. Está describiendo una disposición interior real, y esa disposición se hizo visible en algo muy concreto: en lo que dijo.</p>
+
+    <div class="verse-block reveal">
+      <p>«La tierra que recorrimos y exploramos es una tierra muy buena [...] Si DIOS se agrada de nosotros, nos llevará a esa tierra [...] Y no le tengan miedo a esa gente [...] No tienen protección y DIOS está de nuestro lado».</p>
+      <div class="ref">Números 14:6–9 · MSG</div>
+    </div>
+
+    <p>Escucha bien: <strong>no dijeron que no había gigantes.</strong> No negaron el problema. Los gigantes seguían ahí. Lo que cambió fue el orden de la información. Los diez pusieron el obstáculo primero, y ahí se quedaron. Caleb y Josué pusieron a Dios primero, y desde ahí volvieron a mirar el obstáculo.</p>
+
+    <div class="contraste-voces reveal">
+      <div class="cv-header cv-header-izq">Los diez · El reporte del miedo</div>
+      <div class="cv-header cv-header-der">Caleb y Josué · Otro espíritu</div>
+      <div class="cv-izq">«Son muchísimo más fuertes que nosotros»</div>
+      <div class="cv-der">«La tierra es muy buena — muy buena de verdad»</div>
+      <div class="cv-izq">«No podemos atacar a esa gente»</div>
+      <div class="cv-der">«Subamos y tomemos la tierra, ahora»</div>
+      <div class="cv-izq">«Nos sentimos como langostas»</div>
+      <div class="cv-der">«DIOS está de nuestro lado»</div>
+      <div class="cv-izq">El obstáculo primero</div>
+      <div class="cv-der">Dios primero</div>
+    </div>
+
+    <p><strong>Otro espíritu no significa otra información. Significa otra manera de pensar frente a la misma información.</strong> Y esa manera de pensar no se queda escondida. Se hace visible en la forma de interpretar, hablar y responder.</p>
+
+    <p>¿Cómo hablas tú de la dificultad que estás enfrentando ahora mismo? ¿Tus palabras solo describen el tamaño del problema, o también incluyen lo que sabes de Dios?</p>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- SECCIÓN VII -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VII</div>
+      <div class="section-titles">
+        <div class="section-kicker">Los datos que el miedo dejó fuera</div>
+        <h2 class="section-title">El obstáculo no es<br>el único <em>dato</em></h2>
+      </div>
+    </div>
+
+    <p>Lo que sostuvo a Caleb no fueron pensamientos bonitos. Fueron datos reales que el miedo había dejado fuera de la conversación. Dios había hablado. Esa promesa no la inventó Caleb, y tampoco la produjo con su actitud. La recibió, y dejó que fuera el dato que organizara todos los demás.</p>
+
+    <p>Dios estaba presente. Eso no borra el obstáculo —el obstáculo seguía ahí, tan real como siempre—, pero cambia la autoridad que ese obstáculo tiene sobre ti cuando sabes que no lo enfrentas solo. Y Dios lo llamó «mi siervo». Eso significa que Caleb no estaba tratando de demostrarle nada a nadie. Estaba viviendo dentro de una relación que ya existía antes de que él dijera una sola palabra.</p>
+
+    <div class="pull-quote reveal">
+      <p>«Esto es temporal. Y cuando tengas más que suficiente, nunca olvides de dónde te sacó Dios».</p>
+      <div class="pull-quote-ref">Memoria de familia</div>
+    </div>
+
+    <p>Eso es memoria. Y la memoria no es solamente un buen recuerdo del pasado. <strong>Es la evidencia que impide que la crisis de hoy escriba tu historia como si Dios nunca hubiera estado presente.</strong></p>
+
+    <div class="statement reveal">
+      <p>El obstáculo es real.<br>Pero nunca es<br><em>el único dato en la escena.</em></p>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-ornament"><span>✦</span></div></div>
+
+  <!-- CIERRE / INVITACIÓN -->
+  <section class="section reveal">
+    <div class="section-header">
+      <div class="section-num">VIII</div>
+      <div class="section-titles">
+        <div class="section-kicker">La invitación de hoy</div>
+        <h2 class="section-title">¿A cuál de los dos<br>te <em>pareces</em> hoy?</h2>
+      </div>
+    </div>
+
+    <p>Quiero pedirte algo antes de que termines de leer esto, y te pido que lo hagas con honestidad, no con prisa. Piensa en una situación real que estás enfrentando ahora mismo.</p>
+
+    <div class="movimiento-card m1 reveal">
+      <div class="movimiento-header">
+        <div class="movimiento-num-big">①</div>
+        <div class="movimiento-header-text">
+          <div class="movimiento-kicker">Primero</div>
+          <div class="movimiento-nombre">Los hechos</div>
+        </div>
+      </div>
+      <div class="movimiento-body">
+        <p>Escribe, aunque sea mentalmente, los hechos que de verdad puedes comprobar. Luego mira con cuidado si, sin darte cuenta, le agregaste una conclusión que esos hechos, por sí solos, nunca dijeron.</p>
+      </div>
+    </div>
+
+    <div class="movimiento-card m2 reveal">
+      <div class="movimiento-header">
+        <div class="movimiento-num-big">②</div>
+        <div class="movimiento-header-text">
+          <div class="movimiento-kicker">Segundo</div>
+          <div class="movimiento-nombre">El nombre</div>
+        </div>
+      </div>
+      <div class="movimiento-body">
+        <p>Fíjate en el nombre que esa situación ha estado intentando ponerte. Pregúntate si ese nombre en verdad te pertenece, o si es simplemente lo que el miedo repitió tantas veces que empezaste a creerlo. Después, recuerda a quién perteneces — no a partir de tu desempeño de esta semana.</p>
+      </div>
+    </div>
+
+    <div class="movimiento-card m3 reveal">
+      <div class="movimiento-header">
+        <div class="movimiento-num-big">③</div>
+        <div class="movimiento-header-text">
+          <div class="movimiento-kicker">Tercero</div>
+          <div class="movimiento-nombre">La memoria</div>
+        </div>
+      </div>
+      <div class="movimiento-body">
+        <p>Trae a memoria, aunque sea una sola vez, un momento real en el que Dios ya te demostró su fidelidad. No necesitas un milagro espectacular. A veces basta con recordar de dónde te sacó.</p>
+      </div>
+    </div>
+
+    <div class="accion-box reveal">
+      <div class="accion-label">→ La pregunta que queda</div>
+      <p>Los diez vieron gigantes y dejaron que los gigantes tuvieran la última palabra. Caleb vio los mismos gigantes y decidió que la última palabra le pertenecía a Dios. ¿A cuál de los dos te pareces hoy?</p>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <div class="closing reveal">
+    <div class="closing-eyebrow">Para llevarte hoy</div>
+    <div class="closing-quote">Los hechos pueden describir<br>tu obstáculo. Nunca tuvieron<br>autoridad para firmar<br>el <em>veredicto final</em>.</div>
+    <div class="closing-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-left">LHSCOL</div>
+  <div class="footer-right">MRV · F2 · MSG6 · Parte A<br>Otro Espíritu</div>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
