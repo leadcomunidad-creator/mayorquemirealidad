@@ -8,6 +8,7 @@
 }
 
 body > nav.mrv-original-nav { display: none !important; }
+html.mrv-resource-loading body > nav:not(.mrv-resource-bar) { visibility: hidden !important; }
 body.mrv-type-info { padding-top: 96px !important; }
 
 .mrv-resource-bar {
@@ -141,10 +142,28 @@ body.admin-preview .mrv-resource-button.is-admin-only { display: inline-flex !im
 .mrv-admin-action { padding:9px 10px; border-radius:7px; border:1px solid rgba(242,204,143,.35); background:rgba(242,204,143,.12); color:var(--mrv-expediente); cursor:pointer; font:700 10px/1.2 'DM Sans',Arial,sans-serif; }
 
 @media (max-width: 700px) {
-  body.mrv-type-info { padding-top: 84px !important; }
-  .mrv-resource-bar { min-height: 64px !important; padding: 10px 9px !important; grid-template-columns: 38px minmax(0,1fr) auto !important; gap: 8px !important; }
-  .mrv-menu-button { width: 38px; height: 38px; }
-  .mrv-resource-actions { justify-content: flex-start; gap: 7px; }
-  .mrv-resource-button { padding: 8px 11px !important; font-size: 9.5px !important; }
-  .mrv-lhscol { padding: 8px 10px !important; font-size: 9px !important; letter-spacing: 1.5px !important; }
+  body.mrv-type-info { padding-top: 66px !important; }
+  .mrv-resource-bar {
+    min-height: 52px !important; padding: 7px 8px !important;
+    grid-template-columns: 32px minmax(0,1fr) auto !important; gap: 6px !important;
+    border-top-width: 3px !important;
+  }
+  .mrv-menu-button { width: 32px; height: 32px; border-radius: 7px; }
+  .mrv-menu-button svg { width: 15px; height: 15px; }
+  .mrv-resource-actions { justify-content: flex-start; gap: 5px; }
+  .mrv-resource-button { min-height: 30px !important; padding: 6px 8px !important; gap: 4px !important; font-size: 8px !important; letter-spacing: .35px !important; }
+  .mrv-resource-button svg { width: 11px; height: 11px; }
+  .mrv-lhscol { min-height: 30px !important; padding: 6px 8px !important; gap: 4px !important; font-size: 8px !important; letter-spacing: 1.1px !important; }
+  .mrv-lhscol svg { width: 10px; height: 10px; }
+  body.mrv-resource-page .hero *,
+  body.mrv-resource-page .hero-content *,
+  body.mrv-resource-page .header * {
+    animation-delay: 0s !important;
+    animation-duration: .18s !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .mrv-resource-button { padding-inline: 7px !important; font-size: 7.5px !important; }
+  .mrv-lhscol { padding-inline: 7px !important; font-size: 7.5px !important; }
 }

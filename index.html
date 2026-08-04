@@ -1683,11 +1683,18 @@
     .hero { padding: 96px 0 56px; }
     .fase-header { flex-direction: column; gap: 12px; padding: 20px; }
     .fase-num { font-size: 40px; }
-    .card { padding: 16px 18px; gap: 14px; }
-    .card-num { font-size: 22px; width: 30px; }
-    .btn-recurso { min-height: 38px; padding: 9px 12px; }
+    .card { padding: 14px; gap: 11px; border-radius: 12px; }
+    .card-num { font-size: 20px; width: 25px; }
+    .card-kicker { font-size: 8px; letter-spacing: 1.8px; }
+    .card-titulo { font-size: 17px; margin-bottom: 5px; }
+    .card-tesis { font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
+    .card-acciones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+    .btn-recurso { min-height: 32px; padding: 7px 8px; justify-content: center; border-radius: 7px; font-size: 8.5px; letter-spacing: 1px; }
+    .btn-recurso svg { width: 11px; height: 11px; }
+    .card.pronto { position:relative; padding-top:38px; }
+    .card-pronto-badge { position:absolute; top:12px; right:14px; margin:0; }
     .tabs-wrapper { margin: 0 -16px; padding: 0 16px; }
-    .tab { padding: 12px 14px; font-size: 10px; }
+    .tab { padding: 10px 12px; font-size: 9px; letter-spacing:1.1px; }
     footer { padding: 40px 0 0; }
     .decl-grid { grid-template-columns: 1fr; }
     .teologia-duo { grid-template-columns: 1fr; }
@@ -1901,10 +1908,25 @@
     body.portada-visible .portada-progreso { bottom:76px; }
   }
   @media (max-width:600px) {
-    #portada-estatica { padding:calc(var(--nav-h) + 10px) 20px 58px; gap:clamp(10px,1.8vh,16px); }
-    .portada-emblema { margin-bottom:2px; }
-    .portada-versos { margin-top:0; }
-    .portada-acciones { gap:12px; margin-top:2px; }
+    body.portada-visible { overflow-x:hidden; overflow-y:auto; }
+    #portada-estatica {
+      position:relative; inset:auto; min-height:100svh; height:100svh; overflow:hidden;
+      justify-content:space-between; padding:calc(var(--nav-h) + 28px) 18px 26px; gap:0;
+    }
+    .portada-badge { padding:5px 13px; font-size:8px; letter-spacing:2px; }
+    .portada-emblema { width:clamp(90px,27vw,112px); margin:2px 0 0; }
+    .portada-titulo { max-width:280px; font-size:clamp(20px,6.2vw,25px); line-height:1.05; }
+    .portada-tagline { max-width:320px; font-size:12.5px; line-height:1.5; }
+    .portada-versos { max-width:340px; margin-top:0; gap:6px; }
+    .v-pill { padding:4px 9px; font-size:8px; }
+    .portada-acciones { width:100%; gap:16px; margin-top:0; }
+    .btn-entrar { padding:9px 18px; font-size:9px; gap:7px; }
+    .btn-entrar svg { width:11px; height:11px; }
+    .portada-links { max-width:350px; gap:10px 12px; }
+    .link-quieto { font-size:9px; letter-spacing:.9px; }
+    body.portada-visible .portada-progreso,
+    .portada-progreso { position:static; left:auto; bottom:auto; transform:none; width:min(290px,82vw); margin-top:0; }
+    .progreso-txt-p { font-size:8px; letter-spacing:1.2px; }
     .portada-footer { display:none; }
   }
   @media (max-height:800px) and (min-width:601px) {
@@ -2060,7 +2082,7 @@
   </div>
   <div class="portada-acciones">
     <button type="button" class="btn-entrar" onclick="ir('indice')">
-      Entrar al indice
+      Ingresar
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
     <div class="portada-links">
@@ -2071,7 +2093,7 @@
   </div>
   <div class="portada-progreso">
     <div class="progreso-track-p"><div class="progreso-fill-p" id="progreso-fill-portada"></div></div>
-        <div class="progreso-txt-p"><b>16</b> ense&ntilde;anzas publicadas de <b>35</b></div>
+        <div class="progreso-txt-p"><b>20</b> ense&ntilde;anzas publicadas de <b>35</b></div>
   </div>
   <div class="portada-footer">LHSCOL<br>Temporada 2026</div>
 </section>
@@ -3216,11 +3238,11 @@ function cerrarVersiculo(){ document.getElementById('modal-versiculo').classList
 function cerrarVersiculoBackdrop(e){ if(e.target.id === 'modal-versiculo') cerrarVersiculo(); }
 document.addEventListener('keydown', e => { if(e.key === 'Escape'){ cerrarVersiculo(); cerrarSidebar(); } });
 
-// ── Progreso animado tambien en la portada estatica (16 de 35 = 45.7%) ──
+// ── Progreso animado tambien en la portada estatica (20 de 35 = 57.1%) ──
 window.addEventListener('load', () => {
   setTimeout(() => {
     const pf = document.getElementById('progreso-fill-portada');
-    if(pf) pf.style.width = '46%';
+    if(pf) pf.style.width = '57.1%';
   }, 500);
 });
 
@@ -3298,6 +3320,41 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Los recursos internos permanecen en la misma pestaña para evitar el salto visual móvil.
+document.addEventListener('click', event => {
+  const link = event.target.closest('a.btn-recurso, a.btn-sala');
+  if (!link || link.origin !== location.origin) return;
+  event.preventDefault();
+  const previewRoutes = {
+    '/blog/mayorquemirealidad':'/blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html',
+    '/blog/arquitectosdelaverdad':'/blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html',
+    '/blog/cruzarelumbral':'/blogs/10-mrv-f1-msg3-cruzar-el-umbral-blg.html',
+    '/blog/perdidaencasa':'/blogs/10-mrv-f2-msg3b-perdida-en-casa-blg.html',
+    '/blog/lascuatrofuentes':'/blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.html',
+    '/blog/entreelruidoysuvoz':'/blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html',
+    '/blog/laverdadtienenombre':'/blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html',
+    '/blog/todolomioestuyo':'/blogs/10-mrv-f2-msg4-todo-lo-mio-es-tuyo-blg.html',
+    '/blog/podemoshacerlo':'/blogs/10-mrv-f2-msg5-podemos-hacerlo-blg.html',
+    '/blog/otroespiritu':'/blogs/10-mrv-f2-msg6-otro-espiritu-blg.html',
+    '/info/mayorquemirealidad':'/infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html',
+    '/info/arquitectosdelaverdad':'/infografias/13-mrv-f1-msg2-arquitectos-de-la-verdad-inf.html',
+    '/info/cruzarelumbral':'/infografias/13-mrv-f1-msg3-cruzar-el-umbral-inf.html',
+    '/info/lanarrativa':'/infografias/13-mrv-f2-msg3a-la-narrativa-inf.html',
+    '/info/perdidaencasa':'/infografias/13-mrv-f2-msg3b-perdida-en-casa-inf.html',
+    '/info/lascuatrofuentes':'/infografias/13-mrv-f2-msg3c-las-cuatro-fuentes-inf.html',
+    '/info/entreelruidoysuvoz':'/infografias/13-mrv-f2-msg3d-entre-el-ruido-y-su-voz-inf.html',
+    '/info/laverdadtienenombre':'/infografias/13-mrv-f2-msg3e-la-verdad-tiene-nombre-inf.html',
+    '/info/todolomioestuyo':'/infografias/13-mrv-f2-msg4-todo-lo-mio-es-tuyo-inf.html',
+    '/info/podemoshacerlo':'/infografias/13-mrv-f2-msg5-podemos-hacerlo-inf.html',
+    '/info/otroespiritu':'/infografias/13-mrv-f2-msg6-otro-espiritu-inf.html',
+    '/mesa/todolomioestuyo':'/mesa/12-mrv-f2-msg4-todo-lo-mio-es-tuyo-mes.html',
+    '/mesa/podemoshacerlo':'/mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html',
+    '/mesa/otroespiritu':'/mesa/12-mrv-f2-msg6-otro-espiritu-mes.html'
+  };
+  const localPreview = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+  location.assign(localPreview && previewRoutes[link.pathname.toLowerCase()] ? previewRoutes[link.pathname.toLowerCase()] : link.href);
+});
 
 // ── STARFIELD ──
 const canvas = document.getElementById('starfield');

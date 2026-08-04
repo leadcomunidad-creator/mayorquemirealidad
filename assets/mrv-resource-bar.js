@@ -3,10 +3,12 @@
   const currentType = script?.dataset.type;
   const slug = script?.dataset.slug;
   if (!currentType || !slug) return;
+  const isLocal = ['127.0.0.1','localhost'].includes(location.hostname);
+  document.documentElement.classList.add('mrv-resource-loading');
   if (!document.querySelector('link[data-mrv-resource-bar]')) {
     const styles = document.createElement('link');
     styles.rel = 'stylesheet';
-    styles.href = '/assets/mrv-resource-bar.css?v=20260804-4';
+    styles.href = '/assets/mrv-resource-bar.css?v=20260804-mobile-1';
     styles.dataset.mrvResourceBar = '';
     document.head.append(styles);
   }
@@ -26,6 +28,17 @@
   };
 
   const item = catalog[slug] || {};
+  const localFiles = {
+    blog: {
+      mayorquemirealidad:'/blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html', arquitectosdelaverdad:'/blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html', cruzarelumbral:'/blogs/10-mrv-f1-msg3-cruzar-el-umbral-blg.html', perdidaencasa:'/blogs/10-mrv-f2-msg3b-perdida-en-casa-blg.html', lascuatrofuentes:'/blogs/10-mrv-f2-msg3c-las-cuatro-fuentes-blg.html', entreelruidoysuvoz:'/blogs/10-mrv-f2-msg3d-entre-el-ruido-y-su-voz-blg.html', laverdadtienenombre:'/blogs/10-mrv-f2-msg3e-la-verdad-tiene-nombre-blg.html', todolomioestuyo:'/blogs/10-mrv-f2-msg4-todo-lo-mio-es-tuyo-blg.html', podemoshacerlo:'/blogs/10-mrv-f2-msg5-podemos-hacerlo-blg.html', otroespiritu:'/blogs/10-mrv-f2-msg6-otro-espiritu-blg.html'
+    },
+    info: {
+      mayorquemirealidad:'/infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html', arquitectosdelaverdad:'/infografias/13-mrv-f1-msg2-arquitectos-de-la-verdad-inf.html', cruzarelumbral:'/infografias/13-mrv-f1-msg3-cruzar-el-umbral-inf.html', lanarrativa:'/infografias/13-mrv-f2-msg3a-la-narrativa-inf.html', perdidaencasa:'/infografias/13-mrv-f2-msg3b-perdida-en-casa-inf.html', lascuatrofuentes:'/infografias/13-mrv-f2-msg3c-las-cuatro-fuentes-inf.html', entreelruidoysuvoz:'/infografias/13-mrv-f2-msg3d-entre-el-ruido-y-su-voz-inf.html', laverdadtienenombre:'/infografias/13-mrv-f2-msg3e-la-verdad-tiene-nombre-inf.html', todolomioestuyo:'/infografias/13-mrv-f2-msg4-todo-lo-mio-es-tuyo-inf.html', podemoshacerlo:'/infografias/13-mrv-f2-msg5-podemos-hacerlo-inf.html', otroespiritu:'/infografias/13-mrv-f2-msg6-otro-espiritu-inf.html'
+    },
+    mesa: {
+      todolomioestuyo:'/mesa/12-mrv-f2-msg4-todo-lo-mio-es-tuyo-mes.html', podemoshacerlo:'/mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html', otroespiritu:'/mesa/12-mrv-f2-msg6-otro-espiritu-mes.html'
+    }
+  };
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
     video:'<polygon points="5 3 19 12 5 21"/>',
@@ -37,10 +50,11 @@
   const svg = (name, fill=false) => `<svg viewBox="0 0 24 24" fill="${fill?'currentColor':'none'}" stroke="currentColor" stroke-width="2">${icons[name]}</svg>`;
   const makeButton = (type, label, href, adminOnly=false) => {
     if (currentType === type) return '';
+    if (isLocal && localFiles[type]?.[slug]) href = localFiles[type][slug];
     const classes = ['mrv-resource-button', `mrv-button-${type}`];
     if (!href) classes.push('is-disabled');
     if (adminOnly) classes.push('is-admin-only');
-    const attrs = href ? `href="${href}"${type!=='home'?' target="_blank" rel="noopener"':''}` : 'aria-disabled="true"';
+    const attrs = href ? `href="${href}"${type==='video'?' target="_blank" rel="noopener"':''}` : 'aria-disabled="true"';
     return `<a class="${classes.join(' ')}" ${attrs}>${svg(type,type==='video')}${label}</a>`;
   };
 
@@ -93,13 +107,12 @@
     adminBoxToggle.addEventListener('click',()=>{ const open=adminBox.classList.toggle('is-open'); adminBoxToggle.setAttribute('aria-expanded',String(open)); });
     document.addEventListener('keydown',event => { if(event.key==='Escape') closeMenu(); });
 
-    const local = ['127.0.0.1','localhost'].includes(location.hostname);
     const updateAdmin = admin => {
       document.body.classList.toggle('admin-preview',admin);
       adminState.textContent=admin?'Vista administrador':'Acceso privado';
       adminAction.textContent=admin?'Cambiar a público':'Ingresar como administrador';
     };
-    if (local) {
+    if (isLocal) {
       const admin = new URLSearchParams(location.search).get('admin')==='1' || localStorage.getItem('mrv-local-admin')==='true';
       updateAdmin(admin);
       adminAction.addEventListener('click',()=>{ const next=!document.body.classList.contains('admin-preview'); if(next) localStorage.setItem('mrv-local-admin','true'); else localStorage.removeItem('mrv-local-admin'); updateAdmin(next); });
@@ -109,6 +122,7 @@
       identity.onload=()=>{ if(!window.netlifyIdentity) return; const apply=user=>{ const roles=user?.app_metadata?.roles||[]; updateAdmin(user?.email?.toLowerCase()==='lead.comunidad@gmail.com'&&roles.includes('admin')); }; netlifyIdentity.on('init',apply); netlifyIdentity.on('login',user=>{ apply(user); netlifyIdentity.close(); }); netlifyIdentity.on('logout',()=>apply(null)); netlifyIdentity.init(); adminAction.addEventListener('click',()=>{ if(document.body.classList.contains('admin-preview')) netlifyIdentity.logout(); else netlifyIdentity.open('login'); }); };
       document.head.append(identity);
     }
+    requestAnimationFrame(() => document.documentElement.classList.remove('mrv-resource-loading'));
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true});
