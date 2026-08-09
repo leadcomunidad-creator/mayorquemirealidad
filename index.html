@@ -797,6 +797,35 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
     background: rgba(4,16,53,0.85);
   }
 
+  .card.mensaje-reciente {
+    border-color: rgba(0,86,241,0.48);
+    background: linear-gradient(135deg, rgba(0,86,241,0.12), rgba(4,16,53,0.82) 42%);
+    box-shadow: inset 3px 0 0 #FC5054, 0 12px 32px rgba(0,86,241,0.12);
+  }
+
+  .card.mensaje-reciente:hover {
+    border-color: rgba(0,86,241,0.72);
+    background: linear-gradient(135deg, rgba(0,86,241,0.18), rgba(4,16,53,0.9) 42%);
+  }
+
+  .card.mensaje-reciente .card-kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card.mensaje-reciente .card-kicker::after {
+    content: 'ÚLTIMO';
+    padding: 3px 8px;
+    border-radius: 100px;
+    color: #fff;
+    background: rgba(252,80,84,0.82);
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: 1;
+  }
+
   .card.pronto {
     opacity: 0.45;
     pointer-events: none;
@@ -2867,7 +2896,7 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
           <div class="card-titulo">Podemos Hacerlo</div>
           <div class="card-tesis">La mentalidad no solo cambia cómo vemos el problema. Cambia cómo recibimos el regalo.</div>
           <div class="card-acciones">
-            <span class="btn-recurso btn-video disabled"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</span>
+            <a href="https://youtu.be/lzNg1zdQC5k" target="_blank" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
             <a href="blogs/10-mrv-f2-msg5-podemos-hacerlo-blg.html" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
             <a href="infografias/13-mrv-f2-msg5-podemos-hacerlo-inf.html" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
             <a href="mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
@@ -2893,14 +2922,14 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
       </div>
 
       <!-- MSG 6B -->
-      <div class="card reveal" id="msg-f2-6b">
+      <div class="card reveal mensaje-reciente" id="msg-f2-6b">
         <div class="card-num">6b</div>
         <div class="card-body">
           <div class="card-kicker">F2 · MSG6B</div>
           <div class="card-titulo">Otro Espíritu — Parte B</div>
           <div class="card-tesis">La promesa fue real. El proceso también. Otro espíritu sostuvo a Caleb en obediencia durante cuarenta y cinco años.</div>
           <div class="card-acciones">
-            <span class="btn-recurso btn-video disabled"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</span>
+            <a href="https://youtu.be/VXcrFGL7mPc" target="_blank" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
             <span class="btn-recurso btn-blog disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</span>
             <a href="/Info/otroespiritub" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
             <span class="btn-recurso btn-mesa disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</span>

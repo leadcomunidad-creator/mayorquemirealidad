@@ -23,9 +23,9 @@
     entreelruidoysuvoz: { video:'https://youtu.be/SR98toUSMT4', blog:'/Blog/entreelruidoysuvoz', info:'/Info/entreelruidoysuvoz' },
     laverdadtienenombre: { video:'https://youtu.be/yfgyWHVhhtI?si=JP-NQE9gzQZG_UO7', blog:'/Blog/laverdadtienenombre', info:'/Info/laverdadtienenombre' },
     todolomioestuyo: { video:'https://youtu.be/5mE1QjchZ-4?si=r3MZbiL74oksj9Hz', blog:'/Blog/todolomioestuyo', info:'/Info/todolomioestuyo', mesa:'/Mesa/todolomioestuyo' },
-    podemoshacerlo: { blog:'/Blog/podemoshacerlo', info:'/Info/podemoshacerlo', mesa:'/Mesa/podemoshacerlo', expediente:'/expedientes/18-mrv-f2-msg5-podemos-hacerlo-exp.html' },
+    podemoshacerlo: { video:'https://youtu.be/lzNg1zdQC5k', blog:'/Blog/podemoshacerlo', info:'/Info/podemoshacerlo', mesa:'/Mesa/podemoshacerlo', expediente:'/expedientes/18-mrv-f2-msg5-podemos-hacerlo-exp.html' },
     otroespiritu: { blog:'/Blog/otroespiritu', info:'/Info/otroespiritu', mesa:'/Mesa/otroespiritu' },
-    otroespiritub: { info:'/Info/otroespiritub' }
+    otroespiritub: { video:'https://youtu.be/VXcrFGL7mPc', info:'/Info/otroespiritub' }
   };
 
   const item = catalog[slug] || {};
