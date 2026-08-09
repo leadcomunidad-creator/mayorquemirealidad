@@ -25,7 +25,7 @@
     todolomioestuyo: { video:'https://youtu.be/5mE1QjchZ-4?si=r3MZbiL74oksj9Hz', blog:'/Blog/todolomioestuyo', info:'/Info/todolomioestuyo', mesa:'/Mesa/todolomioestuyo' },
     podemoshacerlo: { video:'https://youtu.be/lzNg1zdQC5k', blog:'/Blog/podemoshacerlo', info:'/Info/podemoshacerlo', mesa:'/Mesa/podemoshacerlo', expediente:'/expedientes/18-mrv-f2-msg5-podemos-hacerlo-exp.html' },
     otroespiritu: { video:'https://youtu.be/VXcrFGL7mPc', blog:'/Blog/otroespiritu', info:'/Info/otroespiritu', mesa:'/Mesa/otroespiritu' },
-    otroespiritub: { info:'/Info/otroespiritub' }
+    laultimapalabra: { info:'/Info/laultimapalabra' }
   };
 
   const item = catalog[slug] || {};
@@ -40,7 +40,7 @@
       todolomioestuyo:'/mesa/12-mrv-f2-msg4-todo-lo-mio-es-tuyo-mes.html', podemoshacerlo:'/mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html', otroespiritu:'/mesa/12-mrv-f2-msg6-otro-espiritu-mes.html'
     }
   };
-  localFiles.info.otroespiritub = '/infografias/13-mrv-f2-msg6b-otro-espiritu-inf.html';
+  localFiles.info.laultimapalabra = '/infografias/13-mrv-f2-msg7-la-ultima-palabra-inf.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
@@ -90,7 +90,7 @@
     sidebar.setAttribute('aria-label','Menú de la temporada');
     sidebar.innerHTML = `<button type="button" class="mrv-sidebar-close" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><a class="nav-item nav-portada" href="/">Portada</a><a class="nav-item" href="/?view=intro">¿De qué se trata esta temporada?</a><a class="nav-item" href="/?view=indice">Tabla de contenido</a><a class="nav-item nav-sala" href="/?view=sala">Episodios de La Sala</a></div><div class="bloque-nav"><div class="fase-grupo"><button class="nav-item fase-toggle" type="button">F1 · Umbral</button><div class="fase-contenido"><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-1">Mayor que mi Realidad</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-2">Arquitectos de Su Verdad</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-3">Cruzar el Umbral</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-4">Una Vida Editada</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-5a">Obediencia Larga — Parte 1</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-5b">Obediencia Larga — Parte 2</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6a">La Pregunta Equivocada</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6b">Un Discípulo Atento</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6c">Lávate las Manos</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6d">La Enfermedad de lo Ordinario</a></div></div><div class="fase-grupo fase-actual abierto"><button class="nav-item fase-toggle" type="button">F2 · Diagnóstico <span class="badge-estado badge-nuevo">NUEVO</span></button><div class="fase-contenido"><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-1">El Pez No Sabe</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-2">Cerdos y Coronas</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3a">La Narrativa</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3b">Perdida en Casa</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3c">Las Cuatro Fuentes</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3d">Entre el Ruido y Su Voz</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3e">La Verdad Tiene Nombre</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-4">Todo lo Mío es Tuyo</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-5">Podemos Hacerlo</a><a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-6">Otro Espíritu</a><span class="nav-item sub pendiente">La Generación que Llegó</span><span class="nav-item sub pendiente">¿Cuál es tu Marco?</span><span class="nav-item sub pendiente">El Nombre del Agua</span></div></div><div class="fase-grupo"><span class="nav-item fase-toggle pendiente">F3 · Manifiesto <span class="badge-estado badge-pronto">PRONTO</span></span></div><div class="fase-grupo"><span class="nav-item fase-toggle pendiente">F4 · Protocolo <span class="badge-estado badge-pronto">PRONTO</span></span></div><div class="fase-grupo"><span class="nav-item fase-toggle pendiente">F5 · Estilo de Vida <span class="badge-estado badge-pronto">PRONTO</span></span></div></div>`;
     sidebar.innerHTML = sidebar.innerHTML
-      .replace('<a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-6">Otro Espíritu</a>','<a class="nav-item sub" href="/?fase=f2&msg=msg-f2-6a">Otro Espíritu — Parte A</a><a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-6b">Otro Espíritu — Parte B</a>')
+      .replace('<a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-6">Otro Espíritu</a>','<a class="nav-item sub" href="/?fase=f2&msg=msg-f2-6a">Otro Espíritu — Parte A</a><a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-7">La Última Palabra</a>')
       .replace('F3 · Manifiesto','F3 · Protocolo')
       .replace('F4 · Protocolo','F4 · Manifiesto');
     const salaLink = sidebar.querySelector('.nav-sala');
