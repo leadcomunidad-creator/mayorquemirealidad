@@ -2032,61 +2032,7 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
   <button class="cerrar-sidebar" onclick="cerrarSidebar()" aria-label="Cerrar menu" type="button">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
-  <div class="marca">LHSCOL</div>
-  <div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div>
-
-  <div class="bloque-nav">
-    <button type="button" class="nav-item nav-portada" onclick="mostrarPortada()"><span class="num">&mdash;</span> Portada</button>
-    <button type="button" class="nav-item" onclick="ir('intro')"><span class="num">&mdash;</span> &iquest;De qu&eacute; se trata esta temporada?</button>
-    <button type="button" class="nav-item" onclick="ir('indice')"><span class="num">&mdash;</span> Tabla de contenido</button>
-    <button type="button" class="nav-item sala-item" onclick="irFase('fesp')"><span class="num">&#9733;</span> Episodios de La Sala <span class="estado-dot"></span></button>
-  </div>
-
-  <div class="bloque-nav fase-grupo">
-    <button type="button" class="fase-toggle" onclick="toggleFaseGrupo(this)">F1 &middot; Umbral <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
-    <div class="fase-sub">
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-1')">Mayor que mi Realidad</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-2')">Arquitectos de Su Verdad</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-3')">Cruzar el Umbral</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-4')">Una Vida Editada</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-5a')">Obediencia Larga &mdash; Parte 1</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-5b')">Obediencia Larga &mdash; Parte 2</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-6a')">La Pregunta Equivocada</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-6b')">Un Discipulo Atento</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-6c')">Lavate las Manos</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f1','msg-f1-6d')">La Enfermedad de lo Ordinario</button>
-    </div>
-  </div>
-
-  <div class="bloque-nav fase-grupo fase-actual abierto">
-    <button type="button" class="fase-toggle" onclick="toggleFaseGrupo(this)">F2 &middot; Diagn&oacute;stico <span class="badge-nuevo">Nuevo</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
-    <div class="fase-sub">
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-1')">El Pez No Sabe</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-2')">Cerdos y Coronas</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-3a')">La Narrativa</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-3b')">Perdida en Casa</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-3c')">Las Cuatro Fuentes</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-3d')">Entre Ruidos y Su Voz</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-3e')">La Verdad Tiene Nombre</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-4')">Todo lo M&iacute;o es Tuyo</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-5')">Podemos Hacerlo</button>
-      <button type="button" class="nav-item sub" onclick="irFase('f2','msg-f2-6a')">Otro Esp&iacute;ritu &mdash; Parte A</button>
-      <button type="button" class="nav-item sub mensaje-reciente" onclick="irFase('f2','msg-f2-7')">La &Uacute;ltima Palabra</button>
-      <button type="button" class="nav-item sub pendiente">La Generaci&oacute;n que Lleg&oacute;</button>
-      <button type="button" class="nav-item sub pendiente">&iquest;Cu&aacute;l es tu Marco?</button>
-      <button type="button" class="nav-item sub pendiente">El Nombre del Agua</button>
-    </div>
-  </div>
-
-  <div class="bloque-nav">
-    <button type="button" class="fase-toggle" onclick="irFase('f3')">F3 &middot; Protocolo <span class="badge-pronto">Pronto</span></button>
-  </div>
-  <div class="bloque-nav">
-    <button type="button" class="fase-toggle" onclick="irFase('f4')">F4 &middot; Manifiesto <span class="badge-pronto">Pronto</span></button>
-  </div>
-  <div class="bloque-nav">
-    <button type="button" class="fase-toggle" onclick="irFase('f5')">F5 &middot; Estilo de Vida <span class="badge-pronto">Pronto</span></button>
-  </div>
+  <div data-mrv-season-menu></div>
   <div class="sidebar-admin">
     <button type="button" class="sidebar-admin-toggle" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20.3h-3v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7 15a1.7 1.7 0 0 0-1.56-1.03H5.3v-3h.14A1.7 1.7 0 0 0 7 9.94a1.7 1.7 0 0 0-.34-1.88L6.6 8l2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.69 4.7V4.6h3v.1a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 8l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.96 11h.14v3h-.14A1.7 1.7 0 0 0 19.4 15z"/></svg>
@@ -2099,6 +2045,8 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
     </div>
   </div>
 </aside>
+
+<script src="/assets/mrv-resource-bar.js?v=20260809-shared-menu-1" data-mode="site-menu"></script>
 
 <section id="portada-estatica">
   <div class="spine"><span class="dot"></span> TEMPORADA 2026 &middot; MRV <span class="dot"></span></div>

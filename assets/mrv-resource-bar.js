@@ -2,6 +2,84 @@
   const script = document.currentScript;
   const currentType = script?.dataset.type;
   const slug = script?.dataset.slug;
+
+  // Fuente unica del contenido del menu para portada y paginas internas.
+  const menuDefinition = {
+    phases: [
+      {
+        id:'f1', title:'F1 · Umbral', messages:[
+          ['msg-f1-1','Mayor que mi Realidad'],
+          ['msg-f1-2','Arquitectos de Su Verdad'],
+          ['msg-f1-3','Cruzar el Umbral'],
+          ['msg-f1-4','Una Vida Editada'],
+          ['msg-f1-5a','Obediencia Larga — Parte 1'],
+          ['msg-f1-5b','Obediencia Larga — Parte 2'],
+          ['msg-f1-6a','La Pregunta Equivocada'],
+          ['msg-f1-6b','Un Discípulo Atento'],
+          ['msg-f1-6c','Lávate las Manos'],
+          ['msg-f1-6d','La Enfermedad de lo Ordinario']
+        ]
+      },
+      {
+        id:'f2', title:'F2 · Diagnóstico', current:true, messages:[
+          ['msg-f2-1','El Pez No Sabe'],
+          ['msg-f2-2','Cerdos y Coronas'],
+          ['msg-f2-3a','La Narrativa'],
+          ['msg-f2-3b','Perdida en Casa'],
+          ['msg-f2-3c','Las Cuatro Fuentes'],
+          ['msg-f2-3d','Entre el Ruido y Su Voz'],
+          ['msg-f2-3e','La Verdad Tiene Nombre'],
+          ['msg-f2-4','Todo lo Mío es Tuyo'],
+          ['msg-f2-5','Podemos Hacerlo'],
+          ['msg-f2-6a','Otro Espíritu — Parte A'],
+          ['msg-f2-7','La Última Palabra',{recent:true}],
+          [null,'La Generación que Llegó',{pending:true}],
+          [null,'¿Cuál es tu Marco?',{pending:true}],
+          [null,'El Nombre del Agua',{pending:true}]
+        ]
+      },
+      { id:'f3', title:'F3 · Protocolo', pending:true },
+      { id:'f4', title:'F4 · Manifiesto', pending:true },
+      { id:'f5', title:'F5 · Estilo de Vida', pending:true }
+    ]
+  };
+
+  const renderSeasonMenu = mode => {
+    const inIndex = mode === 'index';
+    const general = inIndex
+      ? `<div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><button type="button" class="nav-item nav-portada" onclick="mostrarPortada()"><span class="num">—</span> Portada</button><button type="button" class="nav-item" onclick="ir('intro')"><span class="num">—</span> ¿De qué se trata esta temporada?</button><button type="button" class="nav-item" onclick="ir('indice')"><span class="num">—</span> Tabla de contenido</button><button type="button" class="nav-item sala-item" onclick="irFase('fesp')"><span class="num">★</span> Episodios de La Sala <span class="estado-dot"></span></button></div>`
+      : `<div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><a class="nav-item nav-portada" href="/">Portada</a><a class="nav-item" href="/?view=intro">¿De qué se trata esta temporada?</a><a class="nav-item" href="/?view=indice">Tabla de contenido</a><a class="nav-item nav-sala" href="/?view=sala"><span class="sala-star">★</span><span>Episodios de La Sala</span><span class="sala-dot"></span></a></div>`;
+    const phases = menuDefinition.phases.map(phase => {
+      if (phase.pending) {
+        return inIndex
+          ? `<div class="bloque-nav"><button type="button" class="fase-toggle" onclick="irFase('${phase.id}')">${phase.title} <span class="badge-pronto">Pronto</span></button></div>`
+          : `<div class="fase-grupo"><span class="nav-item fase-toggle pendiente">${phase.title} <span class="badge-estado badge-pronto">PRONTO</span></span></div>`;
+      }
+      const messages = phase.messages.map(([id,label,state={}]) => {
+        const classes = `nav-item sub${state.recent?' mensaje-reciente':''}${state.pending?' pendiente':''}`;
+        if (state.pending) return inIndex ? `<button type="button" class="${classes}">${label}</button>` : `<span class="${classes}">${label}</span>`;
+        return inIndex
+          ? `<button type="button" class="${classes}" onclick="irFase('${phase.id}','${id}')">${label}</button>`
+          : `<a class="${classes}" href="/?fase=${phase.id}&msg=${id}">${label}</a>`;
+      }).join('');
+      return inIndex
+        ? `<div class="bloque-nav fase-grupo${phase.current?' fase-actual abierto':''}"><button type="button" class="fase-toggle" onclick="toggleFaseGrupo(this)">${phase.title}${phase.current?' <span class="badge-nuevo">Nuevo</span>':''}<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button><div class="fase-sub">${messages}</div></div>`
+        : `<div class="fase-grupo${phase.current?' fase-actual abierto':''}"><button class="nav-item fase-toggle" type="button">${phase.title}${phase.current?' <span class="badge-estado badge-nuevo">NUEVO</span>':''}</button><div class="fase-contenido">${messages}</div></div>`;
+    }).join('');
+    return general + (inIndex ? phases : `<div class="bloque-nav">${phases}</div>`);
+  };
+
+  window.MRVSeasonMenu = Object.freeze({ definition:menuDefinition, render:renderSeasonMenu });
+
+  if (script?.dataset.mode === 'site-menu') {
+    const initSiteMenu = () => {
+      const target = document.querySelector('[data-mrv-season-menu]');
+      if (target) target.innerHTML = renderSeasonMenu('index');
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',initSiteMenu,{once:true});
+    else initSiteMenu();
+    return;
+  }
   if (!currentType || !slug) return;
   const isLocal = ['127.0.0.1','localhost'].includes(location.hostname);
   document.documentElement.classList.add('mrv-resource-loading');
@@ -88,11 +166,7 @@
     const sidebar = document.createElement('aside');
     sidebar.className = 'mrv-sidebar';
     sidebar.setAttribute('aria-label','Menú de la temporada');
-    sidebar.innerHTML = `<button type="button" class="mrv-sidebar-close" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><a class="nav-item nav-portada" href="/">Portada</a><a class="nav-item" href="/?view=intro">¿De qué se trata esta temporada?</a><a class="nav-item" href="/?view=indice">Tabla de contenido</a><a class="nav-item nav-sala" href="/?view=sala">Episodios de La Sala</a></div><div class="bloque-nav"><div class="fase-grupo"><button class="nav-item fase-toggle" type="button">F1 · Umbral</button><div class="fase-contenido"><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-1">Mayor que mi Realidad</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-2">Arquitectos de Su Verdad</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-3">Cruzar el Umbral</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-4">Una Vida Editada</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-5a">Obediencia Larga — Parte 1</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-5b">Obediencia Larga — Parte 2</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6a">La Pregunta Equivocada</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6b">Un Discípulo Atento</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6c">Lávate las Manos</a><a class="nav-item sub" href="/?fase=f1&msg=msg-f1-6d">La Enfermedad de lo Ordinario</a></div></div><div class="fase-grupo fase-actual abierto"><button class="nav-item fase-toggle" type="button">F2 · Diagnóstico <span class="badge-estado badge-nuevo">NUEVO</span></button><div class="fase-contenido"><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-1">El Pez No Sabe</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-2">Cerdos y Coronas</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3a">La Narrativa</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3b">Perdida en Casa</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3c">Las Cuatro Fuentes</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3d">Entre el Ruido y Su Voz</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-3e">La Verdad Tiene Nombre</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-4">Todo lo Mío es Tuyo</a><a class="nav-item sub" href="/?fase=f2&msg=msg-f2-5">Podemos Hacerlo</a><a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-6">Otro Espíritu</a><span class="nav-item sub pendiente">La Generación que Llegó</span><span class="nav-item sub pendiente">¿Cuál es tu Marco?</span><span class="nav-item sub pendiente">El Nombre del Agua</span></div></div><div class="fase-grupo"><span class="nav-item fase-toggle pendiente">F3 · Manifiesto <span class="badge-estado badge-pronto">PRONTO</span></span></div><div class="fase-grupo"><span class="nav-item fase-toggle pendiente">F4 · Protocolo <span class="badge-estado badge-pronto">PRONTO</span></span></div><div class="fase-grupo"><span class="nav-item fase-toggle pendiente">F5 · Estilo de Vida <span class="badge-estado badge-pronto">PRONTO</span></span></div></div>`;
-    sidebar.innerHTML = sidebar.innerHTML
-      .replace('<a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-6">Otro Espíritu</a>','<a class="nav-item sub" href="/?fase=f2&msg=msg-f2-6a">Otro Espíritu — Parte A</a><a class="nav-item sub mensaje-reciente" href="/?fase=f2&msg=msg-f2-7">La Última Palabra</a>')
-      .replace('F3 · Manifiesto','F3 · Protocolo')
-      .replace('F4 · Protocolo','F4 · Manifiesto');
+    sidebar.innerHTML = `<button type="button" class="mrv-sidebar-close" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>${renderSeasonMenu('resource')}`;
     const salaLink = sidebar.querySelector('.nav-sala');
     if (salaLink) salaLink.innerHTML = '<span class="sala-star">★</span><span>Episodios de La Sala</span><span class="sala-dot"></span>';
     sidebar.insertAdjacentHTML('beforeend',`<div class="mrv-sidebar-admin"><button type="button" class="mrv-sidebar-admin-toggle" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20.3h-3v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7 15a1.7 1.7 0 0 0-1.56-1.03H5.3v-3h.14A1.7 1.7 0 0 0 7 9.94a1.7 1.7 0 0 0-.34-1.88L6.6 8l2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.69 4.7V4.6h3v.1a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 8l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.96 11h.14v3h-.14A1.7 1.7 0 0 0 19.4 15z"/></svg>Zona administrativa<span class="admin-chevron">›</span></button><div class="mrv-sidebar-admin-panel"><span class="mrv-admin-state">Acceso privado</span><button type="button" class="mrv-admin-action">Ingresar como administrador</button></div></div>`);
