@@ -32,7 +32,8 @@
           ['msg-f2-4','Todo lo Mío es Tuyo'],
           ['msg-f2-5','Podemos Hacerlo'],
           ['msg-f2-6a','Otro Espíritu — Parte A'],
-          ['msg-f2-7','La Última Palabra',{recent:true}],
+          ['msg-f2-7','La Última Palabra'],
+          ['msg-f2-8','Cada Día',{recent:true}],
           [null,'La Generación que Llegó',{pending:true}],
           [null,'¿Cuál es tu Marco?',{pending:true}],
           [null,'El Nombre del Agua',{pending:true}]
@@ -103,7 +104,8 @@
     todolomioestuyo: { video:'https://youtu.be/5mE1QjchZ-4?si=r3MZbiL74oksj9Hz', blog:'/Blog/todolomioestuyo', info:'/Info/todolomioestuyo', mesa:'/Mesa/todolomioestuyo' },
     podemoshacerlo: { video:'https://youtu.be/lzNg1zdQC5k', blog:'/Blog/podemoshacerlo', info:'/Info/podemoshacerlo', mesa:'/Mesa/podemoshacerlo', expediente:'/expedientes/18-mrv-f2-msg5-podemos-hacerlo-exp.html' },
     otroespiritu: { video:'https://youtu.be/VXcrFGL7mPc', blog:'/Blog/otroespiritu', info:'/Info/otroespiritu', mesa:'/Mesa/otroespiritu' },
-    laultimapalabra: { info:'/Info/laultimapalabra' }
+    laultimapalabra: { info:'/Info/laultimapalabra' },
+    cadadia: { info:'/Info/cadadia' }
   };
 
   const item = catalog[slug] || {};
@@ -119,6 +121,7 @@
     }
   };
   localFiles.info.laultimapalabra = '/infografias/13-mrv-f2-msg7-la-ultima-palabra-inf.html';
+  localFiles.info.cadadia = '/infografias/13-mrv-f2-msg8-cada-dia-inf.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',

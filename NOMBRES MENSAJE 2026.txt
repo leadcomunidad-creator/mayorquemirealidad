@@ -33,9 +33,11 @@ F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: https://youtu.be/yfgyWHVhhtI?si=JP-NQE9gzQZG_UO
 F2_MSG4_TODO_LO_MIO_ES_TUYO: https://youtu.be/5mE1QjchZ-4?si=r3MZbiL74oksj9Hz
 F2_MSG5_PODEMOS_HACERLO: sin video (proximamente en pagina)
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin video (proximamente en pagina)
-F2_MSG7_LA_GENERACION_QUE_LLEGO: sin video (proximamente en pagina)
-F2_MSG8_CUAL_ES_TU_MARCO: sin video (proximamente en pagina)
-F2_MSG9_EL_NOMBRE_DEL_AGUA: sin video (proximamente en pagina)
+F2_MSG7_LA_ULTIMA_PALABRA: sin video (proximamente en pagina)
+F2_MSG8_CADA_DIA: sin video (proximamente en pagina)
+F2_MSG9_LA_GENERACION_QUE_LLEGO: sin video (proximamente en pagina)
+F2_MSG10_CUAL_ES_TU_MARCO: sin video (proximamente en pagina)
+F2_MSG11_EL_NOMBRE_DEL_AGUA: sin video (proximamente en pagina)
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: https://youtu.be/jMq081xWWGE
@@ -68,9 +70,11 @@ F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/blogs/10-mrv-f2-msg3e-la-verdad-tiene-nom
 F2_MSG4_TODO_LO_MIO_ES_TUYO: index/blogs/10-mrv-f2-msg4-todo-lo-mio-es-tuyo-blg.html
 F2_MSG5_PODEMOS_HACERLO: sin blog (proximamente en pagina)
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin blog (proximamente en pagina)
-F2_MSG7_LA_GENERACION_QUE_LLEGO: sin blog (proximamente en pagina)
-F2_MSG8_CUAL_ES_TU_MARCO: sin blog (proximamente en pagina)
-F2_MSG9_EL_NOMBRE_DEL_AGUA: sin blog (proximamente en pagina)
+F2_MSG7_LA_ULTIMA_PALABRA: sin blog (proximamente en pagina)
+F2_MSG8_CADA_DIA: sin blog (proximamente en pagina)
+F2_MSG9_LA_GENERACION_QUE_LLEGO: sin blog (proximamente en pagina)
+F2_MSG10_CUAL_ES_TU_MARCO: sin blog (proximamente en pagina)
+F2_MSG11_EL_NOMBRE_DEL_AGUA: sin blog (proximamente en pagina)
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: sin blog
@@ -103,9 +107,11 @@ F2_MSG3E_LA_VERDAD_TIENE_NOMBRE: index/infografias/13-mrv-f2-msg3e-la-verdad-tie
 F2_MSG4_TODO_LO_MIO_ES_TUYO: index/infografias/13-mrv-f2-msg4-todo-lo-mio-es-tuyo-inf.html
 F2_MSG5_PODEMOS_HACERLO: index/infografias/13-mrv-f2-msg5-podemos-hacerlo-inf.html
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin info (proximamente en pagina)
-F2_MSG7_LA_GENERACION_QUE_LLEGO: sin info (proximamente en pagina)
-F2_MSG8_CUAL_ES_TU_MARCO: sin info (proximamente en pagina)
-F2_MSG9_EL_NOMBRE_DEL_AGUA: sin info (proximamente en pagina)
+F2_MSG7_LA_ULTIMA_PALABRA: infografias/13-mrv-f2-msg7-la-ultima-palabra-inf.html
+F2_MSG8_CADA_DIA: infografias/13-mrv-f2-msg8-cada-dia-inf.html
+F2_MSG9_LA_GENERACION_QUE_LLEGO: sin info (proximamente en pagina)
+F2_MSG10_CUAL_ES_TU_MARCO: sin info (proximamente en pagina)
+F2_MSG11_EL_NOMBRE_DEL_AGUA: sin info (proximamente en pagina)
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: index/infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html
