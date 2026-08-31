@@ -33,10 +33,11 @@
           ['msg-f2-5','Podemos Hacerlo'],
           ['msg-f2-6a','Otro Espíritu — Parte A'],
           ['msg-f2-7','La Última Palabra'],
-          ['msg-f2-8','Cada Día',{recent:true}],
-          [null,'La Generación que Llegó',{pending:true}],
-          [null,'¿Cuál es tu Marco?',{pending:true}],
-          [null,'El Nombre del Agua',{pending:true}]
+          ['msg-f2-8','Cada Día'],
+          ['msg-f2-9a','Hundan los Barcos',{recent:true}],
+          ['msg-f2-10','La Generación que Llegó',{pending:true}],
+          ['msg-f2-11','¿Cuál es tu Marco?',{pending:true}],
+          ['msg-f2-12','El Nombre del Agua',{pending:true}]
         ]
       },
       { id:'f3', title:'F3 · Protocolo', pending:true },
@@ -105,7 +106,8 @@
     podemoshacerlo: { video:'https://youtu.be/lzNg1zdQC5k', blog:'/Blog/podemoshacerlo', info:'/Info/podemoshacerlo', mesa:'/Mesa/podemoshacerlo', expediente:'/expedientes/18-mrv-f2-msg5-podemos-hacerlo-exp.html' },
     otroespiritu: { video:'https://youtu.be/VXcrFGL7mPc', blog:'/Blog/otroespiritu', info:'/Info/otroespiritu', mesa:'/Mesa/otroespiritu' },
     laultimapalabra: { info:'/Info/laultimapalabra' },
-    cadadia: { info:'/Info/cadadia' }
+    cadadia: { info:'/Info/cadadia' },
+    hundanlosbarcos: { info:'/Info/hundanlosbarcos' }
   };
 
   const item = catalog[slug] || {};
@@ -122,6 +124,7 @@
   };
   localFiles.info.laultimapalabra = '/infografias/13-mrv-f2-msg7-la-ultima-palabra-inf.html';
   localFiles.info.cadadia = '/infografias/13-mrv-f2-msg8-cada-dia-inf.html';
+  localFiles.info.hundanlosbarcos = '/infografias/13-mrv-f2-msg9a-hundan-los-barcos-inf.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',

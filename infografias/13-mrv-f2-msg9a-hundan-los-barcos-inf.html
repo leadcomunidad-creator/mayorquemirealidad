@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hundan los Barcos · Infografía</title>
+<meta name="description" content="Dios ya te sacó. Lo que queda por resolver es si todavía estás guardando una alternativa por si Él no cumple.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hundan los Barcos · Infografía">
+<meta property="og:description" content="Dios ya te sacó. Lo que queda por resolver es si todavía estás guardando una alternativa por si Él no cumple.">
+<meta property="og:url" content="https://mayorquemirealidad.netlify.app/Info/hundanlosbarcos">
+<meta property="og:image" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
+<meta property="og:image:secure_url" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hundan los Barcos · Infografía">
+<meta name="twitter:description" content="Dios ya te sacó. Lo que queda por resolver es si todavía estás guardando una alternativa por si Él no cumple.">
+<meta name="twitter:image" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
+<link rel="canonical" href="https://mayorquemirealidad.netlify.app/Info/hundanlosbarcos">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  /* BODY SECTIONS */
+  .body { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  /* TABLA DE CONTRASTE */
+  .tabla-contraste {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .tabla-contraste thead th {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tabla-contraste thead th:first-child {
+    background: rgba(204,23,110,0.2);
+    color: var(--rosa);
+    text-align: left;
+  }
+
+  .tabla-contraste thead th:last-child {
+    background: rgba(0,86,241,0.2);
+    color: var(--azul-claro);
+    text-align: left;
+  }
+
+  .tabla-contraste tbody tr td {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tabla-contraste tbody tr:nth-child(odd) td:first-child {
+    background: rgba(204,23,110,0.08);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:first-child {
+    background: rgba(204,23,110,0.05);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(odd) td:last-child {
+    background: rgba(0,86,241,0.08);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:last-child {
+    background: rgba(0,86,241,0.05);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+  /* FLUJO / CADENA */
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0;
+  }
+
+  .flujo-item {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 260px;
+    letter-spacing: 0.5px;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--azul-claro);
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+  /* PENSAMIENTOS */
+  .pensamientos { display: flex; flex-direction: column; gap: 10px; }
+
+  .pensamiento {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(0,86,241,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .pensamiento.rosa-item {
+    background: rgba(204,23,110,0.08);
+    border-left-color: var(--rosa);
+  }
+
+  .pensamiento-num {
+    width: 24px; height: 24px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pensamiento-num.rosa-num { background: var(--rosa); }
+
+  .pensamiento-frase {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .pensamiento-efecto {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 28px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
+    .flujo-item { width: 100%; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+</style>
+<style>
+  @media (max-width: 600px) {
+    body { padding: 16px 12px !important; }
+    .infographic { width: 100% !important; max-width: 100% !important; }
+  }
+</style>
+<script src="/assets/mrv-resource-bar.js" data-type="info" data-slug="hundanlosbarcos"></script>
+</head>
+<body>
+<div class="cosmic-bg"></div>
+<canvas id="starfield"></canvas>
+<div class="nebula-bottom"></div>
+<div class="nebula-mid"></div>
+<main class="preview-shell" style="display:grid;grid-template-columns:minmax(0,800px);justify-content:center;width:100%;max-width:100%;margin:0 auto;">
+<div class="infographic" style="display:block;width:100%;min-width:0;max-width:800px;margin:0 auto;">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="serie-label">Mayor que mi Realidad es Su Verdad · F2 · MSG9A</div>
+    <h1>Hundan los<br><em>barcos</em></h1>
+    <div class="tesis-header">
+      <p>Cuando decides avanzar con Dios sin dejar una puerta abierta al pasado.<br>Dios ya te sacó. Lo que queda por resolver es si aún conservas una alternativa por si Él no cumple.</p>
+      <span class="verse-tag">1 Reyes 19:19–21 · Números 13–14 · Lucas 9:57–62 · Mateo 8:18–22 · Filipenses 3:12–14 · Josué 14:6–12</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="body">
+
+    <!-- SECCIÓN 1: ELISEO — EL LLAMADO QUE CIERRA UNA ETAPA -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">1</div>
+        <div class="section-title">Eliseo: el llamado que cierra una etapa · 1 Reyes 19:19–21</div>
+      </div>
+
+      <p class="mecanismo-intro">Elías encontró a Eliseo arando y echó su manto sobre él. Eliseo sacrificó la yunta, hizo fuego con el arado y los aperos, compartió una comida de despedida y siguió a Elías para servirle. <strong>El llamado no fue un elemento añadido a su antigua vida; cambió la dirección de su vida.</strong></p>
+
+      <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; border-left: 4px solid var(--melocoton);">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 12px;">Lectura estratégica</div>
+        <p style="font-size: 13px; color: rgba(184,209,255,0.7); line-height: 1.8;">— El manto señaló <strong style="color: rgba(255,255,255,0.92);">una nueva dirección.</strong><br>— La yunta representaba <strong style="color: rgba(255,255,255,0.92);">su actividad anterior.</strong><br>— Los aperos podían permitirle <strong style="color: rgba(255,255,255,0.92);">regresar.</strong><br>— La despedida convirtió una decisión interior en <strong style="color: rgba(255,255,255,0.92);">una respuesta visible.</strong></p>
+      </div>
+
+      <!-- IDEA VISUAL: FLUJO -->
+      <div class="flujo" style="margin-bottom: 20px;">
+        <div class="flujo-item">Arado</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Fuego</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Despedida</div>
+        <div class="flujo-arrow">↓</div>
+        <div class="flujo-item">Seguimiento</div>
+      </div>
+
+      <div class="highlight-box">
+        <p>El llamado no fue un elemento añadido a su antigua vida;<br><strong>cambió la dirección de su vida.</strong></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: LOS MISMOS DATOS, DOS INTERPRETACIONES -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: var(--rosa);">2</div>
+        <div class="section-title" style="color: var(--rosa);">Los mismos datos, dos interpretaciones · Números 13–14</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">Doce espías vieron la misma tierra, las mismas ciudades, los mismos gigantes.<br>Diez interpretaron desde sus capacidades. Josué y Caleb, desde la promesa.</p>
+
+      <table class="tabla-contraste" style="margin-bottom: 20px;">
+        <thead>
+          <tr>
+            <th>Miedo · Los diez espías</th>
+            <th>Fe · Josué y Caleb</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>«Mira lo grande que es el gigante»</td>
+            <td>«Mira quién está con nosotros»</td>
+          </tr>
+          <tr>
+            <td>El nombre de Jehová: 0 veces (13:27–33)</td>
+            <td>El nombre de Jehová: 3 veces (14:7–9)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: rgba(204,23,110,0.1); border: 1.5px solid rgba(204,23,110,0.25); border-radius: 12px; padding: 18px 22px; text-align: center;">
+        <p style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.6;"><strong style="color: var(--rosa);">La fe no niega el tamaño del problema.</strong><br><span style="font-size: 12px; color: rgba(184,209,255,0.7); font-weight: 400;">Cambia con quién comparas el problema.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: EL GIRO QUE DESBLOQUEA EL ENCUENTRO -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">3</div>
+        <div class="section-title">El peligro de conservar Egipto como alternativa · Números 14:3–4</div>
+      </div>
+
+      <p class="mecanismo-intro">Israel había salido físicamente de Egipto, pero Egipto seguía presente en su manera de pensar. Cada dificultad despertaba la propuesta de regresar. <strong>El desierto era incómodo; Egipto era conocido.</strong></p>
+
+      <!-- ECUACIÓN -->
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.2); border-radius: 14px; padding: 20px 28px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul-claro); margin-bottom: 16px; text-align: center;">La ecuación del regreso</div>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+          <div style="background: rgba(0,86,241,0.2); border-radius: 10px; padding: 12px 16px; text-align: center; min-width: 100px;">
+            <div style="font-size: 11.5px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 0.5px;">Dificultad</div>
+          </div>
+          <div style="font-size: 18px; color: var(--melocoton); font-weight: 700;">+</div>
+          <div style="background: rgba(204,23,110,0.15); border-radius: 10px; padding: 12px 16px; text-align: center; min-width: 100px;">
+            <div style="font-size: 11.5px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 0.5px;">Miedo</div>
+          </div>
+          <div style="font-size: 18px; color: var(--melocoton); font-weight: 700;">+</div>
+          <div style="background: rgba(242,197,161,0.12); border-radius: 10px; padding: 12px 16px; text-align: center; min-width: 130px;">
+            <div style="font-size: 11.5px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 0.5px;">Memoria distorsionada</div>
+          </div>
+        </div>
+        <div style="text-align: center; font-size: 18px; color: var(--melocoton); font-weight: 700; margin: 10px 0;">=</div>
+        <div style="background: rgba(204,23,110,0.2); border-radius: 10px; padding: 14px 18px; text-align: center;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--rosa); text-transform: uppercase; letter-spacing: 0.5px;">Regreso como falsa seguridad</div>
+        </div>
+      </div>
+
+      <!-- ALERTA -->
+      <div style="background: rgba(204,23,110,0.1); border: 1.5px solid rgba(204,23,110,0.25); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--rosa); margin-bottom: 10px;">⚠ Alerta</div>
+        <p style="font-size: 13px; color: rgba(255,255,255,0.92); line-height: 1.65;">No basta con salir de Egipto. Mientras conserves una manera de volver, puedes seguir decidiendo desde <strong>el miedo</strong> y no desde <strong>la promesa.</strong></p>
+      </div>
+
+      <div class="highlight-box">
+        <p>A veces preferimos una esclavitud conocida<br><strong>antes que una libertad que exige fe.</strong></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4: JESÚS — SEGUIR SIN UN "PERO PRIMERO" -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #059669;">4</div>
+        <div class="section-title" style="color: #059669;">Jesús: seguir sin un «pero primero» · Lucas 9:57–62 · Mateo 8:18–22</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">Jesús encontró personas dispuestas a seguirlo, pero con condiciones pendientes.<br>Su respuesta confrontó una disposición dividida: caminar con Él y, a la vez, conservar una puerta de regreso.</p>
+
+      <!-- TÉRMINOS CLAVE -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+        <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 18px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; font-style: italic; color: #059669; margin-bottom: 2px;">Akolouthei moi</div>
+          <div style="font-size: 10px; color: rgba(184,209,255,0.7); letter-spacing: 1px; margin-bottom: 8px;">griego · «Sígueme»</div>
+          <div style="font-size: 12px; color: rgba(255,255,255,0.92); line-height: 1.55;">Viajar juntos en la misma ruta; comenzar a seguir y continuar haciéndolo <strong>de manera ininterrumpida.</strong></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.06); border-radius: 12px; padding: 18px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; font-style: italic; color: var(--rosa); margin-bottom: 2px;">«Pero primero»</div>
+          <div style="font-size: 10px; color: rgba(184,209,255,0.7); letter-spacing: 1px; margin-bottom: 8px;">La condición pendiente</div>
+          <div style="font-size: 12px; color: rgba(255,255,255,0.92); line-height: 1.55;">Una disposición dividida: querer seguir a Jesús y, al mismo tiempo, <strong>conservar una puerta de regreso.</strong></div>
+        </div>
+      </div>
+
+      <!-- IMAGEN CENTRAL -->
+      <div style="background: rgba(5,150,105,0.1); border: 1.5px solid rgba(167,243,208,0.2); border-radius: 14px; padding: 18px 22px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+          <div style="background: rgba(5,150,105,0.18); border-radius: 10px; padding: 12px 18px; text-align: center;">
+            <div style="font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase;">Mano en el arado</div>
+          </div>
+          <div style="font-size: 18px; color: var(--melocoton); font-weight: 700;">+</div>
+          <div style="background: rgba(204,23,110,0.15); border-radius: 10px; padding: 12px 18px; text-align: center;">
+            <div style="font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.92); text-transform: uppercase;">Mirada hacia atrás</div>
+          </div>
+        </div>
+        <div style="text-align: center; font-size: 18px; color: var(--melocoton); font-weight: 700; margin: 10px 0;">=</div>
+        <div style="background: rgba(204,23,110,0.2); border-radius: 10px; padding: 12px 18px; text-align: center;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--rosa); text-transform: uppercase;">Dirección desviada</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>«El que pone la mano en el arado y luego mira atrás<br>no es apto para el reino de Dios.»<br><span style="font-size: 12px; font-style: normal; color: rgba(184,209,255,0.6);">Mirar atrás no solamente te recuerda dónde estabas; puede hacerte perder la dirección hacia donde Dios te está llevando.</span></p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5: IDENTIFICA EL BARCO Y AVANZA -->
+    <div class="section">
+      <div class="section-label">
+        <div class="section-number">5</div>
+        <div class="section-title">Identifica el barco y avanza · Filipenses 3:12–14</div>
+      </div>
+
+      <!-- POSIBLES BARCOS -->
+      <div class="pensamientos" style="margin-bottom: 20px;">
+        <div class="pensamiento">
+          <div class="pensamiento-num">1</div>
+          <div>
+            <div class="pensamiento-frase">Una identidad antigua</div>
+            <div class="pensamiento-efecto">«Yo siempre he sido así»</div>
+          </div>
+        </div>
+        <div class="pensamiento rosa-item">
+          <div class="pensamiento-num rosa-num">2</div>
+          <div>
+            <div class="pensamiento-frase">Una relación con el pasado</div>
+            <div class="pensamiento-efecto">Una herida, vínculo o etapa todavía sostenida</div>
+          </div>
+        </div>
+        <div class="pensamiento">
+          <div class="pensamiento-num">3</div>
+          <div>
+            <div class="pensamiento-frase">Una mentalidad</div>
+            <div class="pensamiento-efecto">«Yo no puedo», «esto nunca cambiará»</div>
+          </div>
+        </div>
+        <div class="pensamiento rosa-item">
+          <div class="pensamiento-num rosa-num">4</div>
+          <div>
+            <div class="pensamiento-frase">La comodidad</div>
+            <div class="pensamiento-efecto">Crecimiento sin renuncia, propósito sin sacrificio</div>
+          </div>
+        </div>
+        <div class="pensamiento">
+          <div class="pensamiento-num">5</div>
+          <div>
+            <div class="pensamiento-frase">Una versión antigua de nosotros mismos</div>
+            <div class="pensamiento-efecto">Que aún define quiénes somos</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: rgba(242,197,161,0.08); border: 1.5px solid rgba(242,197,161,0.3); border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;">
+        <p style="font-size: 12.5px; color: rgba(255,255,255,0.85); line-height: 1.6; text-align: center;">Olvidar el pasado no significa borrar la memoria.<br><strong style="color: var(--melocoton);">Significa impedir que el pasado determine la dirección.</strong></p>
+      </div>
+
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.25); border-radius: 12px; padding: 18px 22px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--azul-claro); margin-bottom: 8px; text-align: center;">Pregunta decisiva</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.6; text-align: center;">¿Qué sigo conservando como alternativa por si obedecer a Dios no funciona como espero?</p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 6: LA FE TAMBIÉN SABE ESPERAR -->
+    <div class="section" style="background: rgba(10,6,37,0.85);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">6</div>
+        <div class="section-title" style="color: #a855f7;">La fe también sabe esperar · Josué 14:6–12</div>
+      </div>
+
+      <p style="font-size: 13px; color: rgba(184,209,255,0.7); margin-bottom: 20px; font-style: italic; text-align: center;">Josué y Caleb quisieron entrar, pero tuvieron que esperar cuarenta años.<br>La espera no anuló la promesa ni los obligó a adoptar la interpretación de su entorno.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+        <div style="background: rgba(107,33,168,0.15); border-radius: 14px; padding: 20px; border: 1.5px solid rgba(168,85,247,0.3); text-align: center;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: #a855f7; line-height: 1; margin-bottom: 6px;">40</div>
+          <div style="font-size: 11px; color: rgba(184,209,255,0.7); letter-spacing: 1px;">años de espera</div>
+        </div>
+        <div style="background: rgba(107,33,168,0.15); border-radius: 14px; padding: 20px; border: 1.5px solid rgba(168,85,247,0.3); text-align: center;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: #a855f7; line-height: 1; margin-bottom: 6px;">85</div>
+          <div style="font-size: 11px; color: rgba(184,209,255,0.7); letter-spacing: 1px;">años de Caleb, misma dirección</div>
+        </div>
+      </div>
+
+      <p style="font-size: 12.5px; color: rgba(184,209,255,0.7); line-height: 1.65; margin-bottom: 20px; text-align: center;">Caleb llegó a los ochenta y cinco años con la misma dirección: pidió la región montañosa que Dios había prometido.</p>
+
+      <div class="highlight-box">
+        <p>La fe no solamente consiste en avanzar cuando Dios abre la puerta;<br>también consiste en <strong>permanecer creyendo cuando Dios te hace esperar.</strong><br><span style="font-size: 12px; font-style: normal; color: rgba(184,209,255,0.6);">El entorno puede influir en cómo interpretamos la realidad, pero no tiene por qué determinar nuestra fe.</span></p>
+      </div>
+    </div>
+
+    <!-- RUTA CENTRAL DEL MENSAJE -->
+    <div class="section" style="background: rgba(4,16,53,0.9);">
+      <div class="section-label">
+        <div class="section-number">→</div>
+        <div class="section-title">Ruta central del mensaje</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: rgba(0,86,241,0.12); border-radius: 12px; padding: 16px 18px; border-left: 3px solid var(--azul);">
+          <div style="font-size: 12px; font-weight: 700; color: var(--azul-claro); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Salir</div>
+          <p style="font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.5;">Dios te saca de Egipto.</p>
+        </div>
+        <div style="background: rgba(204,23,110,0.12); border-radius: 12px; padding: 16px 18px; border-left: 3px solid var(--rosa);">
+          <div style="font-size: 12px; font-weight: 700; color: var(--rosa); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Ver</div>
+          <p style="font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.5;">El desierto te muestra los gigantes.</p>
+        </div>
+        <div style="background: rgba(242,197,161,0.1); border-radius: 12px; padding: 16px 18px; border-left: 3px solid var(--melocoton);">
+          <div style="font-size: 12px; font-weight: 700; color: var(--melocoton); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Decidir</div>
+          <p style="font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.5;">Tienes que decidir quién interpreta tu realidad.</p>
+        </div>
+        <div style="background: rgba(5,150,105,0.12); border-radius: 12px; padding: 16px 18px; border-left: 3px solid #059669;">
+          <div style="font-size: 12px; font-weight: 700; color: #059669; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Avanzar</div>
+          <p style="font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.5;">Debes caminar hacia aquello que Dios dijo, aunque todavía no puedas verlo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUMEN ESTRATÉGICO -->
+    <div class="section" style="background: rgba(4,16,53,0.95);">
+      <div class="section-label">
+        <div class="section-number" style="background: #6B21A8;">✦</div>
+        <div class="section-title" style="color: #a855f7;">Resumen estratégico</div>
+      </div>
+
+      <!-- TESIS CENTRAL -->
+      <div style="background: linear-gradient(135deg, #1a0533 0%, #0056F1 100%); border-radius: 14px; padding: 24px 28px; margin-bottom: 20px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(204,23,110,0.2); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--melocoton); margin-bottom: 10px; position: relative; z-index: 2;">Tesis Central</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 15px; color: white; line-height: 1.7; font-style: italic; position: relative; z-index: 2;">Dios ya te sacó. Lo que queda por resolver no es si Él puede, sino si todavía estás guardando <em style="color: var(--melocoton); font-style: normal;">una alternativa por si Él no cumple.</em></p>
+      </div>
+
+      <!-- IDEAS CLAVE -->
+      <div style="margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #a855f7; margin-bottom: 14px;">Ideas Clave</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul);">
+            <div style="width: 22px; height: 22px; background: var(--azul); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">1</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Se puede haber salido de Egipto y <strong>seguir pensando como Egipto.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">2</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">La realidad visible no cambia, pero su interpretación sí cambia <strong>cuando Dios es contado entre los datos.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--melocoton);">
+            <div style="width: 22px; height: 22px; background: #B87A3A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">3</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">La fe no es optimismo; es <strong>crédito extendido a una Persona que habló.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #059669;">
+            <div style="width: 22px; height: 22px; background: #059669; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">4</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">El «pero primero» revela <strong>una condición que compite con el seguimiento.</strong></p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid #6B21A8;">
+            <div style="width: 22px; height: 22px; background: #6B21A8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">5</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Mirar atrás puede <strong>desviar el surco</strong> aunque las manos sigan sobre el arado.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--azul-claro);">
+            <div style="width: 22px; height: 22px; background: var(--azul-claro); color: #020B1E; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">6</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Quemar el barco significa <strong>retirar autoridad a una alternativa pasada</strong> mediante una decisión concreta.</p>
+          </div>
+
+          <div style="display: flex; gap: 12px; background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 18px; border-left: 3px solid var(--rosa);">
+            <div style="width: 22px; height: 22px; background: var(--rosa); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;">7</div>
+            <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.6;">Esperar no equivale a volver: <strong>la fe conserva la dirección</strong> aun cuando la promesa tarda.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DATO MÁS SORPRENDENTE -->
+      <div style="background: rgba(0,86,241,0.1); border: 1.5px solid rgba(184,209,255,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul); margin-bottom: 10px;">⚡ Dato más sorprendente</div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.7; font-style: italic;">En el discurso de los diez espías (Números 13:27–33), el nombre de Jehová aparece <em style="font-style: normal; color: var(--azul-claro);">0 veces.</em> En la respuesta de Josué y Caleb (14:7–9), aparece <strong style="font-style: normal; color: var(--azul-claro);">3 veces</strong>, además de la afirmación «él nos llevará».</p>
+      </div>
+
+      <!-- ACCIÓN INMEDIATA -->
+      <div style="background: rgba(5,150,105,0.12); border: 1.5px solid rgba(167,243,208,0.25); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #059669; margin-bottom: 10px;">→ Acción inmediata</div>
+        <p style="font-size: 12.5px; color: rgba(255,255,255,0.92); line-height: 1.9;">1. Nombra tu barco.<br>2. Identifica la mentira que lo mantiene disponible.<br>3. Recuerda lo que Dios dijo.<br>4. Toma una decisión concreta que cierre la ruta de regreso.<br>5. Avanza en la dirección de la obediencia.</p>
+      </div>
+
+      <!-- FRASE MÁS IMPACTANTE -->
+      <div style="background: linear-gradient(135deg, rgba(0,86,241,0.15) 0%, rgba(204,23,110,0.1) 100%); border-radius: 14px; border: 1.5px solid rgba(184,209,255,0.2); padding: 24px 28px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; background: rgba(204,23,110,0.12); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30px; left: -20px; width: 80px; height: 80px; background: rgba(0,86,241,0.12); border-radius: 50%;"></div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rosa); margin-bottom: 14px; position: relative; z-index: 2;">◈ Para llevarte hoy</div>
+        <blockquote style="font-family: 'DM Serif Display', serif; font-size: 16px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.95); line-height: 1.7; position: relative; z-index: 2; margin-bottom: 12px;">No voy a vivir<br>mirando hacia atrás.<br><em style="color: var(--melocoton); font-style: normal; font-size: 13px;">Si Dios me llamó a avanzar, voy a avanzar.<br>Si Dios me llamó a obedecer, voy a obedecer.<br>Si Dios me llamó a comenzar, voy a comenzar.<br>Si Dios me llamó a confiar, voy a confiar.</em></blockquote>
+        <div style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--azul-claro), transparent); margin: 0 auto; position: relative; z-index: 2;"></div>
+      </div>
+    </div>
+
+    <!-- FRASE FINAL -->
+    <div class="frase-final">
+      <blockquote>
+        Josué y Caleb no tuvieron<br>una realidad diferente.<br>Tuvieron una <em>perspectiva diferente.</em>
+      </blockquote>
+      <div class="frase-serie">LHSCOL · Temporada 2026 · Mayor que mi Realidad es Su Verdad</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-marca">LHSCOL</div>
+      <div class="footer-data">MRV · F2 · MSG9A<br>Hundan los Barcos</div>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<script>
+const canvas = document.getElementById('starfield');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+const NUM_STARS = 220;
+const stars = [];
+function initStars() {
+  stars.length = 0;
+  for (let i = 0; i < NUM_STARS; i++) {
+    const isPulse = Math.random() < 0.15;
+    stars.push({
+      x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.5,
+      baseAlpha: Math.random() * 0.5 + 0.4, alpha: 0,
+      speed: isPulse ? (Math.random() * 0.06 + 0.06) : (Math.random() * 0.03 + 0.02),
+      phase: Math.random() * Math.PI * 2, pulse: isPulse,
+      color: Math.random() < 0.25 ? [184,209,255] : Math.random() < 0.12 ? [242,197,161] : [255,255,255]
+    });
+  }
+}
+initStars();
+const shoots = [];
+function spawnShoot() {
+  shoots.push({
+    x: Math.random() * canvas.width * 0.7, y: Math.random() * canvas.height * 0.45,
+    len: Math.random() * 140 + 80, speed: Math.random() * 7 + 6,
+    angle: Math.PI / 4 + (Math.random() * 0.4 - 0.2), alpha: 0,
+    peakAlpha: Math.random() * 0.4 + 0.6, phase: 'in',
+    decay: Math.random() * 0.02 + 0.015, rise: Math.random() * 0.06 + 0.06,
+    width: Math.random() * 1.5 + 0.8
+  });
+}
+function scheduleShoot() { setTimeout(() => { spawnShoot(); scheduleShoot(); }, Math.random() * 3000 + 2000); }
+spawnShoot(); setTimeout(spawnShoot, 800); scheduleShoot();
+function draw() {
+  requestAnimationFrame(draw);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    s.phase += s.speed;
+    let t = s.pulse ? (Math.sin(s.phase) > 0 ? Math.pow(Math.sin(s.phase), 0.5) : 0) : 0.5 + 0.5 * Math.sin(s.phase);
+    s.alpha = s.baseAlpha * (0.15 + 0.85 * t);
+    const [r,g,b] = s.color;
+    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${s.alpha})`; ctx.fill();
+    if (s.r > 1.2) {
+      const grd = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3.5);
+      grd.addColorStop(0,`rgba(${r},${g},${b},${s.alpha*0.35})`); grd.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r*3.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
+    }
+  }
+  for (let i = shoots.length-1; i >= 0; i--) {
+    const sh = shoots[i];
+    sh.x += Math.cos(sh.angle)*sh.speed; sh.y += Math.sin(sh.angle)*sh.speed;
+    if (sh.phase==='in') { sh.alpha+=sh.rise; if(sh.alpha>=sh.peakAlpha){sh.alpha=sh.peakAlpha;sh.phase='out';} }
+    else { sh.alpha-=sh.decay; }
+    if (sh.alpha<=0) { shoots.splice(i,1); continue; }
+    const tailX=sh.x-Math.cos(sh.angle)*sh.len, tailY=sh.y-Math.sin(sh.angle)*sh.len;
+    const grad=ctx.createLinearGradient(tailX,tailY,sh.x,sh.y);
+    grad.addColorStop(0,`rgba(255,255,255,0)`);
+    grad.addColorStop(0.5,`rgba(184,209,255,${sh.alpha*0.4})`);
+    grad.addColorStop(1,`rgba(255,255,255,${sh.alpha})`);
+    ctx.beginPath(); ctx.moveTo(tailX,tailY); ctx.lineTo(sh.x,sh.y);
+    ctx.strokeStyle=grad; ctx.lineWidth=sh.width; ctx.lineCap='round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(sh.x,sh.y,sh.width*2,0,Math.PI*2);
+    const hgrd=ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,sh.width*2);
+    hgrd.addColorStop(0,`rgba(255,255,255,${sh.alpha})`); hgrd.addColorStop(1,`rgba(184,209,255,0)`);
+    ctx.fillStyle=hgrd; ctx.fill();
+  }
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
