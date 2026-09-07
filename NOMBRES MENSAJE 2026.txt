@@ -36,6 +36,7 @@ F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin video (proximamente en pagina)
 F2_MSG7_LA_ULTIMA_PALABRA: sin video (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin video (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: sin video (proximamente en pagina)
+F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin video (proximamente en pagina)
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin video (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin video (proximamente en pagina)
 F2_MSG12_EL_NOMBRE_DEL_AGUA: sin video (proximamente en pagina)
@@ -74,6 +75,7 @@ F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin blog (proximamente en pagina)
 F2_MSG7_LA_ULTIMA_PALABRA: sin blog (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin blog (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: sin blog (proximamente en pagina)
+F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin blog (proximamente en pagina)
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin blog (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin blog (proximamente en pagina)
 F2_MSG12_EL_NOMBRE_DEL_AGUA: sin blog (proximamente en pagina)
@@ -113,6 +115,8 @@ F2_MSG7_LA_ULTIMA_PALABRA: infografias/13-mrv-f2-msg7-la-ultima-palabra-inf.html
 F2_MSG8_CADA_DIA: infografias/13-mrv-f2-msg8-cada-dia-inf.html
 F2_MSG9A_HUNDAN_LOS_BARCOS: infografias/13-mrv-f2-msg9a-hundan-los-barcos-inf.html
 URL bonita: /Info/hundanlosbarcos
+F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: infografias/13-mrv-f2-msg9b-no-dejes-tu-mente-vacia-inf.html
+URL bonita: /Info/nodejestumentevacia
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin info (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin info (proximamente en pagina)
 F2_MSG12_EL_NOMBRE_DEL_AGUA: sin info (proximamente en pagina)
