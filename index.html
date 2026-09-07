@@ -2058,6 +2058,7 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
     <button type="button" class="v-pill" onclick="abrirVersiculo('mt4_17')">Mateo 4:17</button>
     <button type="button" class="v-pill" onclick="abrirVersiculo('ro12_2')">Romanos 12:2</button>
     <button type="button" class="v-pill" onclick="abrirVersiculo('co2_10_5')">2 Cor 10:5</button>
+    <button type="button" class="v-pill" onclick="abrirVersiculo('jos1_7_9')">Josué 1:7–9</button>
     <button type="button" class="v-pill" onclick="abrirVersiculo('co1_2_16')">1 Cor 2:16</button>
     <button type="button" class="v-pill" onclick="abrirVersiculo('fil4_8')">Fil 4:8</button>
   </div>
@@ -3264,11 +3265,12 @@ if(routeParams.has('view') || routeParams.has('fase')){
 }
 
 // ── MODAL VERSICULO ──
-// Texto tomado tal cual de la seccion "Versiculos Base" de esta misma pagina (sin modificar contenido editorial).
+// Textos mostrados en los botones de la portada.
 const VERSOS = {
   mt4_17:   { ref:'Mateo 4:17 · La invitacion',      texto:'«Cambien su manera de pensar. El Reino de los Cielos ya está aquí.» Jesús no comenzó su ministerio cambiando conductas, sino llamando a la metanoia.' },
   ro12_2:   { ref:'Romanos 12:2 · El inicio',         texto:'«No se amolden tan fácilmente a las modas de esta cultura, más bien, dejen que Dios los transforme desde adentro hacia afuera.»' },
   co2_10_5: { ref:'2 Cor 10:5 · El proceso',    texto:'«Usamos nuestras poderosas herramientas de Dios para derribar filosofías y barreras levantadas contra la verdad de Dios.»' },
+  jos1_7_9: { ref:'Josué 1:7–9 · MSG',          texto:'«Entrégalo todo, corazón y alma. Cumple cada parte de la instrucción que Moisés te dio; no te desvíes ni a la derecha ni a la izquierda. No permitas ni por un minuto que este Libro se aparte de tu mente. Reflexiona y medita en él día y noche, y practica todo lo que está escrito. Entonces llegarás a donde vas; entonces tendrás éxito. ¿No te lo he ordenado? ¡Fuerza! ¡Valor! No seas tímido ni te desanimes. Dios, tu Dios, está contigo en cada paso que das.»' },
   co1_2_16: { ref:'1 Cor 2:16 · La meta',       texto:'«Nosotros tenemos la mente de Cristo.» No solo pensar distinto — participar en la perspectiva de Jesús, viendo la vida desde lo eterno.' },
   fil4_8:   { ref:'Fil 4:8 · Práctica diaria', texto:'«Llenen su mente y mediten en cosas verdaderas, nobles, auténticas... lo mejor, no lo peor; lo bello, no lo feo.»' }
 };
