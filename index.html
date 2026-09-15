@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mayor que mi Realidad · LHSCOL 2026</title>
-<script>
-if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.replace('/login.html'+location.hash);
-</script>
 <meta name="description" content="Temporada 2026 de LHSCOL: Mayor que mi Realidad es Tu Verdad. Una ruta formativa para caminar sobre las verdades del Padre.">
 <meta property="og:title" content="Mayor que mi Realidad · LHSCOL 2026">
 <meta property="og:description" content="Una ruta formativa para caminar sobre las verdades del Padre.">
@@ -947,22 +944,6 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
     border-color: #FC5054;
   }
 
-  .btn-expediente {
-    display: none;
-    background: rgba(242,204,143,0.10);
-    color: #f2cc8f;
-    border: 1px solid rgba(242,204,143,0.28);
-  }
-  body.admin-preview .btn-expediente { display: inline-flex; }
-  .preview-access {
-    position: fixed; right: 18px; bottom: 18px; z-index: 500;
-    display: flex; align-items: center; gap: 10px; padding: 10px 12px;
-    border-radius: 12px; color: rgba(255,255,255,.82);
-    background: rgba(5,13,31,.94); border: 1px solid rgba(184,209,255,.24);
-    box-shadow: 0 12px 40px rgba(0,0,0,.35); font-size: 11px;
-  }
-  .preview-access button { padding:7px 10px; border-radius:8px; border:1px solid rgba(242,204,143,.35); background:rgba(242,204,143,.12); color:#f2cc8f; cursor:pointer; font-weight:700; }
-
   .btn-recurso.disabled {
     opacity: 0.3;
     cursor: not-allowed;
@@ -1882,17 +1863,6 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
   .nav-item.sub.mensaje-reciente::after { content:'ÚLTIMO'; margin-left:auto; color:#FC5054; font-size:.45rem; font-weight:700; letter-spacing:.1em; }
   .nav-item.pendiente { opacity:.42; cursor:default; }
   .nav-item.pendiente:hover { background:none; color:var(--texto-medio); }
-  .sidebar-admin { margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--linea-fuerte); }
-  .sidebar-admin-toggle { width:100%; display:flex; align-items:center; gap:.6rem; padding:.65rem .7rem; border-radius:7px; border:1px solid rgba(242,204,143,.2); background:rgba(242,204,143,.06); color:#f2cc8f; cursor:pointer; font:700 .72rem/1.2 'DM Sans',sans-serif; text-align:left; }
-  .sidebar-admin-toggle:hover { background:rgba(242,204,143,.12); border-color:rgba(242,204,143,.38); }
-  .sidebar-admin-toggle svg { width:15px; height:15px; flex-shrink:0; }
-  .sidebar-admin-toggle .admin-chevron { margin-left:auto; transition:transform .2s ease; }
-  .sidebar-admin.abierto .admin-chevron { transform:rotate(90deg); }
-  .sidebar-admin-panel { display:none; margin-top:.55rem; padding:.75rem; border-radius:7px; background:rgba(2,11,30,.5); border:1px solid var(--linea-fuerte); }
-  .sidebar-admin.abierto .sidebar-admin-panel { display:flex; flex-direction:column; align-items:stretch; gap:.6rem; }
-  .sidebar-admin-panel span { color:var(--texto-suave); font-size:.66rem; }
-  .sidebar-admin-panel button { padding:.55rem .65rem; border-radius:7px; border:1px solid rgba(242,204,143,.35); background:rgba(242,204,143,.12); color:#f2cc8f; cursor:pointer; font:700 .65rem/1.2 'DM Sans',sans-serif; }
-
   #portada-estatica {
     position:fixed; inset:0; z-index:100; overflow:hidden;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -1934,9 +1904,6 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
   .progreso-txt-p b { color:var(--azul-claro); font-weight:700; }
   .portada-footer { position:absolute; right:20px; bottom:16px; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--texto-suave); opacity:.55; text-align:right; line-height:1.6; }
   @media (max-width:900px) {
-    .preview-access { right:10px; bottom:10px; gap:0; padding:6px; }
-    .preview-access span { display:none; }
-    .preview-access button { min-height:36px; padding:8px 10px; }
     body.portada-visible .portada-progreso { bottom:76px; }
   }
   @media (max-width:600px) {
@@ -2033,17 +2000,6 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <div data-mrv-season-menu></div>
-  <div class="sidebar-admin">
-    <button type="button" class="sidebar-admin-toggle" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20.3h-3v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7 15a1.7 1.7 0 0 0-1.56-1.03H5.3v-3h.14A1.7 1.7 0 0 0 7 9.94a1.7 1.7 0 0 0-.34-1.88L6.6 8l2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.69 4.7V4.6h3v.1a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 8l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.96 11h.14v3h-.14A1.7 1.7 0 0 0 19.4 15z"/></svg>
-      Zona administrativa
-      <span class="admin-chevron">›</span>
-    </button>
-    <div class="sidebar-admin-panel">
-      <span id="preview-state">Acceso privado</span>
-      <button type="button" id="preview-toggle">Ingresar como administrador</button>
-    </div>
-  </div>
 </aside>
 
 <script src="/assets/mrv-resource-bar.js?v=20260809-shared-menu-1" data-mode="site-menu"></script>
@@ -2849,7 +2805,6 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
             <a href="blogs/10-mrv-f2-msg5-podemos-hacerlo-blg.html" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
             <a href="infografias/13-mrv-f2-msg5-podemos-hacerlo-inf.html" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
             <a href="mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
-            <a href="expedientes/18-mrv-f2-msg5-podemos-hacerlo-exp.html" target="_blank" class="btn-recurso btn-expediente" data-admin-only>Expediente</a>
           </div>
         </div>
       </div>
@@ -2910,10 +2865,10 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
           <div class="card-titulo">Hundan los Barcos</div>
           <div class="card-tesis">Dios ya te sacó. Lo que queda por resolver no es si Él puede, sino si todavía estás guardando una alternativa por si Él no cumple.</div>
           <div class="card-acciones">
-            <span class="btn-recurso btn-video disabled"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</span>
-            <span class="btn-recurso btn-blog disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</span>
+            <a href="https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb" target="_blank" rel="noopener" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
+            <a href="/Blog/hundanlosbarcos" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
             <a href="/Info/hundanlosbarcos" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
-            <span class="btn-recurso btn-mesa disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</span>
+            <a href="/Mesa/hundanlosbarcos" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
           </div>
         </div>
       </div>
@@ -3113,61 +3068,6 @@ if(/(?:invite|recovery|confirmation)_token=/.test(location.hash)) location.repla
 </div><!-- /wrapper -->
 
 <script>
-const previewToggle=document.getElementById('preview-toggle');
-const previewState=document.getElementById('preview-state');
-const adminEmail='lead.comunidad@gmail.com';
-const localPreview=['127.0.0.1','localhost'].includes(location.hostname);
-const sidebarAdmin=document.querySelector('.sidebar-admin');
-const sidebarAdminToggle=document.querySelector('.sidebar-admin-toggle');
-sidebarAdminToggle?.addEventListener('click',()=>{
-  const abierto=sidebarAdmin.classList.toggle('abierto');
-  sidebarAdminToggle.setAttribute('aria-expanded',String(abierto));
-});
-
-function aplicarSesionAdmin(user){
-  const roles=user?.app_metadata?.roles || [];
-  const autorizado=user?.email?.toLowerCase()===adminEmail && roles.includes('admin');
-  document.body.classList.toggle('admin-preview',autorizado);
-  previewState.textContent=autorizado?'Vista administrador':'Acceso privado';
-  previewToggle.textContent=autorizado?'Cerrar sesión':'Ingresar como administrador';
-  return autorizado;
-}
-
-if(localPreview){
-  const adminInicial=new URLSearchParams(location.search).get('admin')==='1' || localStorage.getItem('mrv-local-admin')==='true';
-  document.body.classList.toggle('admin-preview',adminInicial);
-  previewState.textContent=adminInicial?'Vista administrador':'Vista pública';
-  previewToggle.textContent=adminInicial?'Cambiar a público':'Cambiar a administrador';
-  previewToggle.addEventListener('click',()=>{
-    const admin=document.body.classList.toggle('admin-preview');
-    if(admin) localStorage.setItem('mrv-local-admin','true');
-    else localStorage.removeItem('mrv-local-admin');
-    previewState.textContent=admin?'Vista administrador':'Vista pública';
-    previewToggle.textContent=admin?'Cambiar a público':'Cambiar a administrador';
-  });
-}else{
-  const identityScript=document.createElement('script');
-  identityScript.src='https://identity.netlify.com/v1/netlify-identity-widget.js';
-  identityScript.onload=()=>{
-    if(!window.netlifyIdentity) return;
-    netlifyIdentity.on('init',aplicarSesionAdmin);
-    netlifyIdentity.on('login',async user=>{
-      if(aplicarSesionAdmin(user)) netlifyIdentity.close();
-      else{
-        await netlifyIdentity.logout();
-        alert('Esta cuenta no tiene autorización de administrador.');
-      }
-    });
-    netlifyIdentity.on('logout',()=>aplicarSesionAdmin(null));
-    netlifyIdentity.init();
-  };
-  document.head.appendChild(identityScript);
-  previewToggle.addEventListener('click',()=>{
-    if(window.netlifyIdentity && aplicarSesionAdmin(netlifyIdentity.currentUser())) netlifyIdentity.logout();
-    else location.href='/login.html';
-  });
-}
-
 // ── INTRO (ahora es una pantalla propia, controlada por mostrarSeccion) ──
 function toggleIntro() {
   // El boton "Cerrar introduccion . Ver ensenanzas" dentro de #intro-section llama esta funcion.

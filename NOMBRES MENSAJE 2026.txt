@@ -35,7 +35,7 @@ F2_MSG5_PODEMOS_HACERLO: sin video (proximamente en pagina)
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin video (proximamente en pagina)
 F2_MSG7_LA_ULTIMA_PALABRA: sin video (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin video (proximamente en pagina)
-F2_MSG9A_HUNDAN_LOS_BARCOS: sin video (proximamente en pagina)
+F2_MSG9A_HUNDAN_LOS_BARCOS: https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb
 F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin video (proximamente en pagina)
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin video (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin video (proximamente en pagina)
@@ -74,7 +74,8 @@ F2_MSG5_PODEMOS_HACERLO: sin blog (proximamente en pagina)
 F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin blog (proximamente en pagina)
 F2_MSG7_LA_ULTIMA_PALABRA: sin blog (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin blog (proximamente en pagina)
-F2_MSG9A_HUNDAN_LOS_BARCOS: sin blog (proximamente en pagina)
+F2_MSG9A_HUNDAN_LOS_BARCOS: blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html
+URL bonita: /Blog/hundanlosbarcos
 F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin blog (proximamente en pagina)
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin blog (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin blog (proximamente en pagina)

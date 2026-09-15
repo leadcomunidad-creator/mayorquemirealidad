@@ -134,13 +134,6 @@
   .resource-nav .btn-blog:hover { background: rgba(242,197,161,0.18); border-color: var(--melocoton); }
   .resource-nav .btn-mesa { border-color: rgba(252,80,84,0.48); color: #FC5054; background: rgba(252,80,84,0.10); }
   .resource-nav .btn-mesa:hover { background: rgba(252,80,84,0.22); border-color: #FC5054; }
-  .resource-nav .btn-expediente {
-    display: none;
-    border-color: rgba(242,204,143,0.38);
-    color: #f2cc8f;
-    background: rgba(242,204,143,0.10);
-  }
-  body.admin-preview .resource-nav .btn-expediente { display: inline-flex; }
   .resource-nav .disabled { opacity: 0.4; cursor: not-allowed; }
 
   .infographic {
@@ -874,9 +867,6 @@
     <a href="/Mesa/otroespiritu" target="_blank" rel="noopener" class="btn-recurso btn-mesa">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>La Mesa
     </a>
-    <span class="btn-recurso btn-expediente disabled" aria-disabled="true" title="Disponible cuando se cargue el expediente de este mensaje">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>Expediente
-    </span>
   </div>
   <a href="https://lhscolweb.netlify.app/" target="_blank" rel="noopener" class="nav-lhscol">
     LHSCOL
@@ -1295,27 +1285,6 @@ function draw() {
 }
 requestAnimationFrame(draw);
 
-// En la previsualización local, el parámetro ?admin=1 permite revisar la barra administrativa.
-// En el sitio público, el botón solo se habilitará para la sesión autorizada de Netlify Identity.
-const localPreview = ['127.0.0.1', 'localhost'].includes(location.hostname);
-if (localPreview) {
-  const adminPreview = new URLSearchParams(location.search).get('admin') === '1' || localStorage.getItem('mrv-local-admin') === 'true';
-  document.body.classList.toggle('admin-preview', adminPreview);
-} else {
-  const adminEmail = 'lead.comunidad@gmail.com';
-  const identityScript = document.createElement('script');
-  identityScript.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
-  identityScript.onload = () => {
-    if (!window.netlifyIdentity) return;
-    netlifyIdentity.on('init', user => {
-      const roles = user?.app_metadata?.roles || [];
-      const authorized = user?.email?.toLowerCase() === adminEmail && roles.includes('admin');
-      document.body.classList.toggle('admin-preview', authorized);
-    });
-    netlifyIdentity.init();
-  };
-  document.head.appendChild(identityScript);
-}
 </script>
 </body>
 </html>

@@ -104,11 +104,11 @@
     entreelruidoysuvoz: { video:'https://youtu.be/SR98toUSMT4', blog:'/Blog/entreelruidoysuvoz', info:'/Info/entreelruidoysuvoz' },
     laverdadtienenombre: { video:'https://youtu.be/yfgyWHVhhtI?si=JP-NQE9gzQZG_UO7', blog:'/Blog/laverdadtienenombre', info:'/Info/laverdadtienenombre' },
     todolomioestuyo: { video:'https://youtu.be/5mE1QjchZ-4?si=r3MZbiL74oksj9Hz', blog:'/Blog/todolomioestuyo', info:'/Info/todolomioestuyo', mesa:'/Mesa/todolomioestuyo' },
-    podemoshacerlo: { video:'https://youtu.be/lzNg1zdQC5k', blog:'/Blog/podemoshacerlo', info:'/Info/podemoshacerlo', mesa:'/Mesa/podemoshacerlo', expediente:'/expedientes/18-mrv-f2-msg5-podemos-hacerlo-exp.html' },
+    podemoshacerlo: { video:'https://youtu.be/lzNg1zdQC5k', blog:'/Blog/podemoshacerlo', info:'/Info/podemoshacerlo', mesa:'/Mesa/podemoshacerlo' },
     otroespiritu: { video:'https://youtu.be/VXcrFGL7mPc', blog:'/Blog/otroespiritu', info:'/Info/otroespiritu', mesa:'/Mesa/otroespiritu' },
     laultimapalabra: { info:'/Info/laultimapalabra' },
     cadadia: { info:'/Info/cadadia' },
-    hundanlosbarcos: { info:'/Info/hundanlosbarcos' },
+    hundanlosbarcos: { video:'https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb', blog:'/Blog/hundanlosbarcos', info:'/Info/hundanlosbarcos', mesa:'/Mesa/hundanlosbarcos' },
     nodejestumentevacia: { info:'/Info/nodejestumentevacia' }
   };
 
@@ -127,6 +127,8 @@
   localFiles.info.laultimapalabra = '/infografias/13-mrv-f2-msg7-la-ultima-palabra-inf.html';
   localFiles.info.cadadia = '/infografias/13-mrv-f2-msg8-cada-dia-inf.html';
   localFiles.info.hundanlosbarcos = '/infografias/13-mrv-f2-msg9a-hundan-los-barcos-inf.html';
+  localFiles.blog.hundanlosbarcos = '/blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html';
+  localFiles.mesa.hundanlosbarcos = '/mesa/12-mrv-f2-msg9a-hundan-los-barcos-mes.html';
   localFiles.info.nodejestumentevacia = '/infografias/13-mrv-f2-msg9b-no-dejes-tu-mente-vacia-inf.html';
 
   const icons = {
@@ -134,16 +136,14 @@
     video:'<polygon points="5 3 19 12 5 21"/>',
     blog:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',
     info:'<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/>',
-    mesa:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
-    expediente:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>'
+    mesa:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'
   };
   const svg = (name, fill=false) => `<svg viewBox="0 0 24 24" fill="${fill?'currentColor':'none'}" stroke="currentColor" stroke-width="2">${icons[name]}</svg>`;
-  const makeButton = (type, label, href, adminOnly=false) => {
+  const makeButton = (type, label, href) => {
     if (currentType === type) return '';
     if (isLocal && localFiles[type]?.[slug]) href = localFiles[type][slug];
     const classes = ['mrv-resource-button', `mrv-button-${type}`];
     if (!href) classes.push('is-disabled');
-    if (adminOnly) classes.push('is-admin-only');
     const attrs = href ? `href="${href}"${type==='video'?' target="_blank" rel="noopener"':''}` : 'aria-disabled="true"';
     return `<a class="${classes.join(' ')}" ${attrs}>${svg(type,type==='video')}${label}</a>`;
   };
@@ -165,7 +165,6 @@
         ${makeButton('blog','Blog',item.blog)}
         ${makeButton('info','Info',item.info)}
         ${makeButton('mesa','La Mesa',item.mesa)}
-        ${makeButton('expediente','Expediente',item.expediente,true)}
       </div>
       <a class="mrv-lhscol" href="https://lhscolweb.netlify.app/" target="_blank" rel="noopener">LHSCOL<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>`;
     document.body.prepend(bar);
@@ -178,7 +177,6 @@
     sidebar.innerHTML = `<button type="button" class="mrv-sidebar-close" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>${renderSeasonMenu('resource')}`;
     const salaLink = sidebar.querySelector('.nav-sala');
     if (salaLink) salaLink.innerHTML = '<span class="sala-star">★</span><span>Episodios de La Sala</span><span class="sala-dot"></span>';
-    sidebar.insertAdjacentHTML('beforeend',`<div class="mrv-sidebar-admin"><button type="button" class="mrv-sidebar-admin-toggle" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20.3h-3v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7 15a1.7 1.7 0 0 0-1.56-1.03H5.3v-3h.14A1.7 1.7 0 0 0 7 9.94a1.7 1.7 0 0 0-.34-1.88L6.6 8l2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.69 4.7V4.6h3v.1a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 8l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.96 11h.14v3h-.14A1.7 1.7 0 0 0 19.4 15z"/></svg>Zona administrativa<span class="admin-chevron">›</span></button><div class="mrv-sidebar-admin-panel"><span class="mrv-admin-state">Acceso privado</span><button type="button" class="mrv-admin-action">Ingresar como administrador</button></div></div>`);
     document.body.append(overlay,sidebar);
 
     const openMenu = () => { overlay.classList.add('is-open'); sidebar.classList.add('is-open'); document.documentElement.style.overflow='hidden'; };
@@ -187,28 +185,7 @@
     overlay.addEventListener('click',closeMenu);
     sidebar.querySelector('.mrv-sidebar-close').addEventListener('click',closeMenu);
     sidebar.querySelectorAll('.fase-toggle').forEach(btn => btn.addEventListener('click',() => btn.parentElement.classList.toggle('abierto')));
-    const adminBox=sidebar.querySelector('.mrv-sidebar-admin');
-    const adminBoxToggle=sidebar.querySelector('.mrv-sidebar-admin-toggle');
-    const adminState=sidebar.querySelector('.mrv-admin-state');
-    const adminAction=sidebar.querySelector('.mrv-admin-action');
-    adminBoxToggle.addEventListener('click',()=>{ const open=adminBox.classList.toggle('is-open'); adminBoxToggle.setAttribute('aria-expanded',String(open)); });
     document.addEventListener('keydown',event => { if(event.key==='Escape') closeMenu(); });
-
-    const updateAdmin = admin => {
-      document.body.classList.toggle('admin-preview',admin);
-      adminState.textContent=admin?'Vista administrador':'Acceso privado';
-      adminAction.textContent=admin?'Cambiar a público':'Ingresar como administrador';
-    };
-    if (isLocal) {
-      const admin = new URLSearchParams(location.search).get('admin')==='1' || localStorage.getItem('mrv-local-admin')==='true';
-      updateAdmin(admin);
-      adminAction.addEventListener('click',()=>{ const next=!document.body.classList.contains('admin-preview'); if(next) localStorage.setItem('mrv-local-admin','true'); else localStorage.removeItem('mrv-local-admin'); updateAdmin(next); });
-    } else {
-      const identity = document.createElement('script');
-      identity.src='https://identity.netlify.com/v1/netlify-identity-widget.js';
-      identity.onload=()=>{ if(!window.netlifyIdentity) return; const apply=user=>{ const roles=user?.app_metadata?.roles||[]; updateAdmin(user?.email?.toLowerCase()==='lead.comunidad@gmail.com'&&roles.includes('admin')); }; netlifyIdentity.on('init',apply); netlifyIdentity.on('login',user=>{ apply(user); netlifyIdentity.close(); }); netlifyIdentity.on('logout',()=>apply(null)); netlifyIdentity.init(); adminAction.addEventListener('click',()=>{ if(document.body.classList.contains('admin-preview')) netlifyIdentity.logout(); else location.href='/login.html'; }); };
-      document.head.append(identity);
-    }
     requestAnimationFrame(() => document.documentElement.classList.remove('mrv-resource-loading'));
   };
 
