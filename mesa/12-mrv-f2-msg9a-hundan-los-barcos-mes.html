@@ -5695,7 +5695,8 @@
   #native-slp .native-slp-controls button:hover{border-color:#0056F1;background:rgba(0,86,241,.16);}
   #native-slp .native-slp-counter{color:#8FA3D9;font-size:.72rem;font-weight:700;letter-spacing:.14em;}
   #native-slp .native-slp-counter b{color:#fff;}
-  #native-mes #mes-contenido{display:block!important;opacity:1!important;visibility:visible!important;}
+  #native-mes #mes-contenido{display:none!important;opacity:0!important;visibility:hidden!important;}
+  #native-mes #mes-contenido.visible{display:block!important;opacity:1!important;visibility:visible!important;}
   #native-mes .hero,#native-blg .hero{position:relative!important;inset:auto!important;min-height:0!important;height:auto!important;margin:0 auto 3rem!important;overflow:hidden!important;}
   #native-mes .hero{padding-top:clamp(3rem,8vw,6rem)!important;}
   #native-blg .hero{padding-top:clamp(3rem,8vw,7rem)!important;}
@@ -7077,9 +7078,9 @@ body.locked{overflow:hidden!important}
 <script src="/assets/mrv-resource-bar.js" data-type="mesa" data-slug="hundanlosbarcos"></script>
 </head>
 <body class="locked">
-<div id="gate"><div class="gate-card" id="gate-card"><div class="gate-eyebrow">Acceso restringido</div><h1>Guía para Líderes<br>de La Mesa</h1><p>Este material es solo para líderes de Hermosa Silla. Ingresa la contraseña que te compartió tu coordinador.</p><form id="gate-form" autocomplete="off"><input type="password" id="gate-pass" placeholder="Contraseña" inputmode="numeric" autocomplete="off"><button type="submit" id="gate-submit">Entrar</button><div id="gate-error"></div></form><div class="gate-nota">LHSCOL · Temporada 2026</div></div></div>
 <div class="mrv-standalone">
 <section id="mes" class="doc-section native-document" aria-label="MES · La Mesa"><div id="native-mes" class="native-surface native-mes">
+<div id="gate"><div class="gate-card" id="gate-card"><div class="gate-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div class="gate-eyebrow">Acceso restringido</div><h1>Guía para Líderes<br>de La Mesa</h1><p>Este material es solo para líderes de Hermosa Silla. Ingresa la contraseña que te compartió tu coordinador.</p><form id="gate-form" autocomplete="off"><input type="password" id="gate-pass" placeholder="Contraseña" inputmode="numeric" autocomplete="off"><button type="submit" id="gate-submit">Entrar</button><div id="gate-error"></div></form><div class="gate-nota">LHSCOL · Temporada 2026</div></div></div>
 <div id="mes-contenido">
 
 
@@ -7374,9 +7375,30 @@ body.locked{overflow:hidden!important}
 </div></section>
 </div>
 <script>
+const gate=document.getElementById('gate');
 const form=document.getElementById('gate-form');
-form.addEventListener('submit',function(event){event.preventDefault();const input=document.getElementById('gate-pass');if(input.value==='2026'){document.getElementById('gate').classList.add('oculto');document.body.classList.remove('locked');sessionStorage.setItem('mrv-mesa-msg9a','open');}else{document.getElementById('gate-error').textContent='Contraseña incorrecta';document.getElementById('gate-card').classList.remove('shake');void document.getElementById('gate-card').offsetWidth;document.getElementById('gate-card').classList.add('shake');input.select();}});
-if(sessionStorage.getItem('mrv-mesa-msg9a')==='open'){document.getElementById('gate').classList.add('oculto');document.body.classList.remove('locked');}
+const input=document.getElementById('gate-pass');
+const content=document.getElementById('mes-contenido');
+function unlockMesa(){
+  gate.classList.add('oculto');
+  document.body.classList.remove('locked');
+  content.classList.add('visible');
+  sessionStorage.setItem('mrv-mesa-msg9a','open');
+}
+form.addEventListener('submit',function(event){
+  event.preventDefault();
+  if(input.value.trim()==='2026'){
+    unlockMesa();
+  }else{
+    document.getElementById('gate-error').textContent='Contraseña incorrecta. Consulta con tu coordinador de HS.';
+    document.getElementById('gate-card').classList.remove('shake');
+    void document.getElementById('gate-card').offsetWidth;
+    document.getElementById('gate-card').classList.add('shake');
+    input.value='';
+    input.focus();
+  }
+});
+if(sessionStorage.getItem('mrv-mesa-msg9a')==='open') unlockMesa();
 </script>
 </body>
 </html>
