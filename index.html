@@ -1908,6 +1908,7 @@
   }
   @media (max-width:600px) {
     body.portada-visible { overflow-x:hidden; overflow-y:auto; }
+    body.portada-oculta #portada-estatica { display:none; }
     #portada-estatica {
       position:relative; inset:auto; min-height:100svh; height:100svh; overflow:hidden;
       justify-content:space-between; padding:calc(var(--nav-h) + 28px) 18px 26px; gap:0;
@@ -2031,7 +2032,7 @@
   </div>
   <div class="portada-progreso">
     <div class="progreso-track-p"><div class="progreso-fill-p" id="progreso-fill-portada"></div></div>
-        <div class="progreso-txt-p"><b>22</b> ense&ntilde;anzas publicadas de <b>35</b></div>
+        <div class="progreso-txt-p"><b>22</b> ense&ntilde;anzas publicadas &middot; <b>3 fases</b></div>
   </div>
   <div class="portada-footer">LHSCOL<br>Temporada 2026</div>
 </section>
@@ -2050,9 +2051,9 @@
   <section id="indice-interior">
     <div class="indice-eyebrow">Indice editorial</div>
     <h1>El mapa completo de <em>la temporada</em></h1>
-    <p class="indice-sub">Cinco fases forman el recorrido de Mayor que mi Realidad es Tu Verdad. Cada una se habilita cuando comienza en el calendario de la temporada. La Sala acompana todo el ano como una conversacion transversal, no como una fase mas.</p>
+    <p class="indice-sub">Tres fases forman el recorrido de Mayor que mi Realidad es Tu Verdad en la temporada 2026. Cada una se habilita cuando comienza en el calendario. La Sala acompana todo el ano como una conversacion transversal, no como una fase mas.</p>
 
-    <div class="bloque-titulo-idx">Las cinco fases de la temporada</div>
+    <div class="bloque-titulo-idx">Las tres fases de la temporada</div>
     <div class="grid-cards">
       <div class="doc-card" onclick="irFase('f1')">
         <span class="card-tag">F1</span>
@@ -2070,18 +2071,6 @@
         <span class="card-tag">F3</span>
         <div class="card-titulo-idx">Protocolo <em>Metanoia</em></div>
         <div class="card-resumen">Entrenar la mente para vivir en la Verdad: Reemplazo, Reprogramacion, Replanteamiento y Recuperacion.</div>
-        <div class="card-estado pendiente"><span class="dt"></span> Proximamente</div>
-      </div>
-      <div class="doc-card pendiente" onclick="irFase('f4')">
-        <span class="card-tag">F4</span>
-        <div class="card-titulo-idx">El Manifiesto del Reino <em>y la Metanoia</em></div>
-        <div class="card-resumen">Jesus no vino a reformar la conducta -- vino a colonizar la mente a traves de la metanoia.</div>
-        <div class="card-estado pendiente"><span class="dt"></span> Proximamente</div>
-      </div>
-      <div class="doc-card pendiente" onclick="irFase('f5')">
-        <span class="card-tag">F5</span>
-        <div class="card-titulo-idx">El Estilo de Vida <em>de la Verdad</em></div>
-        <div class="card-resumen">Cuando la Verdad gobierna, la vida se ordena: finanzas, relaciones, identidad y gracia.</div>
         <div class="card-estado pendiente"><span class="dt"></span> Proximamente</div>
       </div>
     </div>
@@ -2337,8 +2326,6 @@
         <button class="lectura-tab active" onclick="showLectura('lf1',this)">Fase 1</button>
         <button class="lectura-tab" onclick="showLectura('lf2',this)">Fase 2</button>
         <button class="lectura-tab" onclick="showLectura('lf3',this)">Fase 3</button>
-        <button class="lectura-tab" onclick="showLectura('lf4',this)">Fase 4</button>
-        <button class="lectura-tab" onclick="showLectura('lf5',this)">Fase 5</button>
       </div>
 
       <div class="lectura-panel active" id="lf1">
@@ -2401,45 +2388,6 @@
         </div>
       </div>
 
-      <div class="lectura-panel" id="lf4">
-        <div class="libros-grid">
-          <div class="libro-card">
-            <div class="libro-autor">Craig Groeschel</div>
-            <div class="libro-titulo">Ganando la Batalla en tu Mente</div>
-            <div class="libro-desc">Libro base de la Fase 4. Integra Escritura y funcionamiento mental para el reemplazo de mentiras por verdades.</div>
-          </div>
-          <div class="libro-card">
-            <div class="libro-autor">Caroline Leaf</div>
-            <div class="libro-titulo">Enciende tu Cerebro</div>
-            <div class="libro-desc">Perspectiva científica sobre la neuroplasticidad que refuerza bíblicamente la renovación de la mente.</div>
-          </div>
-          <div class="libro-card">
-            <div class="libro-autor">James Clear</div>
-            <div class="libro-titulo">Hábitos Atómicos</div>
-            <div class="libro-desc">Herramienta técnica clave para la creación de nuevos hábitos y surcos mentales.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="lectura-panel" id="lf5">
-        <div class="libros-grid">
-          <div class="libro-card">
-            <div class="libro-autor">James Bryan Smith</div>
-            <div class="libro-titulo">El Buen y Bello Dios</div>
-            <div class="libro-desc">Reconfigura la imagen de Dios y muestra cómo una mente renovada produce una vida ordenada.</div>
-          </div>
-          <div class="libro-card">
-            <div class="libro-autor">Neil T. Anderson</div>
-            <div class="libro-titulo">Victoria sobre la Oscuridad</div>
-            <div class="libro-desc">Fundamental para consolidar la transición de huérfano a hijo y permitir que la Verdad gobierne las decisiones.</div>
-          </div>
-          <div class="libro-card">
-            <div class="libro-autor">Varios autores</div>
-            <div class="libro-titulo">La Economía del Reino</div>
-            <div class="libro-desc">Recursos para trabajar la administración desde la abundancia del Padre y no desde la escasez del mundo.</div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- CERRAR INTRO -->
@@ -2459,8 +2407,6 @@
         <button class="tab active" data-fase="f1" onclick="showFase('f1',this)" role="tab">F1 · Umbral</button>
         <button class="tab" data-fase="f2" onclick="showFase('f2',this)" role="tab">F2 · Diagnóstico</button>
         <button class="tab" data-fase="f3" onclick="showFase('f3',this)" role="tab">F3 · Protocolo <span class="tab-badge">Pronto</span></button>
-        <button class="tab" data-fase="f4" onclick="showFase('f4',this)" role="tab">F4 · Manifiesto <span class="tab-badge">Pronto</span></button>
-        <button class="tab" data-fase="f5" onclick="showFase('f5',this)" role="tab">F5 · Estilo de Vida <span class="tab-badge">Pronto</span></button>
         <span class="tabs-sep" aria-hidden="true"></span>
         <button class="tab tab-sala" data-fase="fesp" onclick="showFase('fesp',this)" role="tab">★ La Sala <span class="tab-badge tab-badge-sala">1 episodio</span></button>
       </div>
@@ -2961,38 +2907,6 @@
     </div>
   </div>
 
-  <div class="fase-panel" id="f4">
-    <div class="fase-header reveal">
-      <div class="fase-num">IV</div>
-      <div class="fase-info">
-        <div class="fase-kicker">Fase 4 · Parte central del año</div>
-        <h2 class="fase-titulo">El Manifiesto del Reino <em>y la Metanoia</em></h2>
-        <p class="fase-concepto">¿Por qué no entendemos a Jesús? Jesús no vino a reformar la conducta — vino a colonizar la mente a través de la metanoia. Sin ella, el Reino es incomprensible.</p>
-      </div>
-    </div>
-    <div class="fase-pronto">
-      <div class="pronto-icon">✦</div>
-      <h3>Próximamente</h3>
-      <p>Esta fase comenzará más adelante en el año</p>
-    </div>
-  </div>
-
-  <div class="fase-panel" id="f5">
-    <div class="fase-header reveal">
-      <div class="fase-num">V</div>
-      <div class="fase-info">
-        <div class="fase-kicker">Fase 5 · Cierre del año</div>
-        <h2 class="fase-titulo">El Estilo de Vida <em>de la Verdad</em></h2>
-        <p class="fase-concepto">Cuando la Verdad gobierna, la vida se ordena. Aplicar la mente renovada a finanzas, relaciones, identidad y gracia. La Verdad no explica la realidad — la gobierna.</p>
-      </div>
-    </div>
-    <div class="fase-pronto">
-      <div class="pronto-icon">✦</div>
-      <h3>Próximamente</h3>
-      <p>Esta fase comenzará más adelante en el año</p>
-    </div>
-  </div>
-
   <!-- ══════════════════════════════════════════════
        LA SALA — EPISODIOS ESPECIALES (transversal a la temporada)
   ══════════════════════════════════════════════ -->
@@ -3123,7 +3037,7 @@ function ir(destino){
   else { mostrarSeccion('vista-fases'); }
 }
 
-// Ir directo a una fase (F1..F5, fesp), opcionalmente resaltando una tarjeta especifica
+// Ir directo a una fase (F1..F3, fesp), opcionalmente resaltando una tarjeta especifica
 function irFase(id, cardId){
   ocultarPortada();
   cerrarSidebar();

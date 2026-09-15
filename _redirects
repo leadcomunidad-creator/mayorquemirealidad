@@ -1,6 +1,9 @@
 # Expedientes fuera de publicación mientras se construye el nuevo sistema
 /expedientes/*  /404.html  404!
 
+# Expediente no listado de MSG9A (acceso directo por enlace)
+/exp/hundanlosbarcos  /exp/hundanlosbarcos.html  200
+
 # Pretty URLs for blog pages
 /Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
 /Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200

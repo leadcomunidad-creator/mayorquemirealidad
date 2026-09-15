@@ -41,9 +41,7 @@
           ['msg-f2-12','El Nombre del Agua',{pending:true}]
         ]
       },
-      { id:'f3', title:'F3 · Protocolo', pending:true },
-      { id:'f4', title:'F4 · Manifiesto', pending:true },
-      { id:'f5', title:'F5 · Estilo de Vida', pending:true }
+      { id:'f3', title:'F3 · Protocolo', pending:true }
     ]
   };
 
