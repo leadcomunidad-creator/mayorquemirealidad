@@ -35,7 +35,8 @@
           ['msg-f2-7','La Última Palabra'],
           ['msg-f2-8','Cada Día'],
           ['msg-f2-9a','Hundan los Barcos'],
-          ['msg-f2-9b','No Dejes tu Mente Vacía',{recent:true}],
+          ['msg-f2-9b','No Dejes tu Mente Vacía'],
+          ['msg-f2-9c','Corazón Valiente',{recent:true}],
           ['msg-f2-10','La Generación que Llegó',{pending:true}],
           ['msg-f2-11','¿Cuál es tu Marco?',{pending:true}],
           ['msg-f2-12','El Nombre del Agua',{pending:true}]
@@ -107,7 +108,8 @@
     laultimapalabra: { info:'/Info/laultimapalabra' },
     cadadia: { info:'/Info/cadadia' },
     hundanlosbarcos: { video:'https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb', blog:'/Blog/hundanlosbarcos', info:'/Info/hundanlosbarcos', mesa:'/Mesa/hundanlosbarcos' },
-    nodejestumentevacia: { info:'/Info/nodejestumentevacia' }
+    nodejestumentevacia: { info:'/Info/nodejestumentevacia' },
+    corazonvaliente: { blog:'/Blog/corazonvaliente', info:'/Info/corazonvaliente', mesa:'/Mesa/corazonvaliente' }
   };
 
   const item = catalog[slug] || {};
@@ -128,6 +130,9 @@
   localFiles.blog.hundanlosbarcos = '/blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html';
   localFiles.mesa.hundanlosbarcos = '/mesa/12-mrv-f2-msg9a-hundan-los-barcos-mes.html';
   localFiles.info.nodejestumentevacia = '/infografias/13-mrv-f2-msg9b-no-dejes-tu-mente-vacia-inf.html';
+  localFiles.info.corazonvaliente = '/infografias/13-mrv-f2-msg9c-corazon-valiente-inf.html';
+  localFiles.blog.corazonvaliente = '/blogs/10-mrv-f2-msg9c-corazon-valiente-blg.html';
+  localFiles.mesa.corazonvaliente = '/mesa/12-mrv-f2-msg9c-corazon-valiente-mes.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',

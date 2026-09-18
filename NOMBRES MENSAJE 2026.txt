@@ -37,6 +37,7 @@ F2_MSG7_LA_ULTIMA_PALABRA: sin video (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin video (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb
 F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin video (proximamente en pagina)
+F2_MSG9C_CORAZON_VALIENTE: sin video (proximamente en pagina)
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin video (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin video (proximamente en pagina)
 F2_MSG12_EL_NOMBRE_DEL_AGUA: sin video (proximamente en pagina)
@@ -77,6 +78,8 @@ F2_MSG8_CADA_DIA: sin blog (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html
 URL bonita: /Blog/hundanlosbarcos
 F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin blog (proximamente en pagina)
+F2_MSG9C_CORAZON_VALIENTE: blogs/10-mrv-f2-msg9c-corazon-valiente-blg.html
+URL bonita: /Blog/corazonvaliente
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin blog (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin blog (proximamente en pagina)
 F2_MSG12_EL_NOMBRE_DEL_AGUA: sin blog (proximamente en pagina)
@@ -118,6 +121,8 @@ F2_MSG9A_HUNDAN_LOS_BARCOS: infografias/13-mrv-f2-msg9a-hundan-los-barcos-inf.ht
 URL bonita: /Info/hundanlosbarcos
 F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: infografias/13-mrv-f2-msg9b-no-dejes-tu-mente-vacia-inf.html
 URL bonita: /Info/nodejestumentevacia
+F2_MSG9C_CORAZON_VALIENTE: infografias/13-mrv-f2-msg9c-corazon-valiente-inf.html
+URL bonita: /Info/corazonvaliente
 F2_MSG10_LA_GENERACION_QUE_LLEGO: sin info (proximamente en pagina)
 F2_MSG11_CUAL_ES_TU_MARCO: sin info (proximamente en pagina)
 F2_MSG12_EL_NOMBRE_DEL_AGUA: sin info (proximamente en pagina)
@@ -125,4 +130,16 @@ F2_MSG12_EL_NOMBRE_DEL_AGUA: sin info (proximamente en pagina)
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: index/infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html
 URL bonita: /Info/temintieron
+
+
+MESA
+
+F2_MSG9C_CORAZON_VALIENTE: mesa/12-mrv-f2-msg9c-corazon-valiente-mes.html
+URL bonita: /Mesa/corazonvaliente
+
+
+EXPEDIENTE NO LISTADO
+
+F2_MSG9C_CORAZON_VALIENTE: exp/corazonvaliente.html
+URL directa: /exp/corazonvaliente
 
