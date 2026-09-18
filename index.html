@@ -2032,7 +2032,7 @@
   </div>
   <div class="portada-progreso">
     <div class="progreso-track-p"><div class="progreso-fill-p" id="progreso-fill-portada"></div></div>
-        <div class="progreso-txt-p"><b>23</b> ense&ntilde;anzas publicadas &middot; <b>3 fases</b></div>
+        <div class="progreso-txt-p"><b>25</b> de <b>28</b> ense&ntilde;anzas publicadas &middot; <b>3 fases</b></div>
   </div>
   <div class="portada-footer">LHSCOL<br>Temporada 2026</div>
 </section>
@@ -2059,13 +2059,13 @@
         <span class="card-tag">F1</span>
         <div class="card-titulo-idx">El Umbral de <em>la Decision</em></div>
         <div class="card-resumen">Caminar cerca de Jesus no es lo mismo que caminar con Jesus. El objetivo es que cada persona decida si el cambio le va a costar algo real.</div>
-        <div class="card-estado listo"><span class="dt"></span> 10 ensenanzas</div>
+        <div class="card-estado listo"><span class="dt"></span> 10 ense&ntilde;anzas &middot; 10 publicadas</div>
       </div>
       <div class="doc-card" onclick="irFase('f2')">
         <span class="card-tag">F2</span>
         <div class="card-titulo-idx">Diagnostico de <em>Mentalidad</em></div>
         <div class="card-resumen">No puedes cambiar lo que no puedes ver. Esta fase opera como un escaner espiritual: primero ver el marco, luego poder entregarlo.</div>
-        <div class="card-estado listo"><span class="dt"></span> 10 ensenanzas &middot; 3 por venir</div>
+        <div class="card-estado listo"><span class="dt"></span> 18 ense&ntilde;anzas &middot; 15 publicadas</div>
       </div>
       <div class="doc-card pendiente" onclick="irFase('f3')">
         <span class="card-tag">F3</span>
@@ -2433,7 +2433,7 @@
         </p>
         <div class="fase-meta">
           <div class="fase-meta-item"><div class="fase-dot"></div> 10 enseñanzas</div>
-          <div class="fase-meta-item"><div class="fase-dot"></div> Videos disponibles</div>
+          <div class="fase-meta-item"><div class="fase-dot"></div> 10 publicadas</div>
           <div class="fase-meta-item"><div class="fase-dot" style="background:var(--melocoton)"></div> Turista vs. Discípulo</div>
         </div>
       </div>
@@ -2610,8 +2610,8 @@
           — primero ver el marco, luego poder entregarlo.
         </p>
         <div class="fase-meta">
-          <div class="fase-meta-item"><div class="fase-dot"></div> 11 enseñanzas</div>
-          <div class="fase-meta-item"><div class="fase-dot" style="background:var(--rosa)"></div> 10 publicadas</div>
+          <div class="fase-meta-item"><div class="fase-dot"></div> 18 enseñanzas</div>
+          <div class="fase-meta-item"><div class="fase-dot" style="background:var(--rosa)"></div> 15 publicadas</div>
           <div class="fase-meta-item"><div class="fase-dot" style="background:var(--melocoton)"></div> Huérfano · Esclavo · Hijo</div>
         </div>
       </div>
@@ -2760,7 +2760,7 @@
         <div class="card-num">6a</div>
         <div class="card-body">
           <div class="card-kicker">F2 · MSG6A</div>
-          <div class="card-titulo">Otro Espíritu — Parte A</div>
+          <div class="card-titulo">Otro Espíritu</div>
           <div class="card-tesis">La diferencia entre Josué y Caleb y el resto de la generación no fue la circunstancia. Fue la manera en que decidieron procesar la misma circunstancia.</div>
           <div class="card-acciones">
             <a href="https://youtu.be/VXcrFGL7mPc" target="_blank" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
@@ -3114,11 +3114,11 @@ function cerrarVersiculo(){ document.getElementById('modal-versiculo').classList
 function cerrarVersiculoBackdrop(e){ if(e.target.id === 'modal-versiculo') cerrarVersiculo(); }
 document.addEventListener('keydown', e => { if(e.key === 'Escape'){ cerrarVersiculo(); cerrarSidebar(); } });
 
-// ── Progreso animado tambien en la portada estatica (22 de 35 = 62.9%) ──
+// ── Progreso animado tambien en la portada estatica (25 de 28 = 89.3%) ──
 window.addEventListener('load', () => {
   setTimeout(() => {
     const pf = document.getElementById('progreso-fill-portada');
-    if(pf) pf.style.width = '62.9%';
+    if(pf) pf.style.width = '89.3%';
   }, 500);
 });
 

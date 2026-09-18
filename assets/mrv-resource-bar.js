@@ -31,7 +31,7 @@
           ['msg-f2-3e','La Verdad Tiene Nombre'],
           ['msg-f2-4','Todo lo Mío es Tuyo'],
           ['msg-f2-5','Podemos Hacerlo'],
-          ['msg-f2-6a','Otro Espíritu — Parte A'],
+          ['msg-f2-6a','Otro Espíritu'],
           ['msg-f2-7','La Última Palabra'],
           ['msg-f2-8','Cada Día'],
           ['msg-f2-9a','Hundan los Barcos'],
