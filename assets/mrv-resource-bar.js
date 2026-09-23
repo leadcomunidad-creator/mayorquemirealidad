@@ -83,13 +83,31 @@
   if (!currentType || !slug) return;
   const isLocal = ['127.0.0.1','localhost'].includes(location.hostname);
   document.documentElement.classList.add('mrv-resource-loading');
-  if (!document.querySelector('link[data-mrv-resource-bar]')) {
-    const styles = document.createElement('link');
+
+  const waitForDom = () => document.readyState === 'loading'
+    ? new Promise(resolve => document.addEventListener('DOMContentLoaded',resolve,{once:true}))
+    : Promise.resolve();
+
+  const waitForResourceStyles = () => new Promise((resolve,reject) => {
+    let styles = document.querySelector('link[data-mrv-resource-bar]');
+    const ready = () => resolve(styles);
+    const failed = () => reject(new Error('No se pudo cargar mrv-resource-bar.css'));
+
+    if (styles) {
+      if (styles.sheet) { ready(); return; }
+      styles.addEventListener('load',ready,{once:true});
+      styles.addEventListener('error',failed,{once:true});
+      return;
+    }
+
+    styles = document.createElement('link');
     styles.rel = 'stylesheet';
-    styles.href = '/assets/mrv-resource-bar.css?v=20260804-mobile-1';
+    styles.href = '/assets/mrv-resource-bar.css?v=20260923-css-ready-1';
     styles.dataset.mrvResourceBar = '';
+    styles.addEventListener('load',ready,{once:true});
+    styles.addEventListener('error',failed,{once:true});
     document.head.append(styles);
-  }
+  });
 
   const catalog = {
     mayorquemirealidad: { video:'https://youtu.be/vOo8MTZ0a5k?si=ZhdFkOJZWpKf0tLP', blog:'/Blog/mayorquemirealidad', info:'/Info/mayorquemirealidad' },
@@ -143,7 +161,7 @@
     info:'<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/>',
     mesa:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'
   };
-  const svg = (name, fill=false) => `<svg viewBox="0 0 24 24" fill="${fill?'currentColor':'none'}" stroke="currentColor" stroke-width="2">${icons[name]}</svg>`;
+  const svg = (name, fill=false) => `<svg width="13" height="13" viewBox="0 0 24 24" fill="${fill?'currentColor':'none'}" stroke="currentColor" stroke-width="2">${icons[name]}</svg>`;
   const makeButton = (type, label, href) => {
     if (currentType === type) return '';
     if (isLocal && localFiles[type]?.[slug]) href = localFiles[type][slug];
@@ -163,7 +181,7 @@
     bar.className = 'mrv-resource-bar';
     bar.setAttribute('aria-label','Recursos del mensaje');
     bar.innerHTML = `
-      <button type="button" class="mrv-menu-button" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button type="button" class="mrv-menu-button" aria-label="Abrir menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
       <div class="mrv-resource-actions">
         ${makeButton('home','Inicio','/')}
         ${makeButton('video','Video',item.video)}
@@ -171,7 +189,7 @@
         ${makeButton('info','Info',item.info)}
         ${makeButton('mesa','La Mesa',item.mesa)}
       </div>
-      <a class="mrv-lhscol" href="https://lhscolweb.netlify.app/" target="_blank" rel="noopener">LHSCOL<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>`;
+      <a class="mrv-lhscol" href="https://lhscolweb.netlify.app/" target="_blank" rel="noopener">LHSCOL<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></a>`;
     document.body.prepend(bar);
 
     const overlay = document.createElement('div');
@@ -179,7 +197,7 @@
     const sidebar = document.createElement('aside');
     sidebar.className = 'mrv-sidebar';
     sidebar.setAttribute('aria-label','Menú de la temporada');
-    sidebar.innerHTML = `<button type="button" class="mrv-sidebar-close" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>${renderSeasonMenu('resource')}`;
+    sidebar.innerHTML = `<button type="button" class="mrv-sidebar-close" aria-label="Cerrar menú"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>${renderSeasonMenu('resource')}`;
     const salaLink = sidebar.querySelector('.nav-sala');
     if (salaLink) salaLink.innerHTML = '<span class="sala-star">★</span><span>Episodios de La Sala</span><span class="sala-dot"></span>';
     document.body.append(overlay,sidebar);
@@ -194,7 +212,10 @@
     requestAnimationFrame(() => document.documentElement.classList.remove('mrv-resource-loading'));
   };
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true});
-  else init();
-  window.addEventListener('load',() => { if(!document.querySelector('.mrv-resource-bar')) init(); },{once:true});
+  Promise.all([waitForDom(),waitForResourceStyles()])
+    .then(init)
+    .catch(error => {
+      document.documentElement.classList.remove('mrv-resource-loading');
+      console.error('[MRV resource bar]',error);
+    });
 })();
