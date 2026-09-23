@@ -7,6 +7,9 @@
 # Expediente no listado de MSG9C (acceso directo por enlace)
 /exp/corazonvaliente  /exp/corazonvaliente.html  200
 
+# Expediente no listado de MSG10 (acceso directo por enlace)
+/exp/esclavosdenadie  /exp/esclavosdenadie.html  200
+
 # Pretty URLs for blog pages
 /Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
 /Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
@@ -22,6 +25,7 @@
 /Blog/otroespiritu              /blogs/10-mrv-f2-msg6-otro-espiritu-blg.html                  200
 /Blog/hundanlosbarcos          /blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html              200
 /Blog/corazonvaliente          /blogs/10-mrv-f2-msg9c-corazon-valiente-blg.html                200
+/Blog/esclavosdenadie          /blogs/10-mrv-f2-msg10-esclavos-de-nadie-blg.html                  200
 /Mesa/podemoshacerlo            /mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html                200
 /mesa/podemoshacerlo            /mesa/12-mrv-f2-msg5-podemos-hacerlo-mes.html                200
 /Mesa/otroespiritu              /mesa/12-mrv-f2-msg6-otro-espiritu-mes.html                   200
@@ -30,6 +34,8 @@
 /mesa/hundanlosbarcos           /mesa/12-mrv-f2-msg9a-hundan-los-barcos-mes.html              200
 /Mesa/corazonvaliente           /mesa/12-mrv-f2-msg9c-corazon-valiente-mes.html                200
 /mesa/corazonvaliente           /mesa/12-mrv-f2-msg9c-corazon-valiente-mes.html                200
+/Mesa/esclavosdenadie           /mesa/12-mrv-f2-msg10-esclavos-de-nadie-mes.html                  200
+/mesa/esclavosdenadie           /mesa/12-mrv-f2-msg10-esclavos-de-nadie-mes.html                  200
 
 # Pretty URLs for infographic pages
 /Info/mayorquemirealidad        /infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html        200
@@ -49,6 +55,7 @@
 /Info/hundanlosbarcos          /infografias/13-mrv-f2-msg9a-hundan-los-barcos-inf.html              200
 /Info/nodejestumentevacia      /infografias/13-mrv-f2-msg9b-no-dejes-tu-mente-vacia-inf.html        200
 /Info/corazonvaliente          /infografias/13-mrv-f2-msg9c-corazon-valiente-inf.html                200
+/Info/esclavosdenadie          /infografias/13-mrv-f2-msg10-esclavos-de-nadie-inf.html                  200
 /Info/temintieron               /infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html      200
 
 # Lowercase aliases
@@ -64,6 +71,7 @@
 /blog/otroespiritu              /blogs/10-mrv-f2-msg6-otro-espiritu-blg.html                  200
 /blog/hundanlosbarcos          /blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html              200
 /blog/corazonvaliente          /blogs/10-mrv-f2-msg9c-corazon-valiente-blg.html                200
+/blog/esclavosdenadie          /blogs/10-mrv-f2-msg10-esclavos-de-nadie-blg.html                  200
 /info/mayorquemirealidad        /infografias/13-mrv-f1-msg1-mayor-que-mi-realidad-inf.html        200
 /info/arquitectosdelaverdad     /infografias/13-mrv-f1-msg2-arquitectos-de-la-verdad-inf.html     200
 /info/cruzarelumbral            /infografias/13-mrv-f1-msg3-cruzar-el-umbral-inf.html             200
@@ -81,4 +89,5 @@
 /info/hundanlosbarcos          /infografias/13-mrv-f2-msg9a-hundan-los-barcos-inf.html              200
 /info/nodejestumentevacia      /infografias/13-mrv-f2-msg9b-no-dejes-tu-mente-vacia-inf.html        200
 /info/corazonvaliente          /infografias/13-mrv-f2-msg9c-corazon-valiente-inf.html                200
+/info/esclavosdenadie          /infografias/13-mrv-f2-msg10-esclavos-de-nadie-inf.html                  200
 /info/temintieron               /infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html      200
