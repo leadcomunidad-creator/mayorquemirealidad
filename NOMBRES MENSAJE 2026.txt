@@ -36,7 +36,7 @@ F2_MSG6_CALEB_TENIA_OTRO_ESPIRITU: sin video (proximamente en pagina)
 F2_MSG7_LA_ULTIMA_PALABRA: sin video (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin video (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb
-F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin video (proximamente en pagina)
+F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: https://youtu.be/bcRyWLsv4ig
 F2_MSG9C_CORAZON_VALIENTE: sin video (proximamente en pagina)
 F2_MSG10_ESCLAVOS_DE_NADIE: sin video
 
@@ -75,7 +75,8 @@ F2_MSG7_LA_ULTIMA_PALABRA: sin blog (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin blog (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html
 URL bonita: /Blog/hundanlosbarcos
-F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: sin blog (proximamente en pagina)
+F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: blogs/10-mrv-f2-msg9b-no-dejes-tu-mente-vacia-blg.html
+URL bonita: /Blog/nodejestumentevacia
 F2_MSG9C_CORAZON_VALIENTE: blogs/10-mrv-f2-msg9c-corazon-valiente-blg.html
 URL bonita: /Blog/corazonvaliente
 F2_MSG10_ESCLAVOS_DE_NADIE: blogs/10-mrv-f2-msg10-esclavos-de-nadie-blg.html
@@ -130,6 +131,8 @@ URL bonita: /Info/temintieron
 
 MESA
 
+F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: mesa/12-mrv-f2-msg9b-no-dejes-tu-mente-vacia-mes.html
+URL bonita: /Mesa/nodejestumentevacia
 F2_MSG9C_CORAZON_VALIENTE: mesa/12-mrv-f2-msg9c-corazon-valiente-mes.html
 URL bonita: /Mesa/corazonvaliente
 F2_MSG10_ESCLAVOS_DE_NADIE: mesa/12-mrv-f2-msg10-esclavos-de-nadie-mes.html

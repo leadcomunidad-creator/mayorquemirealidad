@@ -124,7 +124,7 @@
     laultimapalabra: { info:'/Info/laultimapalabra' },
     cadadia: { info:'/Info/cadadia' },
     hundanlosbarcos: { video:'https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb', blog:'/Blog/hundanlosbarcos', info:'/Info/hundanlosbarcos', mesa:'/Mesa/hundanlosbarcos' },
-    nodejestumentevacia: { info:'/Info/nodejestumentevacia' },
+    nodejestumentevacia: { video:'https://youtu.be/bcRyWLsv4ig', blog:'/Blog/nodejestumentevacia', info:'/Info/nodejestumentevacia', mesa:'/Mesa/nodejestumentevacia' },
     corazonvaliente: { blog:'/Blog/corazonvaliente', info:'/Info/corazonvaliente', mesa:'/Mesa/corazonvaliente' },
     esclavosdenadie: { blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' }
   };
@@ -147,6 +147,8 @@
   localFiles.blog.hundanlosbarcos = '/blogs/10-mrv-f2-msg9a-hundan-los-barcos-blg.html';
   localFiles.mesa.hundanlosbarcos = '/mesa/12-mrv-f2-msg9a-hundan-los-barcos-mes.html';
   localFiles.info.nodejestumentevacia = '/infografias/13-mrv-f2-msg9b-no-dejes-tu-mente-vacia-inf.html';
+  localFiles.blog.nodejestumentevacia = '/blogs/10-mrv-f2-msg9b-no-dejes-tu-mente-vacia-blg.html';
+  localFiles.mesa.nodejestumentevacia = '/mesa/12-mrv-f2-msg9b-no-dejes-tu-mente-vacia-mes.html';
   localFiles.info.corazonvaliente = '/infografias/13-mrv-f2-msg9c-corazon-valiente-inf.html';
   localFiles.blog.corazonvaliente = '/blogs/10-mrv-f2-msg9c-corazon-valiente-blg.html';
   localFiles.mesa.corazonvaliente = '/mesa/12-mrv-f2-msg9c-corazon-valiente-mes.html';
