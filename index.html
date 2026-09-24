@@ -1875,7 +1875,7 @@
   .spine { position:fixed; left:14px; top:50%; transform:translateY(-50%) rotate(180deg); writing-mode:vertical-rl; font-size:9px; letter-spacing:.32em; text-transform:uppercase; color:var(--texto-suave); opacity:.55; z-index:105; display:flex; align-items:center; gap:10px; pointer-events:none; }
   .spine .dot { width:4px; height:4px; border-radius:50%; background:var(--melocoton); }
   @media (max-width:680px) { .spine { display:none; } }
-  .portada-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(0,86,241,.15); border:1px solid rgba(184,209,255,.25); border-radius:100px; padding:5px 16px; font-size:9.5px; font-weight:700; letter-spacing:2.6px; text-transform:uppercase; color:var(--azul-claro); }
+  .portada-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(0,86,241,.15); border:1px solid rgba(184,209,255,.25); border-radius:100px; padding:5px 16px; font-size:9.5px; font-weight:700; letter-spacing:2.6px; text-transform:uppercase; color:var(--azul-claro); margin-top:18px; }
   .portada-badge .dot { width:5px; height:5px; background:var(--azul-claro); border-radius:50%; opacity:.7; }
   .portada-emblema { width:clamp(150px,22vh,270px); height:auto; margin-bottom:clamp(10px,1.4vh,16px); opacity:.96; filter:drop-shadow(0 0 30px rgba(0,86,241,.35)); }
   .portada-emblema img { width:100%; display:block; }
@@ -1887,9 +1887,12 @@
   .v-pill:hover { background:rgba(184,209,255,.16); border-color:var(--azul-claro); color:#fff; transform:translateY(-1px); }
   @media (max-height:520px) { .portada-versos { display:none; } }
   .portada-acciones { display:flex; flex-direction:column; align-items:center; gap:clamp(24px,3.2vh,36px); margin-top:clamp(10px,1.4vh,16px); }
-  .btn-entrar { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg, rgba(0,86,241,.9), rgba(0,56,170,.9)); color:#fff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:13px 26px; border-radius:100px; border:1px solid rgba(184,209,255,.35); cursor:pointer; box-shadow:0 10px 30px rgba(0,86,241,.28); transition:transform .18s ease, box-shadow .18s ease; font-family:'DM Sans',sans-serif; }
+  .portada-cta-row { display:flex; align-items:center; justify-content:center; gap:12px; }
+  .btn-entrar { width:220px; min-height:42px; display:inline-flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg, rgba(0,86,241,.9), rgba(0,56,170,.9)); color:#fff; font-size:9px; font-weight:700; letter-spacing:1.35px; text-transform:uppercase; padding:10px 16px; border-radius:100px; border:1px solid rgba(184,209,255,.35); cursor:pointer; box-shadow:0 10px 30px rgba(0,86,241,.28); transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease; font-family:'DM Sans',sans-serif; white-space:nowrap; }
+  .btn-entrar.btn-ultimo { background:rgba(2,11,30,.35); border-color:rgba(0,86,241,.8); box-shadow:none; }
   .btn-entrar:hover { transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,86,241,.4); }
-  .btn-entrar svg { width:14px; height:14px; }
+  .btn-entrar.btn-ultimo:hover { background:rgba(0,86,241,.12); border-color:var(--azul); box-shadow:0 10px 28px rgba(0,86,241,.16); }
+  .btn-entrar svg { width:11px; height:11px; flex:0 0 auto; }
   .portada-links { display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:center; }
   .link-quieto { display:inline-flex; align-items:center; gap:6px; font-size:10.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--texto-suave); text-decoration:none; cursor:pointer; background:none; border:none; transition:color .18s ease; padding:4px 0; font-family:'DM Sans',sans-serif; }
   .link-quieto:hover { color:var(--azul-claro); }
@@ -1913,15 +1916,16 @@
       position:relative; inset:auto; min-height:100svh; height:100svh; overflow:hidden;
       justify-content:space-between; padding:calc(var(--nav-h) + 28px) 18px 26px; gap:0;
     }
-    .portada-badge { padding:5px 13px; font-size:8px; letter-spacing:2px; }
+    .portada-badge { padding:5px 13px; font-size:8px; letter-spacing:2px; margin-top:14px; }
     .portada-emblema { width:clamp(90px,27vw,112px); margin:2px 0 0; }
     .portada-titulo { max-width:280px; font-size:clamp(20px,6.2vw,25px); line-height:1.05; }
     .portada-tagline { max-width:320px; font-size:12.5px; line-height:1.5; }
     .portada-versos { max-width:340px; margin-top:0; gap:6px; }
     .v-pill { padding:4px 9px; font-size:8px; }
     .portada-acciones { width:100%; gap:16px; margin-top:0; }
-    .btn-entrar { padding:9px 18px; font-size:9px; gap:7px; }
-    .btn-entrar svg { width:11px; height:11px; }
+    .portada-cta-row { flex-direction:column; gap:9px; width:100%; }
+    .btn-entrar { width:220px; min-height:38px; padding:8px 14px; font-size:8.5px; gap:7px; }
+    .btn-entrar svg { width:10px; height:10px; }
     .portada-links { max-width:350px; gap:10px 12px; }
     .link-quieto { font-size:9px; letter-spacing:.9px; }
     body.portada-visible .portada-progreso,
@@ -2020,10 +2024,16 @@
     <button type="button" class="v-pill" onclick="abrirVersiculo('fil4_8')">Fil 4:8</button>
   </div>
   <div class="portada-acciones">
-    <button type="button" class="btn-entrar" onclick="ir('indice')">
-      Ingresar
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
+    <div class="portada-cta-row">
+      <button type="button" class="btn-entrar" onclick="ir('indice')">
+        Ingresar a la temporada
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+      <button type="button" class="btn-entrar btn-ultimo" onclick="irFase('f2','msg-f2-10')">
+        &Uacute;ltimo mensaje
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+    </div>
     <div class="portada-links">
       <button type="button" class="link-quieto" onclick="ir('intro')"><span class="lq-dot"></span>&iquest;De qu&eacute; se trata esta temporada?</button>
       <div class="link-sep"></div>
@@ -2032,7 +2042,7 @@
   </div>
   <div class="portada-progreso">
     <div class="progreso-track-p"><div class="progreso-fill-p" id="progreso-fill-portada"></div></div>
-        <div class="progreso-txt-p"><b>25</b> de <b>28</b> ense&ntilde;anzas publicadas &middot; <b>3 fases</b></div>
+        <div class="progreso-txt-p"><b>25</b> de <b>30</b> ense&ntilde;anzas publicadas &middot; <b>3 fases</b></div>
   </div>
   <div class="portada-footer">LHSCOL<br>Temporada 2026</div>
 </section>
@@ -3082,11 +3092,11 @@ function cerrarVersiculo(){ document.getElementById('modal-versiculo').classList
 function cerrarVersiculoBackdrop(e){ if(e.target.id === 'modal-versiculo') cerrarVersiculo(); }
 document.addEventListener('keydown', e => { if(e.key === 'Escape'){ cerrarVersiculo(); cerrarSidebar(); } });
 
-// ── Progreso animado tambien en la portada estatica (25 de 28 = 89.3%) ──
+// ── Progreso animado tambien en la portada estatica (25 de 30 = 83.3%) ──
 window.addEventListener('load', () => {
   setTimeout(() => {
     const pf = document.getElementById('progreso-fill-portada');
-    if(pf) pf.style.width = '89.3%';
+    if(pf) pf.style.width = '83.3%';
   }, 500);
 });
 
