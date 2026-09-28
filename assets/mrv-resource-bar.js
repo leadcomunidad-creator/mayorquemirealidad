@@ -21,7 +21,7 @@
         ]
       },
       {
-        id:'f2', title:'F2 · Diagnóstico', current:true, messages:[
+        id:'f2', title:'F2 · Diagnóstico', messages:[
           ['msg-f2-1','El Pez No Sabe'],
           ['msg-f2-2','Cerdos y Coronas'],
           ['msg-f2-3a','La Narrativa'],
@@ -37,10 +37,14 @@
           ['msg-f2-9a','Hundan los Barcos'],
           ['msg-f2-9b','No Dejes tu Mente Vacía'],
           ['msg-f2-9c','Corazón Valiente'],
-          ['msg-f2-10','Esclavos de Nadie',{recent:true}]
+          ['msg-f2-10','Esclavos de Nadie']
         ]
       },
-      { id:'f3', title:'F3 · Protocolo', pending:true }
+      {
+        id:'f3', title:'F3 · Protocolo', current:true, messages:[
+          ['msg-f3-1','El Buen Camino',{recent:true}]
+        ]
+      }
     ]
   };
 
@@ -126,7 +130,8 @@
     hundanlosbarcos: { video:'https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb', blog:'/Blog/hundanlosbarcos', info:'/Info/hundanlosbarcos', mesa:'/Mesa/hundanlosbarcos' },
     nodejestumentevacia: { video:'https://youtu.be/bcRyWLsv4ig', blog:'/Blog/nodejestumentevacia', info:'/Info/nodejestumentevacia', mesa:'/Mesa/nodejestumentevacia' },
     corazonvaliente: { blog:'/Blog/corazonvaliente', info:'/Info/corazonvaliente', mesa:'/Mesa/corazonvaliente' },
-    esclavosdenadie: { blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' }
+    esclavosdenadie: { blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' },
+    elbuencamino: { blog:'/Blog/elbuencamino', info:'/Info/elbuencamino', mesa:'/Mesa/elbuencamino' }
   };
 
   const item = catalog[slug] || {};
@@ -155,6 +160,9 @@
   localFiles.info.esclavosdenadie = '/infografias/13-mrv-f2-msg10-esclavos-de-nadie-inf.html';
   localFiles.blog.esclavosdenadie = '/blogs/10-mrv-f2-msg10-esclavos-de-nadie-blg.html';
   localFiles.mesa.esclavosdenadie = '/mesa/12-mrv-f2-msg10-esclavos-de-nadie-mes.html';
+  localFiles.info.elbuencamino = '/infografias/13-mrv-f3-msg1-el-buen-camino-inf.html';
+  localFiles.blog.elbuencamino = '/blogs/10-mrv-f3-msg1-el-buen-camino-blg.html';
+  localFiles.mesa.elbuencamino = '/mesa/12-mrv-f3-msg1-el-buen-camino-mes.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',

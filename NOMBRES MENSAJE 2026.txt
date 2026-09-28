@@ -82,6 +82,11 @@ URL bonita: /Blog/corazonvaliente
 F2_MSG10_ESCLAVOS_DE_NADIE: blogs/10-mrv-f2-msg10-esclavos-de-nadie-blg.html
 URL bonita: /Blog/esclavosdenadie
 
+FASE 3: PROTOCOLO METANOIA
+
+F3_MSG1_EL_BUEN_CAMINO: blogs/10-mrv-f3-msg1-el-buen-camino-blg.html
+URL bonita: /Blog/elbuencamino
+
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: sin blog
 
@@ -124,6 +129,11 @@ URL bonita: /Info/corazonvaliente
 F2_MSG10_ESCLAVOS_DE_NADIE: infografias/13-mrv-f2-msg10-esclavos-de-nadie-inf.html
 URL bonita: /Info/esclavosdenadie
 
+FASE 3: PROTOCOLO METANOIA
+
+F3_MSG1_EL_BUEN_CAMINO: infografias/13-mrv-f3-msg1-el-buen-camino-inf.html
+URL bonita: /Info/elbuencamino
+
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: index/infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html
 URL bonita: /Info/temintieron
@@ -137,6 +147,11 @@ F2_MSG9C_CORAZON_VALIENTE: mesa/12-mrv-f2-msg9c-corazon-valiente-mes.html
 URL bonita: /Mesa/corazonvaliente
 F2_MSG10_ESCLAVOS_DE_NADIE: mesa/12-mrv-f2-msg10-esclavos-de-nadie-mes.html
 URL bonita: /Mesa/esclavosdenadie
+
+FASE 3: PROTOCOLO METANOIA
+
+F3_MSG1_EL_BUEN_CAMINO: mesa/12-mrv-f3-msg1-el-buen-camino-mes.html
+URL bonita: /Mesa/elbuencamino
 
 
 EXPEDIENTE NO LISTADO
