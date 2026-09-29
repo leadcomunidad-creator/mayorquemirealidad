@@ -37,7 +37,7 @@ F2_MSG7_LA_ULTIMA_PALABRA: sin video (proximamente en pagina)
 F2_MSG8_CADA_DIA: sin video (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb
 F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: https://youtu.be/bcRyWLsv4ig
-F2_MSG9C_CORAZON_VALIENTE: sin video (proximamente en pagina)
+F2_MSG9C_CORAZON_VALIENTE: https://youtu.be/AKyAYGsFo3E?si=xMJcd7_mg1b0tHVp
 F2_MSG10_ESCLAVOS_DE_NADIE: sin video
 
 EPISODIO ESPECIAL: LA SALA Podcast
@@ -160,4 +160,6 @@ F2_MSG9C_CORAZON_VALIENTE: exp/corazonvaliente.html
 URL directa: /exp/corazonvaliente
 F2_MSG10_ESCLAVOS_DE_NADIE: exp/esclavosdenadie.html
 URL directa: /exp/esclavosdenadie
+F3_MSG1_EL_BUEN_CAMINO: exp/elbuencamino.html
+URL directa: /exp/elbuencamino
 

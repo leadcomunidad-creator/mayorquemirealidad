@@ -129,7 +129,7 @@
     cadadia: { info:'/Info/cadadia' },
     hundanlosbarcos: { video:'https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb', blog:'/Blog/hundanlosbarcos', info:'/Info/hundanlosbarcos', mesa:'/Mesa/hundanlosbarcos' },
     nodejestumentevacia: { video:'https://youtu.be/bcRyWLsv4ig', blog:'/Blog/nodejestumentevacia', info:'/Info/nodejestumentevacia', mesa:'/Mesa/nodejestumentevacia' },
-    corazonvaliente: { blog:'/Blog/corazonvaliente', info:'/Info/corazonvaliente', mesa:'/Mesa/corazonvaliente' },
+    corazonvaliente: { video:'https://youtu.be/AKyAYGsFo3E?si=xMJcd7_mg1b0tHVp', blog:'/Blog/corazonvaliente', info:'/Info/corazonvaliente', mesa:'/Mesa/corazonvaliente' },
     esclavosdenadie: { blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' },
     elbuencamino: { blog:'/Blog/elbuencamino', info:'/Info/elbuencamino', mesa:'/Mesa/elbuencamino' }
   };

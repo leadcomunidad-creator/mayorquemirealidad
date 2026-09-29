@@ -10,6 +10,9 @@
 # Expediente no listado de MSG10 (acceso directo por enlace)
 /exp/esclavosdenadie  /exp/esclavosdenadie.html  200
 
+# Expediente no listado de F3 MSG1 (acceso directo por enlace)
+/exp/elbuencamino  /exp/elbuencamino.html  200
+
 # Pretty URLs for blog pages
 /Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
 /Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
