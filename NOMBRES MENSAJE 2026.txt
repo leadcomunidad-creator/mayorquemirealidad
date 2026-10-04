@@ -38,7 +38,12 @@ F2_MSG8_CADA_DIA: sin video (proximamente en pagina)
 F2_MSG9A_HUNDAN_LOS_BARCOS: https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb
 F2_MSG9B_NO_DEJES_TU_MENTE_VACIA: https://youtu.be/bcRyWLsv4ig
 F2_MSG9C_CORAZON_VALIENTE: https://youtu.be/AKyAYGsFo3E?si=xMJcd7_mg1b0tHVp
-F2_MSG10_ESCLAVOS_DE_NADIE: sin video
+F2_MSG10_ESCLAVOS_DE_NADIE: https://youtu.be/jtkhnkfBKXI
+
+FASE 3: PROTOCOLO METANOIA
+
+F3_MSG1_EL_BUEN_CAMINO: https://youtu.be/vKl4N6gCgxc
+F3_MSG2_DE_ADENTRO_HACIA_AFUERA: sin video
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: https://youtu.be/jMq081xWWGE
@@ -133,6 +138,8 @@ FASE 3: PROTOCOLO METANOIA
 
 F3_MSG1_EL_BUEN_CAMINO: infografias/13-mrv-f3-msg1-el-buen-camino-inf.html
 URL bonita: /Info/elbuencamino
+F3_MSG2_DE_ADENTRO_HACIA_AFUERA: infografias/13-mrv-f3-msg2-de-adentro-hacia-afuera-inf.html
+URL bonita: /Info/deadentrohaciaafuera
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: index/infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html

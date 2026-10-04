@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Adentro Hacia Afuera · Infografía</title>
+<meta name="description" content="Cambiar por fuera no siempre significa ser renovado por dentro.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mayor que mi Realidad">
+<meta property="og:title" content="De Adentro Hacia Afuera · Infografía">
+<meta property="og:description" content="Cambiar por fuera no siempre significa ser renovado por dentro.">
+<meta property="og:url" content="https://mayorquemirealidad.netlify.app/Info/deadentrohaciaafuera">
+<meta property="og:image" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
+<meta property="og:image:secure_url" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="De Adentro Hacia Afuera · Infografía">
+<meta name="twitter:description" content="Cambiar por fuera no siempre significa ser renovado por dentro.">
+<meta name="twitter:image" content="https://mayorquemirealidad.netlify.app/assets/preview-mayorquemirealidad.png">
+<link rel="canonical" href="https://mayorquemirealidad.netlify.app/Info/deadentrohaciaafuera">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,500;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;min-height:100%;background:#020B1E;}
+body{min-height:100vh;}
+#native-inf{min-height:100vh;}
+@scope (#native-inf) {
+
+  :scope {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :scope {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+
+  .:scope { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+
+  .tabla-contraste {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .tabla-contraste thead th {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tabla-contraste thead th:first-child {
+    background: rgba(204,23,110,0.2);
+    color: var(--rosa);
+    text-align: left;
+  }
+
+  .tabla-contraste thead th:last-child {
+    background: rgba(0,86,241,0.2);
+    color: var(--azul-claro);
+    text-align: left;
+  }
+
+  .tabla-contraste tbody tr td {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tabla-contraste tbody tr:nth-child(odd) td:first-child {
+    background: rgba(204,23,110,0.08);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:first-child {
+    background: rgba(204,23,110,0.05);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(odd) td:last-child {
+    background: rgba(0,86,241,0.08);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:last-child {
+    background: rgba(0,86,241,0.05);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0;
+  }
+
+  .flujo-item {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 260px;
+    letter-spacing: 0.5px;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--azul-claro);
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+
+  .pensamientos { display: flex; flex-direction: column; gap: 10px; }
+
+  .pensamiento {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(0,86,241,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .pensamiento.rosa-item {
+    background: rgba(204,23,110,0.08);
+    border-left-color: var(--rosa);
+  }
+
+  .pensamiento-num {
+    width: 24px; height: 24px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pensamiento-num.rosa-num { background: var(--rosa); }
+
+  .pensamiento-frase {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .pensamiento-efecto {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    :scope { padding: 16px 12px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 28px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
+    .flujo-item { width: 100%; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+
+}
+</style>
+</head>
+<body>
+<div id="native-inf" class="native-surface native-inf">
+<div class="infographic">
+
+  <div class="header">
+    <div class="serie-label">LHSCOL · MRV · F3 · MSG2 · PROTOCOLO METANOIA · TEMPORADA 2026</div>
+    <h1>DE ADENTRO HACIA <em>AFUERA</em></h1>
+    <div class="tesis-header">
+      <p>«Cambiar por fuera no siempre significa ser renovado por dentro.»</p>
+      <span class="verse-tag">Romanos 12:1–2 · Efesios 4:20–24 · Colosenses 3:9–10 · 2 Corintios 4:16–18<br>Apoyo: 2 Corintios 3:18 · Tito 3:5 (contexto de regeneración; no explica técnicamente Romanos 12:2)</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><div class="section-number">?</div><div class="section-title">Pregunta central y mapa</div></div>
+    <div class="highlight-box"><p><strong>¿Qué significa bíblicamente renovar la mente?</strong></p></div>
+    <div style="height:.9rem"></div>
+    <div class="flujo"><div class="flujo-item">MISERICORDIA</div><div class="flujo-arrow">↓</div><div class="flujo-item">MOLDE</div><div class="flujo-arrow">↓</div><div class="flujo-item">RENOVACIÓN</div><div class="flujo-arrow">↓</div><div class="flujo-item">DISCERNIMIENTO</div></div>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro"><strong>No es:</strong> pensamiento positivo · información acumulada · repetir frases · negar la realidad · fuerza de voluntad.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><div class="section-number">1</div><div class="section-title">Misericordia — Antes de la renovación</div></div>
+    <div class="highlight-box"><p>«Por tanto, hermanos, les ruego por las <strong>misericordias</strong> de Dios…» <br><span style="font-size:.8em;opacity:.8">Romanos 12:1 · NBLA</span></p></div>
+    <div style="height:.9rem"></div>
+    <table class="tabla-contraste"><thead><tr><th>Término</th><th>Significado</th></tr></thead><tbody><tr><td>οἰκτιρμός · oiktirmos</td><td>Compasión, misericordia</td></tr><tr><td>παρίστημι · paristēmi</td><td>Presentar, poner delante</td></tr></tbody></table>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro"><strong>Primero misericordia, después respuesta.</strong> Dios transforma; yo respondo.</p>
+    <div style="height:.9rem"></div>
+    <div class="highlight-box"><p>«La gracia elimina <strong>mérito</strong>, no participación.»</p></div>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro"><strong>Pregunta.</strong> ¿Busco renovación para obedecer mejor al Padre o para controlar mi realidad?</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><div class="section-number">2</div><div class="section-title">Molde — Hay un molde que intenta darte forma</div></div>
+    <div class="highlight-box"><p>«No se adapten tanto a su cultura que terminen encajando en ella sin siquiera pensarlo.» <br><span style="font-size:.8em;opacity:.8">Romanos 12:1–2 · The Message</span></p></div>
+    <div style="height:.9rem"></div>
+    <div class="pensamientos"><div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">«Así soy yo.»</div></div></div><div class="pensamiento"><div class="pensamiento-num">2</div><div><div class="pensamiento-frase">«Así funciona la vida.»</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">3</div><div><div class="pensamiento-frase">«Esto es obvio.»</div></div></div></div>
+    <div style="height:.9rem"></div>
+    <table class="tabla-contraste"><thead><tr><th>Término</th><th>Significado</th></tr></thead><tbody><tr><td>συσχηματίζω · syschēmatizō</td><td>Conformarse a un patrón («molde» es imagen pastoral)</td></tr></tbody></table>
+    <div style="height:.9rem"></div>
+    <div class="highlight-box"><p>«No decidir qué forma tendrá tu mente no significa que <strong>nadie la esté formando</strong>.»</p></div>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro"><strong>Pregunta.</strong> ¿Qué forma he aceptado como normal sin examinarla delante de la Verdad?</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><div class="section-number">3</div><div class="section-title">Renovación — De adentro hacia afuera</div></div>
+    <div class="highlight-box"><p>«…transfórmense mediante la <strong>renovación</strong> de su mente…» <br><span style="font-size:.8em;opacity:.8">Romanos 12:2 · NBLA</span></p></div>
+    <div style="height:.9rem"></div>
+    <table class="tabla-contraste"><thead><tr><th>Término</th><th>Significado</th></tr></thead><tbody><tr><td>μεταμορφόω · metamorphoō</td><td>Transformar</td></tr><tr><td>ἀνακαίνωσις · anakainōsis</td><td>Renovación</td></tr><tr><td>νοῦς · nous</td><td>Mente, entendimiento: desde donde interpretamos la realidad</td></tr></tbody></table>
+    <div style="height:.9rem"></div>
+    <div class="highlight-box"><p>«Renovar la mente es permitir que <strong>Su Espíritu</strong>, mediante la <strong>Verdad</strong> revelada en Jesús y recibida por Su Palabra, haga nueva nuestra manera de comprender, valorar e interpretar la realidad.»</p></div>
+    <div style="height:.9rem"></div>
+    <div class="flujo"><div class="flujo-item">SU ESPÍRITU + SU VERDAD</div><div class="flujo-arrow">↓</div><div class="flujo-item">RENOVACIÓN</div></div>
+    <div style="height:.9rem"></div>
+    <table class="tabla-contraste"><thead><tr><th>Proceso continuo</th><th>Texto</th></tr></thead><tbody><tr><td>«Sean renovados.»</td><td>Efesios 4:23</td></tr><tr><td>«Se va renovando.»</td><td>Colosenses 3:10</td></tr><tr><td>«De día en día.»</td><td>2 Corintios 4:16</td></tr></tbody></table>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro"><strong>Pregunta.</strong> ¿Conozco la Verdad solamente, o ya está formando cómo evalúo y respondo?</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><div class="section-number">4</div><div class="section-title">Discernimiento — ¿Cómo se reconoce una mente renovada?</div></div>
+    <div class="highlight-box"><p>«…para que verifiquen cuál es la voluntad de Dios: lo que es bueno y aceptable y perfecto.» <br><span style="font-size:.8em;opacity:.8">Romanos 12:2 · NBLA · δοκιμάζω · dokimazō = probar, discernir</span></p></div>
+    <div style="height:.9rem"></div>
+    <table class="tabla-contraste"><thead><tr><th>La pregunta cambia de…</th><th>a…</th></tr></thead><tbody><tr><td>«¿Qué quiero?»</td><td>«¿Qué respuesta corresponde a la voluntad del Padre aquí?»</td></tr><tr><td>«Si pienso correctamente, el resultado debe ser el que espero.»</td><td>«Puedo obedecer aun cuando no controlo el resultado.»</td></tr><tr><td>«Una emoción fuerte define lo que es verdad.»</td><td>«La emoción se escucha, pero se examina bajo la Verdad.»</td></tr></tbody></table>
+    <div style="height:.9rem"></div>
+    <div class="highlight-box"><p>«La renovación no se mide primero por <strong>cuánto sé</strong>, sino por cómo empiezo a <strong>discernir y responder</strong>.»</p></div>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro"><strong>Pregunta.</strong> ¿Intento controlar el desenlace o discernir la obediencia que corresponde?</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><div class="section-number">5</div><div class="section-title">¿Cómo participamos?</div></div>
+    <div class="flujo"><div class="flujo-item">REEMPLAZAR</div><div class="flujo-arrow">↓</div><div class="flujo-item">REENTRENAR</div><div class="flujo-arrow">↓</div><div class="flujo-item">REPLANTEAR</div><div class="flujo-arrow">↓</div><div class="flujo-item">RECUPERAR</div></div>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro">Cuatro movimientos de entrenamiento pastoral; no son cuatro definiciones de renovación.</p>
+    <div style="height:.9rem"></div>
+    <div class="highlight-box"><p>Primera pregunta práctica: <strong>¿Qué está ocupando el lugar de la Verdad y necesita perder autoridad?</strong></p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><div class="section-number">★</div><div class="section-title">Resumen estratégico</div></div>
+    <div class="pensamientos"><div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">Comienza en misericordia, no en desempeño.</div></div></div><div class="pensamiento"><div class="pensamiento-num">2</div><div><div class="pensamiento-frase">Toda mente está siendo formada por algo.</div></div></div><div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">Renovar es ser hecho nuevo en la manera de interpretar.</div></div></div><div class="pensamiento"><div class="pensamiento-num">4</div><div><div class="pensamiento-frase">Es obra del Espíritu y proceso continuo.</div></div></div><div class="pensamiento"><div class="pensamiento-num">5</div><div><div class="pensamiento-frase">Su primera evidencia es el discernimiento.</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">6</div><div><div class="pensamiento-frase">Llega a la vida: discernir, responder, obedecer.</div></div></div></div>
+    <div style="height:.9rem"></div>
+    <p class="mecanismo-intro"><strong>Acción inmediata.</strong> Ante una reacción fuerte hoy, pregunta: ¿Qué forma acepté como normal? ¿Qué respuesta corresponde a la voluntad del Padre aquí?</p>
+  </div>
+
+  <div class="frase-final">
+    <blockquote>«La renovación empieza cuando <em>la Verdad recibe autoridad</em> para formar la manera desde la que discierno y respondo.»</blockquote>
+    <div class="frase-serie">Mayor que mi Realidad... es Su Verdad</div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="footer">
+    <div class="footer-marca">LHSCOL</div>
+    <div class="footer-data">MRV · F3 · MSG2 · INF<br>De adentro hacia afuera · Temporada 2026</div>
+  </div>
+
+</div>
+</div>
+<script src="/assets/mrv-resource-bar.js?v=20261004-f3-msg2-inf" data-type="info" data-slug="deadentrohaciaafuera"></script>
+</body>
+</html>

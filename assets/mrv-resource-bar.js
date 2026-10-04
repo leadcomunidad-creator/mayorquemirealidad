@@ -42,7 +42,8 @@
       },
       {
         id:'f3', title:'F3 · Protocolo', current:true, messages:[
-          ['msg-f3-1','El Buen Camino',{recent:true}]
+          ['msg-f3-1','El Buen Camino'],
+          ['msg-f3-2','De Adentro Hacia Afuera',{recent:true}]
         ]
       }
     ]
@@ -130,8 +131,9 @@
     hundanlosbarcos: { video:'https://youtu.be/y-n2CZ1Bm_0?si=xOO5IHpETwHZWYQb', blog:'/Blog/hundanlosbarcos', info:'/Info/hundanlosbarcos', mesa:'/Mesa/hundanlosbarcos' },
     nodejestumentevacia: { video:'https://youtu.be/bcRyWLsv4ig', blog:'/Blog/nodejestumentevacia', info:'/Info/nodejestumentevacia', mesa:'/Mesa/nodejestumentevacia' },
     corazonvaliente: { video:'https://youtu.be/AKyAYGsFo3E?si=xMJcd7_mg1b0tHVp', blog:'/Blog/corazonvaliente', info:'/Info/corazonvaliente', mesa:'/Mesa/corazonvaliente' },
-    esclavosdenadie: { blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' },
-    elbuencamino: { blog:'/Blog/elbuencamino', info:'/Info/elbuencamino', mesa:'/Mesa/elbuencamino' }
+    esclavosdenadie: { video:'https://youtu.be/jtkhnkfBKXI', blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' },
+    elbuencamino: { video:'https://youtu.be/vKl4N6gCgxc', blog:'/Blog/elbuencamino', info:'/Info/elbuencamino', mesa:'/Mesa/elbuencamino' },
+    deadentrohaciaafuera: { info:'/Info/deadentrohaciaafuera' }
   };
 
   const item = catalog[slug] || {};
@@ -163,6 +165,7 @@
   localFiles.info.elbuencamino = '/infografias/13-mrv-f3-msg1-el-buen-camino-inf.html';
   localFiles.blog.elbuencamino = '/blogs/10-mrv-f3-msg1-el-buen-camino-blg.html';
   localFiles.mesa.elbuencamino = '/mesa/12-mrv-f3-msg1-el-buen-camino-mes.html';
+  localFiles.info.deadentrohaciaafuera = '/infografias/13-mrv-f3-msg2-de-adentro-hacia-afuera-inf.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
