@@ -2,7 +2,7 @@
   --mrv-azul: #0056F1;
   --mrv-azul-claro: #B8D1FF;
   --mrv-durazno: #F2C5A1;
-  --mrv-mesa: #FC5054;
+  --mrv-mesa: #CC176E;
   --mrv-fondo: #020B1E;
 }
 
@@ -60,8 +60,8 @@ body.mrv-type-info { padding-top: 96px !important; }
 .mrv-button-video:hover, .mrv-button-info:hover { background: rgba(0,86,241,.2) !important; }
 .mrv-button-blog { color: var(--mrv-durazno) !important; border: 1px solid rgba(242,197,161,.55) !important; background: rgba(242,197,161,.08) !important; }
 .mrv-button-blog:hover { background: rgba(242,197,161,.18) !important; border-color: var(--mrv-durazno) !important; }
-.mrv-button-mesa { color: var(--mrv-mesa) !important; border: 1px solid rgba(252,80,84,.48) !important; background: rgba(252,80,84,.1) !important; }
-.mrv-button-mesa:hover { background: rgba(252,80,84,.22) !important; border-color: var(--mrv-mesa) !important; }
+.mrv-button-mesa { color: var(--mrv-mesa) !important; border: 1px solid rgba(204,23,110,.48) !important; background: rgba(204,23,110,.1) !important; }
+.mrv-button-mesa:hover { background: rgba(204,23,110,.22) !important; border-color: var(--mrv-mesa) !important; }
 .mrv-resource-button.is-disabled { opacity: .38 !important; cursor: not-allowed !important; pointer-events: none !important; }
 
 .mrv-lhscol {
@@ -112,9 +112,9 @@ body.mrv-type-info { padding-top: 96px !important; }
 .mrv-sidebar .fase-grupo .fase-contenido { display: none; }
 .mrv-sidebar .fase-grupo.abierto .fase-contenido { display: block; }
 .mrv-sidebar .fase-toggle { font-weight: 700; color: var(--mrv-durazno); }
-.mrv-sidebar .fase-grupo.fase-actual .fase-toggle { color: var(--mrv-mesa); background: rgba(252,80,84,.08); }
+.mrv-sidebar .fase-grupo.fase-actual .fase-toggle { color: var(--mrv-mesa); background: rgba(204,23,110,.08); }
 .mrv-sidebar .badge-estado { margin-left: auto; padding: 2px 7px; border-radius: 9px; font-size: 8px; font-weight: 700; letter-spacing: .1em; }
-.mrv-sidebar .badge-nuevo { color: #fff; background: rgba(252,80,84,.78); }
+.mrv-sidebar .badge-nuevo { color: #fff; background: rgba(204,23,110,.78); }
 .mrv-sidebar .badge-pronto { color: rgba(242,197,161,.68); border: 1px solid rgba(242,197,161,.2); }
 .mrv-sidebar .nav-item.mensaje-reciente {
   color: #fff;

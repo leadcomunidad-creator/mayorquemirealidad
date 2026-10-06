@@ -7228,9 +7228,15 @@ body{margin:0!important;padding-top:78px!important}
 .native-document,.native-surface{width:100%!important;max-width:none!important}
 @media(max-width:700px){body{padding-top:58px!important}}
 </style>
+<style id="mrv-mesa-gate-hotfix">
+body.locked{overflow:hidden!important;height:100vh!important}
+#native-mes #mes-contenido{display:none!important;opacity:0!important;visibility:hidden!important}
+#native-mes #mes-contenido.visible{display:block!important;opacity:1!important;visibility:visible!important}
+</style>
 </head>
-<body>
+<body class="locked">
 <section aria-label="MES · La Mesa" class="doc-section native-document activo" id="mes"><div class="native-surface native-mes" id="native-mes">
+<div id="gate"><div class="gate-card" id="gate-card"><div class="gate-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div class="gate-eyebrow">Acceso restringido</div><h1>Guía para Líderes<br>de La Mesa</h1><form id="gate-form" autocomplete="off"><input type="password" id="gate-pass" placeholder="Contraseña" inputmode="numeric" autocomplete="off"><button type="submit" id="gate-submit">Entrar</button><div id="gate-error"></div></form><div class="gate-nota">LHSCOL · Temporada 2026</div></div></div>
 <div id="mes-contenido">
 <section class="hero">
 <div class="hero-bg"></div>
@@ -7501,5 +7507,35 @@ body{margin:0!important;padding-top:78px!important}
 </div>
 </div></section>
 <script src="/assets/mrv-resource-bar.js?v=20261006-f3-msg2" data-type="mesa" data-slug="deadentrohaciaafuera"></script>
+<script id="mrv-mesa-gate-hotfix-script">
+(()=>{
+  const gate=document.getElementById('gate');
+  const form=document.getElementById('gate-form');
+  const input=document.getElementById('gate-pass');
+  const content=document.getElementById('mes-contenido');
+  if(!gate||!form||!input||!content) return;
+  function unlockMesa(){
+    gate.classList.add('oculto');
+    document.body.classList.remove('locked');
+    content.classList.add('visible');
+    sessionStorage.setItem('mrv-mesa-f3-msg2','open');
+  }
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(input.value.trim()==='2026'){
+      unlockMesa();
+    }else{
+      document.getElementById('gate-error').textContent='Contraseña incorrecta. Consulta con tu coordinador de HS.';
+      document.getElementById('gate-card').classList.remove('shake');
+      void document.getElementById('gate-card').offsetWidth;
+      document.getElementById('gate-card').classList.add('shake');
+      input.value='';
+      input.focus();
+    }
+  });
+  if(sessionStorage.getItem('mrv-mesa-f3-msg2')==='open') unlockMesa();
+  else setTimeout(()=>input.focus(),0);
+})();
+</script>
 </body>
 </html>
