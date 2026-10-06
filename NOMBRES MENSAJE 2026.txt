@@ -91,6 +91,8 @@ FASE 3: PROTOCOLO METANOIA
 
 F3_MSG1_EL_BUEN_CAMINO: blogs/10-mrv-f3-msg1-el-buen-camino-blg.html
 URL bonita: /Blog/elbuencamino
+F3_MSG2_DE_ADENTRO_HACIA_AFUERA: blogs/10-mrv-f3-msg2-de-adentro-hacia-afuera-blg.html
+URL bonita: /Blog/deadentrohaciaafuera
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: sin blog
@@ -159,6 +161,8 @@ FASE 3: PROTOCOLO METANOIA
 
 F3_MSG1_EL_BUEN_CAMINO: mesa/12-mrv-f3-msg1-el-buen-camino-mes.html
 URL bonita: /Mesa/elbuencamino
+F3_MSG2_DE_ADENTRO_HACIA_AFUERA: mesa/12-mrv-f3-msg2-de-adentro-hacia-afuera-mes.html
+URL bonita: /Mesa/deadentrohaciaafuera
 
 
 EXPEDIENTE NO LISTADO
@@ -169,4 +173,6 @@ F2_MSG10_ESCLAVOS_DE_NADIE: exp/esclavosdenadie.html
 URL directa: /exp/esclavosdenadie
 F3_MSG1_EL_BUEN_CAMINO: exp/elbuencamino.html
 URL directa: /exp/elbuencamino
+F3_MSG2_DE_ADENTRO_HACIA_AFUERA: exp/deadentrohaciaafuera.html
+URL directa: /exp/deadentrohaciaafuera
 

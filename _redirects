@@ -13,6 +13,9 @@
 # Expediente no listado de F3 MSG1 (acceso directo por enlace)
 /exp/elbuencamino  /exp/elbuencamino.html  200
 
+# Expediente no listado de F3 MSG2 (acceso directo por enlace)
+/exp/deadentrohaciaafuera  /exp/deadentrohaciaafuera.html  200
+
 # Pretty URLs for blog pages
 /Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
 /Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
@@ -107,6 +110,10 @@
 /Mesa/elbuencamino              /mesa/12-mrv-f3-msg1-el-buen-camino-mes.html                  200
 /mesa/elbuencamino              /mesa/12-mrv-f3-msg1-el-buen-camino-mes.html                  200
 
-# F3 MSG2 — De Adentro Hacia Afuera · solo INF
+# F3 MSG2 — De Adentro Hacia Afuera
+/Blog/deadentrohaciaafuera       /blogs/10-mrv-f3-msg2-de-adentro-hacia-afuera-blg.html           200
+/blog/deadentrohaciaafuera       /blogs/10-mrv-f3-msg2-de-adentro-hacia-afuera-blg.html           200
 /Info/deadentrohaciaafuera       /infografias/13-mrv-f3-msg2-de-adentro-hacia-afuera-inf.html     200
 /info/deadentrohaciaafuera       /infografias/13-mrv-f3-msg2-de-adentro-hacia-afuera-inf.html     200
+/Mesa/deadentrohaciaafuera       /mesa/12-mrv-f3-msg2-de-adentro-hacia-afuera-mes.html            200
+/mesa/deadentrohaciaafuera       /mesa/12-mrv-f3-msg2-de-adentro-hacia-afuera-mes.html            200

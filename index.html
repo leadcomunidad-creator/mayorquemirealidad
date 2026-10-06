@@ -1909,6 +1909,15 @@
   @media (max-width:900px) {
     body.portada-visible .portada-progreso { bottom:76px; }
   }
+  /* Tablet: evita superposición entre enlaces y progreso de portada */
+  @media (max-width:1024px) and (min-width:601px) {
+    #portada-estatica { padding:calc(var(--nav-h) + 18px) 22px 34px; gap:20px; }
+    .portada-acciones { width:100%; gap:14px; }
+    .portada-cta-row { gap:10px; flex-wrap:wrap; }
+    .portada-links { max-width:540px; gap:10px 14px; text-align:center; }
+    body.portada-visible .portada-progreso, .portada-progreso { position:static; left:auto; bottom:auto; transform:none; width:min(320px,74vw); margin-top:4px; }
+    .progreso-txt-p { font-size:8.5px; letter-spacing:1.2px; text-align:center; }
+  }
   @media (max-width:600px) {
     body.portada-visible { overflow-x:hidden; overflow-y:auto; }
     body.portada-oculta #portada-estatica { display:none; }
@@ -2007,7 +2016,7 @@
   <div data-mrv-season-menu></div>
 </aside>
 
-<script src="/assets/mrv-resource-bar.js?v=20260928-f3-msg1" data-mode="site-menu"></script>
+<script src="/assets/mrv-resource-bar.js?v=20261006-f3-msg2" data-mode="site-menu"></script>
 
 <section id="portada-estatica">
   <div class="spine"><span class="dot"></span> TEMPORADA 2026 &middot; MRV <span class="dot"></span></div>
@@ -2029,7 +2038,7 @@
         Ingresar a la temporada
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
-      <button type="button" class="btn-entrar btn-ultimo" onclick="irFase('f3','msg-f3-1')">
+      <button type="button" class="btn-entrar btn-ultimo" onclick="irFase('f3','msg-f3-2')">
         &Uacute;ltimo mensaje
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
@@ -2042,7 +2051,7 @@
   </div>
   <div class="portada-progreso">
     <div class="progreso-track-p"><div class="progreso-fill-p" id="progreso-fill-portada"></div></div>
-        <div class="progreso-txt-p"><b>26</b> de <b>30</b> ense&ntilde;anzas publicadas &middot; <b>3 fases</b></div>
+        <div class="progreso-txt-p"><b>28</b> de <b>33</b> ense&ntilde;anzas publicadas &middot; <b>3 fases</b></div>
   </div>
   <div class="portada-footer">LHSCOL<br>Temporada 2026</div>
 </section>
@@ -2894,7 +2903,7 @@
         <p class="fase-concepto">Entrenar la mente para vivir en la Verdad. Cuatro movimientos: Reemplazar, Reentrenar, Replantear y Recuperar. La renovación de la mente como un proceso continuo que nos enseña a discernir y responder desde la Verdad.</p>
         <div class="fase-meta">
           <div class="fase-meta-item"><div class="fase-dot"></div> 2 ENSEÑANZAS</div>
-          <div class="fase-meta-item"><div class="fase-dot"></div> 1 PUBLICADA</div>
+          <div class="fase-meta-item"><div class="fase-dot"></div> 2 PUBLICADAS</div>
           <div class="fase-meta-item"><div class="fase-dot" style="background:var(--melocoton)"></div> RENOVACIÓN DE LA MENTE</div>
         </div>
       </div>
@@ -2927,9 +2936,9 @@
           <div class="card-tesis">Cambiar por fuera no siempre significa ser renovado por dentro.</div>
           <div class="card-acciones">
             <span class="btn-recurso btn-video disabled"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</span>
-            <span class="btn-recurso btn-blog disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</span>
+            <a href="/Blog/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
             <a href="/Info/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
-            <span class="btn-recurso btn-mesa disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</span>
+            <a href="/Mesa/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
           </div>
         </div>
       </div>
