@@ -2038,7 +2038,7 @@
         Ingresar a la temporada
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
-      <button type="button" class="btn-entrar btn-ultimo" onclick="irFase('f3','msg-f3-2')">
+      <button type="button" class="btn-entrar btn-ultimo" onclick="irFase('fesp','sala-ep03')">
         &Uacute;ltimo mensaje
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
       </button>
@@ -2101,7 +2101,7 @@
         <span class="card-tag">&#9733; La Sala</span>
         <div class="card-titulo-idx">Episodios <em>Especiales</em></div>
         <div class="card-resumen">Conversaciones despues de varios mensajes, donde lo ensenado se discute, se confronta y se aterriza en voz alta.</div>
-        <div class="card-estado sala-ok"><span class="dt"></span> 1 episodio publicado</div>
+        <div class="card-estado sala-ok"><span class="dt"></span> 2 episodios publicados</div>
       </div>
     </div>
   </section>
@@ -2427,7 +2427,7 @@
         <button class="tab" data-fase="f2" onclick="showFase('f2',this)" role="tab">F2 · Diagnóstico</button>
         <button class="tab" data-fase="f3" onclick="showFase('f3',this)" role="tab">F3 · Protocolo</button>
         <span class="tabs-sep" aria-hidden="true"></span>
-        <button class="tab tab-sala" data-fase="fesp" onclick="showFase('fesp',this)" role="tab">★ La Sala <span class="tab-badge tab-badge-sala">1 episodio</span></button>
+        <button class="tab tab-sala" data-fase="fesp" onclick="showFase('fesp',this)" role="tab">★ La Sala <span class="tab-badge tab-badge-sala">2 episodios</span></button>
       </div>
       <div class="tabs-fade tabs-fade-left" id="tabs-fade-left"></div>
       <div class="tabs-fade tabs-fade-right" id="tabs-fade-right"></div>
@@ -2960,7 +2960,7 @@
           No es una fase de la temporada ni un mensaje más: es un podcast transversal que acompaña toda la temporada, recogiendo y profundizando lo ya enseñado en una conversación distinta.
         </p>
         <div class="sala-meta">
-          <div class="sala-meta-item"><div class="sala-dot"></div> 1 episodio publicado</div>
+          <div class="sala-meta-item"><div class="sala-dot"></div> 2 episodios publicados</div>
           <div class="sala-meta-item"><div class="sala-dot"></div> Conecta con MRV · Fase 2</div>
           <div class="sala-meta-item"><div class="sala-dot" style="background:var(--melocoton)"></div> Formato conversación</div>
         </div>
@@ -2991,16 +2991,25 @@
         </div>
       </div>
 
-      <!-- PRÓXIMO EPISODIO (placeholder) -->
-      <div class="sala-card pronto reveal">
+      <!-- EP 03 -->
+      <div class="sala-card reveal" id="sala-ep03">
         <div class="sala-card-inner">
           <div class="sala-card-icon"></div>
           <div class="sala-card-body">
-            <div class="sala-card-kicker">Próximo episodio</div>
+            <div class="sala-card-kicker"><span>EP. 03</span> · LA SALA · Conecta con MRV F2</div>
             <div class="sala-card-titulo">¿Y SI ESTÁBAMOS EQUIVOCADOS?</div>
-            <div class="sala-card-tesis">Cada nuevo episodio de La Sala aparecerá aquí a medida que se publique a lo largo del año.</div>
+            <div class="sala-card-tesis">Una conversación para revisar aquello que durante años asumimos como normal y preguntarnos cuánto de nuestra manera de pensar necesita ser confrontada por la Verdad.</div>
+            <div class="sala-card-panel">
+              <span class="sala-pill mod">Modera · Juan</span>
+              <span class="sala-pill">Lili</span>
+              <span class="sala-pill">Carlos</span>
+              <span class="sala-pill">Yuli</span>
+            </div>
+            <div class="sala-card-acciones">
+              <a href="https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u" target="_blank" rel="noopener" class="btn-sala"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>VIDEO</a>
+              <a href="/Blog/estabamosequivocados" target="_blank" class="btn-sala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/></svg>BLOG</a>
+            </div>
           </div>
-          <div class="sala-pronto-badge">Pronto</div>
         </div>
       </div>
 

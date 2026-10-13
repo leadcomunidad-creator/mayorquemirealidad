@@ -47,6 +47,7 @@ F3_MSG2_DE_ADENTRO_HACIA_AFUERA: sin video
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: https://youtu.be/jMq081xWWGE
+EP03_Y_SI_ESTABAMOS_EQUIVOCADOS: https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u
 
 
 BLOG
@@ -96,6 +97,8 @@ URL bonita: /Blog/deadentrohaciaafuera
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: sin blog
+EP03_Y_SI_ESTABAMOS_EQUIVOCADOS: blogs/10-lasala-f2-ep03-y-si-estabamos-equivocados-blg.html
+URL bonita: /Blog/estabamosequivocados
 
 
 INFOGRAFIA
