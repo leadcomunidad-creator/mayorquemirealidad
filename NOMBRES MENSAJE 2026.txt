@@ -44,10 +44,11 @@ FASE 3: PROTOCOLO METANOIA
 
 F3_MSG1_EL_BUEN_CAMINO: https://youtu.be/vKl4N6gCgxc
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: sin video
+F3_MSG3_DE_AHORA_EN_ADELANTE: https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: https://youtu.be/jMq081xWWGE
-EP03_Y_SI_ESTABAMOS_EQUIVOCADOS: https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u
+EP03_Y_SI_ESTABAMOS_EQUIVOCADOS: sin video
 
 
 BLOG
@@ -94,6 +95,7 @@ F3_MSG1_EL_BUEN_CAMINO: blogs/10-mrv-f3-msg1-el-buen-camino-blg.html
 URL bonita: /Blog/elbuencamino
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: blogs/10-mrv-f3-msg2-de-adentro-hacia-afuera-blg.html
 URL bonita: /Blog/deadentrohaciaafuera
+F3_MSG3_DE_AHORA_EN_ADELANTE: sin blog
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: sin blog
@@ -145,6 +147,7 @@ F3_MSG1_EL_BUEN_CAMINO: infografias/13-mrv-f3-msg1-el-buen-camino-inf.html
 URL bonita: /Info/elbuencamino
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: infografias/13-mrv-f3-msg2-de-adentro-hacia-afuera-inf.html
 URL bonita: /Info/deadentrohaciaafuera
+F3_MSG3_DE_AHORA_EN_ADELANTE: sin info
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP02_TE_MINTIERON_Y_NI_CUENTA_TE_DISTE: index/infografias/13-lasala-mrv-f2-ep02-te-mintieron-y-ni-cuenta-te-diste-inf.html
@@ -166,6 +169,7 @@ F3_MSG1_EL_BUEN_CAMINO: mesa/12-mrv-f3-msg1-el-buen-camino-mes.html
 URL bonita: /Mesa/elbuencamino
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: mesa/12-mrv-f3-msg2-de-adentro-hacia-afuera-mes.html
 URL bonita: /Mesa/deadentrohaciaafuera
+F3_MSG3_DE_AHORA_EN_ADELANTE: sin mesa
 
 
 EXPEDIENTE NO LISTADO
@@ -178,4 +182,5 @@ F3_MSG1_EL_BUEN_CAMINO: exp/elbuencamino.html
 URL directa: /exp/elbuencamino
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: exp/deadentrohaciaafuera.html
 URL directa: /exp/deadentrohaciaafuera
+F3_MSG3_DE_AHORA_EN_ADELANTE: sin expediente
 

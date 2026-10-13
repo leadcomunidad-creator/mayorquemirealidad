@@ -43,7 +43,8 @@
       {
         id:'f3', title:'F3 · Protocolo', current:true, messages:[
           ['msg-f3-1','El Buen Camino'],
-          ['msg-f3-2','De Adentro Hacia Afuera',{recent:true}]
+          ['msg-f3-2','De Adentro Hacia Afuera'],
+          ['msg-f3-3','De Ahora en Adelante',{recent:true}]
         ]
       }
     ]
@@ -133,7 +134,8 @@
     corazonvaliente: { video:'https://youtu.be/AKyAYGsFo3E?si=xMJcd7_mg1b0tHVp', blog:'/Blog/corazonvaliente', info:'/Info/corazonvaliente', mesa:'/Mesa/corazonvaliente' },
     esclavosdenadie: { video:'https://youtu.be/jtkhnkfBKXI', blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' },
     elbuencamino: { video:'https://youtu.be/vKl4N6gCgxc', blog:'/Blog/elbuencamino', info:'/Info/elbuencamino', mesa:'/Mesa/elbuencamino' },
-    deadentrohaciaafuera: { blog:'/Blog/deadentrohaciaafuera', info:'/Info/deadentrohaciaafuera', mesa:'/Mesa/deadentrohaciaafuera' }
+    deadentrohaciaafuera: { blog:'/Blog/deadentrohaciaafuera', info:'/Info/deadentrohaciaafuera', mesa:'/Mesa/deadentrohaciaafuera' },
+    deahoraenadelante: { video:'https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u' }
   };
 
   const item = catalog[slug] || {};
