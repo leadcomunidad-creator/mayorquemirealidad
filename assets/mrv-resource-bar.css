@@ -103,7 +103,7 @@ body.mrv-type-info { padding-top: 96px !important; }
 .mrv-sidebar .nav-item:hover { color: #fff; background: #0A1B3D; }
 .mrv-sidebar .nav-portada { color: var(--mrv-durazno); font-weight: 700; }
 .mrv-sidebar .nav-sala { color: #A8FF3E; font-weight: 700; }
-.mrv-sidebar .nav-sala .sala-star { color: #A8FF3E; min-width: 14px; }
+.mrv-sidebar .nav-sala .sala-logo-inline { width: 18px; height: 18px; object-fit: contain; flex: 0 0 18px; }
 .mrv-sidebar .nav-sala .sala-dot { width: 6px; height: 6px; margin-left: auto; border-radius: 50%; background: #A8FF3E; }
 .mrv-sidebar .nav-item.sub { padding-left: 22px; font-size: 11px; color: rgba(184,209,255,.62); }
 .mrv-sidebar .nav-item.pendiente { opacity: .42; pointer-events: none; }

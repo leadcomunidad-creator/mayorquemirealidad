@@ -423,15 +423,30 @@
     pointer-events: none;
   }
 
-  .sala-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 60px;
-    font-weight: 900;
-    font-style: italic;
-    line-height: 1;
-    color: rgba(168,255,62,0.2);
+  .sala-logo {
+    width: 92px;
+    height: 92px;
     flex-shrink: 0;
-    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sala-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .sala-logo-inline {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .nav-item .num.sala-menu-logo {
+    display: inline-flex;
+    min-width: 20px;
+    align-items: center;
   }
 
   .sala-kicker {
@@ -531,6 +546,29 @@
     align-items: flex-start;
     gap: 18px;
   }
+
+  .sala-card-inner-with-video {
+    display: grid;
+    grid-template-columns: 38px minmax(180px, 238px) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .sala-video-preview {
+    border-color: rgba(168, 255, 62, 0.5);
+    background: #0b1205;
+  }
+
+  .sala-video-preview::after {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.06), rgba(5, 12, 2, 0.78));
+  }
+
+  .sala-video-preview .video-preview-play {
+    color: #0A0A0A;
+    background: rgba(168, 255, 62, 0.9);
+    box-shadow: 0 0 0 6px rgba(168, 255, 62, 0.13);
+  }
+
+  .sala-video-preview:hover .video-preview-play { background: #A8FF3E; }
 
   .sala-card-icon {
     width: 38px; height: 38px;
@@ -844,6 +882,76 @@
 
   .card-body { flex: 1; min-width: 0; }
 
+  .card-body-with-video {
+    display: grid;
+    grid-template-columns: minmax(180px, 238px) minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+  }
+
+  .video-preview {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid rgba(0, 134, 255, 0.38);
+    border-radius: 10px;
+    background: #07132d;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    text-decoration: none;
+  }
+
+  .video-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .video-preview::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 7, 25, 0.08), rgba(0, 7, 25, 0.76));
+  }
+
+  .video-preview-play,
+  .video-preview-label {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .video-preview-play {
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(0, 86, 241, 0.84);
+    box-shadow: 0 0 0 6px rgba(0, 86, 241, 0.16);
+    transform: translate(-50%, -50%);
+  }
+
+  .video-preview-play svg { width: 16px; height: 16px; margin-left: 2px; }
+
+  .video-preview-label {
+    right: 9px;
+    bottom: 8px;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .video-preview:hover img { filter: brightness(1.1); transform: scale(1.04); }
+  .video-preview:hover .video-preview-play { background: #0056F1; }
+
   .card-kicker {
     font-size: 9px;
     font-weight: 700;
@@ -870,7 +978,7 @@
     line-height: 1.6;
     margin-bottom: 14px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -1701,6 +1809,10 @@
     .card-kicker { font-size: 8px; letter-spacing: 1.8px; }
     .card-titulo { font-size: 17px; margin-bottom: 5px; }
     .card-tesis { font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
+    .card-body-with-video { grid-template-columns: 1fr; gap: 13px; }
+    .video-preview { width: min(100%, 360px); }
+    .sala-card-inner.sala-card-inner-with-video { display: grid; grid-template-columns: 1fr; gap: 13px; }
+    .sala-card-inner-with-video .sala-card-icon { display: none; }
     .card-acciones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
     .btn-recurso { min-height: 32px; padding: 7px 8px; justify-content: center; border-radius: 7px; font-size: 8.5px; letter-spacing: 1px; }
     .btn-recurso svg { width: 11px; height: 11px; }
@@ -2046,7 +2158,7 @@
     <div class="portada-links">
       <button type="button" class="link-quieto" onclick="ir('intro')"><span class="lq-dot"></span>&iquest;De qu&eacute; se trata esta temporada?</button>
       <div class="link-sep"></div>
-      <button type="button" class="link-quieto sala" onclick="irFase('fesp')"><span class="lq-dot"></span>&#9733; La Sala &middot; Episodios</button>
+      <button type="button" class="link-quieto sala" onclick="irFase('fesp')"><span class="lq-dot"></span><img class="sala-logo-inline" src="/assets/la-sala-logo.png" alt="" aria-hidden="true"> La Sala &middot; Episodios</button>
     </div>
   </div>
   <div class="portada-progreso">
@@ -2098,10 +2210,10 @@
     <p class="bloque-nota-idx">No es una fase ni un mensaje mas -- es una conversacion que acompana toda la temporada, transversal a todas las fases.</p>
     <div class="grid-cards">
       <div class="doc-card tag-sala" onclick="irFase('fesp')">
-        <span class="card-tag">&#9733; La Sala</span>
+        <span class="card-tag"><img class="sala-logo-inline" src="/assets/la-sala-logo.png" alt="" aria-hidden="true"> La Sala</span>
         <div class="card-titulo-idx">Episodios <em>Especiales</em></div>
         <div class="card-resumen">Conversaciones despues de varios mensajes, donde lo ensenado se discute, se confronta y se aterriza en voz alta.</div>
-        <div class="card-estado sala-ok"><span class="dt"></span> 2 episodios publicados</div>
+        <div class="card-estado sala-ok"><span class="dt"></span> 3 episodios publicados</div>
       </div>
     </div>
   </section>
@@ -2427,7 +2539,7 @@
         <button class="tab" data-fase="f2" onclick="showFase('f2',this)" role="tab">F2 · Diagnóstico</button>
         <button class="tab" data-fase="f3" onclick="showFase('f3',this)" role="tab">F3 · Protocolo</button>
         <span class="tabs-sep" aria-hidden="true"></span>
-        <button class="tab tab-sala" data-fase="fesp" onclick="showFase('fesp',this)" role="tab">★ La Sala <span class="tab-badge tab-badge-sala">2 episodios</span></button>
+        <button class="tab tab-sala" data-fase="fesp" onclick="showFase('fesp',this)" role="tab"><img class="sala-logo-inline" src="/assets/la-sala-logo.png" alt="" aria-hidden="true"> La Sala <span class="tab-badge tab-badge-sala">3 episodios</span></button>
       </div>
       <div class="tabs-fade tabs-fade-left" id="tabs-fade-left"></div>
       <div class="tabs-fade tabs-fade-right" id="tabs-fade-right"></div>
@@ -2913,15 +3025,22 @@
       <!-- MSG 1 -->
       <div class="card reveal" id="msg-f3-1">
         <div class="card-num">1</div>
-        <div class="card-body">
-          <div class="card-kicker">F3 · MSG1</div>
-          <div class="card-titulo">El Buen Camino</div>
-          <div class="card-tesis">El Buen Camino comienza cuando Su Palabra dirige, Su Reino gobierna y Su Espíritu transforma.</div>
-          <div class="card-acciones">
-            <a href="https://youtu.be/vKl4N6gCgxc" target="_blank" rel="noopener" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
-            <a href="/Blog/elbuencamino" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-            <a href="/Info/elbuencamino" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
-            <a href="/Mesa/elbuencamino" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
+        <div class="card-body card-body-with-video">
+          <a class="video-preview" href="https://youtu.be/vKl4N6gCgxc" target="_blank" rel="noopener" aria-label="Ver en YouTube: El Buen Camino">
+            <img src="https://i.ytimg.com/vi/vKl4N6gCgxc/hqdefault.jpg" alt="Previsualización del video de YouTube El Buen Camino" loading="lazy">
+            <span class="video-preview-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19"/></svg></span>
+            <span class="video-preview-label" aria-hidden="true">Ver en YouTube</span>
+          </a>
+          <div class="card-copy">
+            <div class="card-kicker">F3 · MSG1</div>
+            <div class="card-titulo">El Buen Camino</div>
+            <div class="card-tesis">El Buen Camino comienza cuando Su Palabra dirige, Su Reino gobierna y Su Espíritu transforma. No se trata de aprender una conducta nueva, sino de descubrir una manera distinta de caminar. Cada decisión diaria revela hacia dónde está orientado el corazón.</div>
+            <div class="card-acciones">
+              <a href="https://youtu.be/vKl4N6gCgxc" target="_blank" rel="noopener" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
+              <a href="/Blog/elbuencamino" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+              <a href="/Info/elbuencamino" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
+              <a href="/Mesa/elbuencamino" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
+            </div>
           </div>
         </div>
       </div>
@@ -2930,15 +3049,22 @@
       <!-- MSG 2 -->
       <div class="card reveal" id="msg-f3-2">
         <div class="card-num">2</div>
-        <div class="card-body">
-          <div class="card-kicker">F3 · MSG2</div>
-          <div class="card-titulo">De Adentro Hacia Afuera</div>
-          <div class="card-tesis">Cambiar por fuera no siempre significa ser renovado por dentro.</div>
-          <div class="card-acciones">
-            <a href="https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u" target="_blank" rel="noopener" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
-            <a href="/Blog/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-            <a href="/Info/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
-            <a href="/Mesa/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
+        <div class="card-body card-body-with-video">
+          <a class="video-preview" href="https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u" target="_blank" rel="noopener" aria-label="Ver en YouTube: De Adentro Hacia Afuera">
+            <img src="https://i.ytimg.com/vi/qX-JVcMq6Nw/hqdefault.jpg" alt="Previsualización del video de YouTube De Adentro Hacia Afuera" loading="lazy">
+            <span class="video-preview-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19"/></svg></span>
+            <span class="video-preview-label" aria-hidden="true">Ver en YouTube</span>
+          </a>
+          <div class="card-copy">
+            <div class="card-kicker">F3 · MSG2</div>
+            <div class="card-titulo">De Adentro Hacia Afuera</div>
+            <div class="card-tesis">Cambiar por fuera no siempre significa ser renovado por dentro. Dios no maquilla hábitos: va al lugar donde nacen las decisiones, los miedos y las narrativas. La transformación real empieza cuando dejamos que la Verdad trabaje de adentro hacia afuera.</div>
+            <div class="card-acciones">
+              <a href="https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u" target="_blank" rel="noopener" class="btn-recurso btn-video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
+              <a href="/Blog/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2 2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+              <a href="/Info/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-infografia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Infografía</a>
+              <a href="/Mesa/deadentrohaciaafuera" target="_blank" class="btn-recurso btn-mesa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Mesa</a>
+            </div>
           </div>
         </div>
       </div>
@@ -2946,8 +3072,9 @@
       <div class="card reveal mensaje-reciente" id="msg-f3-3">
         <div class="card-num">3</div>
         <div class="card-body">
-          <div class="card-kicker">F3 · MSG3 · REEMPLAZAR</div>
+          <div class="card-kicker">F3 · MSG3</div>
           <div class="card-titulo">Reemplazar con la Verdad</div>
+          <div class="card-tesis">La Verdad no solo corrige lo que decimos: reemplaza las ideas que han ocupado el lugar de Dios. En este mensaje aprendemos a identificar las voces que nos gobiernan y a renovar la mente con lo que Él realmente dice. No basta con dejar de creer una mentira; hay que llenarse de la Verdad.</div>
           <div class="card-acciones">
             <span class="btn-recurso btn-video disabled"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</span>
             <span class="btn-recurso btn-blog disabled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</span>
@@ -2965,7 +3092,7 @@
   <div class="fase-panel" id="fesp">
 
     <div class="sala-header reveal">
-      <div class="sala-num">★</div>
+      <div class="sala-logo"><img src="/assets/la-sala-logo.png" alt="Logo de La Sala"></div>
       <div class="fase-info">
         <div class="sala-kicker"><span class="sala-kicker-dot"></span> La Sala · Podcast</div>
         <h2 class="sala-titulo">Episodios <em>Especiales</em></h2>
@@ -2991,6 +3118,12 @@
             <div class="sala-card-kicker"><span>EP. 01</span> · LA SALA · Conecta con MRV F1</div>
             <div class="sala-card-titulo">Crucemos al Otro Lado</div>
             <div class="sala-card-tesis">Cruzar el umbral con Jesús cuando todavía queremos tener el control. Una conversación sobre control, rendición y Marcos 4:35–41.</div>
+            <div class="sala-card-panel">
+              <span class="sala-pill mod">Modera · Juan</span>
+              <span class="sala-pill">War</span>
+              <span class="sala-pill">Danna</span>
+              <span class="sala-pill">Lili</span>
+            </div>
             <div class="sala-card-acciones">
               <a href="https://youtu.be/Mff3Ygkaga4" target="_blank" rel="noopener" class="btn-sala"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>Video</a>
               <a href="/Blog/crucemosalotrolado" target="_blank" class="btn-sala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/></svg>BLOG</a>
@@ -3257,6 +3390,73 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── PREVISUALIZACIONES DE YOUTUBE ──
+// Solo se crean para botones que ya contienen un enlace de YouTube aprobado.
+function youtubeIdFromUrl(url) {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/i);
+  return match ? match[1] : null;
+}
+
+function crearPrevisualizacionYoutube(videoLink, titulo, extraClass = '') {
+  const id = youtubeIdFromUrl(videoLink.href);
+  if (!id) return null;
+
+  const preview = document.createElement('a');
+  preview.className = `video-preview ${extraClass}`.trim();
+  preview.href = videoLink.href;
+  preview.target = '_blank';
+  preview.rel = 'noopener';
+  preview.setAttribute('aria-label', `Ver en YouTube: ${titulo}`);
+
+  const image = document.createElement('img');
+  image.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  image.alt = `Previsualización del video de YouTube ${titulo}`;
+  image.loading = 'lazy';
+
+  const play = document.createElement('span');
+  play.className = 'video-preview-play';
+  play.setAttribute('aria-hidden', 'true');
+  play.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19"/></svg>';
+
+  const label = document.createElement('span');
+  label.className = 'video-preview-label';
+  label.setAttribute('aria-hidden', 'true');
+  label.textContent = 'Ver en YouTube';
+
+  preview.append(image, play, label);
+  return preview;
+}
+
+document.querySelectorAll('.ensenanzas-lista .card').forEach(card => {
+  const body = card.querySelector('.card-body');
+  const video = body?.querySelector('a.btn-recurso.btn-video[href]');
+  if (!body || !video || body.querySelector('.video-preview')) return;
+
+  const title = card.querySelector('.card-titulo')?.textContent.trim() || 'Video';
+  const preview = crearPrevisualizacionYoutube(video, title);
+  if (!preview) return;
+
+  const copy = document.createElement('div');
+  copy.className = 'card-copy';
+  while (body.firstChild) copy.append(body.firstChild);
+  body.classList.add('card-body-with-video');
+  body.append(preview, copy);
+});
+
+document.querySelectorAll('.sala-card').forEach(card => {
+  const inner = card.querySelector('.sala-card-inner');
+  const body = card.querySelector('.sala-card-body');
+  const video = body?.querySelector('a.btn-sala[href]');
+  if (!inner || !body || !video || inner.querySelector('.video-preview')) return;
+
+  const title = card.querySelector('.sala-card-titulo')?.textContent.trim() || 'La Sala';
+  const preview = crearPrevisualizacionYoutube(video, title, 'sala-video-preview');
+  if (!preview) return;
+
+  inner.classList.add('sala-card-inner-with-video');
+  inner.insertBefore(preview, body);
+});
 
 // Los recursos internos permanecen en la misma pestaña para evitar el salto visual móvil.
 document.addEventListener('click', event => {

@@ -53,8 +53,8 @@
   const renderSeasonMenu = mode => {
     const inIndex = mode === 'index';
     const general = inIndex
-      ? `<div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><button type="button" class="nav-item nav-portada" onclick="mostrarPortada()"><span class="num">—</span> Portada</button><button type="button" class="nav-item" onclick="ir('intro')"><span class="num">—</span> ¿De qué se trata esta temporada?</button><button type="button" class="nav-item" onclick="ir('indice')"><span class="num">—</span> Tabla de contenido</button><button type="button" class="nav-item sala-item" onclick="irFase('fesp')"><span class="num">★</span> Episodios de La Sala <span class="estado-dot"></span></button></div>`
-      : `<div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><a class="nav-item nav-portada" href="/">Portada</a><a class="nav-item" href="/?view=intro">¿De qué se trata esta temporada?</a><a class="nav-item" href="/?view=indice">Tabla de contenido</a><a class="nav-item nav-sala" href="/?view=sala"><span class="sala-star">★</span><span>Episodios de La Sala</span><span class="sala-dot"></span></a></div>`;
+      ? `<div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><button type="button" class="nav-item nav-portada" onclick="mostrarPortada()"><span class="num">—</span> Portada</button><button type="button" class="nav-item" onclick="ir('intro')"><span class="num">—</span> ¿De qué se trata esta temporada?</button><button type="button" class="nav-item" onclick="ir('indice')"><span class="num">—</span> Tabla de contenido</button><button type="button" class="nav-item sala-item" onclick="irFase('fesp')"><span class="num sala-menu-logo"><img class="sala-logo-inline" src="/assets/la-sala-logo.png" alt="" aria-hidden="true"></span> Episodios de La Sala <span class="estado-dot"></span></button></div>`
+      : `<div class="marca">LHSCOL</div><div class="serie"><span>MAYOR QUE MI REALIDAD</span><span>TEMPORADA 2026</span></div><div class="bloque-nav"><a class="nav-item nav-portada" href="/">Portada</a><a class="nav-item" href="/?view=intro">¿De qué se trata esta temporada?</a><a class="nav-item" href="/?view=indice">Tabla de contenido</a><a class="nav-item nav-sala" href="/?view=sala"><img class="sala-logo-inline" src="/assets/la-sala-logo.png" alt="" aria-hidden="true"><span>Episodios de La Sala</span><span class="sala-dot"></span></a></div>`;
     const phases = menuDefinition.phases.map(phase => {
       if (phase.pending) {
         return inIndex
@@ -216,7 +216,7 @@
     sidebar.setAttribute('aria-label','Menú de la temporada');
     sidebar.innerHTML = `<button type="button" class="mrv-sidebar-close" aria-label="Cerrar menú"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>${renderSeasonMenu('resource')}`;
     const salaLink = sidebar.querySelector('.nav-sala');
-    if (salaLink) salaLink.innerHTML = '<span class="sala-star">★</span><span>Episodios de La Sala</span><span class="sala-dot"></span>';
+    if (salaLink) salaLink.innerHTML = '<img class="sala-logo-inline" src="/assets/la-sala-logo.png" alt="" aria-hidden="true"><span>Episodios de La Sala</span><span class="sala-dot"></span>';
     document.body.append(overlay,sidebar);
 
     const openMenu = () => { overlay.classList.add('is-open'); sidebar.classList.add('is-open'); document.documentElement.style.overflow='hidden'; };
