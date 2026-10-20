@@ -135,7 +135,7 @@
     esclavosdenadie: { video:'https://youtu.be/jtkhnkfBKXI', blog:'/Blog/esclavosdenadie', info:'/Info/esclavosdenadie', mesa:'/Mesa/esclavosdenadie' },
     elbuencamino: { video:'https://youtu.be/vKl4N6gCgxc', blog:'/Blog/elbuencamino', info:'/Info/elbuencamino', mesa:'/Mesa/elbuencamino' },
     deadentrohaciaafuera: { video:'https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u', blog:'/Blog/deadentrohaciaafuera', info:'/Info/deadentrohaciaafuera', mesa:'/Mesa/deadentrohaciaafuera' },
-    reemplazarconlaverdad: { info:'/Info/reemplazarconlaverdad' }
+    reemplazarconlaverdad: { video:'https://youtu.be/POTTnzBp8sQ?si=GLFyyiZmr_4FRkQ3', blog:'/Blog/reemplazarconlaverdad', info:'/Info/reemplazarconlaverdad', mesa:'/Mesa/reemplazarconlaverdad' }
   };
 
   const item = catalog[slug] || {};
@@ -170,6 +170,9 @@
   localFiles.blog.deadentrohaciaafuera = '/blogs/10-mrv-f3-msg2-de-adentro-hacia-afuera-blg.html';
   localFiles.info.deadentrohaciaafuera = '/infografias/13-mrv-f3-msg2-de-adentro-hacia-afuera-inf.html';
   localFiles.mesa.deadentrohaciaafuera = '/mesa/12-mrv-f3-msg2-de-adentro-hacia-afuera-mes.html';
+  localFiles.blog.reemplazarconlaverdad = '/blogs/10-mrv-f3-msg3-reemplazar-con-la-verdad-blg.html';
+  localFiles.info.reemplazarconlaverdad = '/infografias/13-mrv-f3-msg3-reemplazar-con-la-verdad-inf.html';
+  localFiles.mesa.reemplazarconlaverdad = '/mesa/12-mrv-f3-msg3-reemplazar-con-la-verdad-mes.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',

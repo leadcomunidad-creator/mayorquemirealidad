@@ -44,7 +44,7 @@ FASE 3: PROTOCOLO METANOIA
 
 F3_MSG1_EL_BUEN_CAMINO: https://youtu.be/vKl4N6gCgxc
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u
-F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: sin video
+F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: https://youtu.be/POTTnzBp8sQ?si=GLFyyiZmr_4FRkQ3
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP01_CRUCEMOS_AL_OTRO_LADO: https://youtu.be/Mff3Ygkaga4
@@ -96,7 +96,8 @@ F3_MSG1_EL_BUEN_CAMINO: blogs/10-mrv-f3-msg1-el-buen-camino-blg.html
 URL bonita: /Blog/elbuencamino
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: blogs/10-mrv-f3-msg2-de-adentro-hacia-afuera-blg.html
 URL bonita: /Blog/deadentrohaciaafuera
-F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: sin blog
+F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: blogs/10-mrv-f3-msg3-reemplazar-con-la-verdad-blg.html
+URL bonita: /Blog/reemplazarconlaverdad
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP01_CRUCEMOS_AL_OTRO_LADO: blogs/10-lasala-f1-ep01-crucemos-al-otro-lado-blg.html
@@ -174,7 +175,8 @@ F3_MSG1_EL_BUEN_CAMINO: mesa/12-mrv-f3-msg1-el-buen-camino-mes.html
 URL bonita: /Mesa/elbuencamino
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: mesa/12-mrv-f3-msg2-de-adentro-hacia-afuera-mes.html
 URL bonita: /Mesa/deadentrohaciaafuera
-F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: sin mesa
+F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: mesa/12-mrv-f3-msg3-reemplazar-con-la-verdad-mes.html
+URL bonita: /Mesa/reemplazarconlaverdad
 
 
 EXPEDIENTE NO LISTADO
