@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MRV 2026">
+  <rect width="512" height="512" rx="96" fill="#020B1E"/>
+  <circle cx="256" cy="213" r="150" fill="#0056F1" opacity=".25"/>
+  <path d="M108 294 206 128l50 85 50-85 98 166" fill="none" stroke="#B8D1FF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="256" y="354" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="94" font-weight="700" letter-spacing="4">MRV</text>
+  <text x="256" y="420" text-anchor="middle" fill="#F2C5A1" font-family="Arial, sans-serif" font-size="46" font-weight="700" letter-spacing="8">2026</text>
+</svg>
