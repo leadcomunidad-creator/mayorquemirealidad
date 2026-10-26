@@ -7,6 +7,20 @@
 - Antes de editar, comprobar que `git rev-parse --show-toplevel` devuelve exactamente esta ruta.
 - No buscar, elegir ni editar carpetas anidadas, ZIPs, backups u otras copias como si fueran repositorios. Si aparece una copia, no se usa como destino de publicación.
 
+## Reinicio de un chat: paquete vivo obligatorio
+
+Antes de analizar, editar o publicar, un chat nuevo debe leer íntegramente y en este orden:
+
+1. `README.md`
+2. `CONTROL_MRV/00_START_HERE.md`
+3. `CONTROL_MRV/PAQUETE_VIVO.md`
+4. `CONTROL_MRV/ESTADO_ACTUAL.md`
+5. `CONTROL_MRV/FLUJO_DE_ENTREGA.md`
+6. `CONTROL_MRV/HANDOFF_ACTIVO.md`
+7. `CONTROL_MRV/REGISTRO_DE_PUBLICACIONES.md`
+
+Después debe ejecutar `git status --short --branch` y `git ls-remote origin refs/heads/main`, informar el estado encontrado y no modificar, borrar, resetear ni publicar nada antes de identificar el alcance autorizado por el usuario.
+
 ## Cuando el usuario entrega una Infografía
 
 El usuario entrega la fuente editorial. El integrador debe realizar el flujo completo sin pedir correcciones rutinarias:
