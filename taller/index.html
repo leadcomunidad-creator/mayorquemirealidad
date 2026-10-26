@@ -65,11 +65,17 @@
   /* ---------- Hero ---------- */
   .poster{display:block;width:100%;height:auto;border-radius:10px;margin-top:22px}
   .hero-copy{padding:clamp(40px,7vw,72px) 0 clamp(48px,8vw,88px)}
+  @media(max-width:760px){.hero-copy{padding-left:20px;padding-right:20px}}
   .eyebrow{font-size:.78rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--peach);margin-bottom:18px}
   h1{font-family:'Unbounded',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.18;color:var(--ink);font-size:clamp(1.45rem,4.6vw,2.4rem)}
   h1 em{font-style:normal;color:var(--pink);display:block}
   .hook{margin-top:34px;font-family:'Playfair Display',serif;font-style:italic;font-weight:800;color:var(--peach);font-size:clamp(1.25rem,3.4vw,1.65rem);line-height:1.4}
   .hero-copy .txt{margin-top:22px}
+  .meta-line{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text);line-height:1.5}
+  .meta-line span{white-space:nowrap}
+  .meta-line span:not(:last-child)::after{content:"·";color:var(--pink-light);margin:0 .9em}
+  .meta-line .nl{display:none}
+  @media(max-width:480px){.meta-line{font-size:.7rem;letter-spacing:.1em}.meta-line .nl{display:block;flex-basis:100%;height:0}.meta-line span:nth-of-type(2)::after{display:none}}
   .cta{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:38px}
 
   /* ---------- Secciones ---------- */
@@ -234,6 +240,7 @@
     <p class="hook">Puedes conocer la Verdad de Dios y, aun así, seguir respondiendo a ciertas situaciones desde las mismas creencias de siempre.</p>
     <p class="txt">Protocolo Metanoia es un taller bíblico y práctico de cuatro semanas para aprender a identificar esas creencias, confrontarlas con la Verdad de Jesús y comenzar a desarrollar una nueva manera de interpretar y responder a la vida.</p>
     <p class="txt"><strong>No se trata de pensar positivo.</strong> Es permitir que el Espíritu de Dios, mediante Su Palabra, renueve tu manera de pensar, sin negar lo que estás viviendo.</p>
+    <p class="meta-line" aria-label="Datos del taller: 4 semanas, online, inicio 9 de noviembre, $100.000 COP individual"><span>4 semanas</span><span>Online</span><i class="nl" aria-hidden="true"></i><span>Inicio 9 nov</span><span>$100.000 COP individual</span></p>
     <div class="cta">
       <a class="btn" href="#formulario" data-open>Quiero inscribirme</a>
       <a class="link" href="#trabajar">Conoce el taller</a>
@@ -266,19 +273,15 @@
     <div class="flow">
       <div class="step-row rv">
         <span class="when">Lunes</span>
-        <div><h3>Aprende</h3><p>Los videos de THE WAY COLLEGE contienen el fundamento bíblico necesario para comprender el recorrido.</p></div>
+        <div><h3>Enseñanza y acompañamiento</h3><p>Video con la enseñanza bíblica semanal en THE WAY COLLEGE, que contiene el fundamento necesario para comprender las prácticas, y encuentro semanal requerido por Zoom para la cohorte en vivo de 2026, para profundizar, resolver preguntas y orientar el trabajo personal.</p></div>
       </div>
       <div class="step-row rv">
         <span class="when">Martes a viernes</span>
-        <div><h3>Ponlo en práctica</h3><p>Ejercicios prácticos guiados para acudir a la Escritura y aplicarla a situaciones reales. No son evaluaciones.</p></div>
+        <div><h3>Práctica</h3><p>Ejercicios personales para aplicar progresivamente lo aprendido.</p></div>
       </div>
       <div class="step-row rv">
         <span class="when">Todo el taller</span>
-        <div><h3>Tu Bitácora Metanoia</h3><p>Un espacio privado para registrar tu proceso, tus descubrimientos y tus decisiones.</p></div>
-      </div>
-      <div class="step-row rv">
-        <span class="when">Cada lunes · 8:00 p. m.</span>
-        <div><h3>Encuentro por Zoom</h3><p>Para la cohorte en vivo de 2026, este encuentro semanal por Zoom es requerido para profundizar, resolver preguntas y orientar las prácticas.</p></div>
+        <div><h3>Bitácora Metanoia</h3><p>Espacio privado donde cada participante registra sus reflexiones y el desarrollo de su proceso.</p></div>
       </div>
     </div>
 
@@ -293,7 +296,7 @@
 <section>
   <div class="col rv">
     <div class="kicker">¿Para quién es?</div>
-    <p class="statement">Para quienes desean ir más allá de escuchar enseñanzas bíblicas y comenzar a ponerlas en práctica, <span>aprendiendo a discernir y responder desde la Verdad de Jesús.</span></p>
+    <p class="statement">Si quieres que lo que aprendes de Jesús comience a transformar también cómo interpretas, decides y respondes cada día, <span>este taller es para ti.</span></p>
   </div>
 </section>
 
