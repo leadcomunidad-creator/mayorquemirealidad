@@ -45,6 +45,7 @@ FASE 3: PROTOCOLO METANOIA
 F3_MSG1_EL_BUEN_CAMINO: https://youtu.be/vKl4N6gCgxc
 F3_MSG2_DE_ADENTRO_HACIA_AFUERA: https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u
 F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: https://youtu.be/POTTnzBp8sQ?si=GLFyyiZmr_4FRkQ3
+F3_MSG3B_ANTES_DE_LA_CAIDA: https://youtu.be/rakzOxr7Zfg
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP01_CRUCEMOS_AL_OTRO_LADO: https://youtu.be/Mff3Ygkaga4
@@ -98,6 +99,8 @@ F3_MSG2_DE_ADENTRO_HACIA_AFUERA: blogs/10-mrv-f3-msg2-de-adentro-hacia-afuera-bl
 URL bonita: /Blog/deadentrohaciaafuera
 F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: blogs/10-mrv-f3-msg3-reemplazar-con-la-verdad-blg.html
 URL bonita: /Blog/reemplazarconlaverdad
+F3_MSG3B_ANTES_DE_LA_CAIDA: blogs/10-mrv-f3-msg3b-antes-de-la-caida-blg.html
+URL bonita: /Blog/antesdelacaida
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP01_CRUCEMOS_AL_OTRO_LADO: blogs/10-lasala-f1-ep01-crucemos-al-otro-lado-blg.html
@@ -153,6 +156,8 @@ F3_MSG2_DE_ADENTRO_HACIA_AFUERA: infografias/13-mrv-f3-msg2-de-adentro-hacia-afu
 URL bonita: /Info/deadentrohaciaafuera
 F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: infografias/13-mrv-f3-msg3-reemplazar-con-la-verdad-inf.html
 URL bonita: /Info/reemplazarconlaverdad
+F3_MSG3B_ANTES_DE_LA_CAIDA: infografias/13-mrv-f3-msg3b-antes-de-la-caida-inf-independiente.html
+URL bonita: /Info/antesdelacaida
 
 EPISODIO ESPECIAL: LA SALA Podcast
 EP01_CRUCEMOS_AL_OTRO_LADO: sin info
@@ -177,6 +182,8 @@ F3_MSG2_DE_ADENTRO_HACIA_AFUERA: mesa/12-mrv-f3-msg2-de-adentro-hacia-afuera-mes
 URL bonita: /Mesa/deadentrohaciaafuera
 F3_MSG3_REEMPLAZAR_CON_LA_VERDAD: mesa/12-mrv-f3-msg3-reemplazar-con-la-verdad-mes.html
 URL bonita: /Mesa/reemplazarconlaverdad
+F3_MSG3B_ANTES_DE_LA_CAIDA: mesa/12-mrv-f3-msg3b-antes-de-la-caida-mes.html
+URL bonita: /Mesa/antesdelacaida
 
 
 EXPEDIENTE NO LISTADO

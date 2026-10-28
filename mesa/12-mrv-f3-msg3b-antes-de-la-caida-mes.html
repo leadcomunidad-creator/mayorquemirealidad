@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antes de la Caida — La Mesa MRV F3 MSG3B</title>
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/pwa/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/pwa/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#020B1E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,500;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#0056F1; --rosa:#CC176E; --melocoton:#F2C5A1; --azul-claro:#B8D1FF;
+    --blanco:#FFFFFF; --fondo:#050D1F; --texto:#E6ECFF; --linea:#1E2C52;
+    --serif:'Playfair Display', serif; --serif-body:'Lora', Georgia, serif;
+    --sans:'DM Sans', sans-serif; --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#050D1F; color:var(--texto); font-family:var(--serif-body); font-size:16px; line-height:1.6; min-height:100vh;}
+
+@scope (#native-mes) {
+
+  :scope {
+    --azul: #FC5054;
+    --rosa: #FEBB9B;
+    --melocoton: #FEBB9B;
+    --azul-claro: #FEBB9B;
+    --ambar: #FC5054;
+    --blanco: #FFFFFF;
+    --fondo: #000000;
+    --fondo-2: #000000;
+    --texto: rgba(255,255,255,0.88);
+    --texto-suave: rgba(255,255,255,0.60);
+    --texto-medio: rgba(255,255,255,0.75);
+    --linea: rgba(255,255,255,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :scope { scroll-behavior: smooth; }
+
+  :scope {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Lora', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  :scope.locked { overflow: hidden; height: 100vh; }
+
+
+  #gate {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(252,80,84,0.18) 0%, transparent 60%), var(--fondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #gate.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .gate-card {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--linea);
+    border-radius: 20px;
+    padding: 44px 36px;
+    text-align: center;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+  }
+
+  .gate-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(252,80,84,0.12);
+    border: 1px solid rgba(252,80,84,0.3);
+    border-radius: 50%;
+  }
+
+  .gate-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--ambar);
+  }
+
+  .gate-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    margin-bottom: 10px;
+  }
+
+  .gate-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blanco);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .gate-card p {
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--texto-medio);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  #gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  #gate-pass {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: var(--blanco);
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid var(--linea);
+    border-radius: 10px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  #gate-pass:focus { border-color: var(--ambar); }
+
+  #gate-submit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000000;
+    background: var(--ambar);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+
+  #gate-submit:hover { background: #FEBB9B; transform: translateY(-1px); }
+
+  #gate-error {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11.5px;
+    color: var(--rosa);
+    min-height: 16px;
+    margin-top: 2px;
+  }
+
+  @keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+  }
+
+  .gate-card.shake { animation: shake 0.5s; }
+
+  .gate-nota {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    margin-top: 22px;
+    letter-spacing: 0.3px;
+  }
+
+
+  #mes-contenido {
+    display: none;
+  }
+
+  #mes-contenido.visible {
+    display: block;
+    animation: fadeIn 0.6s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--ambar) 0%, var(--ambar) 55%, var(--rosa) 80%, var(--azul) 100%);
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--linea);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .nav-marca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ambar);
+  }
+
+  .nav-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .nav-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    background: rgba(252,80,84,0.1);
+    border: 1px solid rgba(252,80,84,0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+  }
+
+  .nav-badge svg { width: 11px; height: 11px; }
+
+  .btn-recurso {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--azul-claro);
+    background: rgba(255,255,255,0.05);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-recurso svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .btn-recurso:hover { transform: translateY(-1px); background: rgba(255,255,255,0.15); }
+
+
+  .hero {
+    padding: 132px 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 20%, rgba(252,80,84,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(254,187,155,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    background: rgba(252,80,84,0.12);
+    border: 1px solid rgba(252,80,84,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .hero-tag-dot { width: 4px; height: 4px; background: var(--texto-suave); border-radius: 50%; }
+
+  .hero-tag-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--blanco);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--ambar); }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--texto-medio);
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .meta-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--azul-claro);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 0px;
+    background: linear-gradient(to bottom, transparent, var(--fondo));
+    z-index: 3;
+  }
+
+
+  .article-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 48px 120px;
+  }
+
+  .section { margin-bottom: 64px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--linea);
+    padding-bottom: 16px;
+  }
+
+  .section-titulo {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(252,80,84,0.35);
+    flex-shrink: 0;
+  }
+
+  .section-titulo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blanco);
+  }
+
+  .section-tiempo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    background: rgba(252,80,84,0.08);
+    border: 1px solid rgba(252,80,84,0.25);
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  p {
+    font-family: 'Lora', serif;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--texto);
+    margin-bottom: 20px;
+  }
+
+  p strong { color: var(--blanco); font-weight: 600; }
+  p:last-child { margin-bottom: 0; }
+
+
+  .nota-anfitrion {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: rgba(252,80,84,0.06);
+    border: 1px dashed rgba(252,80,84,0.35);
+    border-radius: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .nota-anfitrion svg {
+    width: 16px;
+    height: 16px;
+    color: var(--ambar);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .nota-anfitrion-texto {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--texto-suave);
+    line-height: 1.65;
+  }
+
+  .nota-anfitrion-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    display: block;
+    margin-bottom: 4px;
+    font-style: normal;
+  }
+
+
+  .pregunta-destacada {
+    margin: 24px 0;
+    padding: 28px 32px;
+    background: rgba(252,80,84,0.06);
+    border-left: 4px solid var(--ambar);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .pregunta-destacada p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+
+  .linea-destacada {
+    margin: 28px 0 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ambar);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+
+  .verse-block {
+    margin: 24px 0;
+    padding: 26px 30px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+  }
+
+  .verse-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 16.5px;
+    font-style: italic;
+    color: var(--ambar);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+
+  .verse-block .ref {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .proposito-box {
+    margin: 8px 0 32px;
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+  }
+  .proposito-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .proposito-box p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15.5px;
+    color: var(--texto);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+
+  .silencio-tag {
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin: 16px 0;
+    opacity: 0.7;
+  }
+
+
+  .bloque-card {
+    margin: 28px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+  }
+
+  .bloque-header {
+    padding: 16px 24px;
+    background: rgba(252,80,84,0.1);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .bloque-card.b2 .bloque-header { background: rgba(254,187,155,0.1); }
+  .bloque-card.b3 .bloque-header { background: rgba(252,80,84,0.1); }
+
+  .bloque-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--azul);
+    flex-shrink: 0;
+  }
+
+  .bloque-card.b2 .bloque-num { color: var(--rosa); }
+  .bloque-card.b3 .bloque-num { color: #FEBB9B; }
+
+  .bloque-nombre {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--blanco);
+    text-transform: uppercase;
+  }
+
+  .bloque-preguntas {
+    padding: 8px 24px 20px;
+  }
+
+  .bloque-preguntas ol {
+    list-style: none;
+    counter-reset: preg;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bloque-preguntas li {
+    counter-increment: preg;
+    position: relative;
+    padding: 14px 0 14px 38px;
+    border-bottom: 1px solid var(--linea);
+    font-family: 'Lora', serif;
+    font-size: 14.5px;
+    color: var(--texto-medio);
+    line-height: 1.7;
+  }
+
+  .bloque-preguntas li:last-child { border-bottom: none; }
+
+  .bloque-preguntas li::before {
+    content: counter(preg);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: var(--azul-claro);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bloque-card.b2 .bloque-preguntas li::before { color: var(--rosa); background: rgba(254,187,155,0.1); }
+  .bloque-card.b3 .bloque-preguntas li::before { color: #FEBB9B; background: rgba(252,80,84,0.1); }
+
+  .etiqueta-pregunta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+
+  .secuencia-card {
+    margin: 28px 0;
+    padding: 30px 34px;
+    background: linear-gradient(135deg, rgba(252,80,84,0.06) 0%, rgba(254,187,155,0.05) 100%);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 18px;
+  }
+
+  .secuencia-list {
+    list-style: none;
+    counter-reset: sec;
+    margin: 0;
+    padding: 0;
+  }
+
+  .secuencia-list li {
+    counter-increment: sec;
+    position: relative;
+    padding: 12px 0 12px 38px;
+    border-bottom: 1px solid var(--linea);
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--texto-medio);
+    line-height: 1.6;
+  }
+
+  .secuencia-list li:last-child { border-bottom: none; }
+
+  .secuencia-list li::before {
+    content: counter(sec);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: var(--azul-claro);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .secuencia-list li strong { color: var(--blanco); }
+
+
+  .desafio-box {
+    margin: 24px 0;
+    padding: 36px 40px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 16px;
+    border: 1.5px solid #FC5054;
+  }
+
+  .desafio-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #FC5054;
+    margin-bottom: 16px;
+  }
+
+  .desafio-box p { margin-bottom: 16px; }
+  .desafio-box p:last-child { margin-bottom: 0; }
+
+  .desafio-box .secuencia-list { margin: 20px 0; }
+
+  .frase-llevar {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.6;
+  }
+
+  .frase-llevar strong { color: var(--ambar); font-style: normal; }
+
+
+  .oracion-box {
+    margin-top: 24px;
+    padding: 40px 44px;
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .oracion-box p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--texto-medio);
+    line-height: 1.85;
+  }
+
+  .respuesta-todos {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal !important;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ambar) !important;
+    text-align: center;
+    line-height: 1.6;
+    margin: 6px 0 26px !important;
+  }
+
+  .oracion-final {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    font-style: italic !important;
+    color: var(--ambar) !important;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linea), transparent);
+    margin: 56px 0;
+  }
+
+
+  .closing {
+    margin-top: 72px;
+    padding: 56px 48px;
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(252,80,84,0.15);
+  }
+
+  .closing-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ambar);
+    margin-bottom: 20px;
+  }
+
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 21px);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--blanco);
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  .closing-quote em { color: var(--ambar); font-style: normal; }
+
+  .closing-serie {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+
+  footer {
+    padding: 40px 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--linea);
+  }
+
+  .footer-left {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ambar);
+  }
+
+  .footer-right {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: var(--texto-suave);
+    text-align: right;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  @media (max-width: 1024px) {
+    .hero-content, .article-wrapper { padding-left: 32px; padding-right: 32px; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-marca { display: none; }
+    .hero { padding-top: 150px; }
+    .hero-content { padding: 0 20px; }
+    .article-wrapper { padding: 0 20px 80px; }
+    .hero h1 { font-size: 30px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .section-num { font-size: 26px; }
+    .section-titulo h2 { font-size: 19px; }
+    p { font-size: 15.5px; }
+    .pregunta-destacada p, .verse-block p { font-size: 15px; }
+    .closing { padding: 40px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; }
+    .gate-card { padding: 34px 24px; }
+  }
+
+}
+
+  /* Ajustes de geometría y visibilidad (equivalentes a los del expediente) */
+  #native-mes #mes-contenido{display:block!important;opacity:1!important;visibility:visible!important;}
+  #native-mes .reveal{opacity:1!important;transform:none!important;visibility:visible!important;}
+  #native-mes .hero{position:relative!important;inset:auto!important;min-height:0!important;height:auto!important;margin:0 auto!important;overflow:hidden!important;padding-top:clamp(3rem,8vw,6rem)!important;padding-bottom:16px!important;}
+  #native-mes .article-wrapper{width:100%!important;max-width:780px!important;margin:0 auto!important;padding:48px 32px 72px!important;box-sizing:border-box!important;}
+  #native-mes .article-wrapper > :first-child{margin-top:0!important;}
+  @media(max-width:640px){
+    #native-mes .hero{padding-bottom:12px!important;}
+    #native-mes .article-wrapper{padding:32px 20px 44px!important;}
+  }
+</style>
+<style id="mrv-mesa-gate-hotfix">
+  body.locked { overflow: hidden !important; height: 100vh !important; }
+  #native-mes #mes-contenido { display: none !important; opacity: 0 !important; visibility: hidden !important; }
+  #native-mes #mes-contenido.visible { display: block !important; opacity: 1 !important; visibility: visible !important; }
+</style>
+</head>
+<body class="locked">
+<div id="native-mes" class="native-surface native-mes">
+<div id="gate"><div class="gate-card" id="gate-card"><div class="gate-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div class="gate-eyebrow">Acceso restringido</div><h1>Guía para Líderes<br>de La Mesa</h1><form id="gate-form" autocomplete="off"><input type="password" id="gate-pass" placeholder="Contraseña" inputmode="numeric" autocomplete="off"><button type="submit" id="gate-submit">Entrar</button><div id="gate-error"></div></form><div class="gate-nota">LHSCOL · Temporada 2026</div></div></div>
+<div id="mes-contenido">
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+
+    <div class="hero-eyebrow">
+      <div class="hero-tag">Formación 2 · La Mesa</div>
+      <div class="hero-tag-dot"></div>
+      <div class="hero-tag-serie">F3 · MSG3B</div>
+    </div>
+
+    <h1>Antes de<br><em>la Caida</em></h1>
+
+    <div class="hero-meta">
+      <span class="meta-pill">Duración estimada: 60–75 minutos</span>
+      <span class="meta-pill">Textos: 1 Samuel 17 · 2 Corintios 10:3–5 · Romanos 12:2</span>
+    </div>
+
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+
+<main class="article-wrapper">
+
+  <section class="section reveal" id="mes-s1">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">1</div>
+        <h2>Bienvenida</h2>
+      </div>
+      <span class="section-tiempo">10 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Recibe a todos, recuerda que nadie está obligado a responder y propone esta pregunta sin explicar todavía el tema de la noche.</div>
+    </div>
+
+    <p><strong>Pregunta rompe-hielo:</strong></p>
+
+    <div class="pregunta-destacada">
+      <p>¿Qué situación reciente te ha hecho pensar: «Esto es más grande de lo que sé manejar»?</p>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Da espacio para que varias personas respondan. No intentes resolver ni aconsejar todavía; escucha y agradece la honestidad.</div>
+    </div>
+
+  </section>
+
+  <section class="section reveal" id="mes-s2">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">2</div>
+        <h2>Introducción</h2>
+      </div>
+      <span class="section-tiempo">5 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Lee el siguiente texto en voz alta.</div>
+    </div>
+
+    <p>El domingo, Liliana nos mostró que una amenaza puede ser real sin recibir el derecho de gobernar nuestra mente, nuestras respuestas ni nuestro futuro. Esta noche no vamos a negar lo difícil ni a usar frases rápidas para sentirnos mejor. Vamos a mirar cómo una voz puede gobernarnos por dentro antes de que aquello que tememos ocurra por fuera, y cómo el Padre nos forma para responder de otra manera.</p>
+  </section>
+
+  <section class="section reveal" id="mes-s3">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">3</div>
+        <h2>Leemos el Enfoque</h2>
+      </div>
+      <span class="section-tiempo">5 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Distribuye las cuatro lecturas entre personas distintas. Después de cada lectura, guarda entre treinta segundos y un minuto de silencio. No expliques los textos todavía.</div>
+    </div>
+
+    <div class="verse-block" style="text-align:center;">
+      <p>«Goliat se plantó y les gritó a las tropas israelitas: “¿Para qué molestarse en usar todo el ejército? ¿No soy suficientemente filisteo para ustedes? Y ustedes están comprometidos con Saúl, ¿no? Elijan a su mejor guerrero y enfréntenlo conmigo. Si él me vence y me mata, todos los filisteos seremos sus esclavos. Pero si yo lo venzo y lo mato, todos ustedes serán nuestros esclavos y nos servirán. Hoy desafío a las tropas de Israel. Denme un hombre. ¡Peleemos cara a cara!”.</p>
+      <p>Cuando Saúl y sus tropas oyeron el desafío del filisteo, quedaron aterrorizados y perdieron toda esperanza.</p>
+      <p>Cada mañana y cada tarde, durante cuarenta días, Goliat se presentaba y daba su discurso».</p>
+      <div class="ref" style="font-family:'Playfair Display', serif; font-style:italic; font-size:16.5px; color:var(--ambar); text-transform:none; letter-spacing:normal;">Lectura 1 · 1 Samuel 17:8–11, 16</div>
+    </div>
+    <div class="silencio-tag">( Silencio )</div>
+    <div class="verse-block" style="text-align:center;">
+      <p>«Eliab, su hermano mayor, oyó cuando él hablaba con los hombres; y se encendió la ira de Eliab contra David, y le dijo: “¿Para qué has descendido acá? ¿Con quién has dejado aquellas pocas ovejas en el desierto? Yo conozco tu soberbia y la maldad de tu corazón, que has descendido para ver la batalla”».</p>
+      <div class="ref" style="font-family:'Playfair Display', serif; font-style:italic; font-size:16.5px; color:var(--ambar); text-transform:none; letter-spacing:normal;">Lectura 2 · 1 Samuel 17:28</div>
+    </div>
+    <div class="silencio-tag">( Silencio )</div>
+    <div class="verse-block" style="text-align:center;">
+      <p>David dijo a Saúl: «No se desaliente el corazón de nadie a causa de él; su siervo irá y peleará con este filisteo». Entonces Saúl dijo a David: «Tú no puedes ir contra este filisteo a pelear con él, porque tú eres un muchacho y él ha sido un guerrero desde su juventud».</p>
+      <p>David añadió: «El SEÑOR, que me ha librado de las garras del león y de las garras del oso, me librará de la mano de este filisteo».</p>
+      <div class="ref" style="font-family:'Playfair Display', serif; font-style:italic; font-size:16.5px; color:var(--ambar); text-transform:none; letter-spacing:normal;">Lectura 3 · 1 Samuel 17:32–33, 37</div>
+    </div>
+    <div class="silencio-tag">( Silencio )</div>
+    <div class="verse-block" style="text-align:center;">
+      <p>«No se adapten a este mundo, sino transfórmense mediante la renovación de su mente, para que verifiquen cuál es la voluntad de Dios: lo que es bueno y aceptable y perfecto».</p>
+      <div class="ref" style="font-family:'Playfair Display', serif; font-style:italic; font-size:16.5px; color:var(--ambar); text-transform:none; letter-spacing:normal;">Lectura 4 · Romanos 12:2</div>
+    </div>
+    <div class="silencio-tag">( Silencio )</div>
+
+  </section>
+
+  <section class="section reveal" id="mes-s4">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">4</div>
+        <h2>Conversamos</h2>
+      </div>
+      <span class="section-tiempo">3 bloques · ~30 min</span>
+    </div>
+
+    <div class="bloque-card b1">
+      <div class="bloque-header">
+        <div class="bloque-num">①</div>
+        <div class="bloque-nombre">Bloque 1 — Cuando una voz se repite</div>
+      </div>
+      <div class="nota-anfitrion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>No busques que todos hablen. Haz una pregunta a la vez y permite silencios. Este bloque sirve para reconocer la tensión, no para corregirla rápido.</div>
+      </div>
+
+      <div class="bloque-preguntas">
+        <ol>
+          <li>¿Qué diferencia encuentras entre reconocer una amenaza real y dejar que esa amenaza defina todo lo que esperas del futuro?</li>
+          <li>¿Qué frase o escenario ha ocupado demasiado espacio en tus pensamientos últimamente?</li>
+          <li>Cuando esa voz aparece, ¿Qué podría ayudarte a llevarla delante del Padre en vez de recibirla como un veredicto?</li>
+        </ol>
+      </div>
+    </div>
+    <div class="bloque-card b2">
+      <div class="bloque-header">
+        <div class="bloque-num">②</div>
+        <div class="bloque-nombre">Bloque 2 — Las voces que reducen</div>
+      </div>
+      <div class="nota-anfitrion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Protege la conversación. No invites al grupo a exponer detalles que no desea compartir ni a diagnosticar la historia de otra persona.</div>
+      </div>
+
+      <div class="bloque-preguntas">
+        <ol>
+          <li>En la historia, Goliat, Eliab y Saúl hablan desde lugares distintos. ¿Qué notas acerca del peso que puede tener una voz cercana?</li>
+          <li>¿Cómo distingues entre una corrección que puede formarte y una etiqueta que te paraliza?</li>
+          <li>¿Qué respuesta te gustaría aprender cuando una voz intenta reducir tu identidad a un error, una herida o una limitación?</li>
+        </ol>
+      </div>
+    </div>
+    <div class="bloque-card b3">
+      <div class="bloque-header">
+        <div class="bloque-num">③</div>
+        <div class="bloque-nombre">Bloque 3 — Formación, fe y siguiente paso</div>
+      </div>
+      <div class="nota-anfitrion">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Ayuda al grupo a pasar de ideas generales a una respuesta concreta, sin convertir las respuestas en promesas públicas.</div>
+      </div>
+
+      <div class="bloque-preguntas">
+        <ol>
+          <li>¿Qué parte de la formación de David ocurrió lejos del público y por qué crees que eso importa?</li>
+          <li>¿Qué evidencia de la fidelidad del Padre necesitas recordar hoy sin convertirla en una fórmula para controlar el resultado?</li>
+          <li>¿Cuál podría ser un paso responsable de fe en tu situación: pedir ayuda, tener una conversación necesaria, ordenar una responsabilidad, buscar acompañamiento o abandonar un patrón?</li>
+        </ol>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section reveal" id="mes-s5">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">5</div>
+        <h2>Practicamos</h2>
+      </div>
+      <span class="section-tiempo">15 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Formen parejas. Si alguien prefiere no compartir su situación, puede trabajar en silencio con la guía. Esta dinámica no reemplaza acompañamiento profesional, médico, psicológico o pastoral cuando sea necesario.</div>
+    </div>
+
+    <div class="secuencia-card">
+      <ol class="secuencia-list">
+        <li><strong>PASO 1 · CADA PERSONA COMPLETA EN PRIVADO</strong> —<br><br><strong>El hecho que tengo delante es:</strong> ______________________<br><br><strong>La frase de temor que más se repite es:</strong> ______________________<br><br><strong>La verdad del Padre que no quiero olvidar es:</strong> ______________________<br><br><strong>El paso responsable que puedo dar esta semana es:</strong> ______________________</li>
+        <li><strong>PASO 2 · COMPARTAN SOLO LO QUE DESEEN</strong> — <em>Una persona comparte durante tres minutos. La otra escucha sin interrumpir, aconsejar ni comparar historias. Luego cambian.</em></li>
+        <li><strong>PASO 3 · OREN EN UNA FRASE</strong> — <em>Padre, ayúdame a mirar este hecho a la luz de Tu verdad y a caminar en el paso que me corresponde.</em></li>
+      </ol>
+    </div>
+
+  </section>
+
+  <section class="section reveal" id="mes-s6">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">6</div>
+        <h2>Desafío de la Semana</h2>
+      </div>
+    </div>
+
+    <div class="desafio-box">
+      <p><strong>Hecho real ≠ conclusión final</strong></p>
+      <p>Durante los próximos siete días, cuando aparezca la frase de temor que más se repite, no la discutas en soledad. Nombra el hecho delante del Padre, recuerda una verdad de Su carácter y da el paso responsable que escribiste esta noche.</p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="mes-s7">
+    <div class="section-head">
+      <div class="section-titulo">
+        <div class="section-num">7</div>
+        <h2>Cierre y Oración</h2>
+      </div>
+      <span class="section-tiempo">5 min</span>
+    </div>
+
+    <div class="nota-anfitrion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      <div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Instrucción para el anfitrión</span>Invita al grupo a leer la oración por frases. Lee una línea y permite que el grupo la repita. Si alguien no desea hacerlo, puede permanecer en silencio.</div>
+    </div>
+
+    <div class="oracion-box">
+      <p>Padre, reconocemos que hay voces, amenazas y conclusiones que han querido gobernar nuestro corazón.</p>
+      <p>No queremos negar lo que duele ni entregar nuestra identidad a aquello que grita más fuerte.</p>
+      <p>Muéstranos lo que hemos aprendido a llamar normal y enséñanos a mirarlo desde Tu carácter y Tu verdad.</p>
+      <p>Gracias porque no tenemos que reconstruirnos solos.</p>
+      <p>Danos convicción para permanecer en el proceso, asumir nuestra responsabilidad y responder con fe activa.</p>
+      <p>Que lo que nos asusta no tenga la última palabra sobre nuestra identidad.</p>
+      <p class="oracion-final">Amén.</p>
+    </div>
+  </section>
+
+  <div class="closing reveal">
+    <div class="closing-eyebrow">Para el líder</div>
+    <div class="closing-quote">Mayor que mi realidad<br><em>es Su Verdad</em>.</div>
+    <div class="closing-serie">LHSCOL · MRV · F3 · MSG3B · Antes de la Caida · Temporada 2026</div>
+  </div>
+</main>
+</div>
+</div>
+<script src="/assets/mrv-resource-bar.js?v=20261028-msg3b" data-type="mesa" data-slug="antesdelacaida"></script>
+<script id="mrv-mesa-gate-script">
+(() => {
+  const gate = document.getElementById('gate');
+  const form = document.getElementById('gate-form');
+  const input = document.getElementById('gate-pass');
+  const content = document.getElementById('mes-contenido');
+  if (!gate || !form || !input || !content) return;
+  const unlockMesa = () => {
+    gate.classList.add('oculto');
+    document.body.classList.remove('locked');
+    content.classList.add('visible');
+    sessionStorage.setItem('mrv-mesa-f3-msg3b', 'open');
+  };
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (input.value.trim() === '2026') {
+      unlockMesa();
+      return;
+    }
+    document.getElementById('gate-error').textContent = 'Contraseña incorrecta. Consulta con tu coordinador de HS.';
+    document.getElementById('gate-card').classList.remove('shake');
+    void document.getElementById('gate-card').offsetWidth;
+    document.getElementById('gate-card').classList.add('shake');
+    input.value = '';
+    input.focus();
+  });
+  if (sessionStorage.getItem('mrv-mesa-f3-msg3b') === 'open') unlockMesa();
+  else setTimeout(() => input.focus(), 0);
+})();
+</script>
+</body>
+</html>
