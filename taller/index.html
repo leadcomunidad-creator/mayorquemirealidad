@@ -169,13 +169,24 @@
   .spouse.show{display:block}
   .spouse h4{font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--peach);margin:4px 0 14px}
 
-  .pay{display:grid}
+  .pay{display:block}
   .pay-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);color:var(--ink)}
   .pay-row:last-child{border-bottom:1px solid var(--line)}
   .pay-row small{display:block;color:var(--muted);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
   .copy{font:inherit;font-size:.8rem;border:1px solid var(--line);background:transparent;border-radius:99px;padding:5px 14px;cursor:pointer;color:var(--text)}
   .copy:hover{border-color:var(--pink);color:var(--pink-light)}
   .copy.done{background:var(--ok);border-color:var(--ok);color:#03210f}
+  .pay-amount{margin-bottom:28px;border-bottom:1px solid var(--line)}
+  .pay-option-title{font-size:1rem;line-height:1.35;margin:0 0 12px;color:var(--ink)}
+  .breb-card{border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .breb-card-head,.breb-key-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .breb-card-head{margin-bottom:8px;color:var(--ink);font-size:.84rem;font-weight:500}
+  .recommended{border-radius:99px;background:rgba(226,234,255,.14);padding:2px 7px;color:var(--text);font-size:.66rem;line-height:1.2}
+  .breb-key-row b{font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+  .breb-card p{margin:8px 0 0;color:var(--text);font-size:.8rem}
+  .pay-instruction{margin:12px 0 0;color:var(--text);font-size:.78rem;line-height:1.55}
+  .pay-divider{border:0;border-top:1px solid var(--line);margin:18px 0}
+  .pay-alternative{margin:0}
 
   .drop{border:1px dashed #2b4a99;border-radius:10px;padding:28px 16px;text-align:center;cursor:pointer;transition:.15s;position:relative;color:var(--ink)}
   .drop:hover,.drop.over{border-color:var(--pink)}
@@ -417,11 +428,25 @@
           <div class="step"><i>02</i> Transferencia</div>
           <!-- DATOS BANCARIOS -->
           <div class="pay">
-            <div class="pay-row"><div><small id="payLabel">Valor a transferir</small><b id="payAmt" style="font-weight:500">$100.000 COP</b></div><button type="button" class="copy" id="payCopy" data-copy="100000">Copiar</button></div>
-            <div class="pay-row"><div><small>Banco</small>Bancolombia</div></div>
-            <div class="pay-row"><div><small>Tipo de cuenta</small>Ahorros</div></div>
-            <div class="pay-row"><div><small>Número de cuenta</small>781-807861-54</div><button type="button" class="copy" data-copy="78180786154">Copiar</button></div>
-            <!-- Si usas Nequi / Daviplata / llave, agrega otra fila igual aquí -->
+            <div class="pay-row pay-amount"><div><small id="payLabel">Valor a transferir</small><b id="payAmt" style="font-weight:500">$100.000 COP</b></div><button type="button" class="copy" id="payCopy" data-copy="100000">Copiar</button></div>
+            <div class="pay-option" role="group" aria-label="Pago por Bre-B">
+              <h3 class="pay-option-title">Opción 1: Paga desde cualquier banco usando Bre-B</h3>
+              <div class="breb-card">
+                <div class="breb-card-head"><span>Llave Bre-B</span><span class="recommended">Recomendado</span></div>
+                <div class="breb-key-row"><b>@mejia152802</b><button type="button" class="copy" id="brebCopy" data-copy="@mejia152802">Copiar</button></div>
+                <p>Banco: Bancolombia</p>
+              </div>
+              <p class="pay-instruction">Desde la app de tu banco, entra a Bre-B, selecciona transferir con llave y realiza el pago.</p>
+            </div>
+            <hr class="pay-divider">
+            <div class="pay-alternative" role="group" aria-label="Transferencia bancaria tradicional">
+              <h3 class="pay-option-title">Opción 2: Transfiere directamente a la cuenta</h3>
+              <div class="breb-card">
+                <div class="breb-card-head"><span>Cuenta de ahorros</span></div>
+                <div class="breb-key-row"><b>781-807861-54</b><button type="button" class="copy" data-copy="78180786154">Copiar</button></div>
+                <p>Banco: Bancolombia</p>
+              </div>
+            </div>
           </div>
 
           <div class="step"><i>03</i> Comprobante</div>
