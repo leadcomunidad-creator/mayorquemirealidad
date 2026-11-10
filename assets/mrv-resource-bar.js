@@ -45,7 +45,8 @@
           ['msg-f3-1','El Buen Camino'],
           ['msg-f3-2','De Adentro Hacia Afuera'],
           ['msg-f3-3','Reemplazar con la Verdad'],
-          ['msg-f3-3b','Antes de la Caída',{recent:true}]
+          ['msg-f3-3b','Antes de la Caída'],
+          ['msg-f3-4','Reentrenar',{recent:true}]
         ]
       }
     ]
@@ -137,7 +138,8 @@
     elbuencamino: { video:'https://youtu.be/vKl4N6gCgxc', blog:'/Blog/elbuencamino', info:'/Info/elbuencamino', mesa:'/Mesa/elbuencamino' },
     deadentrohaciaafuera: { video:'https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u', blog:'/Blog/deadentrohaciaafuera', info:'/Info/deadentrohaciaafuera', mesa:'/Mesa/deadentrohaciaafuera' },
     reemplazarconlaverdad: { video:'https://youtu.be/POTTnzBp8sQ?si=GLFyyiZmr_4FRkQ3', blog:'/Blog/reemplazarconlaverdad', info:'/Info/reemplazarconlaverdad', mesa:'/Mesa/reemplazarconlaverdad' },
-    antesdelacaida: { video:'https://youtu.be/rakzOxr7Zfg', blog:'/Blog/antesdelacaida', info:'/Info/antesdelacaida', mesa:'/Mesa/antesdelacaida' }
+    antesdelacaida: { video:'https://youtu.be/rakzOxr7Zfg', blog:'/Blog/antesdelacaida', info:'/Info/antesdelacaida', mesa:'/Mesa/antesdelacaida' },
+    reentrenar: { blog:'/Blog/reentrenar', info:'/Info/reentrenar', mesa:'/Mesa/reentrenar' }
   };
 
   const item = catalog[slug] || {};
@@ -178,6 +180,9 @@
   localFiles.blog.antesdelacaida = '/blogs/10-mrv-f3-msg3b-antes-de-la-caida-blg.html';
   localFiles.info.antesdelacaida = '/infografias/13-mrv-f3-msg3b-antes-de-la-caida-inf-independiente.html';
   localFiles.mesa.antesdelacaida = '/mesa/12-mrv-f3-msg3b-antes-de-la-caida-mes.html';
+  localFiles.blog.reentrenar = '/blogs/10-mrv-f3-msg4-reentrenar-blg.html';
+  localFiles.info.reentrenar = '/infografias/13-mrv-f3-msg4-reentrenar-inf.html';
+  localFiles.mesa.reentrenar = '/mesa/12-mrv-f3-msg4-reentrenar-mes.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',

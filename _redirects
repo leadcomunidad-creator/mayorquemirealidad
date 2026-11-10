@@ -16,6 +16,9 @@
 # Expediente no listado de F3 MSG2 (acceso directo por enlace)
 /exp/deadentrohaciaafuera  /exp/deadentrohaciaafuera.html  200
 
+# Expediente no listado de F3 MSG4 (acceso directo por enlace)
+/exp/reentrenar  /exp/reentrenar.html  200
+
 # Pretty URLs for blog pages
 /Blog/mayorquemirealidad        /blogs/10-mrv-f1-msg1-mayor-que-mi-realidad-blg.html        200
 /Blog/arquitectosdelaverdad     /blogs/10-mrv-f1-msg2-arquitectos-de-la-verdad-blg.html     200
@@ -133,6 +136,14 @@
 /info/antesdelacaida             /infografias/13-mrv-f3-msg3b-antes-de-la-caida-inf-independiente.html    200
 /Mesa/antesdelacaida             /mesa/12-mrv-f3-msg3b-antes-de-la-caida-mes.html                   200
 /mesa/antesdelacaida             /mesa/12-mrv-f3-msg3b-antes-de-la-caida-mes.html                   200
+
+# F3 MSG4 · Reentrenar
+/Blog/reentrenar                 /blogs/10-mrv-f3-msg4-reentrenar-blg.html                         200
+/blog/reentrenar                 /blogs/10-mrv-f3-msg4-reentrenar-blg.html                         200
+/Info/reentrenar                 /infografias/13-mrv-f3-msg4-reentrenar-inf.html                   200
+/info/reentrenar                 /infografias/13-mrv-f3-msg4-reentrenar-inf.html                   200
+/Mesa/reentrenar                 /mesa/12-mrv-f3-msg4-reentrenar-mes.html                          200
+/mesa/reentrenar                 /mesa/12-mrv-f3-msg4-reentrenar-mes.html                          200
 
 # La Sala EP01 — Crucemos al Otro Lado
 /Blog/crucemosalotrolado         /blogs/10-lasala-f1-ep01-crucemos-al-otro-lado-blg.html             200
