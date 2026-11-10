@@ -2330,6 +2330,15 @@ body.imprimiendo-mes #mes{display:block!important}
 <style id="mrv-correcciones-tipograficas-v2">
 #native-slp .mrv-sin-italic,#native-inf .mrv-sin-italic{font-style:normal !important;}
 </style>
+<style id="mrv-center-fix">
+@media (min-width:881px){
+#main section.doc-section.native-document{margin-left:auto!important;margin-right:auto!important}
+#main #indice .p-wrap{margin-left:auto!important;margin-right:auto!important}
+}
+@media (min-width:1500px){
+#main{padding-left:0!important}
+}
+</style>
 </head>
 <body>
 <div id="mobile-topbar"><button type="button" class="hamburguesa" onclick="abrirSidebar()" aria-label="Abrir índice">☰</button><div><div class="mobile-titulo">Reentrenar</div><div class="mobile-sub">MRV · FASE 3 · MSG4</div></div></div>
