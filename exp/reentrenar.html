@@ -590,351 +590,7 @@ table.tabla-strong td.destaca{color:var(--blanco); font-weight:600;}
 .frase-final blockquote{font-size: 20px;}
 .footer{flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px;}
 .footer-data{text-align: center;}}}
-@scope (#native-mes){:scope{--azul: #E8956B;
-    --rosa: #FEBB9B;
-    --melocoton: #FEBB9B;
-    --azul-claro: #FEBB9B;
-    --ambar: #E8956B;
-    --blanco: #FFFFFF;
-    --fondo: #000000;
-    --fondo-2: #000000;
-    --texto: rgba(255,255,255,0.88);
-    --texto-suave: rgba(255,255,255,0.60);
-    --texto-medio: rgba(255,255,255,0.75);
-    --linea: rgba(255,255,255,0.12);}
-*{margin: 0; padding: 0; box-sizing: border-box;}
-:scope{scroll-behavior: smooth;}
-:scope{background: var(--fondo);
-    color: var(--texto);
-    font-family: 'Lora', Georgia, serif;
-    line-height: 1.8;
-    overflow-x: hidden;}
 
-#mes-contenido{display: none;}
-#mes-contenido.visible{display: block;
-    animation: fadeIn 0.6s ease;}
-@keyframes fadeIn{
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-.hero{padding: 132px 0 10px;
-    position: relative;
-    overflow: hidden;}
-.hero-bg{position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 60% at 30% 20%, rgba(232,149,107,0.14) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(254,187,155,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse 80% 40% at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 100%);}
-.hero-content{position: relative;
-    z-index: 2;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 48px;
-    width: 100%;}
-.hero-eyebrow{display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;}
-.hero-tag{font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--ambar);
-    background: rgba(232,149,107,0.12);
-    border: 1px solid rgba(232,149,107,0.3);
-    padding: 5px 12px;
-    border-radius: 20px;}
-.hero-tag-dot{width: 4px; height: 4px; background: var(--texto-suave); border-radius: 50%;}
-.hero-tag-serie{font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--texto-suave);}
-.hero h1{font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 5vw, 50px);
-    font-weight: 900;
-    line-height: 1.15;
-    color: var(--blanco);
-    margin-bottom: 20px;}
-.hero h1 em{font-style: italic; color: var(--ambar);}
-.hero-meta{display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 8px;}
-.meta-pill{font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--azul-claro);
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 4px 10px;
-    border-radius: 12px;}
-.hero-divider{position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 0px;
-    background: linear-gradient(to bottom, transparent, var(--fondo));
-    z-index: 3;}
-.article-wrapper{max-width: 780px;
-    margin: 0 auto;
-    padding: 0 48px 120px;}
-.section{margin-bottom: 64px;}
-.section-head{display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--linea);
-    padding-bottom: 16px;}
-.section-titulo{display: flex;
-    align-items: baseline;
-    gap: 16px;}
-.section-num{font-family: 'Playfair Display', serif;
-    font-size: 34px;
-    font-weight: 900;
-    font-style: italic;
-    color: rgba(232,149,107,0.35);
-    flex-shrink: 0;}
-.section-titulo h2{font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--blanco);}
-.section-tiempo{font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--ambar);
-    background: rgba(232,149,107,0.08);
-    border: 1px solid rgba(232,149,107,0.25);
-    padding: 5px 12px;
-    border-radius: 20px;
-    white-space: nowrap;}
-p{font-family: 'Lora', serif;
-    font-size: 14.5px;
-    line-height: 1.75;
-    color: var(--texto);
-    margin-bottom: 20px;}
-p strong{color: var(--blanco); font-weight: 600;}
-p:last-child{margin-bottom: 0;}
-.nota-anfitrion{margin: 20px 0;
-    padding: 16px 20px;
-    background: rgba(232,149,107,0.06);
-    border: 1px dashed rgba(232,149,107,0.35);
-    border-radius: 12px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;}
-.nota-anfitrion svg{width: 16px;
-    height: 16px;
-    color: var(--ambar);
-    flex-shrink: 0;
-    margin-top: 3px;}
-.nota-anfitrion-texto{font-family: 'Lora', serif;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--texto-suave);
-    line-height: 1.65;}
-.nota-anfitrion-label{font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--ambar);
-    display: block;
-    margin-bottom: 4px;
-    font-style: normal;}
-.pregunta-destacada{margin: 24px 0;
-    padding: 28px 32px;
-    background: rgba(232,149,107,0.06);
-    border-left: 4px solid var(--ambar);
-    border-radius: 0 12px 12px 0;}
-.pregunta-destacada p{font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-style: italic;
-    color: var(--blanco);
-    line-height: 1.55;
-    margin-bottom: 0;}
-.verse-block{margin: 24px 0;
-    padding: 26px 30px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;}
-.verse-block p{font-family: 'Playfair Display', serif;
-    font-size: 16.5px;
-    font-style: italic;
-    color: var(--ambar);
-    line-height: 1.65;
-    margin-bottom: 10px;}
-.verse-block .ref{font-family: 'DM Sans', sans-serif;
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--texto-suave);}
-.bloque-card{margin: 28px 0;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--linea);}
-.bloque-header{padding: 16px 24px;
-    background: rgba(232,149,107,0.1);
-    display: flex;
-    align-items: center;
-    gap: 14px;}
-.bloque-card.b2 .bloque-header{background: rgba(254,187,155,0.1);}
-.bloque-card.b3 .bloque-header{background: rgba(232,149,107,0.1);}
-.bloque-num{font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 900;
-    font-style: italic;
-    color: var(--azul);
-    flex-shrink: 0;}
-.bloque-card.b2 .bloque-num{color: var(--rosa);}
-.bloque-card.b3 .bloque-num{color: #FEBB9B;}
-.bloque-nombre{font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--blanco);
-    text-transform: uppercase;}
-.bloque-preguntas{padding: 8px 24px 20px;}
-.bloque-preguntas ol{list-style: none;
-    counter-reset: preg;
-    margin: 0;
-    padding: 0;}
-.bloque-preguntas li{counter-increment: preg;
-    position: relative;
-    padding: 14px 0 14px 38px;
-    border-bottom: 1px solid var(--linea);
-    font-family: 'Lora', serif;
-    font-size: 14.5px;
-    color: var(--texto-medio);
-    line-height: 1.7;}
-.bloque-preguntas li:last-child{border-bottom: none;}
-.bloque-preguntas li::before{content: counter(preg);
-    position: absolute;
-    left: 0;
-    top: 14px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    color: var(--azul-claro);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;}
-.bloque-card.b2 .bloque-preguntas li::before{color: var(--rosa); background: rgba(254,187,155,0.1);}
-.bloque-card.b3 .bloque-preguntas li::before{color: #FEBB9B; background: rgba(232,149,107,0.1);}
-.secuencia-card{margin: 28px 0;
-    padding: 30px 34px;
-    background: linear-gradient(135deg, rgba(232,149,107,0.06) 0%, rgba(254,187,155,0.05) 100%);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 18px;}
-.secuencia-list{list-style: none;
-    counter-reset: sec;
-    margin: 0;
-    padding: 0;}
-.secuencia-list li{counter-increment: sec;
-    position: relative;
-    padding: 12px 0 12px 38px;
-    border-bottom: 1px solid var(--linea);
-    font-family: 'Lora', serif;
-    font-size: 14px;
-    color: var(--texto-medio);
-    line-height: 1.6;}
-.secuencia-list li:last-child{border-bottom: none;}
-.secuencia-list li::before{content: counter(sec);
-    position: absolute;
-    left: 0;
-    top: 12px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    color: var(--azul-claro);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10.5px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;}
-.secuencia-list li strong{color: var(--blanco);}
-.desafio-box{margin: 24px 0;
-    padding: 36px 40px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 16px;
-    border: 1.5px solid #E8956B;}
-.desafio-box p{margin-bottom: 16px;}
-.desafio-box p:last-child{margin-bottom: 0;}
-.oracion-box{margin-top: 24px;
-    padding: 40px 44px;
-    background: linear-gradient(135deg, #000000 0%, #000000 100%);
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);}
-.oracion-box p{font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--texto-medio);
-    line-height: 1.85;}
-.oracion-final{font-family: 'Playfair Display', serif;
-    font-size: 19px;
-    font-weight: 700;
-    font-style: italic !important;
-    color: var(--ambar) !important;
-    text-align: center;
-    margin-top: 8px;}
-.closing{margin-top: 72px;
-    padding: 56px 48px;
-    background: linear-gradient(135deg, #000000 0%, #000000 100%);
-    border-radius: 24px;
-    text-align: center;
-    border: 1px solid rgba(232,149,107,0.15);}
-.closing-eyebrow{font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--ambar);
-    margin-bottom: 20px;}
-.closing-quote{font-family: 'Playfair Display', serif;
-    font-size: clamp(16px, 2.5vw, 21px);
-    font-weight: 900;
-    font-style: italic;
-    color: var(--blanco);
-    line-height: 1.45;
-    margin-bottom: 16px;}
-.closing-quote em{color: var(--ambar); font-style: normal;}
-.closing-serie{font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--texto-suave);}
-.reveal{opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;}
-.reveal.visible{opacity: 1;
-    transform: translateY(0);}
-@media (max-width: 1024px){.hero-content,.article-wrapper{padding-left: 32px; padding-right: 32px;}}
-@media (max-width: 640px){.hero{padding-top: 150px;}
-.hero-content{padding: 0 20px;}
-.article-wrapper{padding: 0 20px 80px;}
-.hero h1{font-size: 30px;}
-.section-head{flex-direction: column; align-items: flex-start; gap: 10px;}
-.section-num{font-size: 26px;}
-.section-titulo h2{font-size: 19px;}
-p{font-size: 15.5px;}
-.pregunta-destacada p,.verse-block p{font-size: 15px;}
-.closing{padding: 40px 24px;}}}
 @scope (#native-blg){:scope{--azul: #0056F1;
     --rosa: #CC176E;
     --melocoton: #F2C5A1;
@@ -2336,9 +1992,139 @@ body.imprimiendo-mes #mes{display:block!important}
 #main #indice .p-wrap{margin-left:auto!important;margin-right:auto!important}
 }
 html,body,#main,#main section.doc-section.native-document,#main .native-surface{background-color:#050D1F!important}
-#main #native-mes{background:transparent!important}
-#main #native-mes .hero-bg{display:block!important;background:radial-gradient(ellipse 70% 60% at 30% 20%,rgba(232,149,107,.14),transparent 60%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(254,187,155,.1),transparent 60%)!important}
 #main .hero-bg,#main .hero-stars,#main .p-bg,#main .p-stars{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,#000 0,#000 72%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,#000 0,#000 72%,transparent 100%);mask-composite:intersect}
+</style>
+<style id="mg-guia-css">
+@scope (#mg-guia){
+
+:scope{--fondo:#000;--panel:#0f0b09;--panel2:#1a120c;--linea:rgba(255,255,255,.14);--texto:rgba(255,255,255,.9);--suave:rgba(255,255,255,.62);--medio:rgba(255,255,255,.78);--ambar:#E8956B;--melo:#FEBB9B;--azul:#E8956B;--rosa:#E8956B;
+--serif:'Playfair Display',Georgia,serif;--body:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+:scope{background:var(--fondo);color:var(--texto);font-family:var(--body);font-size:17px;line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 140px}
+.top{position:sticky;top:var(--mg-top,0px);z-index:20;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.top-in{max-width:720px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--suave)}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--linea);border-radius:999px;padding:3px}
+.seg button{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--suave);background:none;border:0;border-radius:999px;padding:.45rem 1rem;cursor:pointer;min-height:36px}
+.seg button[aria-pressed=true]{background:var(--ambar);color:#1a0d05}
+.hero{padding:3rem 0 1.6rem}
+.eyebrow{font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ambar)}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2.4rem,9vw,3.6rem);line-height:1.02;margin:.8rem 0 .3rem;color:#fff}
+h1 em{display:block;font-weight:700;font-size:.42em;color:var(--melo);margin-top:.6rem;line-height:1.25}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0 0}
+.facts span{font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--melo);border:1px solid rgba(242,197,161,.35);border-radius:999px;padding:.3rem .8rem}
+.frase{margin:1.6rem 0 0;padding:1.1rem 1.2rem;border-left:3px solid var(--ambar);background:linear-gradient(90deg,rgba(242,197,161,.10),transparent);font-style:italic;font-size:1.12rem;color:var(--melo)}
+.nav{display:flex;gap:.5rem;overflow-x:auto;padding:1rem 0 .4rem;margin:0 -20px;padding-left:20px;padding-right:20px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;font-family:var(--sans);font-size:.74rem;font-weight:600;color:var(--medio);text-decoration:none;border:1px solid var(--linea);background:var(--panel);border-radius:12px;padding:.45rem .75rem;white-space:nowrap}
+.nav a b{color:var(--ambar);margin-right:.45rem} .nav a small{color:var(--suave);margin-left:.3rem}
+.nav a.on{border-color:var(--ambar);color:#fff}
+.ver{display:none} :scope[data-v=parejas] .ver[data-v=parejas],:scope[data-v=solteros] .ver[data-v=solteros]{display:block}
+details.pre{margin:1.4rem 0 0;border:1px dashed rgba(242,197,161,.45);border-radius:16px;background:rgba(242,197,161,.05);padding:0 1.2rem 1rem}
+details.pre summary{cursor:pointer;font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ambar);padding:1rem 0;list-style:none}
+details.pre summary::before{content:"▸ ";} details.pre[open] summary::before{content:"▾ ";}
+.sec{margin-top:3.2rem;padding-top:2rem;border-top:1px solid var(--linea)}
+.sec header{display:flex;gap:.9rem;align-items:baseline}
+.sec .n{font-family:var(--serif);font-style:italic;font-size:2.6rem;color:var(--ambar);line-height:1;opacity:.9}
+h2{font-family:var(--serif);font-weight:700;font-size:1.65rem;line-height:1.2;color:#fff}
+.smeta{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.9rem 0 1.2rem}
+.chip,.chip-min{font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:.28rem .75rem}
+.chip-min{background:var(--panel2);color:var(--medio);border:1px solid var(--linea)} .chip{color:var(--ambar);border:1px solid rgba(242,197,161,.45)}
+.tbtn{margin-left:auto;font-family:var(--sans);font-size:.76rem;font-weight:700;color:#1a0d05;background:var(--ambar);border:0;border-radius:999px;padding:.55rem 1rem;cursor:pointer;min-height:40px}
+p.read{margin:0 0 1.05rem;color:var(--texto);font-size:1.08rem}
+.read-list{margin:0 0 1.1rem 1.2rem} .read-list li{margin:.2rem 0}
+.host{margin:0 0 1.1rem;padding:.8rem 1rem 1rem;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--linea);color:var(--suave);font-size:.95rem;line-height:1.6}
+.host .tag{display:block;font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ambar);margin-bottom:.35rem}
+.host p{margin:.3rem 0} .host ol{margin:.2rem 0 0 1.2rem} .host li{margin:.4rem 0}
+em.h{font-style:italic;color:var(--suave)}
+button.pbtn{margin-top:1.1rem;background:transparent;border:1px solid rgba(254,187,155,.5);color:var(--melo);border-radius:999px;padding:.55rem 1.1rem;font-family:var(--sans);font-weight:600;font-size:.82rem;cursor:pointer}
+p.hint{margin:.2rem 0 .9rem;padding-left:.8rem;border-left:2px solid var(--linea);font-size:.9rem;line-height:1.5;color:var(--suave)}
+p.hint em.h{color:var(--suave)}
+.host em.h{color:rgba(255,255,255,.7)}
+.host{background:rgba(232,149,107,.05)!important;border:1px dashed rgba(232,149,107,.42)!important}
+.host .tag{color:var(--ambar)}
+p.hint{border-left-color:rgba(232,149,107,.45)}
+details.pre{border:1px dashed rgba(232,149,107,.42)!important;background:rgba(232,149,107,.04)!important}
+details.pre summary{color:var(--ambar)!important}
+.chip,.eyebrow{color:var(--ambar)}
+strong.q{color:var(--melo);font-weight:600}
+p.ask{margin:.3rem 0 1.2rem;padding:1rem 1.15rem;font-size:1.2rem;font-weight:600;color:#fff;background:var(--panel);border:1px solid rgba(242,197,161,.5);border-radius:14px}
+.qn{display:flex;gap:.9rem;margin:0 0 .9rem;padding:1rem 1.1rem;background:var(--panel);border:1px solid var(--linea);border-radius:14px}
+.qn span{flex:0 0 1.9rem;height:1.9rem;border-radius:50%;background:rgba(242,197,161,.16);color:var(--ambar);font-family:var(--sans);font-weight:700;font-size:.85rem;display:grid;place-items:center;margin-top:.1rem}
+.qn p{margin:0;font-size:1.05rem}
+h4.lab{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;color:var(--ambar);text-transform:uppercase;margin:1.7rem 0 .7rem}
+.bubble{margin:.2rem 0 1.2rem;max-width:92%;padding:1rem 1.2rem;background:var(--panel2);border:1px solid var(--linea);border-radius:18px 18px 18px 4px;font-size:1.05rem;color:#fff}
+.flow{margin:0 0 1.1rem;padding:.9rem 1.1rem;border-radius:12px;background:rgba(232,149,107,.10);border:1px solid rgba(232,149,107,.35);color:var(--medio);font-size:1rem}
+.flow b{color:#FEBB9B;font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin-right:.4rem}
+.steps{list-style:none;margin:0 0 1.2rem;counter-reset:s}
+.steps li{counter-increment:s;margin:.6rem 0;padding:.9rem 1.1rem .9rem 3.2rem;position:relative;background:var(--panel);border:1px solid var(--linea);border-radius:14px}
+.steps li::before{content:counter(s);position:absolute;left:1rem;top:.85rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--ambar);color:#1a0d05;font-family:var(--sans);font-weight:700;font-size:.85rem;display:grid;place-items:center}
+.steps b{display:block;font-family:var(--sans);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--melo);margin-bottom:.15rem}
+.steps span{font-size:1rem;color:var(--medio)}
+.verses{margin:0 0 1.2rem;padding:1.1rem 1.2rem;border-left:3px solid var(--melo);background:var(--panel);border-radius:0 14px 14px 0;font-size:1rem}
+.verses p{margin:.45rem 0} .verses sup{color:var(--ambar);font-family:var(--sans);font-weight:700;margin-right:.45rem;font-size:.72rem}
+.card-sem{margin:1rem 0 1.2rem;padding:1.1rem 1.2rem;border:1px solid rgba(242,197,161,.5);border-radius:16px;background:var(--panel)}
+.card-sem b{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ambar);margin-bottom:.6rem}
+.fill{display:flex;gap:.8rem;align-items:flex-end;margin:.7rem 0} .fill span{font-size:.95rem;color:var(--medio);white-space:nowrap} .fill i{flex:1;border-bottom:1px solid var(--suave);min-width:40px;height:1.2rem}
+p.closing{margin:2rem 0 .5rem;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.4rem;line-height:1.4;color:var(--melo)}
+#timer{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(10,10,10,.97);backdrop-filter:blur(10px);border-top:1px solid var(--linea);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none}
+#timer.show{display:block} #timer .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:12px}
+#t-lab{flex:1;font-family:var(--sans);font-size:.76rem;color:var(--suave);line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#t-time{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:700;font-size:1.7rem;color:#fff;min-width:4.6ch;text-align:right}
+#timer button{width:42px;height:42px;border-radius:50%;border:1px solid var(--linea);background:var(--panel2);color:#fff;font-size:1rem;cursor:pointer}
+#timer.done{background:#2a1608;border-color:var(--ambar)} #timer.done #t-time{color:#FEBB9B}
+#timer.warn #t-time{color:var(--melo)}
+footer{margin-top:3rem;text-align:center;font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;color:var(--suave);text-transform:uppercase}
+
+/* PALETA DE LA MESA: negro + ámbar #E8956B + melocotón #FEBB9B + blancos translúcidos */
+:root{--azul-c:#FEBB9B}
+.seg button[aria-pressed=true]{background:var(--ambar);color:#1a0d05}
+.tbtn{background:var(--ambar);color:#1a0d05}
+.nav a.on{border-color:var(--ambar);background:rgba(232,149,107,.14);color:#fff}
+.nav a b{color:var(--melo)}
+.chip{color:var(--azul-c);border-color:rgba(254,187,155,.4)}
+.steps li::before{background:var(--ambar);color:#1a0d05}
+.qn span{background:rgba(232,149,107,.22);color:var(--azul-c)}
+.host .tag{color:var(--azul-c)}
+details.pre{border-color:rgba(254,187,155,.35);background:rgba(232,149,107,.05)}
+details.pre summary{color:var(--azul-c)}
+.eyebrow{color:var(--melo)}
+#timer button{background:rgba(232,149,107,.25);border-color:rgba(232,149,107,.6)}
+details.ej{margin:.4rem 0 1.3rem;border:1px solid rgba(232,149,107,.45);border-radius:14px;background:rgba(232,149,107,.07)}
+details.ej summary{cursor:pointer;list-style:none;padding:.8rem 1.1rem;display:flex;flex-direction:column;gap:.1rem}
+details.ej summary::-webkit-details-marker{display:none}
+details.ej summary em{font-family:var(--sans);font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--azul-c)}
+details.ej summary span{font-family:var(--sans);font-size:.88rem;font-weight:600;color:#fff}
+details.ej summary span::before{content:"▸ ";color:var(--azul-c)} details.ej[open] summary span::before{content:"▾ "}
+.ej-in{padding:0 1.1rem 1rem}
+.ej-in h5{font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);margin:1rem 0 .4rem}
+.ej-in .dl{margin:.5rem 0;font-size:1rem;line-height:1.55;color:var(--texto)}
+.ej-in .dl b{display:block;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.1rem}
+.ej-in .s0 b{color:var(--melo)} .ej-in .s1 b{color:var(--azul-c)} .ej-in .s2 b{color:var(--suave)}
+.ej-in .fld b{color:var(--suave)}
+.ej-in .note{margin:1rem 0 .2rem;padding:.7rem .9rem;border-radius:10px;background:rgba(242,197,161,.08);border-left:3px solid var(--melo);font-size:.92rem;color:var(--medio);line-height:1.5}
+@media print{details.ej{border-color:#999!important;background:#fff!important} .ej-in .dl,.ej-in .note{color:#000!important} .ej-in .dl b,details.ej summary em{color:#333!important}}
+@media(min-width:900px){:scope{font-size:18px} .wrap{padding-bottom:160px}}
+@media (prefers-reduced-motion:reduce){}
+@media print{
+ :scope{background:#fff!important;color:#000!important;font-size:11.5pt}
+ .top,.nav,.tbtn,#timer,.pbtn{display:none!important} .wrap{padding:0;max-width:none}
+ h1,h2,.closing{color:#000!important} .sec{break-inside:avoid-page;border-color:#bbb}
+ .host{background:#f3f3f3!important;border-color:#ccc!important;color:#333!important} em.h,.host em.h{color:#444!important}
+ .qn,.bubble,.steps li,.verses,.card-sem,p.ask{background:#fff!important;border-color:#999!important;color:#000!important}
+ p.read,.steps span,.flow{color:#000!important} strong.q{color:#000!important} details.pre{border-color:#999;background:#fff}
+}
+
+.sec,details.pre{scroll-margin-top:84px}
+#timer{left:0}
+:scope{background:transparent}
+.top{background:rgba(5,13,31,.92)}
+#timer{background:rgba(8,15,37,.97)}
+
+}
+@media(min-width:881px){body:not(.sidebar-colapsado) #mg-guia #timer{left:300px}}
+@media print{#mg-guia #timer{display:none!important}}
 </style>
 </head>
 <body>
@@ -2374,7 +2160,7 @@ html,body,#main,#main section.doc-section.native-document,#main .native-surface{
 </header>
 <div class="p-hilo"><span>Conocer</span><i>→</i><span>Meditar</span><i>→</i><span>Practicar</span><i>→</i><span>Obedecer</span><i>→</i><span class="u">Volver a practicar</span></div>
 <button type="button" class="p-hoy" id="p-hoy" onclick="mostrarDoc('dev')" hidden><span class="p-hoy-l"><small id="p-hoy-d">Hoy</small><b id="p-hoy-t"></b></span><span class="p-hoy-r">Leer el devocional de hoy →</span></button>
-<div class="p-sec"><div class="p-sec-h"><span class="p-lbl c">Para la comunidad</span><span class="p-sec-d">Lo que acompaña a la iglesia durante la semana</span></div><div class="p-grid c"><button type="button" class="p-card" onclick="mostrarDoc('dev')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><path d="M9 7h6M9 11h6"/></svg></span><span class="p-meta">7 días · S.T.A.R.S.</span><span class="p-t">Devocionales</span><span class="p-d">Un devocional diario del 9 al 15 de noviembre.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('inf')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 15l3-4 3 3 4-6"/></svg></span><span class="p-meta">1 vistazo</span><span class="p-t">Infografía</span><span class="p-d">La enseñanza en seis puntos para recordar.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('mes')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><circle cx="4.5" cy="8" r="1.6"/><circle cx="19.5" cy="8" r="1.6"/><circle cx="4.5" cy="16" r="1.6"/><circle cx="19.5" cy="16" r="1.6"/></svg></span><span class="p-meta">70 min · grupos</span><span class="p-t">La Mesa</span><span class="p-d">Guía para anfitriones, lista para imprimir.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('blg')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 16 16 6l2 2L8 18H6z"/></svg></span><span class="p-meta">≈ 12 min de lectura</span><span class="p-t">Blog</span><span class="p-d">Un capítulo corto para leer con calma.</span><span class="p-go">Abrir →</span></button></div></div>
+<div class="p-sec"><div class="p-sec-h"><span class="p-lbl c">Para la comunidad</span><span class="p-sec-d">Lo que acompaña a la iglesia durante la semana</span></div><div class="p-grid c"><button type="button" class="p-card" onclick="mostrarDoc('dev')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><path d="M9 7h6M9 11h6"/></svg></span><span class="p-meta">7 días · S.T.A.R.S.</span><span class="p-t">Devocionales</span><span class="p-d">Un devocional diario del 9 al 15 de noviembre.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('inf')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 15l3-4 3 3 4-6"/></svg></span><span class="p-meta">1 vistazo</span><span class="p-t">Infografía</span><span class="p-d">La enseñanza en seis puntos para recordar.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('mes')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><circle cx="4.5" cy="8" r="1.6"/><circle cx="19.5" cy="8" r="1.6"/><circle cx="4.5" cy="16" r="1.6"/><circle cx="19.5" cy="16" r="1.6"/></svg></span><span class="p-meta">70 min · grupos</span><span class="p-t">La Mesa</span><span class="p-d">Guía para parejas y para solteros, con ejemplos y cronómetro.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('blg')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 16 16 6l2 2L8 18H6z"/></svg></span><span class="p-meta">≈ 12 min de lectura</span><span class="p-t">Blog</span><span class="p-d">Un capítulo corto para leer con calma.</span><span class="p-go">Abrir →</span></button></div></div>
 <div class="p-sec"><div class="p-sec-h"><span class="p-lbl p">Para predicar</span><span class="p-sec-d">De la preparación al púlpito, en orden de uso</span></div><div class="p-grid p"><button type="button" class="p-card" onclick="mostrarDoc('out')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M8 6h4a4 4 0 0 1 4 4M8 18h4a4 4 0 0 0 4-4"/></svg></span><span class="p-meta">Repaso</span><span class="p-t">Outline</span><span class="p-d">El mensaje en 30 segundos y su recorrido.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('bqj')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span class="p-meta">Preparación</span><span class="p-t">Bosquejo</span><span class="p-d">Estructura completa con proyecciones y transiciones.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('mct')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg></span><span class="p-meta">≈ 36 min</span><span class="p-t">Manuscrito</span><span class="p-d">El mensaje completo para leer y predicar.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('tjp2')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg></span><span class="p-meta">Púlpito</span><span class="p-t">Tarjetas</span><span class="p-d">Una tarjeta por movimiento, a pantalla completa.</span><span class="p-go">Abrir →</span></button><button type="button" class="p-card" onclick="mostrarDoc('slp')"><span class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg></span><span class="p-meta">13 pantallas</span><span class="p-t">Slides</span><span class="p-d">Vista de presentador y modo presentar.</span><span class="p-go">Abrir →</span></button></div></div>
 <div class="p-frase"><small>Frase de la semana</small>«La Verdad que conocemos debe comenzar a <em>formar la vida que vivimos</em>.»</div>
 <div class="doc-footer p-foot">LHSCOL · MRV · F3 · MSG4 · REENTRENAR · Temporada 2026</div>
@@ -2764,81 +2550,16 @@ html,body,#main,#main section.doc-section.native-document,#main .native-surface{
   </div>
 </div>
 </div></section>
-<section id="mes" class="doc-section native-document" aria-label="MES · La Mesa"><div id="native-mes" class="native-surface native-mes">
-<div id="mes-contenido">
-<section class="hero"><div class="hero-bg"></div><div class="hero-content">
-<div class="hero-eyebrow"><div class="hero-tag">Formación 2 · La Mesa</div><div class="hero-tag-dot"></div><div class="hero-tag-serie">F3 · MSG4</div></div>
-<h1>Reentrenar<br><em>de conocer la Verdad a vivirla</em></h1>
-<div class="hero-meta"><span class="meta-pill">Duración: 70 minutos aprox.</span><span class="meta-pill">Predicador: Juan Mejía</span><span class="meta-pill">Texto rector: Filipenses 4:4–9</span></div>
-<button type="button" class="btn-imprimir" onclick="imprimirMesa()">🖨 Imprimir guía para anfitriones</button>
-</div><div class="hero-divider"></div></section>
-<main class="article-wrapper">
-<section class="section reveal" id="mes-s0">
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">En una frase</span>Una cosa es aprender la Verdad. Otra muy diferente es haber aprendido a vivir dentro de ella.</div></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Antes de empezar</span>Tu trabajo no es enseñar otra vez el mensaje, sino ayudar a que el grupo lo aterrice. Si cada persona sale con <strong>una situación concreta</strong> donde va a practicar <strong>una verdad</strong>, la Mesa cumplió su objetivo.<br><br>1. Habla tú primero en las preguntas personales. Si tú eres honesto, el grupo también lo será.<br>2. No hace falta que todos respondan todo. Mejor tres respuestas reales que diez de compromiso.<br>3. Nadie está obligado a contar algo privado. Si alguien comparte una situación de abuso, violencia o riesgo, no la resuelvas con un «tienes que perdonar»: escucha, ora y busca después a tu líder para acompañar bien a esa persona.</div></div>
-</section>
-<section class="section reveal" id="mes-s1">
-<div class="section-head"><div class="section-titulo"><div class="section-num">1</div><h2>Bienvenida y rompehielo</h2></div><span class="section-tiempo">10 min</span></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Recibe a todos, presenta a quien venga por primera vez y lanza la pregunta. Es para reírse un poco; no la expliques todavía.</div></div>
-<div class="pregunta-destacada"><p>¿A qué hora te bañas: en la mañana o en la noche? ¿Y por qué?</p></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Lo normal es que aparezcan «por costumbre», «para despertarme», «porque así me enseñaron». Si nadie lo dice, comenta lo que planteó Juan el domingo: si solo pudieras bañarte una vez al día, tendría más lógica hacerlo en la noche, antes de meterte a la cama donde pasas 6 u 8 horas. Pero la cultura nos enseñó otra cosa, y casi nadie se lo había preguntado.</div></div>
-<p>Lo interesante no es el baño. Es lo fácil que convertimos una costumbre en una verdad que nunca cuestionamos. Hoy vamos a hablar de eso, pero con cosas más importantes.</p>
-</section>
-<section class="section reveal" id="mes-s2">
-<div class="section-head"><div class="section-titulo"><div class="section-num">2</div><h2>Lo que escuchamos el domingo</h2></div><span class="section-tiempo">5 min</span></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Léelo en voz alta.</div></div>
-<p>Un músico puede saberse toda la teoría: dónde va el do, el re, el mi. Pero cuando se sienta frente al piano, la mano se le va para un lado y para el otro. ¿Qué hace? Vuelve al piano. Se equivoca, practica, se equivoca otra vez y vuelve a practicar, hasta que la mano empieza a fluir.</p>
-<p>Con las verdades de Dios nos pasa igual. Todos sabemos que hay que perdonar; lo decimos cada vez que oramos el Padre nuestro. La pregunta no es si lo sabemos. La pregunta es si perdonamos.</p>
-<p>En el mensaje anterior hablamos de <strong>reemplazar</strong>: cambiar una mentira por la Verdad de Dios. Ahora viene el segundo paso: <strong>reentrenar</strong>, que es practicar esa Verdad una y otra vez hasta que empiece a formar la manera en que respondemos.</p>
-<div class="pregunta-destacada"><p>Esto no es pensamiento positivo. Es pensamiento verdadero.</p></div>
-<div class="pregunta-destacada"><p>La gracia va primero: no practicamos para que Dios nos acepte. Pero la gracia no reemplaza nuestra responsabilidad.</p></div>
-</section>
-<section class="section reveal" id="mes-s3">
-<div class="section-head"><div class="section-titulo"><div class="section-num">3</div><h2>Leemos</h2></div><span class="section-tiempo">5 min</span></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Antes de leer, cuéntale al grupo el contexto: Pablo le escribe a una iglesia donde dos personas estaban peleadas. En medio de eso les habla de gozo, de oración, de paz… y de dónde poner la mente. Pide a una persona que lea el pasaje completo.</div></div>
-<div class="verse-block" style="text-align:center;"><p><sup>4</sup> Regocíjense en el Señor siempre. Otra vez lo diré: ¡Regocíjense!</p><p><sup>5</sup> La bondad de ustedes sea conocida de todos los hombres. El Señor está cerca.</p><p><sup>6</sup> Por nada estén afanosos; antes bien, en todo, mediante oración y súplica con acción de gracias, sean dadas a conocer sus peticiones delante de Dios.</p><p><sup>7</sup> Y la paz de Dios, que sobrepasa todo entendimiento, guardará sus corazones y sus mentes en Cristo Jesús.</p><p><sup>8</sup> Por lo demás, hermanos, todo lo que es verdadero, todo lo digno, todo lo justo, todo lo puro, todo lo amable, todo lo honorable, si hay alguna virtud o algo que merece elogio, en esto mediten.</p><p><sup>9</sup> Lo que también han aprendido y recibido y oído y visto en mí, esto practiquen, y el Dios de paz estará con ustedes.</p><div class="ref" style="font-family:'Playfair Display', serif; font-style:italic; font-size:16.5px; color:var(--ambar); text-transform:none; letter-spacing:normal;">Filipenses 4:4–9 · NBLA</div></div>
-<div class="pregunta-destacada"><p>¿Qué palabra o frase te llamó la atención?</p></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Escucha dos o tres respuestas y sigue.</div></div>
-</section>
-<section class="section reveal" id="mes-s4">
-<div class="section-head"><div class="section-titulo"><div class="section-num">4</div><h2>Conversamos</h2></div><span class="section-tiempo">3 bloques · ~30 min</span></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Unos 10 minutos por bloque. No tienes que hacer todas las preguntas; escoge las que más conecten con tu grupo.</div></div>
-<div class="bloque-card b1"><div class="bloque-header"><div class="bloque-num">①</div><div class="bloque-nombre">Bloque 1 — Vaciar el vaso · ~10 min</div></div><div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">La idea</span>Para llenarnos de la Verdad, primero hay que soltar cosas que aprendimos y nunca cuestionamos. Como lo del baño. Juan dijo el domingo: «¿Cómo llenas un vaso que no has vaciado?».</div></div><div class="bloque-preguntas"><ol style="counter-reset:preg 0"><li>Volvamos al baño. ¿Qué otras «verdades absolutas» aprendiste en tu casa o en tu cultura que con el tiempo descubriste que no eran tan así? (De plata, de familia, de trabajo, de Dios.)</li><li>«Yo siempre he sido así.» ¿Cuándo has usado esa frase, o la has escuchado, para justificar una reacción?</li><li>Para quienes llevan años en la iglesia, Juan dijo que este es el reto más grande, porque ahí juega el ego. ¿Por qué cuesta tanto desaprender cuando uno ya «se la sabe»?</li></ol></div></div>
-<div class="bloque-card b2"><div class="bloque-header"><div class="bloque-num">②</div><div class="bloque-nombre">Bloque 2 — Pensamiento positivo vs. pensamiento verdadero · Fil 4:8</div></div><div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">La idea</span>El pensamiento positivo dice «tú puedes, saca tu mejor versión». Pablo no dice eso. Dice: pensemos en lo <strong>verdadero</strong>. Y la verdad a veces consuela, pero a veces confronta.<br><br>Lee en voz alta: <em>No todo lo que nos tranquiliza es verdadero. Y no todo lo verdadero nos resulta cómodo.</em></div></div><div class="bloque-preguntas"><ol style="counter-reset:preg 3"><li>¿En qué se diferencia, en la vida real, decirte «todo va a estar bien» de preguntarte «¿qué dice Dios de esto?»?</li><li>Piensa en una preocupación de estas semanas (plata, trabajo, salud, un hijo). ¿Qué parte de lo que piensas es un hecho y qué parte es una suposición o el peor escenario?</li><li>¿Cuándo te ha pasado que una verdad de Dios, en lugar de consolarte, te confrontó? ¿Qué hiciste con eso?</li></ol></div></div>
-<div class="bloque-card b3"><div class="bloque-header"><div class="bloque-num">③</div><div class="bloque-nombre">Bloque 3 — Del espejo a la práctica · Fil 4:9 · Stg 1:22–25</div></div><div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">La idea</span>Santiago dice que oír sin hacer es como mirarte al espejo, verte desarreglado… y salir igual. Juan contó que de niño iba a misa como un amuleto: si iba, la semana salía bien. Podemos hacer lo mismo con la iglesia: vengo, escucho, «check», y sigo igual.</div></div><div class="bloque-preguntas"><ol style="counter-reset:preg 6"><li>¿Te has sentido alguna vez «cumpliendo» con Dios en lugar de estar cambiando? ¿Cómo te diste cuenta?</li><li>Juan dijo: somos intencionales para el gimnasio, para el posgrado, para el trabajo… pero con nuestra vida interior esperamos que el cambio llegue solo. ¿Por qué pasa eso?</li><li>¿Cuál es una verdad de Dios que llevas años sabiendo, pero que todavía no has aprendido a vivir? (Tú primero, anfitrión.)</li></ol></div></div>
-</section>
-<section class="section reveal" id="mes-s5">
-<div class="section-head"><div class="section-titulo"><div class="section-num">5</div><h2>Practicamos · El mensaje de texto</h2></div><span class="section-tiempo">15 min</span></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Este es el ejemplo que Juan usó el domingo. Vamos a practicarlo en grupo, como el músico frente al piano.</div></div>
-<div class="secuencia-card"><ol class="secuencia-list">
-<li><strong>PASO 1 · LEE EL MENSAJE · 3 MIN</strong> — Léelo en voz alta como si te acabara de llegar:<br><br><em>«Oye, vi lo que decidiste. La verdad creo que te equivocaste y no debiste hacerlo sin consultarnos.»</em><br><br>Pregunta: <strong>siendo honestos, ¿qué es lo primero que pensarías y lo primero que responderías?</strong> Deja que salga la reacción real, con humor si es el caso («¿y este quién se cree?»).</li>
-<li><strong>PASO 2 · LA REACCIÓN DE SIEMPRE · 2 MIN</strong> — Supongo lo que el otro piensa → me defiendo → respondo en automático.</li>
-<li><strong>PASO 3 · RECÓRRANLO JUNTOS · 5 MIN</strong> — Pregunta en cada paso qué diría o haría alguien en esa situación:<br><br><strong>1. Considero y escucho:</strong> ¿Qué me está diciendo realmente? Lo que siento es una cosa; la autoridad que le doy a ese mensaje es otra.<br><strong>2. Detecto:</strong> ¿Tiene algo de razón? ¿Me está avisando de un error? Mi identidad no depende de tener la razón; está en Cristo.<br><strong>3. Respondo con un límite justo:</strong> «Tienes razón, lo voy a reconsiderar» o «Déjame explicarte por qué lo decidí».</li>
-<li><strong>PASO 4 · TU PROPIO MENSAJE · 5 MIN</strong> — Cada uno piensa (y comparte si quiere) la situación que más le saca la reacción de siempre: la pareja, los hijos, la plata, el trabajo. Luego completa en silencio:<br><br><strong>Una verdad:</strong> ______________________<br><strong>Una situación:</strong> ______________________<br><strong>Una respuesta distinta:</strong> ______________________</li>
-</ol></div>
-<div class="desafio-box"><p><strong>Esta semana</strong></p><p>Una verdad → una situación → una respuesta distinta → volver a practicar. Si te sale mal la primera vez, no pasa nada: el músico no abandona el piano por una nota falsa. Vuelves a practicar.</p></div>
-</section>
-<section class="section reveal" id="mes-s6">
-<div class="section-head"><div class="section-titulo"><div class="section-num">6</div><h2>Cierre y oración</h2></div><span class="section-tiempo">5 min</span></div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para quien anfitriona</span>Lee en voz alta el siguiente texto, abre un espacio corto para peticiones (sin presionar a nadie) y luego ora tú o invita a alguien.</div></div>
-<p>¿Notaron cómo empieza y cómo termina el pasaje? En el versículo 7 Pablo habla de «la paz de Dios». En el 9 dice «el Dios de paz estará con ustedes». No buscamos solo la paz; buscamos al Dios de la paz. Una promesa vale por quien la hace.</p>
-<p>Con el tiempo, si practicamos, puede que alguien en la casa o en el trabajo nos diga: «Ya no reaccionas igual. ¿Qué te pasó?». Al principio querrán esa paz. Después, ojalá, querrán conocer al Dios de esa paz.</p>
-<div class="oracion-box">
-<p>Padre, gracias porque todo empieza con Tu misericordia. Hay verdades que ya conocemos, pero que todavía no sabemos vivir.</p>
-<p>Ayúdanos a vaciar lo que aprendimos y no viene de Ti, a pensar en lo verdadero aunque no sea cómodo, y a practicar lo que nos has enseñado: en la casa, con los hijos, en el trabajo, con la plata.</p>
-<p>Cuando fallemos, que no nos escondamos de Ti, sino que volvamos a intentarlo. No queremos solo Tu paz; queremos caminar contigo, Dios de paz. En el nombre de Jesús.</p>
-<p class="oracion-final">Amén.</p>
-</div>
-<div class="nota-anfitrion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><div class="nota-anfitrion-texto"><span class="nota-anfitrion-label">Para la próxima reunión</span>La próxima vez que se reúnan, abre con la pregunta: «¿Cómo te fue con tu mensaje de texto?».</div></div>
-</section>
-<div class="closing reveal">
-<div class="closing-eyebrow">Frase de la semana</div>
-<div class="closing-quote">«La Verdad que conocemos debe comenzar<br><em>a formar la vida que vivimos</em>».</div>
-<div class="closing-serie">LHSCOL · MRV · F3 · MSG4 · Reentrenar</div>
-</div>
-</main>
-</div>
-</div></section>
+<section id="mes" class="doc-section native-document" aria-label="MES · La Mesa"><div id="mg-guia" data-v="parejas"><div class="top"><div class="top-in"><span class="brand">La Mesa · Guía del líder</span>
+<div class="seg" role="group" aria-label="Versión de la guía"><button type="button" data-v="parejas" aria-pressed="true">Parejas</button><button type="button" data-v="solteros" aria-pressed="false">Solteros</button></div></div></div><main class="wrap">
+<div class="hero"><div class="eyebrow">MRV · Fase 3 · Mensaje 4 · Temporada 2026</div>
+<h1>Reentrenar<em>De conocer la Verdad a vivirla</em></h1>
+<div class="facts"><span>Filipenses 4:4–9</span><span>Apoyo: Santiago 1:22–25</span><span>70 minutos</span><span id="aud">Para parejas</span></div>
+<p class="frase">Una cosa es aprender la Verdad. Otra muy diferente es haber aprendido a vivir dentro de ella.</p><button type="button" class="pbtn" onclick="mgPrint()">🖨 Imprimir esta guía</button></div>
+<div class="ver" data-v="parejas"><nav class="nav" aria-label="Recorrido"><a href="#parejas-s0" data-t="parejas-s0"><b>·</b>Antes de empezar</a><a href="#parejas-s1" data-t="parejas-s1"><b>1</b>Bienvenida y rompehielo <small>10′</small></a><a href="#parejas-s2" data-t="parejas-s2"><b>2</b>Lo que escuchamos el domingo <small>5′</small></a><a href="#parejas-s3" data-t="parejas-s3"><b>3</b>Leemos <small>5′</small></a><a href="#parejas-s4" data-t="parejas-s4"><b>4</b>Momento 1 · vaciar el vaso <small>10′</small></a><a href="#parejas-s5" data-t="parejas-s5"><b>5</b>Momento 2 · hecho o suposición <small>15′</small></a><a href="#parejas-s6" data-t="parejas-s6"><b>6</b>Momento 3 · del espejo a la práctica <small>20′</small></a><a href="#parejas-s7" data-t="parejas-s7"><b>7</b>Cierre y oración <small>5′</small></a></nav><details class="pre" id="parejas-s0" open><summary>Antes de empezar</summary><p class="hint"><em class="h">Lo que está en cursiva es para ti; lo demás lo puedes leer en voz alta tal como está.</em></p><p class="hint"><em class="h">Esta noche las parejas no se quedan solo escuchando: trabajan juntas. Tu papel es guiar los momentos, mantener el tiempo y cuidar el ambiente. No tienes que volver a enseñar el mensaje.</em></p><p class="hint"><em class="h">Si cada persona sale con UNA situación concreta donde va a practicar UNA verdad, la Mesa cumplió su objetivo.</em></p><aside class="host"><span class="tag">Para ti</span><p><em class="h">Cuatro cosas que ayudan:</em></p><p><em class="h">1. Regla de oro de la noche: cada uno habla de sí mismo, no de su pareja. Dilo al empezar, con una sonrisa. Si alguien usa un ejercicio para señalar al otro («ves, tú siempre reaccionas así»), redirige con calma: «Hoy cada uno trabaja en lo suyo».</em></p><p><em class="h">2. Habla tú primero (con tu pareja, si la tienes ahí) en los momentos personales. Si tú eres honesto, el grupo también lo será.</em></p><p><em class="h">3. Nadie está obligado a contar algo privado. Y si alguien comparte una situación de abuso, violencia o riesgo, no la resuelvas con un «tienes que perdonar» ni con un «hablen entre ustedes»: escucha, ora y busca después a tu líder para acompañar bien a esa persona.</em></p><p><em class="h">4. Si vienen parejas con hijos pequeños, no pasa nada si alguien se levanta un momento. No es una clase, es una conversación en casa.</em></p></aside><p class="hint"><em class="h">Ten a mano: Biblias o el texto en el celular, papel y lápiz (uno por persona, no por pareja).</em></p><p class="read">RECORRIDO<br>01 · Bienvenida y rompehielo .................. 10 min<br>02 · Lo que escuchamos el domingo .............. 5 min<br>03 · Leemos ................................... 5 min<br>04 · Momento 1: Vaciar el vaso (todos) ....... 10 min<br>05 · Momento 2: Hecho o suposición (parejas) .. 15 min<br>06 · Momento 3: Del espejo a la práctica<br>      (parejas) ............................... 20 min<br>07 · Cierre y oración ......................... 5 min</p></details><section class="sec" id="parejas-s1"><header><span class="n">1</span><h2>Bienvenida y rompehielo</h2></header><div class="smeta"><span class=chip-min>10 min</span><button class="tbtn" data-min="10" data-lab="Bienvenida y rompehielo">▶ Iniciar 10 min</button></div><p class="hint"><em class="h">Recibe a todos y presenta a quien venga por primera vez. Lanza la pregunta principal. Es para reírse; no la expliques todavía. Al final del Momento 1 la retomas.</em></p><h4 class="lab">ROMPEHIELO PRINCIPAL · «LO QUE HEREDÉ DE TU FAMILIA»</h4><p class="hint"><em class="h">Pide que cada pareja se mire y responda entre ellos primero, en voz baja (1 minuto). Después deja que voluntarios cuenten en voz alta:</em></p><p class="ask">¿Qué costumbre de la familia de tu pareja te pareció rarísima al principio y hoy es tuya sin darte cuenta?</p><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: así podría sonar el rompehielo</span></summary><div class="ej-in"><p class="dl s0"><b>Andrés</b><span>«Cuando conocí a la familia de Laura me pareció rarísimo que todos esperaran a que llegara el último para empezar a comer. En mi casa cada uno comía cuando tenía hambre.»</span></p><p class="dl s1"><b>Laura</b><span>«Y yo nunca había visto a nadie comer parado en la cocina. Hoy hacemos lo contrario: él espera a todos y yo me paro a picar algo.»</span></p><p class="note">El grupo se ríe. Eso es lo que buscas: que se den cuenta de que lo que creían «normal» era solo costumbre de su casa.</p></div></details><aside class="host"><span class="tag">Para ti</span><p><em class="h">Ejemplos por si nadie arranca: cómo se celebra un cumpleaños, quién lava los platos, a qué hora se come, cómo se discute, qué se hace el domingo. Deja que hablen cuatro o cinco personas. Si hay risa, va bien.</em></p></aside><p class="hint"><em class="h">Cierra así:</em></p><p class="read">Lo interesante no es la costumbre. Es lo fácil que convertimos algo que aprendimos en casa en «así se hace» y nunca nos lo cuestionamos, hasta que llegó alguien que lo hacía distinto. Hoy vamos a hablar de eso, pero con cosas más importantes.</p><h4 class="lab">ROMPEHIELO AUXILIAR · «¿QUÉ CREES QUE VOY A RESPONDER?»</h4><aside class="host"><span class="tag">Para ti</span><p><em class="h">Úsalo si el principal se queda corto, si sobra tiempo, o si llega gente tarde y quieres integrarla. Cada uno escribe en un papel, sin que su pareja vea, qué cree que su pareja responderá a esta pregunta:</em></p></aside><p class="ask">¿Qué hace que te enojes más rápido?</p><p class="hint"><em class="h">Luego la pareja responde de verdad y comparan. Habrá risa. Cierra con una frase:</em></p><p class="read">A veces creemos saber lo que el otro piensa, y respondemos a lo que supusimos, no a lo que dijo. Hoy vamos a hablar de eso.</p></section><section class="sec" id="parejas-s2"><header><span class="n">2</span><h2>Lo que escuchamos el domingo</h2></header><div class="smeta"><span class=chip-min>5 min</span><button class="tbtn" data-min="5" data-lab="Lo que escuchamos el domingo">▶ Iniciar 5 min</button></div><p class="hint"><em class="h">Léelo en voz alta.</em></p><p class="read">Un músico puede saberse toda la teoría: dónde va el do, el re, el mi. Pero cuando se sienta frente al piano, la mano se le va para un lado y para el otro. ¿Qué hace? Vuelve al piano. Se equivoca, practica, se equivoca otra vez y vuelve a practicar, hasta que la mano empieza a fluir.</p><p class="read">Con las verdades de Dios nos pasa igual. Todos sabemos que hay que perdonar; lo decimos cada vez que oramos el Padre nuestro. La pregunta no es si lo sabemos. La pregunta es si perdonamos.</p><p class="read">En el mensaje anterior hablamos de REEMPLAZAR: cambiar una mentira por la Verdad de Dios. Ahora viene el segundo paso: REENTRENAR, que es practicar esa Verdad una y otra vez hasta que empiece a formar la manera en que respondemos.</p><p class="read">Dos ideas del domingo para tener presentes hoy:</p><ul class="read-list"><li>Esto no es pensamiento positivo. Es pensamiento verdadero.</li><li>La gracia va primero, porque no practicamos para que Dios nos acepte. Pero la gracia no reemplaza nuestra responsabilidad.</li></ul></section><section class="sec" id="parejas-s3"><header><span class="n">3</span><h2>Leemos</h2></header><div class="smeta"><span class=chip-min>5 min</span><button class="tbtn" data-min="5" data-lab="Leemos">▶ Iniciar 5 min</button></div><p class="hint"><em class="h">Pide a una persona que lea Filipenses 4:4–9 completo (NBLA). Antes de leer, cuéntale al grupo el contexto en una frase.</em></p><p class="read">Contexto: Pablo le escribe a una iglesia donde dos personas estaban peleadas. En medio de eso les habla de gozo, de oración, de paz… y de dónde poner la mente.</p><p class="read">FILIPENSES 4:4–9 · NBLA</p><blockquote class="verses"><p><sup>4</sup>Regocíjense en el Señor siempre. Otra vez lo diré: ¡Regocíjense!</p><p><sup>5</sup>La bondad de ustedes sea conocida de todos los hombres. El Señor está cerca.</p><p><sup>6</sup>Por nada estén afanosos; antes bien, en todo, mediante oración y súplica con acción de gracias, sean dadas a conocer sus peticiones delante de Dios.</p><p><sup>7</sup>Y la paz de Dios, que sobrepasa todo entendimiento, guardará sus corazones y sus mentes en Cristo Jesús.</p><p><sup>8</sup>Por lo demás, hermanos, todo lo que es verdadero, todo lo digno, todo lo justo, todo lo puro, todo lo amable, todo lo honorable, si hay alguna virtud o algo que merece elogio, en esto mediten.</p><p><sup>9</sup>Lo que también han aprendido y recibido y oído y visto en mí, esto practiquen, y el Dios de paz estará con ustedes.</p></blockquote><p class="hint"><em class="h">Pregunta rápida, sin discutir todavía:</em> <strong class="q">¿Qué palabra o frase te llamó la atención?</strong> <em class="h">Escucha dos o tres respuestas y sigue.</em></p></section><section class="sec" id="parejas-s4"><header><span class="n">4</span><h2>Momento 1 · vaciar el vaso</h2></header><div class="smeta"><span class=chip-min>10 min</span><span class="chip">Todos en círculo</span><button class="tbtn" data-min="10" data-lab="Momento 1 · vaciar el vaso">▶ Iniciar 10 min</button></div><aside class="host"><span class="tag">Para ti</span><p><em class="h">Idea: para llenarnos de la Verdad, primero hay que soltar cosas que aprendimos y nunca cuestionamos. Como lo del rompehielo. Juan dijo el domingo: «¿Cómo llenas un vaso que no has vaciado?».</em></p></aside><p class="hint"><em class="h">Retoma el rompehielo y haz estas preguntas, una por una. No necesitas hacerlas todas:</em></p><div class="qn"><span>1</span><p>Hace un rato nos reímos de costumbres. ¿Qué otra «verdad absoluta» aprendiste en tu casa que con el tiempo descubriste que no era tan así? (Pueden ser cosas de plata, de crianza, de trabajo, de Dios.)</p></div><div class="qn"><span>2</span><p>«Yo siempre he sido así.» ¿Cuándo has usado esa frase, o la has escuchado, para justificar una reacción?</p></div><div class="qn"><span>3</span><p>Para quienes llevan años en la iglesia, Juan dijo que este es el reto más grande, porque ahí juega el ego. ¿Por qué creen que cuesta tanto desaprender cuando uno ya «se la sabe»?</p></div><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: así podría sonar una respuesta</span></summary><div class="ej-in"><p class="dl s0"><b>Marcela</b><span>«Yo crecí creyendo que de la plata no se habla en la casa. Mi papá nunca nos contó nada. Cuando nos casamos descubrí que gran parte de mi ansiedad venía de ahí: yo pensaba que era lo normal y no lo era.»</span></p><p class="note">Nota para ti: ella no dice «mi papá hizo mal». Dice «lo tomé como verdad y nunca lo pregunté». Eso es vaciar el vaso.</p></div></details><p class="hint"><em class="h">Pasa al siguiente momento cuando lleves unos 10 minutos.</em></p></section><section class="sec" id="parejas-s5"><header><span class="n">5</span><h2>Momento 2 · hecho o suposición</h2></header><div class="smeta"><span class=chip-min>15 min</span><span class="chip">En parejas</span><button class="tbtn" data-min="15" data-lab="Momento 2 · hecho o suposición">▶ Iniciar 15 min</button></div><p class="hint"><em class="h">Idea: el pensamiento positivo dice «todo va a estar bien». Pablo dice: pensemos en lo VERDADERO. Y la verdad a veces consuela y a veces confronta.</em></p><p class="hint"><em class="h">Lee en voz alta:</em></p><p class="read">No todo lo que nos tranquiliza es verdadero. Y no todo lo verdadero nos resulta cómodo.</p><p class="hint"><em class="h">Ahora dales la instrucción tal como está:</em></p><p class="read">Cada uno piensa en una preocupación de estas semanas: la plata, el trabajo, la salud, un hijo, algo de la casa. Va a escribirla en un papel, con tres líneas:</p><p class="read">1. Lo que SÉ. (Los hechos: lo que realmente pasó o lo que realmente hay.)<br>2. Lo que SUPONGO. (Lo que imagino, lo que creo que va a pasar, el peor escenario.)<br>3. Lo que DIOS DICE de esto. (Un versículo, una promesa, o lo que sepan de Él.)</p><p class="hint"><em class="h">Dales 3 minutos en silencio. Luego:</em></p><p class="read">Ahora, uno a la vez, se lo cuentan a su pareja. Tiene 3 minutos cada uno. Quien escucha SOLO puede hacer preguntas, no consejos. Nada de «lo que tienes que hacer es…». Solo: «¿Cómo te sientes con eso?», «¿Qué es lo que más te pesa?».</p><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: cómo se ve el ejercicio con una pareja</span></summary><div class="ej-in"><h5>Andrés escribe en su papel</h5><p class="dl fld"><b>Lo que sé</b><span>«Dijeron que habrá recortes en la empresa. Todavía no me han dicho nada de mi cargo.»</span></p><p class="dl fld"><b>Lo que supongo</b><span>«Que me van a sacar y que no vamos a poder pagar el arriendo.»</span></p><p class="dl fld"><b>Lo que Dios dice</b><span>«Filipenses 4:6: por nada estén afanosos; en todo, oración y súplica con acción de gracias.»</span></p><h5>Se lo cuenta a Laura, que solo pregunta</h5><p class="dl s0"><b>Laura</b><span>«¿Qué es lo que más te pesa de todo esto?»</span></p><p class="dl s1"><b>Andrés</b><span>«Que me da miedo no poder responder por ustedes.»</span></p><p class="dl s0"><b>Laura</b><span>«¿Eso es algo que te dijeron o es algo que estás imaginando?»</span></p><p class="dl s1"><b>Andrés</b><span>«…Lo estoy imaginando. Nadie me ha dicho que me van a sacar.»</span></p><p class="note">Fíjate en lo que Laura NO hizo: no dijo «tranquilo, todo va a estar bien» ni «tienes que confiar en Dios». Solo preguntó. Con eso, Andrés mismo separó el hecho de la suposición.</p></div></details><p class="hint"><em class="h">Cuando terminen (unos 9 minutos entre los dos), vuelves a juntar al grupo y preguntas:</em></p><p class="ask">¿Alguien descubrió que algo que daba por hecho era en realidad una suposición?</p><p class="hint"><em class="h">Escucha dos o tres respuestas. Si alguien comparte algo personal, agradece sin comentar demasiado.</em></p><p class="read"><em class="h">Pregunta opcional si hay tiempo:</em> ¿Cuándo te ha pasado que una verdad de Dios, en lugar de consolarte, te confrontó? ¿Qué hiciste con eso?</p></section><section class="sec" id="parejas-s6"><header><span class="n">6</span><h2>Momento 3 · del espejo a la práctica</h2></header><div class="smeta"><span class=chip-min>20 min</span><span class="chip">En parejas</span><button class="tbtn" data-min="20" data-lab="Momento 3 · del espejo a la práctica">▶ Iniciar 20 min</button></div><aside class="host"><span class="tag">Para ti</span><p><em class="h">Idea: Santiago dice que oír sin hacer es como mirarte al espejo, verte desarreglado… y salir igual. Juan contó que de niño iba a misa como un amuleto: si iba, la semana salía bien. Podemos hacer lo mismo con la iglesia: vengo, escucho, «check», y sigo igual.</em></p></aside><h4 class="lab">PRIMERO, EL ESPEJO (3 MIN · TODOS)</h4><p class="hint"><em class="h">Lee Santiago 1:22–25 y haz solo esta pregunta. Tú primero:</em></p><p class="ask">¿Cuál es una verdad de Dios que llevas años sabiendo, pero que todavía no has aprendido a vivir?</p><p class="hint"><em class="h">Escucha tres respuestas y pasa al ejercicio.</em></p><h4 class="lab">AHORA, EL MENSAJE DE TEXTO (12 MIN · EN PAREJAS)</h4><p class="hint"><em class="h">Este es el ejemplo que Juan usó el domingo. Vamos a practicarlo como el músico frente al piano.</em></p><p class="hint"><em class="h">Paso 1. Lee este mensaje en voz alta, como si te acabara de llegar:</em></p><div class="bubble">«Oye, vi lo que decidiste. La verdad creo que te equivocaste y no debiste hacerlo sin consultarnos.»</div><p class="hint"><em class="h">Instrucción para las parejas:</em></p><p class="read">Uno de ustedes hace de quien recibe el mensaje; el otro, de quien lo manda. El que lo recibe responde como le saldría de verdad, con la reacción de siempre. Sin filtro. Que se rían si toca. (2 min)</p><p class="hint"><em class="h">Muestra lo que suele pasar:</em></p><div class="flow"><b>Reacción de siempre</b> supongo lo que el otro piensa → me defiendo → respondo en automático.</div><p class="hint"><em class="h">Ahora repiten el mismo mensaje, pero esta vez con los tres pasos del domingo:</em></p><ol class="steps"><li><b>Considero y escucho</b><span>¿Qué me está diciendo realmente? Lo que siento es una cosa; la autoridad que le doy a ese mensaje es otra.</span></li><li><b>Detecto</b><span>¿Tiene algo de razón? ¿Me está avisando de un error? Mi identidad no depende de tener la razón; está en Cristo.</span></li><li><b>Respondo con un límite justo</b><span>«Tienes razón, lo voy a reconsiderar» o «Déjame explicarte por qué lo decidí».</span></li></ol><p class="hint"><em class="h">(4 min para repetir.) Luego cambian de papel y lo hacen otra vez (4 min). Para el que manda el mensaje: no es para ganar, es para ayudar a practicar.</em></p><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: cómo se ve el mensaje de texto con una pareja</span></summary><div class="ej-in"><h5>Primera vez: la reacción de siempre</h5><p class="dl s0"><b>Laura (recibe el mensaje)</b><span>«¿Y tú quién eres para decirme eso? Yo no tengo que consultarte todo.»</span></p><h5>Segunda vez: con los tres pasos</h5><p class="dl s1"><b>1. Considero y escucho</b><span>«Me dio rabia, pero espera, ¿qué me está diciendo? Que le hubiera gustado que lo consultara.»</span></p><p class="dl s2"><b>2. Detecto</b><span>«Puede que tenga algo de razón: era una decisión que nos afectaba a los dos y no avisé. Mi valor no depende de tener la razón.»</span></p><p class="dl s0"><b>3. Respondo con un límite justo</b><span>«Tienes razón en que debí avisarte. Lo decidí por esta razón, y la próxima vez te aviso antes.»</span></p><p class="note">Si en cambio no tiene razón, el tercer paso sería: «Entiendo que hubieras querido opinar, pero esta decisión era mía. Déjame contarte por qué la tomé.»</p></div></details><p class="read"><em class="h">Si quieres un mensaje distinto para variar, usa uno de la vida de casa:</em></p><ul class="read-list"><li>«Siempre llegas tarde y no avisas.»</li><li>«Otra vez gastaste en eso sin decirme.»</li><li>«Mi mamá dice que los niños no están comiendo bien.»</li></ul><h4 class="lab">TU TARJETA (5 MIN · EN SILENCIO, LUEGO CON TU PAREJA)</h4><aside class="host"><span class="tag">Para ti</span><p><em class="h">Cada uno piensa en la situación que más le saca la reacción de siempre. Puede ser con la pareja, con los hijos, con la plata, en el trabajo. Recuérdales: hablamos de nosotros mismos, no de lo que el otro hace mal. Cada uno completa su tarjeta en silencio:</em></p></aside><div class="card-sem"><b>Esta semana</b><div class="fill"><span>Una verdad</span><i></i></div><div class="fill"><span>Una situación</span><i></i></div><div class="fill"><span>Una respuesta distinta</span><i></i></div></div><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: una tarjeta ya llena</span></summary><div class="ej-in"><p class="dl fld"><b>Una verdad</b><span>«Mi identidad no depende de tener la razón.»</span></p><p class="dl fld"><b>Una situación</b><span>«Cuando alguien cuestiona cómo manejo la plata de la casa.»</span></p><p class="dl fld"><b>Una respuesta distinta</b><span>«Respirar, preguntar qué le preocupa y responder sin levantar la voz.»</span></p><p class="note">Fíjate que la situación habla de ella misma, no de lo que hace su esposo. Esa es la idea.</p></div></details><p class="hint"><em class="h">Luego se la leen a su pareja. No se corrigen; solo la escuchan. Y cierras con esta idea:</em></p><p class="read">Esta semana, pídanle a su pareja que, a mitad de semana, le pregunte: «¿Cómo te fue con tu mensaje de texto?». No para vigilar, sino para acompañar. Así la pareja se vuelve compañera de práctica.</p><p class="read"><em class="h">Recuérdales:</em> Si te sale mal la primera vez, no pasa nada. El músico no abandona el piano por una nota falsa. Vuelves a practicar.</p></section><section class="sec" id="parejas-s7"><header><span class="n">7</span><h2>Cierre y oración</h2></header><div class="smeta"><span class=chip-min>5 min</span><button class="tbtn" data-min="5" data-lab="Cierre y oración">▶ Iniciar 5 min</button></div><p class="hint"><em class="h">Lee en voz alta:</em></p><p class="read">¿Notaron cómo empieza y cómo termina el pasaje? En el versículo 7 Pablo habla de «la paz de Dios». En el 9 dice «el Dios de paz estará con ustedes». No buscamos solo la paz; buscamos al Dios de la paz. Una promesa vale por quien la hace.</p><p class="read">Con el tiempo, si practicamos, puede que alguien en la casa o en el trabajo nos diga: «Ya no reaccionas igual. ¿Qué te pasó?». Al principio querrán esa paz. Después, ojalá, querrán conocer al Dios de esa paz.</p><p class="hint"><em class="h">Abre un espacio corto para peticiones (sin presionar a nadie). Luego ora tú o invita a alguien. Puedes usar esta oración:</em></p><p class="read">Padre, gracias porque todo empieza con Tu misericordia.<br>Hay verdades que ya conocemos, pero que todavía no sabemos vivir.<br>Ayúdanos a vaciar lo que aprendimos y no viene de Ti,<br>a pensar en lo verdadero aunque no sea cómodo,<br>y a practicar lo que nos has enseñado: en la casa, con los hijos, en el trabajo, con la plata.<br>Cuando fallemos, que no nos escondamos de Ti ni el uno del otro, sino que volvamos a intentarlo.<br>No queremos solo Tu paz; queremos caminar contigo, Dios de paz.<br>En el nombre de Jesús. Amén.</p><p class="hint"><em class="h">Antes de despedirte, recuérdales la frase de la semana:</em></p><p class="closing">La Verdad que conocemos debe comenzar a formar la vida que vivimos.</p><p class="hint"><em class="h">Opcional: la próxima vez que se reúnan, abre con la pregunta «¿Cómo te fue con tu mensaje de texto?».</em></p></section></div>
+<div class="ver" data-v="solteros"><nav class="nav" aria-label="Recorrido"><a href="#solteros-s0" data-t="solteros-s0"><b>·</b>Antes de empezar</a><a href="#solteros-s1" data-t="solteros-s1"><b>1</b>Bienvenida y rompehielo <small>10′</small></a><a href="#solteros-s2" data-t="solteros-s2"><b>2</b>Lo que escuchamos el domingo <small>5′</small></a><a href="#solteros-s3" data-t="solteros-s3"><b>3</b>Leemos <small>5′</small></a><a href="#solteros-s4" data-t="solteros-s4"><b>4</b>Momento 1 · vaciar el vaso <small>10′</small></a><a href="#solteros-s5" data-t="solteros-s5"><b>5</b>Momento 2 · hecho o suposición <small>15′</small></a><a href="#solteros-s6" data-t="solteros-s6"><b>6</b>Momento 3 · del espejo a la práctica <small>20′</small></a><a href="#solteros-s7" data-t="solteros-s7"><b>7</b>Cierre y oración <small>5′</small></a></nav><details class="pre" id="solteros-s0" open><summary>Antes de empezar</summary><p class="hint"><em class="h">Lo que está en cursiva es para ti; lo demás lo puedes leer en voz alta tal como está.</em></p><aside class="host"><span class="tag">Para ti</span><p><em class="h">Esta noche el grupo no se queda solo escuchando: trabaja en tríos y en parejas. Tu papel es guiar los momentos, mantener el tiempo y cuidar el ambiente. No tienes que volver a enseñar el mensaje.</em></p></aside><p class="hint"><em class="h">Si cada persona sale con UNA situación concreta donde va a practicar UNA verdad, la Mesa cumplió su objetivo.</em></p><aside class="host"><span class="tag">Para ti</span><p><em class="h">Cuatro cosas que ayudan:</em></p><p><em class="h">1. Habla tú primero en los momentos personales. Si tú eres honesto, el grupo también lo será.</em></p><p><em class="h">2. No hace falta que todos respondan todo. Mejor tres respuestas reales que diez de compromiso.</em></p><p><em class="h">3. Cuando armes tríos y parejas, mezcla: que no queden siempre los mismos amigos. Si alguien llega solo y nuevo, ponlo con alguien tranquilo y acogedor.</em></p><p><em class="h">4. Nadie está obligado a contar algo privado. Y si alguien comparte una situación de abuso, violencia o riesgo, no la resuelvas con un «tienes que perdonar»: escucha, ora y busca después a tu líder para acompañar bien a esa persona.</em></p></aside><p class="hint"><em class="h">Ten a mano: Biblias o el texto en el celular, papel y lápiz para cada persona.</em></p><p class="read">RECORRIDO<br>01 · Bienvenida y rompehielo .................. 10 min<br>02 · Lo que escuchamos el domingo .............. 5 min<br>03 · Leemos ................................... 5 min<br>04 · Momento 1: Vaciar el vaso (todos) ....... 10 min<br>05 · Momento 2: Hecho o suposición (tríos) ... 15 min<br>06 · Momento 3: Del espejo a la práctica<br>      (parejas) ............................... 20 min<br>07 · Cierre y oración ......................... 5 min</p></details><section class="sec" id="solteros-s1"><header><span class="n">1</span><h2>Bienvenida y rompehielo</h2></header><div class="smeta"><span class=chip-min>10 min</span><button class="tbtn" data-min="10" data-lab="Bienvenida y rompehielo">▶ Iniciar 10 min</button></div><p class="hint"><em class="h">Recibe a todos y presenta a quien venga por primera vez. Lanza la pregunta principal. Es para reírse; no la expliques todavía. Al final del Momento 1 la retomas.</em></p><h4 class="lab">ROMPEHIELO PRINCIPAL · «LO QUE APRENDÍ EN MI CASA»</h4><p class="hint"><em class="h">Pide que se junten de a dos o tres con quien tengan al lado y respondan (2 minutos). Después deja que voluntarios cuenten en voz alta:</em></p><p class="ask">¿Qué costumbre de tu casa pensabas que todo el mundo tenía, hasta que viste que en otras casas se hace distinto?</p><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: así podría sonar el rompehielo</span></summary><div class="ej-in"><p class="dl s0"><b>Camila</b><span>«En mi casa el domingo era sagrado: almuerzo con todos y sin celular. Cuando me fui a vivir con compañeros descubrí que para ellos el domingo era un día cualquiera.»</span></p><p class="dl s1"><b>Daniel</b><span>«Yo creía que todo el mundo gritaba para discutir. Cuando vi cómo hablaba la familia de un amigo, tranquilos, me di cuenta de que en mi casa era costumbre, no regla.»</span></p><p class="note">El grupo se ríe. Eso es lo que buscas: que se den cuenta de que lo que creían «normal» era solo costumbre de su casa.</p></div></details><aside class="host"><span class="tag">Para ti</span><p><em class="h">Ejemplos por si nadie arranca: cómo se celebra un cumpleaños, quién cocina, a qué hora se come, cómo se discute, qué se hace el domingo, cómo se habla de la plata. Deja que hablen cuatro o cinco personas. Si hay risa, va bien.</em></p></aside><p class="hint"><em class="h">Cierra así:</em></p><p class="read">Lo interesante no es la costumbre. Es lo fácil que convertimos algo que aprendimos en casa en «así se hace» y nunca nos lo cuestionamos, hasta que vimos a alguien que lo hacía distinto. Hoy vamos a hablar de eso, pero con cosas más importantes.</p><h4 class="lab">ROMPEHIELO AUXILIAR · «¿QUÉ CREES QUE VOY A RESPONDER?»</h4><aside class="host"><span class="tag">Para ti</span><p><em class="h">Úsalo si el principal se queda corto, si sobra tiempo, o si llega gente tarde y quieres integrarla. Cada uno escribe en un papel qué cree que la persona de su derecha responderá a esta pregunta:</em></p></aside><p class="ask">¿Qué hace que te enojes más rápido?</p><p class="hint"><em class="h">Luego cada uno responde de verdad y comparan. Habrá risa. Cierra con una frase:</em></p><p class="read">A veces creemos saber lo que el otro piensa, y respondemos a lo que supusimos, no a lo que dijo. Hoy vamos a hablar de eso.</p></section><section class="sec" id="solteros-s2"><header><span class="n">2</span><h2>Lo que escuchamos el domingo</h2></header><div class="smeta"><span class=chip-min>5 min</span><button class="tbtn" data-min="5" data-lab="Lo que escuchamos el domingo">▶ Iniciar 5 min</button></div><p class="hint"><em class="h">Léelo en voz alta.</em></p><p class="read">Un músico puede saberse toda la teoría: dónde va el do, el re, el mi. Pero cuando se sienta frente al piano, la mano se le va para un lado y para el otro. ¿Qué hace? Vuelve al piano. Se equivoca, practica, se equivoca otra vez y vuelve a practicar, hasta que la mano empieza a fluir.</p><p class="read">Con las verdades de Dios nos pasa igual. Todos sabemos que hay que perdonar; lo decimos cada vez que oramos el Padre nuestro. La pregunta no es si lo sabemos. La pregunta es si perdonamos.</p><p class="read">En el mensaje anterior hablamos de REEMPLAZAR: cambiar una mentira por la Verdad de Dios. Ahora viene el segundo paso: REENTRENAR, que es practicar esa Verdad una y otra vez hasta que empiece a formar la manera en que respondemos.</p><p class="read">Dos ideas del domingo para tener presentes hoy:</p><ul class="read-list"><li>Esto no es pensamiento positivo. Es pensamiento verdadero.</li><li>La gracia va primero, porque no practicamos para que Dios nos acepte. Pero la gracia no reemplaza nuestra responsabilidad.</li></ul></section><section class="sec" id="solteros-s3"><header><span class="n">3</span><h2>Leemos</h2></header><div class="smeta"><span class=chip-min>5 min</span><button class="tbtn" data-min="5" data-lab="Leemos">▶ Iniciar 5 min</button></div><p class="hint"><em class="h">Pide a una persona que lea Filipenses 4:4–9 completo (NBLA). Antes de leer, cuéntale al grupo el contexto en una frase.</em></p><p class="read">Contexto: Pablo le escribe a una iglesia donde dos personas estaban peleadas. En medio de eso les habla de gozo, de oración, de paz… y de dónde poner la mente.</p><p class="read">FILIPENSES 4:4–9 · NBLA</p><blockquote class="verses"><p><sup>4</sup>Regocíjense en el Señor siempre. Otra vez lo diré: ¡Regocíjense!</p><p><sup>5</sup>La bondad de ustedes sea conocida de todos los hombres. El Señor está cerca.</p><p><sup>6</sup>Por nada estén afanosos; antes bien, en todo, mediante oración y súplica con acción de gracias, sean dadas a conocer sus peticiones delante de Dios.</p><p><sup>7</sup>Y la paz de Dios, que sobrepasa todo entendimiento, guardará sus corazones y sus mentes en Cristo Jesús.</p><p><sup>8</sup>Por lo demás, hermanos, todo lo que es verdadero, todo lo digno, todo lo justo, todo lo puro, todo lo amable, todo lo honorable, si hay alguna virtud o algo que merece elogio, en esto mediten.</p><p><sup>9</sup>Lo que también han aprendido y recibido y oído y visto en mí, esto practiquen, y el Dios de paz estará con ustedes.</p></blockquote><p class="hint"><em class="h">Pregunta rápida, sin discutir todavía:</em> <strong class="q">¿Qué palabra o frase te llamó la atención?</strong> <em class="h">Escucha dos o tres respuestas y sigue.</em></p></section><section class="sec" id="solteros-s4"><header><span class="n">4</span><h2>Momento 1 · vaciar el vaso</h2></header><div class="smeta"><span class=chip-min>10 min</span><span class="chip">Todos en círculo</span><button class="tbtn" data-min="10" data-lab="Momento 1 · vaciar el vaso">▶ Iniciar 10 min</button></div><aside class="host"><span class="tag">Para ti</span><p><em class="h">Idea: para llenarnos de la Verdad, primero hay que soltar cosas que aprendimos y nunca cuestionamos. Como lo del rompehielo. Juan dijo el domingo: «¿Cómo llenas un vaso que no has vaciado?».</em></p></aside><p class="hint"><em class="h">Retoma el rompehielo y haz estas preguntas, una por una. No necesitas hacerlas todas:</em></p><div class="qn"><span>1</span><p>Hace un rato nos reímos de costumbres. ¿Qué otra «verdad absoluta» aprendiste en tu casa que con el tiempo descubriste que no era tan así? (Pueden ser cosas de plata, de familia, de trabajo, de Dios, de relaciones.)</p></div><div class="qn"><span>2</span><p>«Yo siempre he sido así.» ¿Cuándo has usado esa frase, o la has escuchado, para justificar una reacción?</p></div><div class="qn"><span>3</span><p>Para quienes llevan años en la iglesia, Juan dijo que este es el reto más grande, porque ahí juega el ego. ¿Por qué creen que cuesta tanto desaprender cuando uno ya «se la sabe»?</p></div><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: así podría sonar una respuesta</span></summary><div class="ej-in"><p class="dl s0"><b>Daniel</b><span>«Yo crecí creyendo que el que no trabaja no vale. Cuando me quedé sin empleo no solo perdí el trabajo, sentí que había perdido valor.»</span></p><p class="note">Nota para ti: él no dice «mi familia me hizo mal». Dice «lo tomé como verdad y nunca lo pregunté». Eso es vaciar el vaso.</p></div></details><p class="hint"><em class="h">Pasa al siguiente momento cuando lleves unos 10 minutos.</em></p></section><section class="sec" id="solteros-s5"><header><span class="n">5</span><h2>Momento 2 · hecho o suposición</h2></header><div class="smeta"><span class=chip-min>15 min</span><span class="chip">En tríos</span><button class="tbtn" data-min="15" data-lab="Momento 2 · hecho o suposición">▶ Iniciar 15 min</button></div><p class="hint"><em class="h">Idea: el pensamiento positivo dice «todo va a estar bien». Pablo dice: pensemos en lo VERDADERO. Y la verdad a veces consuela y a veces confronta.</em></p><p class="hint"><em class="h">Lee en voz alta:</em></p><p class="read">No todo lo que nos tranquiliza es verdadero. Y no todo lo verdadero nos resulta cómodo.</p><p class="hint"><em class="h">Arma tríos (si sobra una persona, haz un grupo de cuatro). Dales la instrucción tal como está:</em></p><p class="read">Cada uno piensa en una preocupación de estas semanas: la plata, el trabajo, los estudios, la familia, una relación, el futuro. Va a escribirla en un papel, con tres líneas:</p><p class="read">1. Lo que SÉ. (Los hechos: lo que realmente pasó o lo que realmente hay.)<br>2. Lo que SUPONGO. (Lo que imagino, lo que creo que va a pasar, el peor escenario.)<br>3. Lo que DIOS DICE de esto. (Un versículo, una promesa, o lo que sepan de Él.)</p><p class="hint"><em class="h">Dales 3 minutos en silencio. Luego:</em></p><p class="read">En el trío, uno habla (3 minutos), otro escucha y el tercero observa. El que escucha SOLO puede hacer preguntas, no consejos. Nada de «lo que tienes que hacer es…». Solo: «¿Cómo te sientes con eso?», «¿Qué es lo que más te pesa?». El que observa, al final, dice en una frase lo que escuchó: «Lo que oí fue que…». Después rotan los papeles.</p><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: cómo se ve el ejercicio en un trío</span></summary><div class="ej-in"><h5>Camila escribe en su papel</h5><p class="dl fld"><b>Lo que sé</b><span>«Me entrevistaron en dos empresas y todavía no me responden.»</span></p><p class="dl fld"><b>Lo que supongo</b><span>«Que no les gusté y que nunca voy a conseguir algo bueno.»</span></p><p class="dl fld"><b>Lo que Dios dice</b><span>«Filipenses 4:6: por nada estén afanosos; en todo, oración y súplica con acción de gracias.»</span></p><h5>Se lo cuenta a Daniel, que solo pregunta</h5><p class="dl s0"><b>Daniel</b><span>«¿Qué es lo que más te pesa de todo esto?»</span></p><p class="dl s1"><b>Camila</b><span>«Sentir que me quedé atrás frente a mis amigos.»</span></p><p class="dl s0"><b>Daniel</b><span>«¿Eso es algo que alguien te dijo o es algo que estás imaginando?»</span></p><p class="dl s1"><b>Camila</b><span>«…Lo estoy imaginando. Nadie me lo ha dicho.»</span></p><h5>Sofía, que observa, dice al final</h5><p class="dl s2"><b>Sofía</b><span>«Lo que oí fue que lo difícil no es la espera, sino la comparación con los demás.»</span></p><p class="note">Fíjate en lo que Daniel NO hizo: no dijo «tranquila, ya vas a conseguir» ni «confía en Dios». Solo preguntó. Con eso, Camila misma separó el hecho de la suposición.</p></div></details><p class="hint"><em class="h">Con 3 personas y 3 minutos por turno, son unos 9 minutos. Luego vuelves a juntar al grupo y preguntas:</em></p><p class="ask">¿Alguien descubrió que algo que daba por hecho era en realidad una suposición?</p><p class="hint"><em class="h">Escucha dos o tres respuestas. Si alguien comparte algo personal, agradece sin comentar demasiado.</em></p><p class="read"><em class="h">Pregunta opcional si hay tiempo:</em> ¿Cuándo te ha pasado que una verdad de Dios, en lugar de consolarte, te confrontó? ¿Qué hiciste con eso?</p></section><section class="sec" id="solteros-s6"><header><span class="n">6</span><h2>Momento 3 · del espejo a la práctica</h2></header><div class="smeta"><span class=chip-min>20 min</span><span class="chip">En parejas</span><button class="tbtn" data-min="20" data-lab="Momento 3 · del espejo a la práctica">▶ Iniciar 20 min</button></div><aside class="host"><span class="tag">Para ti</span><p><em class="h">Idea: Santiago dice que oír sin hacer es como mirarte al espejo, verte desarreglado… y salir igual. Juan contó que de niño iba a misa como un amuleto: si iba, la semana salía bien. Podemos hacer lo mismo con la iglesia: vengo, escucho, «check», y sigo igual.</em></p></aside><h4 class="lab">PRIMERO, EL ESPEJO (3 MIN · TODOS)</h4><p class="hint"><em class="h">Lee Santiago 1:22–25 y haz solo esta pregunta. Tú primero:</em></p><p class="ask">¿Cuál es una verdad de Dios que llevas años sabiendo, pero que todavía no has aprendido a vivir?</p><p class="hint"><em class="h">Escucha tres respuestas y pasa al ejercicio.</em></p><h4 class="lab">AHORA, EL MENSAJE DE TEXTO (12 MIN · EN PAREJAS)</h4><p class="hint"><em class="h">Este es el ejemplo que Juan usó el domingo. Vamos a practicarlo como el músico frente al piano. Forma parejas (pueden ser las del trío, o nuevas; mezcla si puedes).</em></p><p class="hint"><em class="h">Paso 1. Lee este mensaje en voz alta, como si te acabara de llegar:</em></p><div class="bubble">«Oye, vi lo que decidiste. La verdad creo que te equivocaste y no debiste hacerlo sin consultarnos.»</div><p class="hint"><em class="h">Instrucción para las parejas:</em></p><p class="read">Uno de ustedes hace de quien recibe el mensaje; el otro, de quien lo manda. El que lo recibe responde como le saldría de verdad, con la reacción de siempre. Sin filtro. Que se rían si toca. (2 min)</p><p class="hint"><em class="h">Muestra lo que suele pasar:</em></p><div class="flow"><b>Reacción de siempre</b> supongo lo que el otro piensa → me defiendo → respondo en automático.</div><p class="hint"><em class="h">Ahora repiten el mismo mensaje, pero esta vez con los tres pasos del domingo:</em></p><ol class="steps"><li><b>Considero y escucho</b><span>¿Qué me está diciendo realmente? Lo que siento es una cosa; la autoridad que le doy a ese mensaje es otra.</span></li><li><b>Detecto</b><span>¿Tiene algo de razón? ¿Me está avisando de un error? Mi identidad no depende de tener la razón; está en Cristo.</span></li><li><b>Respondo con un límite justo</b><span>«Tienes razón, lo voy a reconsiderar» o «Déjame explicarte por qué lo decidí».</span></li></ol><p class="hint"><em class="h">(4 min para repetir.) Luego cambian de papel y lo hacen otra vez (4 min). Para el que manda el mensaje: no es para ganar, es para ayudar a practicar.</em></p><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: cómo se ve el mensaje de texto entre dos compañeros</span></summary><div class="ej-in"><h5>Primera vez: la reacción de siempre</h5><p class="dl s0"><b>Daniel (recibe el mensaje)</b><span>«Ya vamos otra vez. Tengo veintiocho años, no necesito que mi mamá me mande a nadie.»</span></p><h5>Segunda vez: con los tres pasos</h5><p class="dl s1"><b>1. Considero y escucho</b><span>«¿Qué me está diciendo realmente? Que se preocupa por mí.»</span></p><p class="dl s2"><b>2. Detecto</b><span>«¿Tiene algo de razón? Sí, últimamente no estoy comiendo bien ni durmiendo.»</span></p><p class="dl s0"><b>3. Respondo con un límite justo</b><span>«Gracias, sé que lo dices con cariño. Me voy a cuidar más. Y quedarme donde estoy es decisión mía.»</span></p><p class="note">Si el mensaje fuera uno que sí te corrige con razón, el tercer paso sería: «Tienes razón, lo voy a reconsiderar».</p></div></details><p class="read"><em class="h">Si quieres un mensaje distinto para variar, usa uno de la vida de solteros:</em></p><ul class="read-list"><li>De un familiar: «Mi mamá dice que no te estás cuidando y que deberías volver a la casa.»</li><li>Del trabajo: «Revisé tu informe y no es lo que habíamos hablado.»</li><li>De un amigo: «Siento que últimamente te desapareces y solo escribes cuando necesitas algo.»</li></ul><h4 class="lab">TU TARJETA (5 MIN · EN SILENCIO, LUEGO EN PAREJAS)</h4><aside class="host"><span class="tag">Para ti</span><p><em class="h">Cada uno piensa en la situación que más le saca la reacción de siempre. Puede ser con la familia, en el trabajo, con amigos, con la plata, en una relación que está empezando. Cada uno completa su tarjeta en silencio:</em></p></aside><div class="card-sem"><b>Esta semana</b><div class="fill"><span>Una verdad</span><i></i></div><div class="fill"><span>Una situación</span><i></i></div><div class="fill"><span>Una respuesta distinta</span><i></i></div></div><details class="ej"><summary><em>Si dicen «no entiendo»</em><span>Ver ejemplo: una tarjeta ya llena</span></summary><div class="ej-in"><p class="dl fld"><b>Una verdad</b><span>«Mi identidad no depende de tener la razón.»</span></p><p class="dl fld"><b>Una situación</b><span>«Cuando mi familia opina sobre mis decisiones.»</span></p><p class="dl fld"><b>Una respuesta distinta</b><span>«Escuchar primero, reconocer lo que sí tenga razón y poner el límite con calma.»</span></p></div></details><p class="hint"><em class="h">Luego se la leen a su compañero de práctica. No se corrigen; solo la escuchan. Y cierras con esta idea:</em></p><p class="read">Esta semana, escríbele a ese compañero de práctica a mitad de semana: «¿Cómo te fue con tu mensaje de texto?». No para vigilar, sino para acompañar.</p><p class="read"><em class="h">Recuérdales:</em> Si te sale mal la primera vez, no pasa nada. El músico no abandona el piano por una nota falsa. Vuelves a practicar.</p></section><section class="sec" id="solteros-s7"><header><span class="n">7</span><h2>Cierre y oración</h2></header><div class="smeta"><span class=chip-min>5 min</span><button class="tbtn" data-min="5" data-lab="Cierre y oración">▶ Iniciar 5 min</button></div><p class="hint"><em class="h">Lee en voz alta:</em></p><p class="read">¿Notaron cómo empieza y cómo termina el pasaje? En el versículo 7 Pablo habla de «la paz de Dios». En el 9 dice «el Dios de paz estará con ustedes». No buscamos solo la paz; buscamos al Dios de la paz. Una promesa vale por quien la hace.</p><p class="read">Con el tiempo, si practicamos, puede que alguien en la casa o en el trabajo nos diga: «Ya no reaccionas igual. ¿Qué te pasó?». Al principio querrán esa paz. Después, ojalá, querrán conocer al Dios de esa paz.</p><p class="hint"><em class="h">Abre un espacio corto para peticiones (sin presionar a nadie). Luego ora tú o invita a alguien. Puedes usar esta oración:</em></p><p class="read">Padre, gracias porque todo empieza con Tu misericordia.<br>Hay verdades que ya conocemos, pero que todavía no sabemos vivir.<br>Ayúdanos a vaciar lo que aprendimos y no viene de Ti,<br>a pensar en lo verdadero aunque no sea cómodo,<br>y a practicar lo que nos has enseñado: en la casa, en el trabajo, con los amigos, con la plata.<br>Cuando fallemos, que no nos escondamos de Ti, sino que volvamos a intentarlo.<br>No queremos solo Tu paz; queremos caminar contigo, Dios de paz.<br>En el nombre de Jesús. Amén.</p><p class="hint"><em class="h">Antes de despedirte, recuérdales la frase de la semana:</em></p><p class="closing">La Verdad que conocemos debe comenzar a formar la vida que vivimos.</p><p class="hint"><em class="h">Opcional: la próxima vez que se reúnan, abre con la pregunta «¿Cómo te fue con tu mensaje de texto?».</em></p></section></div>
+<footer>LHSCOL · MRV · F3 · MSG4 · La Mesa · Temporada 2026</footer>
+</main><div id="timer" role="timer" aria-live="off"><div class="in"><div id="t-lab"></div><span id="t-time">00:00</span><button id="t-pp" type="button" aria-label="Pausar o continuar">⏸</button><button id="t-x" type="button" aria-label="Cerrar cronómetro">✕</button></div></div></div></section>
 <section id="blg" class="doc-section native-document" aria-label="BLG · Artículo de Blog"><div id="native-blg" class="native-surface native-blg">
 <section class="hero"><div class="hero-bg"></div><div class="hero-stars"></div><div class="hero-content">
 <div class="hero-eyebrow"><div class="hero-tag">BLG · BLOG</div><div class="hero-tag-dot"></div><div class="hero-tag-serie">LHSCOL · MRV · F3 · MSG4</div></div>
@@ -3196,6 +2917,39 @@ upd();
 (function(){var T=["La preocupación no ocupa el centro","Lo verdadero necesita atención","La Verdad se aprende practicándola","No te vayas del espejo","Permanece donde nace el fruto","Cuando la respuesta antigua vuelve","El Dios de paz está contigo"],D=["Lunes 9 de noviembre","Martes 10 de noviembre","Miércoles 11 de noviembre","Jueves 12 de noviembre","Viernes 13 de noviembre","Sábado 14 de noviembre","Domingo 15 de noviembre"];
 var ini=new Date(2026,10,9),h=new Date();h.setHours(0,0,0,0);var i=Math.round((h-ini)/86400000);
 var b=document.getElementById('p-hoy');if(b&&i>=0&&i<=6&&T[i]){document.getElementById('p-hoy-d').textContent='Hoy · '+D[i];document.getElementById('p-hoy-t').textContent=T[i];b.hidden=false;}})();
+</script>
+<script id="mg-guia-script">
+function mgPrint(){document.body.classList.add('imprimiendo-mes');window.print();setTimeout(function(){document.body.classList.remove('imprimiendo-mes')},600)}
+(function(){
+var body=document.getElementById('mg-guia'),KEY='mrv-mesa-msg4-ver';
+function setV(v){body.setAttribute('data-v',v);document.getElementById('aud').textContent=v==='parejas'?'Para parejas':'Para solteros';
+ document.querySelectorAll('.seg button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v)});
+ try{localStorage.setItem(KEY,v)}catch(e){} observe();}
+document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){setV(b.dataset.v);var mm=document.getElementById('main');if(mm)mm.scrollTo({top:0});else window.scrollTo(0,0)})});
+var sv=null;try{sv=localStorage.getItem(KEY)}catch(e){}
+
+if(sv==='solteros'||sv==='parejas')setV(sv);
+document.querySelectorAll('#mg-guia .nav a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.getElementById(a.dataset.t);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+/* sección activa */
+var io;function observe(){if(io)io.disconnect();if(!('IntersectionObserver' in window))return;
+ var ver=document.querySelector('.ver[data-v='+body.getAttribute('data-v')+']');
+ io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){ver.querySelectorAll('.nav a').forEach(function(a){a.classList.toggle('on',a.dataset.t===e.target.id)})
+  var on=ver.querySelector('.nav a.on'),nv=ver.querySelector('.nav');if(on&&nv){nv.scrollLeft=on.offsetLeft-(nv.clientWidth-on.offsetWidth)/2}}})},{rootMargin:'-20% 0px -70% 0px'});
+ ver.querySelectorAll('.sec').forEach(function(s){io.observe(s)});}
+function offs(){var mt=document.getElementById('mobile-topbar');var h=(mt&&getComputedStyle(mt).display!=='none')?mt.offsetHeight:0;body.style.setProperty('--mg-top',h+'px')}
+offs();window.addEventListener('resize',offs);
+observe();
+/* cronómetro */
+var T=document.getElementById('timer'),tt=document.getElementById('t-time'),tl=document.getElementById('t-lab'),pp=document.getElementById('t-pp');
+var rem=0,run=false,iv=null,end=0;
+function fmt(s){s=Math.max(0,Math.round(s));return ('0'+Math.floor(s/60)).slice(-2)+':'+('0'+(s%60)).slice(-2)}
+function paint(){tt.textContent=fmt(rem);T.classList.toggle('warn',rem<=60&&rem>0);T.classList.toggle('done',rem<=0)}
+function tick(){rem=(end-Date.now())/1000;if(rem<=0){rem=0;run=false;clearInterval(iv);pp.textContent='▶';try{navigator.vibrate&&navigator.vibrate([300,150,300])}catch(e){}}paint()}
+function start(min,lab){rem=min*60;end=Date.now()+rem*1000;run=true;clearInterval(iv);iv=setInterval(tick,250);tl.textContent=lab;pp.textContent='⏸';T.classList.add('show');paint()}
+document.querySelectorAll('.tbtn').forEach(function(b){b.addEventListener('click',function(){start(+b.dataset.min,b.dataset.lab)})});
+pp.addEventListener('click',function(){if(run){run=false;clearInterval(iv);rem=(end-Date.now())/1000;pp.textContent='▶'}else if(rem>0){run=true;end=Date.now()+rem*1000;iv=setInterval(tick,250);pp.textContent='⏸'}});
+document.getElementById('t-x').addEventListener('click',function(){run=false;clearInterval(iv);T.classList.remove('show','warn','done')});
+})();
 </script>
 </body>
 </html>
