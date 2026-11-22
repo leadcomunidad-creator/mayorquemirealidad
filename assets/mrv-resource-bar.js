@@ -139,7 +139,8 @@
     deadentrohaciaafuera: { video:'https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u', blog:'/Blog/deadentrohaciaafuera', info:'/Info/deadentrohaciaafuera', mesa:'/Mesa/deadentrohaciaafuera' },
     reemplazarconlaverdad: { video:'https://youtu.be/POTTnzBp8sQ?si=GLFyyiZmr_4FRkQ3', blog:'/Blog/reemplazarconlaverdad', info:'/Info/reemplazarconlaverdad', mesa:'/Mesa/reemplazarconlaverdad' },
     antesdelacaida: { video:'https://youtu.be/rakzOxr7Zfg', blog:'/Blog/antesdelacaida', info:'/Info/antesdelacaida', mesa:'/Mesa/antesdelacaida' },
-    reentrenar: { blog:'/Blog/reentrenar', info:'/Info/reentrenar', mesa:'/Mesa/reentrenar' }
+    reentrenar: { blog:'/Blog/reentrenar', info:'/Info/reentrenar', mesa:'/Mesa/reentrenar' },
+    replantear: { info:'/Info/replantear' }
   };
 
   const item = catalog[slug] || {};
@@ -183,6 +184,7 @@
   localFiles.blog.reentrenar = '/blogs/10-mrv-f3-msg4-reentrenar-blg.html';
   localFiles.info.reentrenar = '/infografias/13-mrv-f3-msg4-reentrenar-inf.html';
   localFiles.mesa.reentrenar = '/mesa/12-mrv-f3-msg4-reentrenar-mes.html';
+  localFiles.info.replantear = '/infografias/13-mrv-f3-msg5-replantear-inf.html';
 
   const icons = {
     home:'<path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',

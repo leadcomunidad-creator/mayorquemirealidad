@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replantear · Infografía</title>
+<meta name="description" content="Replantear es mirar otra vez la misma realidad, pero ahora desde la Verdad. Infografía de Replantear.">
+<link rel="canonical" href="https://mayorquemirealidad.netlify.app/Info/replantear">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:site_name" content="Mayor que mi realidad">
+<meta property="og:url" content="https://mayorquemirealidad.netlify.app/Info/replantear">
+<meta property="og:title" content="Replantear · Infografía">
+<meta property="og:description" content="Replantear es mirar otra vez la misma realidad, pero ahora desde la Verdad.">
+<meta property="og:image" content="https://mayorquemirealidad.netlify.app/preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Replantear · Infografía">
+<meta name="twitter:description" content="Replantear es mirar otra vez la misma realidad, pero ahora desde la Verdad.">
+<meta name="twitter:image" content="https://mayorquemirealidad.netlify.app/preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,500;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#0056F1; --rosa:#CC176E; --melocoton:#F2C5A1; --azul-claro:#B8D1FF;
+    --blanco:#FFFFFF; --fondo:#050D1F; --fondo-2:#080F25; --panel:#0B1330; --panel-2:#0D1638;
+    --texto:#E6ECFF; --texto-medio:#C7D2F0; --texto-suave:#8FA3D9; --linea:#1E2C52;
+    --tint-azul:#0A1B3D; --tint-rosa:#2A0E24; --tint-melocoton:#2E2213; --tint-verde:#0D2A22;
+    --verde:#4ADE80; --verde-oscuro:#0B4A3A;
+    --serif:'Playfair Display', serif; --serif-body:'Lora', Georgia, serif;
+    --sans:'DM Sans', sans-serif; --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#020B1E; color:var(--texto); font-family:var(--serif-body); font-size:16px; line-height:1.6; min-height:100vh;}
+
+@scope (#native-inf) {
+
+  :scope {
+    --azul: #0056F1;
+    --rosa: #CC176E;
+    --melocoton: #F2C5A1;
+    --blanco: #FFFFFF;
+    --azul-claro: #B8D1FF;
+    --gris-suave: #F7F9FF;
+    --gris-texto: #2A2D3E;
+    --gris-medio: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :scope {
+    background: #020B1E;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .infographic {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,86,241,0.25), 0 0 0 1px rgba(184,209,255,0.1);
+    position: relative;
+    z-index: 10;
+  }
+
+  
+  .header {
+    background: var(--azul);
+    padding: 52px 56px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(184,209,255,0.15);
+    border-radius: 50%;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    background: rgba(204,23,110,0.2);
+    border-radius: 50%;
+  }
+
+  .serie-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 16px;
+    position: relative; z-index: 2;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blanco);
+    line-height: 1.15;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--melocoton);
+  }
+
+  .tesis-header {
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid var(--melocoton);
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative; z-index: 2;
+  }
+
+  .tesis-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .verse-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    font-weight: 600;
+  }
+
+  
+  .:scope { padding: 0; }
+
+  .section {
+    padding: 40px 56px;
+    border-bottom: 1px solid rgba(184,209,255,0.1);
+    background: rgba(4,16,53,0.82);
+    backdrop-filter: blur(20px);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .mecanismo-intro {
+    font-size: 15px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .mecanismo-intro strong {
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+  }
+
+  
+  .tabla-contraste {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .tabla-contraste thead th {
+    padding: 12px 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tabla-contraste thead th:first-child {
+    background: rgba(204,23,110,0.2);
+    color: var(--rosa);
+    text-align: left;
+  }
+
+  .tabla-contraste thead th:last-child {
+    background: rgba(0,86,241,0.2);
+    color: var(--azul-claro);
+    text-align: left;
+  }
+
+  .tabla-contraste tbody tr td {
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tabla-contraste tbody tr:nth-child(odd) td:first-child {
+    background: rgba(204,23,110,0.08);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:first-child {
+    background: rgba(204,23,110,0.05);
+    color: rgba(255,255,255,0.85);
+    border-left: 3px solid var(--rosa);
+  }
+  .tabla-contraste tbody tr:nth-child(odd) td:last-child {
+    background: rgba(0,86,241,0.08);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+  .tabla-contraste tbody tr:nth-child(even) td:last-child {
+    background: rgba(0,86,241,0.05);
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    border-left: 3px solid var(--azul);
+  }
+
+  
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0;
+  }
+
+  .flujo-item {
+    background: rgba(0,86,241,0.12);
+    border: 1.5px solid rgba(184,209,255,0.2);
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    width: 260px;
+    letter-spacing: 0.5px;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--azul-claro);
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+  
+  .pensamientos { display: flex; flex-direction: column; gap: 10px; }
+
+  .pensamiento {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(0,86,241,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--azul);
+  }
+
+  .pensamiento.rosa-item {
+    background: rgba(204,23,110,0.08);
+    border-left-color: var(--rosa);
+  }
+
+  .pensamiento-num {
+    width: 24px; height: 24px;
+    background: var(--azul);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pensamiento-num.rosa-num { background: var(--rosa); }
+
+  .pensamiento-frase {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 3px;
+    font-style: italic;
+  }
+
+  .pensamiento-efecto {
+    font-size: 11.5px;
+    color: rgba(184,209,255,0.7);
+    line-height: 1.5;
+  }
+
+  .highlight-box {
+    background: rgba(242,197,161,0.08);
+    border: 1.5px solid rgba(242,197,161,0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 20px;
+  }
+
+  .highlight-box p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box p strong {
+    color: var(--rosa);
+    font-style: normal;
+  }
+
+  .frase-final {
+    background: linear-gradient(135deg, var(--azul) 0%, #003DB3 100%);
+    padding: 48px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .frase-final::before {
+    content: '«';
+    position: absolute;
+    top: -20px; left: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .frase-final blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+    line-height: 1.5;
+    position: relative; z-index: 2;
+    margin-bottom: 20px;
+  }
+
+  .frase-final blockquote em {
+    color: var(--melocoton);
+    font-style: normal;
+  }
+
+  .frase-serie {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    position: relative; z-index: 2;
+  }
+
+  .footer {
+    background: rgba(255,255,255,0.06);
+    padding: 20px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-marca {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  .footer-data {
+    font-size: 11px;
+    color: rgba(184,209,255,0.7);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul) 0%, var(--rosa) 50%, var(--melocoton) 100%);
+  }
+
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a0a3e 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, #3d0030 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, #1a0060 0%, transparent 50%),
+      linear-gradient(180deg, #020B1E 0%, #0a0625 40%, #150a35 70%, #1a0520 100%);
+  }
+
+  #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .nebula-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 130%, #CC176E 0%, #9b0a52 25%, #6b004a 50%, transparent 80%),
+      radial-gradient(ellipse 80% 60% at 20% 140%, #e01f80 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 140%, #a00050 0%, transparent 60%);
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+
+  .nebula-mid {
+    position: fixed;
+    top: 25%; left: -10%; right: -10%;
+    height: 40%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 50%, rgba(0,86,241,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 20% at 70% 40%, rgba(184,209,255,0.08) 0%, transparent 70%);
+    filter: blur(20px);
+  }
+
+  @media (max-width: 600px) {
+    :scope { padding: 16px 12px; }
+    .infographic { border-radius: 16px; }
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 28px; }
+    .tesis-header p { font-size: 13px; }
+    .section { padding: 24px 16px; }
+    .tabla-contraste thead th, .tabla-contraste tbody tr td { padding: 10px 12px; }
+    .flujo-item { width: 100%; }
+    .frase-final { padding: 36px 20px; }
+    .frase-final blockquote { font-size: 20px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 18px 16px; }
+    .footer-data { text-align: center; }
+  }
+
+}
+
+  /* Ajustes de geometría (equivalentes a los del expediente) */
+  #native-inf{padding:0!important;}
+  #native-inf .infographic{position:relative!important;width:min(calc(100% - 2.5rem),840px)!important;max-width:840px!important;margin:32px auto 44px!important;padding:0!important;}
+  #native-inf .mrv-sin-italic, .mrv-sin-italic em{font-style:normal!important;}
+</style>
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/pwa/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/pwa/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#020B1E">
+</head>
+<body>
+<div id="native-inf" class="native-surface native-inf">
+
+<style>#native-inf .tabla-contraste.tres thead th:nth-child(2){background:rgba(242,197,161,.14);color:var(--melocoton);text-align:left}#native-inf .tabla-contraste.tres tbody td:nth-child(2){background:rgba(242,197,161,.06);color:rgba(255,255,255,.88);border-left:3px solid var(--melocoton)}#native-inf .tabla-contraste.tres thead th:last-child{background:rgba(0,86,241,.2)}#native-inf .tabla-contraste.tres tbody td:last-child{font-weight:600}</style>
+<div class="infographic">
+
+  <div class="header">
+    <div class="serie-label">LHSCOL · MRV · F3 · MSG5 · TEMPORADA 2026</div>
+    <h1>RE<em class="mrv-sin-italic">PLANTEAR</em></h1>
+    <div class="tesis-header">
+      <p>Replantear es mirar otra vez la misma realidad, pero ahora desde la Verdad.</p>
+      <span class="verse-tag">Texto rector: 2 Corintios 4:16–18 · Filipenses 1:12–14 · 2 Corintios 1:8–9</span>
+    </div>
+  </div>
+
+<div class="section"><div class="section-label"><div class="section-number">→</div><div class="section-title">Ruta del mensaje</div></div><div class="flujo"><div class="flujo-item">NOMBRAR EL HECHO SIN MAQUILLARLO</div><div class="flujo-arrow">↓</div><div class="flujo-item">NO DARLE LA ÚLTIMA PALABRA A LA PRIMERA LECTURA</div><div class="flujo-arrow">↓</div><div class="flujo-item">LEER DESDE LO QUE NO SE VE</div><div class="flujo-arrow">↓</div><div class="flujo-item">MI DOBLE LECTURA</div></div></div>
+<div class="section"><div class="section-label"><div class="section-number">0</div><div class="section-title">¿Y si hubiera sido Tejada?</div></div><p class="mecanismo-intro">Llega un correo del juzgado. En dos segundos ya está escrita la conclusión: <strong>«esto ya fue el fin»</strong>. Después leo bien: Mejía <strong>Gómez</strong>. No era yo.</p><div class="pensamientos"><div class="pensamiento"><div class="pensamiento-num">•</div><div><div class="pensamiento-frase">El hecho era real.</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">•</div><div><div class="pensamiento-frase">La conclusión era falsa.</div></div></div></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>¿Y si hubiera sido Tejada?</strong> Muchas veces lo peor que imaginamos no llega, pero hay días sin «Gómez»: un diagnóstico, una separación, una deuda.</p><div class="highlight-box"><p>No siempre reaccionamos a lo que pasó; muchas veces reaccionamos a lo que concluimos.</p></div></div>
+<div class="section"><div class="section-label"><div class="section-number">→</div><div class="section-title">Dónde estamos en el Protocolo Metanoia</div></div><table class="tabla-contraste"><thead><tr><th>Paso</th><th>Qué hace</th></tr></thead><tbody><tr><td>1 · Reemplazar <span style="opacity:.7">(2 Corintios 10)</span></td><td>Cambia la autoridad</td></tr><tr><td>2 · Reentrenar <span style="opacity:.7">(Filipenses 4)</span></td><td>Forma la respuesta</td></tr><tr><td>3 · Replantear <span style="opacity:.7">(2 Corintios 4)</span></td><td>Cambia la lectura</td></tr></tbody></table></div>
+<div class="section"><div class="section-label"><div class="section-number">1</div><div class="section-title">Nombrar el hecho sin maquillarlo</div></div><div class="highlight-box"><p>«Aunque nuestro hombre exterior va decayendo…»<br><span style="font-size:.8em;opacity:.8">2 Corintios 4:16</span></p></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>2 Corintios 4:8–9: la doble lectura está en la Biblia.</strong></p><table class="tabla-contraste"><thead><tr><th>El hecho</th><th>Pero no</th></tr></thead><tbody><tr><td>Afligidos en todo</td><td>no agobiados</td></tr><tr><td>Perplejos</td><td>no desesperados</td></tr><tr><td>Perseguidos</td><td>no abandonados</td></tr><tr><td>Derribados</td><td>no destruidos</td></tr></tbody></table><div style="height:.9rem"></div><div class="pensamientos"><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">!</div><div><div class="pensamiento-frase"><strong>Cuidado con «leve» (4:17).</strong> El mismo Pablo escribió: «perdimos la esperanza de salir con vida» (1:8). «Leve» compara con la gloria; no minimiza el dolor de nadie.</div></div></div></div><div style="height:.9rem"></div><div class="highlight-box"><p>Pablo no maquilla el hecho; le pone límite.</p></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>Pregunta.</strong> ¿Qué hecho has tenido que maquillar para poder hablar de él?</p></div>
+<div class="section"><div class="section-label"><div class="section-number">2</div><div class="section-title">No darle la última palabra a la primera lectura</div></div><p class="mecanismo-intro">La mente escribe el <strong>titular</strong> antes de leer la nota. La primera lectura no se escoge; lo que sí se escoge es si le damos la última palabra.</p><div class="flujo"><div class="flujo-item">PABLO QUERÍA IR A ROMA</div><div class="flujo-arrow">↓</div><div class="flujo-item">LLEGÓ ENCADENADO</div><div class="flujo-arrow">↓</div><div class="flujo-item">TITULAR POSIBLE: «TODO SE DETUVO»</div></div><div style="height:.9rem"></div><div class="highlight-box"><p>«Las circunstancias en que me he visto han redundado en un mayor progreso del evangelio».<br><span style="font-size:.8em;opacity:.8">Filipenses 1:12 · Romanos 15:23 · Hechos 28:16</span></p></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>Tres preguntas antes de concluir</strong></p><div class="pensamientos"><div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">¿Qué sé?</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">2</div><div><div class="pensamiento-frase">¿Qué supongo?</div></div></div><div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">¿Qué desconozco?</div></div></div></div><div style="height:.9rem"></div><div class="highlight-box"><p>Mucho del dolor que se le suma al hecho viene de tratar suposiciones como certezas.</p></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>Pregunta.</strong> ¿Qué estás tratando como certeza que en realidad es una suposición?</p></div>
+<div class="section"><div class="section-label"><div class="section-number">3</div><div class="section-title">Leer desde lo que no se ve</div></div><div class="highlight-box"><p>«Por tanto no desfallecemos…» porque «Aquel que resucitó al Señor Jesús, a nosotros también nos resucitará».<br><span style="font-size:.8em;opacity:.8">2 Corintios 4:14, 16</span></p></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>Pablo no mira los hechos con optimismo; los mira desde la resurrección.</strong></p><table class="tabla-contraste"><thead><tr><th>Lo que se ve</th><th>Lo que no se ve</th></tr></thead><tbody><tr><td>Real, pero temporal</td><td>Eterno</td></tr><tr><td>El hecho</td><td>Dios obrando en el hecho</td></tr></tbody></table><div style="height:.9rem"></div><div class="highlight-box"><p>«Estas dificultades presentes son poca cosa comparadas con los buenos tiempos que vienen: la abundante celebración preparada para nosotros».<br><span style="font-size:.8em;opacity:.8">2 Corintios 4:17 · MSG</span></p></div><div style="height:.9rem"></div><div class="highlight-box" style="border-color:var(--rosa)"><p><strong>La cultura de este mundo nos dice que todo tiempo pasado fue mejor, pero la cultura del Reino de los Cielos nos dice que con Dios todo tiempo futuro será mejor.</strong></p></div><div style="height:.9rem"></div><p class="mecanismo-intro">No promete un año más fácil. Promete que la historia en Cristo termina en resurrección y gloria.</p><div class="pensamientos"><div class="pensamiento"><div class="pensamiento-num">•</div><div><div class="pensamiento-frase">«No sé por qué pasó»</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">•</div><div><div class="pensamiento-frase">«Sé quién es Dios»</div></div></div></div><div style="height:.9rem"></div><div class="highlight-box"><p>La Verdad no siempre cambia el hecho; cambia el lugar desde donde lo interpreto.</p></div></div>
+<div class="section"><div class="section-label"><div class="section-number">4</div><div class="section-title">Mi doble lectura</div></div><div class="pensamientos"><div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">Lo que pasó</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">2</div><div><div class="pensamiento-frase">La historia que me conté</div></div></div><div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">Lo que desconozco</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">4</div><div><div class="pensamiento-frase">Lo que ahora puedo ver</div></div></div><div class="pensamiento"><div class="pensamiento-num">5</div><div><div class="pensamiento-frase">Lo que todavía no ha cambiado</div></div></div><div class="pensamiento rosa-item"><div class="pensamiento-num rosa-num">6</div><div><div class="pensamiento-frase">Mi respuesta</div></div></div></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>Nueva lectura → nueva respuesta.</strong> Si hay violencia, abuso o crisis, buscar ayuda también es obediencia.</p></div>
+<div class="section"><div class="section-label"><div class="section-number">✓</div><div class="section-title">Para llevarte</div></div><div class="pensamientos"><div class="pensamiento"><div class="pensamiento-num">1</div><div><div class="pensamiento-frase">El hecho es real, pero no es lo único que está pasando.</div></div></div><div class="pensamiento"><div class="pensamiento-num">2</div><div><div class="pensamiento-frase">Pablo no maquilla el hecho; le pone límite.</div></div></div><div class="pensamiento"><div class="pensamiento-num">3</div><div><div class="pensamiento-frase">La primera lectura no se escoge, pero no tiene que ser la última.</div></div></div><div class="pensamiento"><div class="pensamiento-num">4</div><div><div class="pensamiento-frase">Separa lo que sabes de lo que supones.</div></div></div><div class="pensamiento"><div class="pensamiento-num">5</div><div><div class="pensamiento-frase">La Verdad no siempre cambia el hecho; cambia el lugar desde donde lo interpreto.</div></div></div><div class="pensamiento"><div class="pensamiento-num">6</div><div><div class="pensamiento-frase">Con Dios, todo tiempo futuro será mejor.</div></div></div></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>Esta semana:</strong></p><div class="flujo"><div class="flujo-item">UN HECHO</div><div class="flujo-arrow">↓</div><div class="flujo-item">DOBLE LECTURA</div><div class="flujo-arrow">↓</div><div class="flujo-item">UNA RESPUESTA</div></div><div style="height:.9rem"></div><div class="highlight-box"><p>«Por fe andamos, no por vista».<br><span style="font-size:.8em;opacity:.8">2 Corintios 5:7</span></p></div><div style="height:.9rem"></div><p class="mecanismo-intro"><strong>Pregunta.</strong> ¿Qué hecho real de tu vida necesitas volver a leer, ahora desde Cristo?</p></div>
+
+  <div class="frase-final">
+    <blockquote>Replantear no niega el hecho ni inventa explicaciones; <em>impide que la primera interpretación tenga la última palabra</em>.</blockquote>
+    <div class="frase-serie">Mayor que mi Realidad... es Su Verdad</div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="footer">
+    <div class="footer-marca">LHSCOL</div>
+    <div class="footer-data">MRV · F3 · MSG5 · INF<br>Replantear · Temporada 2026</div>
+  </div>
+
+</div>
+</div>
+<script src="/assets/mrv-resource-bar.js?v=20261122-f3-msg5" data-type="info" data-slug="replantear"></script>
+</body>
+</html>
