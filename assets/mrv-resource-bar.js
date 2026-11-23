@@ -140,7 +140,7 @@
     deadentrohaciaafuera: { video:'https://youtu.be/qX-JVcMq6Nw?si=vkgnmmLHIu43HA4u', blog:'/Blog/deadentrohaciaafuera', info:'/Info/deadentrohaciaafuera', mesa:'/Mesa/deadentrohaciaafuera' },
     reemplazarconlaverdad: { video:'https://youtu.be/POTTnzBp8sQ?si=GLFyyiZmr_4FRkQ3', blog:'/Blog/reemplazarconlaverdad', info:'/Info/reemplazarconlaverdad', mesa:'/Mesa/reemplazarconlaverdad' },
     antesdelacaida: { video:'https://youtu.be/rakzOxr7Zfg', blog:'/Blog/antesdelacaida', info:'/Info/antesdelacaida', mesa:'/Mesa/antesdelacaida' },
-    reentrenar: { blog:'/Blog/reentrenar', info:'/Info/reentrenar', mesa:'/Mesa/reentrenar' },
+    reentrenar: { video:'https://youtu.be/rzG-oyj9m1M?si=d0bsgi4jwZ1KOcZ8', blog:'/Blog/reentrenar', info:'/Info/reentrenar', mesa:'/Mesa/reentrenar' },
     replantear: { blog:'/Blog/replantear', info:'/Info/replantear', mesa:'/Mesa/replantear' }
   };
 
